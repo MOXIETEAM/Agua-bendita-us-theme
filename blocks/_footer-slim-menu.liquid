@@ -1,0 +1,26 @@
+<div id="block-{{ block.id }}" class="hdt-footer-slim-menu" {{ block.shopify_attributes }}>
+  {%- assign footer_slim_linklist = block.settings.slim_menu -%}
+  {%- if linklists[footer_slim_linklist].links.size > 0 -%}
+    {%- for link in linklists[footer_slim_linklist].links -%}
+      <a class="link" href="{{ link.url }}">{{ link.title }}</a>
+    {%- endfor -%}
+  {%- endif -%}
+  {% comment %}
+  <a class="link build-by" href="https://jumpdigital.co" target="_blank" title="Visit Jump Digital - Opens in a new tab">Built by Jump Digital</a>
+  {% endcomment %}
+</div>
+
+{% schema %}
+{
+  "name": "Footer slim menu",
+  "tag": null,
+  "settings": [
+    {
+        "type": "link_list",
+        "id": "slim_menu",
+        "label": "Slim Menu"
+    },
+  ],
+  "presets": [{"name": "Footer slim menu"}]
+}
+{% endschema %}

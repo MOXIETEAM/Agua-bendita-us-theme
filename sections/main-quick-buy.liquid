@@ -1,0 +1,114 @@
+{% liquid
+  assign size_list = 'products.theme_settings.size' | t | downcase | strip | replace: ' ,', ',' | replace: ', ', ',' | split: ',' | uniq
+
+  assign size_count = 0
+
+  if product.has_only_default_variant == false and settings.color_mode != 'hide' or settings.size_mode != 'hide'
+     assign available_variants = product.variants | where: "available"
+     for option in product.options_with_values
+        assign name_downcase = option.name | downcase
+        if settings.size_mode != 'hide' and size_list contains name_downcase and size_count == 0
+          assign size_option_name = option.name
+          assign size_option_index = 'option' | append: forloop.index
+          assign size_variants_avai = available_variants | map: size_option_index | uniq
+          assign size_variants = option.values
+          if settings.size_type == 'all'
+            assign size_count = size_variants.size
+          else
+            if product.options_with_values.size == 1
+              assign size_variants = size_variants_avai
+            endif
+            assign size_count = size_variants_avai.size
+          endif
+        endif
+     endfor
+  endif
+%}
+
+
+{%- if template == 'product.only_config' and request.design_mode == false -%}
+  <hdt-lazy-modal id="hdt-quick-buy-modal" section-id="{{ section.id }}" role="region" aria-live="polite" class="hdt-quick-add-modal hdt-quick-buy-modal hdt-modal" aria-modal="true" effect="slide" hidden></hdt-lazy-modal>
+{%- else -%}
+  {%- if template == 'product.only_config' %}<hdt-lazy-modal un-detect id="hdt-quick-buy-modal" section-id="{{ section.id }}" role="region" aria-live="polite" class="hdt-quick-add-modal hdt-quick-buy-modal hdt-modal" aria-modal="true" effect="slide" hidden>{% endif -%}
+  <h3 slot="header"></h3>
+  <div class="hdt-main-product-quick-add hdt-main-product-quick-buy hdt-s-gradient" color-scheme="{{ section.settings.color_scheme }}">
+    {% liquid
+      render 'size-list-custom', size_variants: size_variants, size_variants_avai: size_variants_avai, size_option_name: size_option_name, product: product, size_option_index: size_option_index
+    %}
+    {% content_for 'blocks' %}
+  </div>
+
+  {% comment %} {%- if has_form_atc != true and product != empty -%}
+    {%- form 'product', product, id: product_form_id, hidden: '' -%}<input type="hidden" name="id" value="{{ selected_variant.id }}" disabled>{%- endform -%}
+  {%- endif -%} {% endcomment %}
+
+  {%- if template == 'product.only_config' -%}
+  </hdt-lazy-modal>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      if (!Shopify.designMode) return;
+      document.addEventListener("shopify:section:select", (event) => {
+        const modal = event.target.querySelector('#hdt-quick-buy-modal');
+        if (modal) modal.hidden = false
+      });
+      document.addEventListener("shopify:section:deselect", (event) => {
+        const modal = event.target.querySelector('#hdt-quick-buy-modal');
+        if (modal) modal.hidden = true
+      });
+    });
+  </script>
+  {%- endif -%}
+{%- endif -%}
+
+
+{% schema %}
+{
+  "name": "Quick buy",
+  "tag": "section",
+  "class": "hdt-main-section hdt-main-section--quick-add hdt-quick-add-modal hdt-main-section--quick-buy hdt-quick-buy-modal",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+  ],
+  "blocks": [
+    {
+      "type": "_variant-info"
+    },
+    {
+      "type": "_product-variant-picker"
+    },
+    {
+      "type": "_quantity-selector"
+    },
+    {
+      "type": "_product-buy-button"
+    },
+    {
+      "type": "_product-item-property"
+    },
+    {
+      "type": "_incoming-mess"
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "_variant-info"
+      },
+      {
+        "type": "_product-variant-picker"
+      },
+      {
+        "type": "_quantity-selector"
+      },
+      {
+        "type": "_product-buy-button"
+      }
+    ]
+  }
+}
+{% endschema %}

@@ -1,0 +1,30 @@
+
+<signup-newsletter-btn>
+  <button class="hdt-btn hdt-btn-outline" {{ block.shopify_attributes }}>{{ block.settings.text }}</button>
+</signup-newsletter-btn>
+
+{% schema %}
+{
+  "name": "Signup Newsletter button",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "Button label"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make button full width",
+      "default": false
+    },
+  ],
+  "presets": [
+    {
+      "name": "Signup Newsletter button"
+    }
+  ]
+}
+{% endschema %}

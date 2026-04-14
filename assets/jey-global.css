@@ -1,0 +1,34 @@
+:where([hidden-important]) {
+  display: none !important;
+}
+
+.jey-price--sale,
+.hdt-price__sale .hdt-price,
+.hdt-mini-cart__price .hdt-compare-at-price+.hdt-price {
+  color: #c9a564 !important;
+}
+
+.hdt-price__sale .jey2-hdt-price {
+  color: #707070 !important;
+}
+
+.hdt-price__sale .hdt-compare-at-price:not([hidden])+.hdt-price {
+  color: #c9a564 !important;
+}
+
+.hdt-main-section__collection .hdt-main-collection-content .hdt-shop-content .hdt-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.2;
+  height: 50px;
+  background: #000000;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.wishlisthero-floating button {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}

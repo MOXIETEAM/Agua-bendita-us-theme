@@ -1,0 +1,123 @@
+{% comment %}
+  Photoslurp Widget Block
+  Converted from section to theme block
+{% endcomment %}
+
+{% unless content_for_header contains 'photoslurp' %}
+<script src="https://static.photoslurp.com/widget/v3/loader.js" defer></script>
+{% endunless %}
+
+{% style %}
+#block-{{ block.id }}.module-photoslurp {
+  padding-top: {{ block.settings.mobile_top_padding }}px;
+  padding-bottom: {{ block.settings.mobile_bottom_padding }}px;
+}
+@media(min-width: 1025px){
+  #block-{{ block.id }}.module-photoslurp {
+    padding-top: {{ block.settings.desktop_top_padding }}px;
+    padding-bottom: {{ block.settings.desktop_bottom_padding }}px;
+  }
+  #block-{{ block.id }}.module-photoslurp.with-max-width {
+    max-width: {{ block.settings.content_width }}%;
+    margin: 0 auto;
+  }
+}
+{% if template == 'index' %}
+  #block-{{ block.id }} .ps-container {
+    position: relative;
+    padding-bottom: 324px;
+  }
+  #block-{{ block.id }} .ps-container ps-widget {
+    position: absolute;
+  }
+  @media(min-width: 1024px){
+    #block-{{ block.id }} .ps-container {
+      padding-bottom: 324px;
+    }
+  }
+{% endif %}
+{% endstyle %}
+
+<div id="block-{{ block.id }}" class="module module-photoslurp{% if block.settings.hide_mobile %} desktop-only{% endif %}{% if block.settings.hide_desktop %} mobile-only{% endif %}" {{ block.shopify_attributes }}>
+  <script>
+    window.photoSlurpWidgetSettings = window.photoSlurpWidgetSettings || {};
+    photoSlurpWidgetSettings["{{ block.settings.widget_id }}"] = {
+      lang: 'en-USA'
+    };
+  </script>
+
+  <div class="ps-container">
+    <ps-widget data-config="{{ block.settings.widget_id }}"></ps-widget>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Photoslurp Widget",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "widget_id",
+      "label": "Widget ID"
+    },
+    {
+      "type": "checkbox",
+      "default": false,
+      "id": "hide_mobile",
+      "label": "Hide in mobile?"
+    },
+    {
+      "type": "checkbox",
+      "default": false,
+      "id": "hide_desktop",
+      "label": "Hide in desktop?"
+    },
+    {
+      "type": "range",
+      "id": "desktop_top_padding",
+      "min": 0,
+      "max": 80,
+      "step": 10,
+      "unit": "px",
+      "label": "Desktop Top Padding (in pixels)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile_top_padding",
+      "min": 0,
+      "max": 80,
+      "step": 10,
+      "unit": "px",
+      "label": "Mobile Top Padding (in pixels)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "desktop_bottom_padding",
+      "min": 0,
+      "max": 80,
+      "step": 10,
+      "unit": "px",
+      "label": "Desktop Bottom Padding (in pixels)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile_bottom_padding",
+      "min": 0,
+      "max": 80,
+      "step": 10,
+      "unit": "px",
+      "label": "Mobile Bottom Padding (in pixels)",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Photoslurp Widget"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,30 @@
+{%- unless block.settings.title == blank or block.settings.custom_liquid == blank -%}
+<!--tab-item>{{ block.settings.title | escape }}<!--/tab-title-->
+{{ block.settings.custom_liquid }}
+<!--/tab-body-->{{ block.shopify_attributes }}<!--/tab-attrs-->
+{%- endunless -%}
+{% schema %}
+{
+  "name": "Custom Liquid",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.main-product-tabs.blocks.title.label",
+      "default": "Tab Custom Liquid"
+    },
+    {
+      "type": "liquid",
+      "id": "custom_liquid",
+      "label": "t:sections.main-product-tabs.blocks.tab_liquid.settings.custom_liquid.label",
+      "info": "t:sections.main-product-tabs.blocks.tab_liquid.settings.custom_liquid.info"
+    }
+  ],
+  "presets": [
+    { 
+      "name": "Custom Liquid"
+    }
+  ]
+}
+{% endschema %}

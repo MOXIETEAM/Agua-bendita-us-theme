@@ -1,0 +1,175 @@
+{{ 'hdt-product-tabs.css' | asset_url | stylesheet_tag }}
+
+{% assign metafields = product.metafields["globals"] %}
+{% assign allowed_metafields = settings.product_metafields | split: ',' %}
+
+{% assign excludeSpecs = false %}
+
+{%- unless all_tags -%}
+    {% assign all_tags = product.tags | downcase %}
+{%- endunless -%}
+
+
+{%- style -%}
+  #block-{{ block.id }} {
+    --section-pt:{{ block.settings.padding_top }}px; --section-pb:{{ block.settings.padding_bottom }}px; --section-prate:{{ block.settings.padding_rate }};
+  }
+{%- endstyle -%}
+<div id="block-{{ block.id }}" class="hdt-product-info__item hdt-product__tabs" data-type={{ block.type }} {{ block.shopify_attributes }}>
+  <div class="hdt-product-tab hdt-s-gradient hdt-section-spacing">
+  <div class="hdt-container-full">
+    <custom-accordions class="hdt-type-accordion">
+      <hdt-accordion class="hdt-contents hdt-product-tabs__description">
+        <details class="hdt-product-accordion__item" {% if block.settings.enable_first_tab %}open{% endif %} {{ block.shopify_attributes }}>
+          <summary aria-expanded="{% if block.settings.enable_first_tab %}true{% else %}false{% endif %}">
+            <span class="hdt-product-accordion__text hdt-s-text hdt-font-semibold">Description</span>
+            <span class="hdt-product-accordion__icon"></span>
+          </summary>
+          <div class="hdt-product-accordion__content">
+            {{- product.description -}}
+          </div>
+        </details>
+      </hdt-accordion>
+
+      {% if product.metafields.pdp.composition != blank %}
+        <hdt-accordion class="hdt-contents hdt-product-tabs__description">
+          <details class="hdt-product-accordion__item" {{ block.shopify_attributes }}>
+            <summary aria-expanded="false">
+              <span class="hdt-product-accordion__text hdt-s-text hdt-font-semibold">Composition</span>
+              <span class="hdt-product-accordion__icon"></span>
+            </summary>
+            <div class="hdt-product-accordion__content">
+              {{- product.metafields.pdp.composition -}}
+            </div>
+          </details>
+        </hdt-accordion>
+      {% endif %}
+
+      {% if product.metafields.pdp.size_fit != blank %}
+        <hdt-accordion class="hdt-contents hdt-product-tabs__description">
+          <details class="hdt-product-accordion__item" {{ block.shopify_attributes }}>
+            <summary aria-expanded="false">
+              <span class="hdt-product-accordion__text hdt-s-text hdt-font-semibold">Size & fit</span>
+              <span class="hdt-product-accordion__icon"></span>
+            </summary>
+            <div class="hdt-product-accordion__content">
+              {{- product.metafields.pdp.size_fit -}}
+            </div>
+          </details>
+        </hdt-accordion>
+      {% endif %}
+
+      {% if product.metafields.pdp.care_recommendations != blank %}
+        <hdt-accordion class="hdt-contents hdt-product-tabs__description">
+          <details class="hdt-product-accordion__item" {{ block.shopify_attributes }}>
+            <summary aria-expanded="false">
+              <span class="hdt-product-accordion__text hdt-s-text hdt-font-semibold">Care recommendations</span>
+              <span class="hdt-product-accordion__icon"></span>
+            </summary>
+            <div class="hdt-product-accordion__content">
+              {{- product.metafields.pdp.care_recommendations -}}
+            </div>
+          </details>
+        </hdt-accordion>
+      {% endif %}
+
+      {% if product.metafields.pdp.pre_order_and_delivery != blank %}
+        <hdt-accordion class="hdt-contents hdt-product-tabs__description">
+          <details class="hdt-product-accordion__item" {{ block.shopify_attributes }}>
+            <summary aria-expanded="false">
+              <span class="hdt-product-accordion__text hdt-s-text hdt-font-semibold">Pre-Order and Delivery</span>
+              <span class="hdt-product-accordion__icon"></span>
+            </summary>
+            <div class="hdt-product-accordion__content">
+              {{- product.metafields.pdp.pre_order_and_delivery -}}
+            </div>
+          </details>
+        </hdt-accordion>
+      {% endif %}
+
+      {% assign setting_prefix = 'product_global_info_' %}
+      {% for i in (1..2) %}
+          {% assign activate_box = setting_prefix | append: 'activate_' | append: i %}
+          {% assign title_handle = setting_prefix | append: 'title_' | append: i %}
+          {% assign content_handle = setting_prefix | append: 'content_' | append: i %}
+
+          {% assign activate = settings[activate_box] %}
+          {% assign title = settings[title_handle] %}
+          {% assign content = settings[content_handle] %}
+
+          {% if activate == false or title == blank or content == blank %}{% continue %}{% endif %}
+          <hdt-accordion class="hdt-contents hdt-product-tabs__description">
+            <details class="hdt-product-accordion__item" {{ block.shopify_attributes }}>
+              <summary aria-expanded="false">
+                <span class="hdt-product-accordion__text hdt-s-text hdt-font-semibold">{{ title }}</span>
+                <span class="hdt-product-accordion__icon"></span>
+              </summary>
+              <div class="hdt-product-accordion__content">
+                {{- content -}}
+              </div>
+            </details>
+          </hdt-accordion>
+      {% endfor %}
+    </custom-accordions>
+  </div>
+</div>
+
+
+</div>
+{% schema %}
+{
+  "name": "Custom product tabs",
+  "tag": null,
+  "class": "hdt-section hdt-section-main-product-tabs hdt-custom-product-tabs",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_first_tab",
+      "label": "t:sections.main-product-tabs.settings.enable_first_tab.label",
+      "info": "t:sections.main-product-tabs.settings.enable_first_tab.info",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.all.full_width.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_rate",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:sections.all.padding.padding_rate",
+      "default": 75
+    }
+    ],
+  "presets": [{ "name": "Custom product tabs"}]
+}
+{% endschema %}

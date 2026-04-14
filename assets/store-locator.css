@@ -1,0 +1,343 @@
+.page-stores .module-split-content {
+  padding: 40px 20px;
+}
+
+.page-stores .module-split-content .module-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-stores .module-split-content .module-container.center-content {
+  text-align: center;
+}
+
+.page-stores .module-split-content .module-content {
+  margin-bottom: 30px;
+}
+
+.page-stores .module-split-content .subtitle {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.page-stores .module-split-content .headline {
+  font-size: 32px;
+  font-weight: 400;
+  margin: 0 0 15px;
+}
+
+.page-stores .module-split-content .caption {
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.page-stores .module-split-content .image-slider {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.page-stores .module-split-content .slide-image {
+  max-width: 100%;
+}
+
+.page-stores .module-split-content .slide-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.page-stores .module-heading {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.page-stores .module-heading .module-intro {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-stores .module-heading .headline {
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0 0 10px;
+}
+
+.page-stores .module-heading .subtitle {
+  font-size: 14px;
+  color: #707070;
+}
+
+.store-locator {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 0 15px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.store-locator .list-container {
+  width: 100%;
+}
+
+.store-locator .map-container {
+  width: 100%;
+  height: 400px;
+  margin-bottom: 20px;
+}
+
+.store-locator .location-options-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+  margin: 0;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  gap: 10px;
+}
+
+.store-locator .location-options-container > span {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 16px;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.store-locator .location-options-container > div {
+  width: 100%;
+}
+
+.store-locator .location-options-container select {
+  width: 100%;
+  border: 1px solid #000;
+  border-radius: 30px;
+  padding: 8px 15px;
+  font-size: 14px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.store-locator .location-options-container .see-all-locations {
+  flex: 0 0 auto;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  padding: 7px 15px;
+  border-radius: 20px;
+  background: none;
+  border: none;
+  font-size: 14px;
+}
+
+.store-locator .location-options-container .see-all-locations:hover {
+  opacity: 0.7;
+}
+
+.store-locator .location-options-container + .stores-list:not(:empty) {
+  margin-top: 10px;
+}
+
+.store-locator .stores-list {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.store-locator .stores-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.store-locator .stores-list .single-store {
+  padding: 20px 15px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.store-locator .stores-list .single-store:hover,
+.store-locator .stores-list .single-store.active {
+  background-color: #f9f9f9;
+}
+
+.store-locator .stores-list .store-more-info {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  background: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.store-locator .stores-list .store-name {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  padding-right: 35px;
+}
+
+.store-locator .stores-list .store-address {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #555;
+  margin-bottom: 8px;
+  white-space: pre-line;
+}
+
+.store-locator .stores-list .store-contact {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.store-locator .stores-list .store-contact a {
+  color: inherit;
+}
+
+.store-locator .stores-list .store-contact img {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+.store-locator .stores-list .todays-schedule {
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.store-locator .stores-list .todays-schedule .icon-clock {
+  margin-right: 5px;
+}
+
+.store-locator .stores-list .full-schedule {
+  display: none;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.store-locator .stores-list .single-store.active .full-schedule {
+  display: block;
+}
+
+.store-locator .stores-list .schedule-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+  margin: 0;
+}
+
+.store-locator .stores-list .schedule-item dt {
+  font-weight: normal;
+}
+
+.store-locator .stores-list .schedule-item dd {
+  margin: 0;
+}
+
+.store-locator .stores-list .schedule-item.current {
+  font-weight: 600;
+}
+
+.store-locator .stores-list .delivery-options {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.store-locator .stores-list .delivery-options .title {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.store-locator .stores-list .delivery-option {
+  display: inline-block;
+  background: #f0f0f0;
+  padding: 3px 8px;
+  border-radius: 3px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.store-locator .stores-list .store-directions {
+  font-size: 12px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.store-locator .stores-list .store-directions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: inherit;
+  text-decoration: underline;
+}
+
+.store-locator .stores-list .store-directions img {
+  width: 16px;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .store-locator {
+    flex-direction: row;
+    padding: 0 20px 60px;
+  }
+
+  .store-locator .list-container {
+    max-width: 400px;
+    flex-shrink: 0;
+  }
+
+  .store-locator .map-container {
+    width: calc(100% - 400px);
+    height: 600px;
+    margin-bottom: 0;
+    margin-left: 20px;
+  }
+
+  .store-locator .location-options-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .store-locator .location-options-container > span {
+    width: auto;
+    margin-right: 10px;
+  }
+
+  .store-locator .location-options-container > div {
+    width: auto;
+    flex: 1;
+    min-width: 120px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-stores .module-split-content .headline {
+    font-size: 42px;
+  }
+
+  .page-stores .module-heading .headline {
+    font-size: 36px;
+  }
+}

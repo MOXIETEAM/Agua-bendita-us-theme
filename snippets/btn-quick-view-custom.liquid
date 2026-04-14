@@ -1,0 +1,31 @@
+{%- comment -%}
+  Renders btn quick view
+
+  Accepts:
+  - product: {Object} Product Liquid object (required)
+  - section_id: {String} The ID of the section that contains this card. (required)
+  - class: {String} a list class. (optional)
+  - disable_sr_only: {Boolean} remove class sr_only (optional)
+  - placement: {String} position tooltip (optional)
+  - hide_on_desktop: {Boolean} hide quick view button on desktop
+  - hide_on_mobile: {Boolean} hide quick view button on mobile
+
+  Usage:
+  {%- render 'btn-quick-view', product: card_product, section_id: section_id -%}
+{%- endcomment -%}
+{% liquid
+  if hide_on_desktop == nil
+    assign hide_on_desktop = false
+  endif
+  if hide_on_mobile == nil
+    assign hide_on_mobile = false
+  endif
+  capture hide_class
+    render "hide_desktop_mobile", hide_on_desktop: hide_on_desktop, hide_on_mobile: hide_on_mobile
+  endcapture
+%}
+<wrapp-hdt-open-modal-btn class="hdt-card-product__btn-custom-qv-wrapper {{ hide_class }}" will-hidden-txt="">
+  <button type="button" handle="{{ product.handle }}" aria-controls="hdt-quick-view-modal" class="hdt-card-product__btn-custom-quick-view {{ class }}" {{ attr }}>
+    <span>{{ 'products.product.quick_view' | t }}</span>
+  </button>
+</wrapp-hdt-open-modal-btn>

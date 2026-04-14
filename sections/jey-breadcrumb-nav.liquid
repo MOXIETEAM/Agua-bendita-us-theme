@@ -1,0 +1,221 @@
+{% comment %}
+╭──────────────────────────────────────────────╮
+│  J E Y   B R E A D C R U M B   N A V  v1.0   │
+│  Autor:  JEY COLÓN                                 │
+│  Archivo: sections/jey-breadcrumb-nav.liquid │
+╰──────────────────────────────────────────────╯
+{% endcomment %}
+
+{% assign brc_url = routes.root_url %}
+
+<!-- {% render 'section_padding_css' %} -->
+
+{%- assign st = section.settings -%}
+
+<section id="section-{{ section.id }}" class="jey-hdt-breadcrumb hdt-breadcrumb hdt-s-gradient hdt-section-spacing"
+  style="
+    color: {{ section.settings.col_text }};
+    font-size: {{ section.settings.fs_base }}px;
+   --link-size-d: {{ st.link_size_d }}px;
+   --link-size-m: {{ st.link_size_m }}px;
+   --span-size-d: {{ st.span_size_d }}px;
+   --span-size-m: {{ st.span_size_m }}px;
+   --link-color:  {{ st.link_color }};
+   --span-color:  {{ st.span_color }};
+  "
+>
+  <div class="hdt-container">
+    <div class="hdt-breadcrumb__wrap hdt-s-text">
+      <div class="hdt-breadcrumb__list">
+        <a href="{{ brc_url }}" class="jey-breadcrumb__link hdt-inline-block">
+          {{ 'products.breadcrumb.home' | t }}
+        </a>
+        <!-- <svg class="hdt-inline-block" xmlns="http://www.w3.org/2000/svg" width="5" height="8" viewBox="0 0 5 8" fill="currentColor"><path d="M0.886718 0L4.88672 4L0.886719 8L0.176719 7.29L3.46672 4L0.176719 0.71L0.886718 0Z"/></svg> -->
+        <!-- SOL -->
+        &nbsp;
+        &sol;
+        &nbsp;
+        <!-- END SOL -->
+
+        {%- assign main_collection = collection -%}
+        {%- if main_collection == blank and product.collections.size > 0 -%}
+         {%- assign main_collection = product.collections | first -%}
+        {%- endif -%}
+
+        {% if main_collection.url != blank %}
+          <a href="{{ main_collection.url }}" class="jey-breadcrumb__link hdt-d-inline-block">{{ main_collection.title }}</a>
+          <!-- <svg class="hdt-inline-block" xmlns="http://www.w3.org/2000/svg" width="5" height="8" viewBox="0 0 5 8" fill="currentColor"><path d="M0.886718 0L4.88672 4L0.886719 8L0.176719 7.29L3.46672 4L0.176719 0.71L0.886718 0Z"/></svg> -->
+          <!-- SOL -->
+          &nbsp;
+          &sol;
+          &nbsp;
+          <!-- END SOL -->
+        {% elsif product.metafields.custom.breadcrumb.value.url != blank %}
+          <a href="{{ product.metafields.custom.breadcrumb.value.url }}" class="hdt-d-inline-block">{{ product.metafields.custom.breadcrumb.value.title }}</a>
+          <!-- <svg class="hdt-inline-block" xmlns="http://www.w3.org/2000/svg" width="5" height="8" viewBox="0 0 5 8" fill="currentColor"><path d="M0.886718 0L4.88672 4L0.886719 8L0.176719 7.29L3.46672 4L0.176719 0.71L0.886718 0Z"/></svg> -->
+          <!-- SOL -->
+          &nbsp;
+          &sol;
+          &nbsp;
+          <!-- END SOL -->
+        {% endif %}
+
+        <span class="jey-breadcrumb__current hdt-s-text2">{{ product.title }}</span>
+      </div>
+
+      {% if section.settings.show_prev_next and collection != blank %}
+        {% assign next_pr = collection.next_product %}
+        {% assign prev_pr = collection.previous_product %}
+        <div class="hdt-breadcrumb__prev-next hdt-flex hdt-align-center">
+          {% if prev_pr %}
+            <hdt-tooltip placement="top">
+              <a href="{{ prev_pr.url }}" class="jey-breadcrumb__link hdt-inline-flex hdt-breadcrumb__prev hdt-align-center hdt-justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="9" height="14" viewBox="0 0 9 14" fill="currentColor"><path d="M7 0L0 7L7 14L8.2425 12.7575L2.485 7L8.2425 1.2425L7 0Z"/></svg>
+                <span class="sr-only">{{ prev_pr.title }}</span>
+              </a>
+            </hdt-tooltip>
+          {% endif %}
+          <hdt-tooltip placement="top">
+            <a href="{{ collection.url }}" class="jey-breadcrumb__link hdt-inline-flex hdt-breadcrumb__back">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.1 0H4.2c.56 0 1.1.22 1.48.6.39.39.61.92.62 1.48v2.1a2.1 2.1 0 0 1-2.1 2.1H2.1A2.1 2.1 0 0 1 0 4.2V2.1C0 1.54.22 1 .6.6A2.1 2.1 0 0 1 2.1 0Z"/></svg>
+              <span class="jey-breadcrumb__current sr-only">{{ 'products.breadcrumb.back_to' | t: title: collection.title }}</span>
+            </a>
+          </hdt-tooltip>
+          {% if next_pr %}
+            <hdt-tooltip placement="top">
+              <a href="{{ next_pr.url }}" class="jey-breadcrumb__link hdt-inline-flex hdt-breadcrumb__next hdt-align-center hdt-justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="9" height="14" viewBox="0 0 9 14" fill="currentColor"><path d="M2 14L9 7L2 0L0.7575 1.2425L6.515 7L0.7575 12.7575L2 14Z"/></svg>
+                <span class="jey-breadcrumb__current sr-only">{{ next_pr.title }}</span>
+              </a>
+            </hdt-tooltip>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  #section-{{ section.id }} {
+    .hdt-breadcrumb__wrap {
+      display: block;
+    }
+    .hdt-container {
+      padding: 15px 0 20px 0;
+    }
+    .hdt-breadcrumb__list {
+      font-style: italic;
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      align-items: center;
+      width: 100%;
+      max-width: 1560px;
+      margin: auto;
+      padding: 0 40px;
+      gap: 0;
+    }
+
+    @media(max-width: 1149px) {
+      .hdt-breadcrumb__list {
+        /* justify-content: center; */
+        padding: 0 25px;
+      }
+    }
+
+    
+    .hdt-breadcrumb__list .jey-breadcrumb__link {
+      font-size: var(--link-size-d);
+      color: {{ section.settings.col_link }};
+      font-size: 14px;
+      font-style: italic;
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+    
+    .hdt-breadcrumb__list .jey-breadcrumb__current {
+      font-size: var(--span-size-d);
+      color: {{ section.settings.col_current }};
+      font-style: italic;
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+
+    .hdt-breadcrumb__list svg {
+      width: 12px;
+      height: 12px;
+      opacity: .5;
+      margin: 0;
+    }
+
+    @media(max-width: 1300px) {
+      .jey-breadcrumb__link {
+        font-size: var(--link-size-m);
+      }
+      
+      .jey-breadcrumb__current {
+        font-size: var(--span-size-m);
+      }
+    }
+  }
+  
+</style>
+
+{% schema %}
+{
+  "name": "Jey Breadcrumb nav",
+  "tag": "section",
+  "class": "jey-breadcrumb-nav",
+ "settings": [
+  {
+    "type": "checkbox",
+    "id": "show_prev_next",
+    "label": "Show prev / next product",
+    "default": true
+  },
+  { "type": "color", "id": "col_text",    "label": "Base text colour",           "default": "#000000" },
+  { "type": "color", "id": "col_link",    "label": "Link colour",                "default": "#000000" },
+  { "type": "color", "id": "col_current", "label": "Current / last item colour", "default": "#000000" },
+  {
+    "type": "range",
+    "id": "fs_base",
+    "label": "Base font-size (px)",
+    "min": 8, "max": 18, "step": 1,
+    "default": 12
+  },
+  { "type": "header", "content": "Link text size" },
+  {
+    "type": "range", "id": "link_size_d",
+    "label": "Desktop size (px)",
+    "min": 8, "max": 40, "step": 1,
+    "default": 10
+  },
+  {
+    "type": "range", "id": "link_size_m",
+    "label": "Mobile size (px)",
+    "min": 8, "max": 40, "step": 1,
+    "default": 10
+  },
+  { "type": "header", "content": "Current (span) size" },
+  {
+    "type": "range", "id": "span_size_d",
+    "label": "Desktop size (px)",
+    "min": 8, "max": 40, "step": 1,
+    "default": 10
+  },
+  {
+    "type": "range", "id": "span_size_m",
+    "label": "Mobile size (px)",
+    "min": 8, "max": 40, "step": 1,
+    "default": 10
+  }
+],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Jey Breadcrumb nav",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

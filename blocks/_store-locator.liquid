@@ -1,0 +1,25 @@
+<div id="block-{{ block.id }}" class="hdt-store-locator-wrapper" {{ block.shopify_attributes }}>
+  <a class="hdt-store-locator-link" href="{{ block.settings.url }}">
+    <i class="hdt-custom-icon-location"></i>
+    <span>Store Locator</span>
+  </a>
+</div>
+
+{% schema %}
+{
+  "name": "Store locator",
+  "tag": null,
+  "settings": [
+    {
+        "type": "url",
+        "id": "url",
+        "label": "URL"
+    },
+  ],
+  "presets": [
+    {
+      "name": "Store locator"
+    }
+  ]
+}
+{% endschema %}

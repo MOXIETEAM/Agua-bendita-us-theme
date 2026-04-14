@@ -1,0 +1,792 @@
+{
+  "Colombia": {
+    "lat": 3.64458397243837,
+    "lng": -72.694454465282,
+    "cities": {
+      "Armenia": {
+        "lat": 4.55870926730494, 
+        "lng": -75.65310872488178, 
+        "stores": {
+          "Agua Bendita - CC Portal del Quindio":{
+              "lat": 4.558574549291494,
+              "lng": -75.65506823196934,
+              "name": "Agua Bendita - CC Portal del Quindio",
+              "address": "Carrera 14 # 19 N - 46, 3rd floor - Store N3-06 \nCentro Comercial Portal del Quindio",
+              "phone": "57 3107164565",
+              "email": "portaldelquindio@aguabendita.com.co",
+              "whatsapp": "https://wa.me/573107164565",
+              "delivery_options": {
+                  "delivery": false, 
+                  "store_pickup": false, 
+                  "store_shopping": true
+              },
+              "schedules": {
+                  "monday": "10:00AM - 8:00PM",
+                  "tuesday": "10:00AM - 8:00PM",
+                  "wednesday": "10:00AM - 8:00PM",
+                  "thursday": "10:00AM - 8:00PM",
+                  "friday": "10:00AM - 8:00PM",
+                  "saturday": "10:00AM - 8:30PM",
+                  "sunday": "11:00AM - 7:00PM"
+              }
+          }
+        }
+      },
+      "Barranquilla": {
+        "lat": 11.0035342630337,
+        "lng": -74.808786288462,
+        "stores": {
+          "Agua Bendita - CC Buenavista 2": {
+            "lat": 11.01385201,
+            "lng": -74.82832149,
+            "name": "Agua Bendita - CC Buenavista 2",
+            "address": "Calle 99 # 52 - 53, 1st floor - Store 106 \nCentro Comercial Buenavista 2",
+            "phone": "57 3124219789",
+            "email": "buenavista2@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573124219789",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM",
+"tuesday": "10:00AM - 8:00PM",
+"wednesday": "10:00AM - 8:00PM",
+"thursday": "10:00AM - 8:00PM",
+"friday": "10:00AM - 9:00PM",
+"saturday": "10:00AM - 9:00PM",
+"sunday": "10:00AM - 7:00PM"}
+          },
+          "Agua Bendita - Mall Plaza Buenavista 3": {
+            "lat": 11.01556183,
+            "lng": -74.82792185,
+            "name": "Agua Bendita - Mall Plaza Buenavista 3",
+            "address": "Carrera 55 # 99- 52, 2nd floor - Store A2054 \nMall Plaza Buenavista 3",
+            "phone": "57 3138010133",
+            "email": "mallplazabuenavista@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573138010133",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:30PM",
+"tuesday": "10:00AM - 8:30PM",
+"wednesday": "10:00AM - 8:30PM",
+"thursday": "10:00AM - 8:30PM",
+"friday": "10:00AM - 8:30PM",
+"saturday": "10:00AM - 9:00PM",
+"sunday": "10:00AM - 8:00PM"}
+          },
+          "Agua Bendita - Mall Plaza 59": {
+            "lat": 11.0103433,
+            "lng": -74.81219314,
+            "name": "Agua Bendita - Mall Plaza 59",
+            "address": "Calle 84 # 58-47, 1st floor - Store 4 \nMall Plaza 59 Centro Comercial",
+            "phone": "57 3104211888",
+            "email": "plaza59barranquilla@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573104211888",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 7:00PM", "tuesday": "10:00AM - 7:00PM", "wednesday": "10:00AM - 7:00PM", "thursday": "10:00AM - 7:00PM", "friday": "10:00AM - 7:00PM", "saturday": "10:00AM - 7:00PM", "sunday": "closed"}
+          },
+          "Agua Bendita - CC Viva Barranquilla": {
+              "lat": 11.00851534,
+              "lng": -74.82112201,
+              "name": "Agua Bendita - CC Viva Barranquilla",
+              "address": "Carrera 51B # 87 - 50, 1st floor - Store 130 \nCentro Comercial Viva Barranquilla",
+              "phone": "57 3214265679",
+              "email": "vivabarranquilla@aguabendita.com.co",
+              "whatsapp": "https://wa.me/573214265679",
+              "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+              "schedules": { "monday": "10:00AM - 8:30PM",
+"tuesday": "10:00AM - 8:30PM",
+"wednesday": "10:00AM - 8:30PM",
+"thursday": "10:00AM - 8:30PM",
+"friday": "10:00AM - 9:00PM",
+"saturday": "10:00AM - 9:00PM",
+"sunday": "10:00AM - 8:00PM"}
+          }
+        }
+      },
+      "Bogotá": {
+        "lat": 4.70713327035187,
+        "lng": -74.0645714591545,
+        "stores": {
+          "Agua Bendita - CC Andino": {
+            "lat": 4.666934846,
+            "lng": -74.0530413,
+            "name": "Agua Bendita - CC Andino",
+            "address": "Carrera 12 # 82 - 02, 3rd floor - Store 315 \nCentro Comercial Andino",
+            "phone": "57 3137557917",
+            "email": "andino@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573137557917",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM", "tuesday": "10:00AM - 8:00PM", "wednesday": "10:00AM - 8:00PM", "thursday": "10:00AM - 8:00PM", "friday": "10:00AM - 9:00PM", "saturday": "10:00AM - 9:00PM", "sunday": "11:00AM - 6:00PM"}
+          },
+          "Agua Bendita - Calle 109": {
+            "lat": 4.694573667,
+            "lng": -74.04918252,
+            "name": "Agua Bendita - Calle 109",
+            "address": "Calle 109 # 18 - 36, Store 1",
+            "phone": "57 3227662494",
+            "email": "calle109@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573227662494",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 7:00PM", "tuesday": "10:00AM - 7:00PM", "wednesday": "10:00AM - 7:00PM", "thursday": "10:00AM - 7:00PM", "friday": "10:00AM - 7:00PM", "saturday": "10:00AM - 7:00PM", "sunday": "10:00AM - 3:00PM"}
+          },
+          "Agua Bendita - CC Fontanar": {
+            "lat": 4.883228734,
+            "lng": -74.03516727,
+            "name": "Agua Bendita - CC Fontanar",
+            "address": "Vía Cajicá - Chía km 2.5, 1st floor - Store 1-47 \nCentro Comercial Fontanar",
+            "phone": "57 3124218672",
+            "email": "fontanar@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573124218672",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM", "tuesday": "10:00AM - 8:00PM", "wednesday": "10:00AM - 8:00PM", "thursday": "10:00AM - 8:00PM", "friday": "10:00AM - 9:00PM", "saturday": "10:00AM - 9:00PM", "sunday": "11:00AM - 7:00PM"}
+          },
+          "Agua Bendita - CC El Retiro": {
+            "lat": 4.666156878,
+            "lng": -74.05414996,
+            "name": "Agua Bendita - CC El Retiro",
+            "address": "Calle 82 # 11 - 75, 2nd floor - Store 2-166 \nCentro Comercial El Retiro",
+            "phone": "57 3127709181",
+            "email": "elretiro@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573127709181",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM", "tuesday": "10:00AM - 8:00PM", "wednesday": "10:00AM - 8:00PM", "thursday": "10:00AM - 8:00PM", "friday": "10:00AM - 8:00PM", "saturday": "10:00AM - 8:00PM", "sunday": "12:00PM - 7:00PM"}
+          },
+          "Agua Bendita - CC Gran Estacion": {
+            "lat": 4.647843057,
+            "lng": -74.10193072,
+            "name": "Agua Bendita - CC Gran Estación",
+            "address": "Calle 26 # 62 - 47, 2nd floor - Store 2-47 \nCentro Comercial Gran Estación",
+            "phone": "57 3223690028",
+            "email": "granestacion@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573223690028",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM", "tuesday": "10:00AM - 8:00PM", "wednesday": "10:00AM - 8:00PM", "thursday": "10:00AM - 8:00PM", "friday": "10:00AM - 8:30PM", "saturday": "10:00AM - 9:00PM", "sunday": "11:00AM - 8:00PM"}
+          },
+          "Agua Bendita - CC Multiplaza": {
+            "lat": 4.652187327,
+            "lng": -74.12608649,
+            "name": "Agua Bendita - CC Multiplaza",
+            "address": "Calle 19A # 72 - 57, 1st floor - Store A144 \nCentro Comercial Multiplaza",
+            "phone": "57 3104317743",
+            "email": "multiplaza@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573104317743",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM",
+"tuesday": "10:00AM - 8:00PM",
+"wednesday": "10:00AM - 8:00PM",
+"thursday": "10:00AM - 8:00PM",
+"friday": "10:00AM - 9:00PM",
+"saturday": "10:00AM - 9:00PM",
+"sunday": "10:00AM - 8:00PM"}
+          },
+          "Agua Bendita - Anticuarios": {
+            "lat": 4.662258814,
+            "lng": -74.05134061,
+            "name": "Agua Bendita - Anticuarios",
+            "address": "Calle 79B # 7 - 90 \nCalle de los Anticuarios, Chapinero",
+            "phone": "57 3208846155",
+            "email": "calleanticuarios@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573208846155",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 7:00PM", "tuesday": "10:00AM - 7:00PM", "wednesday": "10:00AM - 7:00PM", "thursday": "10:00AM - 7:00PM", "friday": "10:00AM - 7:00PM", "saturday": "10:00AM - 7:00PM", "sunday": "11:00AM - 6:00PM"}
+          },
+          "Agua Bendita - CC Parque La Colina": {
+            "lat": 4.733191881,
+            "lng": -74.06631462,
+            "name": "Agua Bendita - CC Parque La Colina",
+            "address": "Carrera 72 Av Boyacá # 145 - 60, 2nd floor - Store 258 \nCentro Comercial Parque La Colina",
+            "phone": "57 3136665006",
+            "email": "lacolina@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573136665006",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 9:00PM", "tuesday": "10:00AM - 9:00PM", "wednesday": "10:00AM - 9:00PM", "thursday": "10:00AM - 9:00PM", "friday": "10:00AM - 9:00PM", "saturday": "10:00AM - 9:00PM", "sunday": "10:00AM - 8:00PM"}
+          },
+          "Agua Bendita - CC Plaza Central": {
+            "lat": 4.631268408,
+            "lng": -74.11618041,
+            "name": "Agua Bendita - CC Plaza Central",
+            "address": "Carrera 65 # 11 - 50, 1st floor - Store 1-10 \nCentro Comercial Plaza Central",
+            "phone": "57 3232163364",
+            "email": "plazacentral@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573232163364",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM", "tuesday": "10:00AM - 8:00PM", "wednesday": "10:00AM - 8:00PM", "thursday": "10:00AM - 8:00PM", "friday": "10:00AM - 8:00PM", "saturday": "10:00AM - 8:00PM", "sunday": "11:00AM - 7:00PM"}
+          },
+          "Agua Bendita - CC Unicentro Bogota": {
+            "lat": 4.703285399,
+            "lng": -74.04183102,
+            "name": "Agua Bendita - CC Unicentro Bogotá",
+            "address": "Avenida Carrera 15 # 123 - 30, 2nd floor - Store 212 \nCentro Comercial Unicentro",
+            "phone": "57 3123652691",
+            "email": "unicentro@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573123652691",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 7:00PM", "tuesday": "10:00AM - 7:00PM", "wednesday": "10:00AM - 7:00PM", "thursday": "10:00AM - 7:00PM", "friday": "10:00AM - 7:30PM", "saturday": "10:00AM - 7:30PM", "sunday": "10:00AM - 6:00PM"}
+          }
+        }
+      },
+      "Bucaramanga": {
+        "lat": 7.11852282897574,
+        "lng": -73.1262846400693,
+        "stores": {
+          "Agua Bendita - CC La Quinta": {
+            "lat": 7.115346397,
+            "lng": -73.10801282,
+            "name": "Agua Bendita - CC La Quinta",
+            "address": "Carrera 36 # 49 - 29, 2nd floor - Store 207 \nCentro Comercial La Quinta",
+            "phone": "57 3013240936",
+            "email": "laquinta@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573013240936",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM", "tuesday": "10:00AM - 8:00PM", "wednesday": "10:00AM - 8:00PM", "thursday": "10:00AM - 8:00PM", "friday": "10:00AM - 8:00PM", "saturday": "10:00AM - 8:00PM", "sunday": "10:00AM - 6:00PM"}
+          },
+          "Agua Bendita - CC Caracoli": {
+            "lat": 7.071941496,
+            "lng": -73.10491619,
+            "name": "Agua Bendita - CC Caracolí",
+            "address": "Carrera 27 #29 - 145, 2nd floor - Store 207 \nCentro Comercial Parque Caracolí",
+            "phone": "57 3013241056",
+            "email": "caracoli@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573013241056",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM", "tuesday": "10:00AM - 8:00PM", "wednesday": "10:00AM - 8:00PM", "thursday": "10:00AM - 8:00PM", "friday": "10:00AM - 9:00PM", "saturday": "10:00AM - 9:00PM", "sunday": "10:00AM - 8:00PM"}
+          }
+        }
+      },
+      "Cali": {
+        "lat": 3.45742348300005,
+        "lng": -76.5366734154099,
+        "stores": {
+          "Agua Bendita - CC Chipichape": {
+            "lat": 3.475570082,
+            "lng": -76.52875896,
+            "name": "Agua Bendita - CC Chipichape",
+            "address": "Calle 38 Norte #6N – 45, 2nd floor - Store 258\nCentro Comercial Chipichape",
+            "phone": "57 3205379696",
+            "email": "chipichape@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573205379696",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 7:00PM", "tuesday": "10:00AM - 7:00PM", "wednesday": "10:00AM - 7:00PM", "thursday": "10:00AM - 7:00PM", "friday": "10:00AM - 8:00PM", "saturday": "10:00AM - 8:00PM", "sunday": "11:00AM - 7:00PM"}          
+          },
+          "Agua Bendita - Ciudad Jardin": {
+            "lat": 3.364338214,
+            "lng": -76.53530986,
+            "name": "Agua Bendita - Ciudad Jardín",
+            "address": "Carrera 105 # 14 - 58 - Store 103",
+            "phone": "57 3204591812",
+            "email": "ciudadjardin@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573204591812",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 7:00PM", "tuesday": "10:00AM - 7:00PM", "wednesday": "10:00AM - 7:00PM", "thursday": "10:00AM - 7:00PM", "friday": "10:00AM - 7:00PM", "saturday": "11:00AM - 5:00PM", "sunday": "11:00AM - 5:00PM"}
+          },
+          "Agua Bendita - CC Jardin Plaza": {
+            "lat": 3.367579876,
+            "lng": -76.52724264,
+            "name": "Agua Bendita - CC Jardin Plaza",
+            "address": "Carrera 98 # 16 - 200, 1st floor - Store 212 \nCentro Comercial Jardín Plaza",
+            "phone": "57 3213022416",
+            "email": "jardinplaza@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573213022416",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 7:00PM",
+"tuesday": "10:00AM - 7:00PM",
+"wednesday": "10:00AM - 7:00PM",
+"thursday": "10:00AM - 7:00PM",
+"friday": "10:00AM - 7:00PM",
+"saturday": "11:00AM - 5:00PM",
+"sunday": "11:00AM - 5:00PM"}
+          },
+          "Agua Bendita - CC Unico Cali": {
+            "lat": 3.464533029,
+            "lng": -76.5005594,
+            "name": "Agua Bendita - CC Único Cali",
+            "address": "Calle 52 # 3 - 29 Bloque 1, 1st floor - Store 10 \nCentro Comercial Único Outlet",
+            "phone": "57 3217802080",
+            "email": "outletcali@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573217802080",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:30PM", "tuesday": "10:00AM - 8:30PM", "wednesday": "10:00AM - 8:30PM", "thursday": "10:00AM - 8:30PM", "friday": "10:00AM - 9:00PM", "saturday": "10:00AM - 9:00PM", "sunday": "10:00AM - 8:30PM"}
+          }
+        }
+      },
+      "Cartagena": {
+        "lat": 10.3910706861972,
+        "lng": -75.4779754300219,
+        "stores": {
+          "Agua Bendita - Centro Historico": {
+            "lat": 10.4242643,
+            "lng": -75.55105254,
+            "name": "Agua Bendita - Centro Histórico",
+            "address": "Carrera 4 #35-16 \nCentro Histórico, Calle de la Iglesia",
+            "phone": "57 3137590220",
+            "email": "centrohistorico@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573137590220",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM", "tuesday": "10:00AM - 8:00PM", "wednesday": "10:00AM - 8:00PM", "thursday": "10:00AM - 8:00PM", "friday": "10:00AM - 8:00PM", "saturday": "10:00AM - 8:00PM", "sunday": "10:00AM - 6:00PM"}
+          },
+          "Agua Bendita - Centro Historico 3 Calle Ricaurte": {
+            "lat": 10.42217919,
+            "lng": -75.55233207,
+            "name": "Agua Bendita - Centro Histórico 3 Calle Ricaurte",
+            "address": "Carrera 3 # 31-38 \nCentro Histórico 3, Calle Ricaurte",
+            "phone": "57 3124210454",
+            "email": "centrohistorico3@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573124210454",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM", "tuesday": "10:00AM - 8:00PM", "wednesday": "10:00AM - 8:00PM", "thursday": "10:00AM - 8:00PM", "friday": "10:00AM - 8:00PM", "saturday": "10:00AM - 8:00PM", "sunday": "10:00AM - 7:00PM"}
+          },
+          "Agua Bendita - CC Plaza Bocagrande": {
+            "lat": 10.41109563,
+            "lng": -75.5512062,
+            "name": "Agua Bendita - CC Plaza Bocagrande",
+            "address": "Carrera 1 # 12 - 120, 2nd floor - Store 2-23 \nCentro Comercial Plaza Bocagrande",
+            "phone": "57 3108268100",
+            "email": "plazabocagrande@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573108268100",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM", "tuesday": "10:00AM - 8:00PM", "wednesday": "10:00AM - 8:00PM", "thursday": "10:00AM - 8:00PM", "friday": "10:00AM - 8:00PM", "saturday": "10:00AM - 8:00PM", "sunday": "10:00AM - 8:00PM"}
+          },
+          "Agua Bendita - San Martin": {
+            "lat": 10.4023335,
+            "lng": -75.55614043,
+            "name": "Agua Bendita - San Martín",
+            "address": "Carrera 2 #7 -17 Av. San Martin - Store 3",
+            "phone": "57 3227662495",
+            "email": "sanmartin@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573227662495",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 7:00PM", "tuesday": "10:00AM - 7:00PM", "wednesday": "10:00AM - 7:00PM", "thursday": "10:00AM - 7:00PM", "friday": "10:00AM - 7:00PM", "saturday": "10:00AM - 7:00PM", "sunday": "10:00AM - 6:00PM"}
+          },
+          "Agua Bendita - CC La Serrezuela": {
+            "lat": 10.42823859,
+            "lng": -75.54591271,
+            "name": "Agua Bendita - CC La Serrezuela",
+            "address": "Carrera 11 # 39 - 21, Lower level - Store S-09 \nCentro Comercial La Serrezuela",
+            "phone": "57 3107153733",
+            "email": "laserrezuela@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573107153733",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM", "tuesday": "10:00AM - 8:00PM", "wednesday": "10:00AM - 8:00PM", "thursday": "10:00AM - 8:00PM", "friday": "10:00AM - 9:00PM", "saturday": "10:00AM - 9:00PM", "sunday": "10:00AM - 8:00PM" }
+          }
+        }
+      },
+      "Cúcuta": {
+        "lat": 7.895446114147131, 
+        "lng": -72.5027858933551, 
+        "stores": {
+          "Agua Bendita - CC Jardín Plaza Cúcuta": {
+            "lat": 7.920870731555282,
+            "lng": -72.47940018772343,
+            "name": "Agua Bendita - CC Jardín Plaza Cúcuta",
+            "address": "Anillo vial oriental # 13 - 70, Piso 1 - Local L8B",
+            "phone": "57 3043717652",
+            "email": "cucuta@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573043717652",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM",
+"tuesday": "10:00AM - 8:00PM",
+"wednesday": "10:00AM - 8:00PM",
+"thursday": "10:00AM - 8:00PM",
+"friday": "10:00AM - 8:00PM",
+"saturday": "10:00AM - 9:00PM",
+"sunday": "10:00AM - 8:00PM"}
+          }
+        }
+      },
+      "Manizales": {
+        "lat": 5.066017668070010, 
+        "lng": -75.48987343068579,  
+        "stores": {
+          "Agua Bendita - Mall Plaza Manizales": {
+            "lat": 5.065825393,
+            "lng": -75.49016456,
+            "name": "Agua Bendita - Mall Plaza Manizales",
+            "address": "Carrera 14 Avenida Kevin Ángel # 55D – 251 \n1st floor - Store A-1080A, Centro Comercial Mall Plaza",
+            "phone": "57 3223690047",
+            "email": "mallplazamanizales@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573223690047",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM", "tuesday": "10:00AM - 8:00PM", "wednesday": "10:00AM - 8:00PM", "thursday": "10:00AM - 8:00PM", "friday": "10:00AM - 9:00PM", "saturday": "10:00AM - 9:00PM", "sunday": "10:00AM - 8:00PM"}
+          }
+        }
+      },
+      "Medellín": {
+        "lat": 6.24931631896006,
+        "lng": -75.5661110467595,
+        "stores": {
+          "Agua Bendita - CC Arkadia": {
+            "lat": 6.212144823,
+            "lng": -75.59472515,
+            "name": "Agua Bendita - CC Arkadia",
+            "address": "Carrera 70 # 1 - 141, 3rd floor - Store 0373 \nCentro Comercial Arkadia",
+            "phone": "57 3102187856",
+            "email": "arkadia@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573102187856",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 9:00PM", "tuesday": "10:00AM - 9:00PM", "wednesday": "10:00AM - 9:00PM", "thursday": "10:00AM - 9:00PM", "friday": "10:00AM - 9:00PM", "saturday": "10:00AM - 9:00PM", "sunday": "11:00AM - 8:00PM"}
+          },
+          "Agua Bendita - CC DeModa Outlet": {
+            "lat": 6.219591793,
+            "lng": -75.58348802,
+            "name": "Agua Bendita - CC DeModa Outlet",
+            "address": "Calle 16 # 55 - 129, 1st floor - Store 103 \nCentro Comercial Demoda Outlet",
+            "phone": "57 3127204503",
+            "email": "outletcalle16@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573127204503",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 7:00PM", "tuesday": "10:00AM - 7:00PM", "wednesday": "10:00AM - 7:00PM", "thursday": "10:00AM - 7:00PM", "friday": "10:00AM - 7:00PM", "saturday": "10:00AM - 7:00PM", "sunday": "10:00AM - 6:00PM"}
+          },
+          "Agua Bendita - CC El Tesoro": {
+            "lat": 6.19768424,
+            "lng": -75.55828768,
+            "name": "Agua Bendita - CC El Tesoro",
+            "address": "Carrera 25A # 1A sur - 45, 1st floor - Store 1036 \nParque Comercial El Tesoro",
+            "phone": "57 3116137018",
+            "email": "tesoro@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573116137018",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM", "tuesday": "10:00AM - 9:00PM", "wednesday": "10:00AM - 9:00PM", "thursday": "10:00AM - 9:00PM", "friday": "10:00AM - 9:00PM", "saturday": "10:00AM - 9:00PM", "sunday": "11:00AM - 8:00PM"}
+          },
+          "Agua Bendita - CC El Tesoro #2": {
+            "lat": 6.19768424,
+            "lng": -75.55828768,
+            "name": "Agua Bendita - CC El Tesoro #2",
+            "address": "Carrera 25A # 1A sur - 45, 2nd floor - Store 3163\nParque Comercial El Tesoro",
+            "phone": "",
+            "email": "",
+            "whatsapp": "",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM", "tuesday": "10:00AM - 9:00PM", "wednesday": "10:00AM - 9:00PM", "thursday": "10:00AM - 9:00PM", "friday": "10:00AM - 9:00PM", "saturday": "10:00AM - 9:00PM", "sunday": "11:00AM - 8:00PM"}
+          },
+          "Agua Bendita - CC Mayorca": {
+            "lat": 6.161670261,
+            "lng": -75.60542239,
+            "name": "Agua Bendita - CC Mayorca",
+            "address": "Calle 51 Sur # 48 - 57, 4th floor - Store 443 \nCentro Comercial Mayorca",
+            "phone": "57 3013241280",
+            "email": "mayorca@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573013241280",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM", "tuesday": "10:00AM - 8:00PM", "wednesday": "10:00AM - 8:00PM", "thursday": "10:00AM - 8:00PM", "friday": "10:00AM - 9:00PM", "saturday": "10:00AM - 9:00PM", "sunday": "11:00AM - 8:00PM"}
+          },
+          "Agua Bendita - CC Santafe Medellin": {
+            "lat": 6.19599565,
+            "lng": -75.57361481,
+            "name": "Agua Bendita - CC Santafé Medellín",
+            "address": "Carrera 43A # 7 sur 170, 2nd floor - Store 2220 \nCentro Comercial Santafé",
+            "phone": "57 3008689593",
+            "email": "santafemed@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573008689593",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 9:00PM", "tuesday": "10:00AM - 9:00PM", "wednesday": "10:00AM - 9:00PM", "thursday": "10:00AM - 9:00PM", "friday": "10:00AM - 9:00PM", "saturday": "10:00AM - 9:00PM", "sunday": "11:00AM - 8:00PM"}
+          },
+          "Agua Bendita - Via Primavera, Provenza": {
+              "lat": 6.207711876,
+              "lng": -75.56710311,
+              "name": "Agua Bendita - Via Primavera, Provenza",
+              "address": "Carrera 37 # 8A - 82 Via Primavera \nProvenza",
+              "phone": "57 3116146183",
+              "email": "primavera@aguabendita.com.co",
+              "whatsapp": "https://wa.me/573116146183",
+              "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+              "schedules": { "monday": "11:00AM - 7:00PM", "tuesday": "11:00AM - 7:00PM", "wednesday": "11:00AM - 7:00PM", "thursday": "11:00AM - 7:00PM", "friday": "11:00AM - 7:00PM", "saturday": "11:00AM - 7:00PM", "sunday": "10:00AM - 5:00PM"}
+          },
+          "Agua Bendita - CC Viva Envigado": {
+            "lat": 6.177010799,
+            "lng": -75.59129992,
+            "name": "Agua Bendita - CC Viva Envigado",
+            "address": "Carrera 48 # 32B sur - 139, 1st floor - Store 144 \nCentro Comercial Viva Envigado",
+            "phone": "57 3137473093",
+            "email": "vivaenvigado@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573137473093",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 9:00PM", "tuesday": "10:00AM - 9:00PM", "wednesday": "10:00AM - 9:00PM", "thursday": "10:00AM - 9:00PM", "friday": "10:00AM - 9:00PM", "saturday": "10:00AM - 9:00PM", "sunday": "11:00AM - 8:00PM"}
+          }
+        }
+      },
+      "Monteria": {
+        "lat": 8.764697022460046, 
+        "lng": -75.87475697791247, 
+        "stores": {
+          "Agua Bendita - CC Alamedas": {
+            "lat": 8.763680973,
+            "lng": -75.87462651,
+            "name": "Agua Bendita - CC Alamedas",
+            "address": "Calle 44 # 10 - 91, 1st floor - Store B114 \nCentro Comercial Alamedas Del Sinu",
+            "phone": "57 3214194175",
+            "email": "alamedasmonteria@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573214194175",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM", "tuesday": "10:00AM - 8:00PM", "wednesday": "10:00AM - 8:00PM", "thursday": "10:00AM - 8:00PM", "friday": "10:00AM - 9:00PM", "saturday": "10:00AM - 9:00PM", "sunday": "11:00AM - 7:00PM"}
+          }
+        }
+      },
+      "Pereira": {
+        "lat": 4.80870764233328,
+        "lng": -75.6912752983102,
+        "stores": {
+          "Agua Bendita - CC Pereira Plaza": {
+            "lat": 4.808532197,
+            "lng": -75.69178316,
+            "name": "Agua Bendita - CC Pereira Plaza",
+            "address": "Carrera 13 # 15 - 35, 2nd floor - Store 220 \nCentro Comercial Pereira Plaza",
+            "phone": "57 3208846159",
+            "email": "pereiraplaza@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573208846159",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM", "tuesday": "10:00AM - 8:00PM", "wednesday": "10:00AM - 8:00PM", "thursday": "10:00AM - 8:00PM", "friday": "10:00AM - 8:00PM", "saturday": "10:00AM - 8:00PM", "sunday": "11:00AM - 6:00PM"}
+          },
+          "Agua Bendita - CC Parque Arboleda": {
+            "lat": 4.807013772,
+            "lng": -75.68361886,
+            "name": "Agua Bendita - CC Parque Arboleda",
+            "address": "Carrera 14 # 5 - 20 Avenida Circunvalar, 2nd floor - Store 229 \nCentro Comercial Parque Arboleda",
+            "phone": "57 3102298625",
+            "email": "parquearboleda@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573102298625",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM", "tuesday": "10:00AM - 8:00PM", "wednesday": "10:00AM - 8:00PM", "thursday": "10:00AM - 8:00PM", "friday": "10:00AM - 8:00PM", "saturday": "10:00AM - 8:00PM", "sunday": "10:00AM - 8:00PM"}
+          }
+        }
+      },
+      "Santa Marta": {
+        "lat": 11.200911588442162, 
+        "lng": -74.22552240680885, 
+        "stores": {
+          "Agua Bendita - CC Arrecife": {
+            "lat": 11.20043613,
+            "lng": -74.2257811,
+            "name": "Agua Bendita - CC Arrecife",
+            "address": "Carrera 4 # 11A -1191st floor - Store 105 \nCentro Comercial Arrecife",
+            "phone": "57 3137607309",
+            "email": "arrecife@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573137607309",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM", "tuesday": "10:00AM - 8:00PM", "wednesday": "10:00AM - 8:00PM", "thursday": "10:00AM - 8:00PM", "friday": "10:00AM - 9:00PM", "saturday": "10:00AM - 9:00PM", "sunday": "11:00AM - 8:00PM"}
+          }
+        }
+      },
+      "Villavicencio": {
+        "lat": 4.128921595883452, 
+        "lng": -73.62436420905297, 
+        "stores": {
+          "Agua Bendita - CC Unico Villavicencio": {
+            "lat": 4.128631362,
+            "lng": -73.62462376,
+            "name": "Agua Bendita - CC Único Villavicencio",
+            "address": "Carrera 22 # 8C - 67 \nCentro Comercial Único Outlet, Store 51",
+            "phone": "57 3205369549",
+            "email": "Outletvillavicencio@aguabendita.com.co",
+            "whatsapp": "https://wa.me/573205369549",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:30PM", "tuesday": "10:00AM - 8:30PM", "wednesday": "10:00AM - 8:30PM", "thursday": "10:00AM - 8:30PM", "friday": "10:00AM - 9:00PM", "saturday": "10:00AM - 9:00PM", "sunday": "10:00AM - 9:00PM"}
+              }
+        }
+      }
+    }
+  },
+  "Costa Rica": {
+      "lat": 10.4541591267176,
+      "lng": -84.1095796690074,
+      "cities": {
+          "San Jose": {
+              "lat": 9.96027975876862, 
+              "lng": -84.17761108388058, 
+              "stores": {
+                  "Agua Bendita - Costa Rica": {
+                    "lat": 9.947225476,
+                    "lng": -84.17835512,
+                    "name": "Agua Bendita - Costa Rica",
+                    "address": "Cantón De Santa Ana, Provincia De San Jose, \nDistrito Pozos Eco Plaza Villa Real, Store #7",
+                    "phone": "50 672925151",
+                    "email": "aguabenditacostarica@gmail.com",
+                    "whatsapp": "https://wa.me/50672925151",
+                    "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+                    "schedules": { "monday": "10:00AM - 6:00PM", "tuesday": "10:00AM - 6:00PM", "wednesday": "10:00AM - 6:00PM", "thursday": "10:00AM - 6:00PM", "friday": "10:00AM - 6:00PM", "saturday": "9:00AM - 5:00PM", "sunday": "closed"}
+                  }
+              }
+          }
+      }
+  },
+  "México": {
+    "lat": 23.8754101219119,
+    "lng": -102.654598210053,
+    "cities": {
+      "Cancún": {
+        "lat": 21.160352826681475, 
+        "lng": -86.8087505775442, 
+        "stores": {
+          "Agua Bendita - Puerto Cancun": {
+            "lat": 21.16132202,
+            "lng": -86.8085713,
+            "name": "Agua Bendita - Puerto Cancún",
+            "address": "Blvd kukulcan km 1.5. Marina Puerto Cancún Shopping Mall, \nZona Hotelera, 77500, Cancún Q.R. Store r-08b",
+            "phone": "52 9984874393",
+            "email": "puertocancun@aguabendita.com",
+            "whatsapp": "https://wa.me/529984874393",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "11:00AM - 9:00PM", "tuesday": "11:00AM - 9:00PM", "wednesday": "10:00AM - 9:00PM", "thursday": "10:00AM - 9:00PM", "friday": "10:00AM - 9:00PM", "saturday": "10:00AM - 9:00PM", "sunday": "10:00AM - 9:00PM"}
+          }
+        }
+      },
+      "Monterrey": {
+        "lat": 25.651216333255267, 
+        "lng": -100.35966939915085, 
+        "stores": {
+          "Agua Bendita - Monterrey": {
+            "lat": 25.65165906,
+            "lng": -100.3600643,
+            "name": "Agua Bendita - Monterrey",
+            "address": "Av. José Vasconcelos No.402, Paseo de San Pedro. \nStore 143 col. del Valle, San Pedro Garza García.",
+            "phone": "52 8128959632",
+            "email": "aguabenditamty@gmail.com",
+            "whatsapp": "https://wa.me/528128959632",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "11:00AM - 8:00PM", "tuesday": "11:00AM - 8:00PM", "wednesday": "11:00AM - 8:00PM", "thursday": "11:00AM - 8:00PM", "friday": "11:00AM - 8:30PM", "saturday": "11:00AM - 8:30PM", "sunday": "11:00AM - 8:30PM"}
+          }
+        }
+      }
+    }
+  },
+  "Paraguay": {
+      "lat": -23.269382751965,
+      "lng": -58.3100108244536,
+      "cities": {
+          "Asunción": {
+            "lat": -25.28300294395799, 
+            "lng": -57.56671612259647, 
+              "stores": {
+                  "Agua Bendita - Shopping del Sol": {
+                    "lat": -25.28306584,
+                    "lng": -57.56808692,
+                    "name": "Agua Bendita - Shopping del Sol",
+                    "address": "Avenida Aviadores Del Chaco Esq. Profesora Delia Gonzalez- \nTienda # 225B, 2nd floor - Centro Comercial Shopping Del Sol",
+                    "phone": "595 986302206",
+                    "email": "aguabenditaparaguay@gmail.com",
+                    "whatsapp": "https://wa.me/52986302206",
+                    "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+                    "schedules": { "monday": "9:00AM - 9:00PM", "tuesday": "9:00AM - 9:00PM", "wednesday": "9:00AM - 9:00PM", "thursday": "9:00AM - 9:00PM", "friday": "9:00AM - 9:00PM", "saturday": "9:00AM - 9:00PM", "sunday": "10:00AM - 9:00PM"}
+                  }
+              }
+          }
+      }
+  },
+  "United States": {
+    "lat": 40.2861976027443,
+    "lng": -101.21703812144,
+    "cities": {
+      "Miami, FL": {
+        "lat": 25.7619789218957,
+        "lng": -80.192041549531,
+        "stores": {
+          "Agua Bendita Aventura Mall": {
+            "lat": 25.95734965,
+            "lng": -80.14509582,
+            "name": "Agua Bendita - Aventura Mall",
+            "address": "19501 Biscayne Blvd - Aventura, FL 33180 \nAventura Mall - #1659 Upper level",
+            "phone": "1 3054500368",
+            "email": "aventura@aguabendita.com",
+            "whatsapp": "https://wa.me/13054500368",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 9:30PM", "tuesday": "10:00AM - 9:30PM", "wednesday": "10:00AM - 9:30PM", "thursday": "10:00AM - 9:30PM", "friday": "10:00AM - 9:30PM", "saturday": "10:00AM - 9:30PM", "sunday": "11:00AM - 8:00PM"}
+          },
+          "Agua Bendita Coconut Grove": {
+            "lat": 25.72739198,
+            "lng": -80.24333336,
+            "name": "Agua Bendita Coconut Grove",
+            "address": "3444 Main Hwy #4 - Coconut Grove, FL 33133",
+            "phone": "1 3054500368",
+            "email": "coconut@aguabendita.com",
+            "whatsapp": "https://wa.me/13054500368",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "11:00AM - 8:00PM", "tuesday": "11:00AM - 8:00PM", "wednesday": "11:00AM - 8:00PM", "thursday": "11:00AM - 8:00PM", "friday": "11:00AM - 8:00PM", "saturday": "11:00AM - 8:00PM", "sunday": "11:00AM - 8:00PM"}
+          },
+          "Agua Bendita Dolphin Mall": {
+            "lat": 25.78787865,
+            "lng": -80.38038933,
+            "name": "Agua Bendita Dolphin Mall",
+            "address": "11401 NW 12th St. - Miami, FL 33172 \nDolphin Mall - Suite E400",
+            "phone": "1 7542525733",
+            "email": "Info@lane4products.com",
+            "whatsapp": "https://wa.me/17542525733",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 9:00PM", "tuesday": "10:00AM - 9:00PM", "wednesday": "10:00AM - 9:00PM", "thursday": "10:00AM - 9:00PM", "friday": "10:00AM - 9:00PM", "saturday": "10:00AM - 9:00PM", "sunday": "11:00AM - 8:00PM"}
+          },
+          "Agua Bendita Sawgrass Mills": {
+            "lat": 26.14902093,
+            "lng": -80.3224533,
+            "name": "Agua Bendita Sawgrass Mills Mall",
+            "address": "12801 West Sunrise - Sunrise, FL 33323 \nSawgrass Mills Mall - Suite 709",
+            "phone": "1 7542525733",
+            "email": "Info@lane4products.com",
+            "whatsapp": "https://wa.me/17542525733",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 9:00PM", "tuesday": "10:00AM - 9:00PM", "wednesday": "10:00AM - 9:00PM", "thursday": "10:00AM - 9:00PM", "friday": "10:00AM - 9:00PM", "saturday": "10:00AM - 9:00PM", "sunday": "11:00AM - 8:00PM"}
+          }
+        }
+      },
+      "Beverly Hills, CA": {
+        "lat": 34.058845830640585, 
+        "lng": -118.41900944730537, 
+        "stores": {
+          "Agua Bendita Westfield Century City Mall": {
+            "lat": 34.05884583,
+            "lng": -118.4190094,
+            "name": "Agua Bendita Westfield Century City Mall",
+            "address": "10250 Santa Monica Blvd - Los Angeles, CA 90067 \nWestfield Century City Mall - Space 2630",
+            "phone": "1 7542525733",
+            "email": "Info@lane4products.com",
+            "whatsapp": "https://wa.me/17542525733",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 9:00PM", "tuesday": "10:00AM - 9:00PM", "wednesday": "10:00AM - 9:00PM", "thursday": "10:00AM - 9:00PM", "friday": "10:00AM - 10:00PM", "saturday": "10:00AM - 10:00PM", "sunday": "11:00AM - 8:00PM"}
+          }
+        }
+      }
+    }
+  },
+  "Venezuela": {
+    "lat": 7.21784176384776,
+    "lng": -66.0962657354532,
+    "cities": {
+      "Caracas": {
+        "lat": 10.481724687132306, 
+        "lng": -66.86073532328201, 
+        "stores": {
+          "Agua Bendita - CC Tolon": {
+            "lat": 10.47937027,
+            "lng": -66.86038253,
+            "name": "Agua Bendita - CC Tolón",
+            "address": "Av. Principal de las Mercedes. Entre Av. Nicolas Copérnico y calle Nueva York.\nCentro Comercial Tolón, Planta Baja, Store PB 20",
+            "phone": "58 4144818520",
+            "email": "aguabenditatolon@gmail.com",
+            "whatsapp": "https://wa.me/584144818520",
+            "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+            "schedules": { "monday": "10:00AM - 8:00PM", "tuesday": "10:00AM - 8:00PM", "wednesday": "10:00AM - 8:00PM", "thursday": "10:00AM - 8:00PM", "friday": "10:00AM - 8:00PM", "saturday": "10:00AM - 8:00PM", "sunday": "11:00AM - 7:00PM"}
+          }
+        }
+      },
+
+      "Valencia": {
+        "lat": 10.154998985132815, 
+        "lng": -68.00418576935779, 
+          "stores": {
+              "Agua Bendita - Centro Sambil Valencia": {
+                "lat": 10.239360848278741,
+                "lng": -68.00050650189323,
+                "name": "Agua Bendita - Centro Sambil Valencia",
+                "address": "Avenida 4, urbanización Ciudad Jardín Mañongo, Naguanagua, Valencia 2005. Centro Comercial Sambil Valencia, Local A-28 Planta Baja ",
+                "phone": "58 4244448182",
+                "email": "aguabenditasambil@gmail.com",
+                "whatsapp": "https://wa.me/584244448182",
+                "delivery_options": { "delivery": false, "store_pickup": false, "store_shopping": true } ,
+                "schedules": { "monday": "10:00AM - 9:00PM",
+"tuesday": "10:00AM - 9:00PM",
+"wednesday": "10:00AM - 9:00PM",
+"thursday": "10:00AM - 9:00PM",
+"friday": "10:00AM - 9:00PM",
+"saturday": "10:00AM - 9:00PM",
+"sunday": "12:00PM - 8:00PM"}
+            }
+          }
+      }
+
+    }
+  }
+}

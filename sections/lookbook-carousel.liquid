@@ -1,0 +1,262 @@
+<!-- sections/lookbook-carousel.liquid -->
+{% liquid
+  if section.settings.active_from != blank
+    assign from_dt = section.settings.active_from | date: "%s" | plus: 0
+  else
+    assign from_dt = 'now' | date: '%s' | minus: 1
+  endif
+
+  if section.settings.active_to != blank
+    assign to_dt = section.settings.active_to | date: "%s" | plus: 0
+  else
+    assign to_dt = 'now' | date: '%s' | plus: 1
+  endif
+
+  assign now_dt = "now" | date: "%s" | plus: 0
+%}
+
+{% if from_dt <= now_dt and now_dt <= to_dt %}
+  {{ 'hdt-lookbook.css' | asset_url | stylesheet_tag }}
+  {% style %}
+    #{{ section.id }}{
+      --section-pt: {{ section.settings.padding_top }}px;
+      --section-pb: {{ section.settings.padding_bottom }}px; 
+      --section-prate: {{ section.settings.padding_rate }};
+    }
+  {% endstyle %}
+  {%- liquid
+    capture hide_class
+      render 'hide_desktop_mobile', hide_on_desktop: section.settings.hide_on_desktop, hide_on_mobile: section.settings.hide_on_mobile
+    endcapture
+  -%}
+  <div id="{{ section.id }}" class="hdt-section-spacing hdt-s-gradient {{ hide_class }}" color-scheme="{{ section.settings.color_scheme }}">
+    <div class="hdt-s-inner">
+      <div class="hdt-container{% if section.settings.full_width %}-full{% endif %}">
+        {% content_for "block", type: "section-heading", id: "lookbook-heading" %}
+      </div>
+      <div class="hdt-container{% if section.settings.full_width %}-full{% endif %}">
+        <hdt-slider id="lookbook-carousel-id-{{ section.id }}" class="hdt-slider hdt-lookbook-slider hdt-slider__dots_on_content no-js-hidden hdt-slides-1 {% if section.blocks.size > 1 %}md:hdt-slides-{{ section.settings.item_show }} {% endif %}{% if section.settings.item_show == '22' %}hdt-slide-spacing-10 lg:hdt-slide-spacing-30 {% endif %}hdt-ratio--{{ section.settings.image_ratio }} hdt-relative" config='{"navUI": {{ section.settings.navUI }}, "dotUI": true,"classNames": true }'>
+          <div class="hdt-slider__viewport">
+            <div class="hdt-slider__container">
+              {% content_for "blocks" %}
+            </div>
+          </div>
+          {%- if section.blocks.size > 1 -%}
+            {%- if section.settings.navigate_style == 'mixed' -%}
+              {%- if section.settings.navUI == true or section.settings.dotUI == true -%}
+                <div class="hdt-lookbook_nav hdt-pe-none hdt-nav_mixed hdt-inline-flex hdt-justify-center hdt-align-center hdt-absolute hdt-left-0 hdt-right-0">
+                  <div class="hdt-lookbook_nav-wrap hdt-s-gradient hdt-inline-flex hdt-align-center">
+                    {%- if section.settings.navUI == true -%}              
+                      <button aria-controls="lookbook-carousel-id-{{ section.id }}" disabled="" class="hdt-slide_button previous" name="previous"><svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="currentColor">
+                        <path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z"/>
+                      </svg></button>
+                    {%- endif -%}
+                    {%- if section.settings.dotUI == true -%}
+                      <div aria-controls="lookbook-carousel-id-{{ section.id }}" hdt-slider-dots class="hdt-slider__dots hdt-inline-flex hdt-justify-center"></div>
+                    {%- endif -%}
+                    {%- if section.settings.navUI == true -%}
+                      <button aria-controls="lookbook-carousel-id-{{ section.id }}" disabled="" class="hdt-slide_button next" name="next"><svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="currentColor">
+                        <path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z"/>
+                      </svg></button>
+                    {%- endif -%}
+                  </div>
+                </div>
+              {%- endif -%}
+            {%- elsif section.settings.navigate_style == 'normal' -%}
+              {%- if section.settings.navUI == true -%}
+                <div class="hdt-lookbook_nav2 hdt-hidden@mobile hdt-nav_normal hdt-pe-none hdt-flex hdt-justify-between hdt-align-center hdt-absolute hdt-left-0 hdt-right-0">
+                  <button aria-controls="lookbook-carousel-id-{{ section.id }}" disabled="" class="hdt-slider__button hdt-slider__button--prev hdt-rounded-full hdt-inline-flex hdt-align-center hdt-justify-center" name="previous">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="currentColor">
+                      <path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z"/>
+                    </svg>
+                  </button>
+                  <button aria-controls="lookbook-carousel-id-{{ section.id }}" disabled="" class="hdt-slider__button hdt-slider__button--next hdt-rounded-full hdt-inline-flex hdt-align-center hdt-justify-center" name="next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="currentColor">
+                      <path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z"/>
+                    </svg>
+                  </button>
+                </div>
+              {%- endif -%}
+                <div aria-controls="lookbook-carousel-id-{{ section.id }}" hdt-slider-dots class="hdt-slider__dots {% if section.settings.dotUI == false %}md:hdt-hidden {% endif %}hdt-dot_normal hdt-inline-flex hdt-absolute hdt-left-0 hdt-right-0 hdt-justify-center"></div>
+            {%- endif -%}
+          {%- endif -%}
+        </hdt-slider>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.lookbook.name2",
+  "tag": "section",
+  "class": "hdt-section hdt-lookbook hdt-lookbook-slider",
+  "max_blocks": 6,
+  "disabled_on": {
+    "groups": [
+      "*"
+    ]
+  },
+  "settings": [
+    {
+      "id": "hide_on_desktop",
+      "type": "checkbox",
+      "label": "Hide on desktop",
+      "default": false
+    },
+    {
+      "id": "hide_on_mobile",
+      "type": "checkbox",
+      "label": "Hide on tablet, mobile",
+      "default": false
+    },
+    {
+      "id": "active_from",
+      "label": "Active from (YYYY-MM-DD HH:MM:SS)",
+      "type": "text",
+      "placeholder": "Optional"
+    },
+    {
+      "id": "active_to",
+      "label": "Active up to (YYYY-MM-DD HH:MM:SS)",
+      "type": "text",
+      "placeholder": "Optional"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.lookbook.general"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "t:sections.all.images.ratio.label",
+      "options": [
+        {
+          "value": "square",
+          "label": "t:sections.all.images.ratio.square.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.all.images.ratio.portrait.label"
+        },
+        {
+          "value": "asos",
+          "label": "t:sections.all.images.ratio.asos.label"
+        },
+        {
+          "value": "landscape",
+          "label": "t:sections.all.images.ratio.landscape.label"
+        },
+        {
+          "value": "adapt_image",
+          "label": "t:sections.all.images.ratio.adapt_image.label"
+        }
+      ],
+      "default": "adapt_image"
+    },
+    {
+      "type": "select",
+      "id": "item_show",
+      "label": "t:sections.lookbook.settings.item_show.label",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "22",
+          "label": "1 (75% width)"
+        },
+        {
+          "value": "2",
+          "label": "2 (50% width)"
+        }
+      ],
+      "default": "1",
+      "info": "t:sections.lookbook.settings.item_show.info"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.lookbook.blocks.color"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.slider.label"
+    },
+    {
+      "type": "select",
+      "id": "navigate_style",
+      "label": "t:sections.lookbook.settings.navigate.label",
+      "options": [
+        {
+          "value": "mixed",
+          "label": "t:sections.lookbook.settings.navigate.options.mixed"
+        },
+        {
+          "value": "normal",
+          "label": "t:sections.lookbook.settings.navigate.options.normal"
+        }
+      ],
+      "default": "mixed"
+    },
+    {
+      "type": "checkbox",
+      "id": "navUI",
+      "label": "t:sections.all.slider.navUI",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "dotUI",
+      "label": "t:sections.all.slider.dotUI",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.all.full_width.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "padding_rate",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:sections.all.padding.padding_rate",
+      "default": 75
+    }
+  ],
+  "blocks": [{ "type": "_lookbook" }],
+  "presets": [
+    {
+      "name": "t:sections.lookbook.name2"
+    }
+  ]
+}
+{% endschema %}

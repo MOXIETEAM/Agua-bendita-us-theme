@@ -1,0 +1,176 @@
+{% assign metafields = product.metafields["globals"] %}
+{% assign allowed_metafields = settings.product_metafields | split: ',' %}
+
+{% assign excludeSpecs = false %}
+
+{%- if layout == 'tab' -%}
+    {%- assign has_metafields = false -%}
+
+    {%- for metaKey in allowed_metafields -%}
+        {%- if metafields[metaKey] != blank -%}
+            {%- assign has_metafields = true -%}
+            {%- break -%}
+        {%- endif -%}
+    {%- endfor -%}
+    {%- if has_metafields -%}
+    <div class="tabbed-module metafield-tabs">
+        <div class="tabbed-title-wrap">
+            {% render 'product-metafield-tabbed', metafields: metafields, allowed_metafields: allowed_metafields, tabtitle: true %}
+        </div>
+        <div class="tabbed-content-wrap">
+            {% render 'product-metafield-tabbed', metafields: metafields, allowed_metafields: allowed_metafields, tabcontent: true %}
+        </div>
+    </div>
+    {%- endif -%}
+{%- elsif layout == 'stacked' -%}
+    {%- assign has_metafields = false -%}
+
+    {%- for metaKey in allowed_metafields -%}
+        {%- if metafields[metaKey] != blank -%}
+            {%- assign tabbedTitle = metaKey | replace: '-', ' ' -%}
+            {% unless tabbedTitle == 'sizing' or tabbedTitle == 'warranty' %}
+            {%- assign has_metafields = true -%}
+            {%- break -%}
+            {% endunless %}
+        {%- endif -%}
+    {%- endfor -%}
+    {%- if has_metafields -%}
+    <div class="product-stacked-content">
+        <div class="stacked-nav">
+            {% render 'product-metafield-stacked', metafields: metafields, allowed_metafields: allowed_metafields, tabtitle: true, with_reviews: with_reviews  %}
+        </div>
+        <div class="stacked-content-wrap">
+            {% render 'product-metafield-stacked', metafields: metafields, allowed_metafields: allowed_metafields, tabcontent: true %}
+        </div>
+    </div>
+    {%- endif -%}
+{%- else layout == 'accordion' -%}
+    {% assign counter = 0 %}
+    <div class="accordion-container tab-accordion-system">
+
+        <div class="system active product-description">
+            {% comment %} {% if forloop.last %} system-title-last{% endif %} {% endcomment %}
+            <div class="system-title system-title-{{ counter }}" data-target="system-{{- counter -}}">Description</div>
+            <div class="system-content" data-target="system-{{- counter -}}">
+                <div class="content-inner" itemprop="description">
+                    <div class="product-description-inner">
+                    {{ product.description }}
+                    </div>
+                    
+                    {%- if isPreOrder -%}
+                    <p class="pre-order-message">{{ product_preorder_msg }}</p>    
+                    {%- endif -%}
+                    
+                    {%- if isFinalSale -%}
+                    <p class="final-sale-message">{{ product_finalsale_msg }}</p>    
+                    {%- endif -%}
+                </div>
+            </div>
+        </div>
+
+        {% comment %} 
+        {% assign setting_prefix = 'accordion_' %}
+        {% for i in (1..4) %}
+            {% assign title_handle = setting_prefix | append: 'title_' | append: i %}
+            {% assign content_handle = setting_prefix | append: 'content_' | append: i %}
+
+            {% assign title = product.metafields.pdp[title_handle] %}
+            {% assign content = product.metafields.pdp[content_handle] %}
+
+            {% case forloop.index %}
+                {% when 1 %}{% assign title = 'Composition' %}
+                {% when 2 %}{% assign title = 'Size & fit' %}
+                {% when 3 %}{% assign title = 'Care recommendations' %}
+                {% when 4 %}{% assign title = 'Pre-Order and Delivery' %}
+            {% endcase %}
+
+            {% if title == blank or content == blank %}{% continue %}{% endif %}
+            {% assign counter = counter | plus: 1 %}
+            <div class="system">
+                { comment } {% if forloop.last %} system-title-last{% endif %} { endcomment }
+                <div class="system-title system-title-{{ counter }}" data-target="system-{{- counter -}}">{{ title }}</div>
+                <div class="system-content" data-target="system-{{- counter -}}">
+                    <div class="content-inner">
+                        {{ content }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        {% endcomment %}
+
+        {% comment %} First {% endcomment %}
+        {% if product.metafields.pdp.composition != blank %}
+            {% assign counter = counter | plus: 1 %}
+            <div class="system">
+                <div class="system-title system-title-{{ counter }}" data-target="system-{{- counter -}}">Composition</div>
+                <div class="system-content" data-target="system-{{- counter -}}">
+                    <div class="content-inner">
+                        {{ product.metafields.pdp.composition }}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        {% comment %} Second {% endcomment %}
+        {% if product.metafields.pdp.size_fit != blank %}
+            {% assign counter = counter | plus: 1 %}
+            <div class="system">
+                <div class="system-title system-title-{{ counter }}" data-target="system-{{- counter -}}">Size & fit</div>
+                <div class="system-content" data-target="system-{{- counter -}}">
+                    <div class="content-inner">
+                        {{ product.metafields.pdp.size_fit }}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        {% comment %} Third {% endcomment %}
+        {% if product.metafields.pdp.care_recommendations != blank %}
+            {% assign counter = counter | plus: 1 %}
+            <div class="system">
+                <div class="system-title system-title-{{ counter }}" data-target="system-{{- counter -}}">Care recommendations</div>
+                <div class="system-content" data-target="system-{{- counter -}}">
+                    <div class="content-inner">
+                        {{ product.metafields.pdp.care_recommendations }}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        {% comment %} Fourth {% endcomment %}
+        {% if product.metafields.pdp.pre_order_and_delivery != blank %}
+            {% assign counter = counter | plus: 1 %}
+            <div class="system">
+                <div class="system-title system-title-{{ counter }}" data-target="system-{{- counter -}}">Pre-Order and Delivery</div>
+                <div class="system-content" data-target="system-{{- counter -}}">
+                    <div class="content-inner">
+                        {{ product.metafields.pdp.pre_order_and_delivery }}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        {% assign setting_prefix = 'product_global_info_' %}
+        {% for i in (1..2) %}
+            {% assign activate_box = setting_prefix | append: 'activate_' | append: i %}
+            {% assign title_handle = setting_prefix | append: 'title_' | append: i %}
+            {% assign content_handle = setting_prefix | append: 'content_' | append: i %}
+
+            {% assign activate = settings[activate_box] %}
+            {% assign title = settings[title_handle] %}
+            {% assign content = settings[content_handle] %}
+            {% assign counter = counter | plus: 1 %}
+
+            {% if activate == false or title == blank or content == blank %}{% continue %}{% endif %}
+            <div class="system">
+                {% comment %} {% if forloop.last %} system-title-last{% endif %} {% endcomment %}
+                <div class="system-title system-title-{{ counter }}" data-target="system-{{- counter -}}">{{ title }}</div>
+                <div class="system-content" data-target="system-{{- counter -}}">
+                    <div class="content-inner">
+                        {{ content }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{%- endif -%}

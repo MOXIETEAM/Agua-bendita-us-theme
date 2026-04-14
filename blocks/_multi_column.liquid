@@ -1,0 +1,680 @@
+{% liquid
+  capture hide_class
+    render "hide_desktop_mobile", hide_on_desktop: block.settings.hide_on_desktop, hide_on_mobile: block.settings.hide_on_mobile, display_type: "grid"
+  endcapture
+%}
+<div id="{{ block.id }}" class="hdt-column hdt-g-col hdt-g-col-{{ block.settings.column_mb }} md:hdt-g-col-{{ block.settings.column_tb }} lg:hdt-g-col-{{ block.settings.column_dk }} {{ block.settings.rounded }} hdt-text-{{ block.settings.alignment_mb }} md:hdt-text-{{ block.settings.alignment }} hdt-oh {{ hide_class }} hdt-place-self-{{ block.settings.block_position_mb }} md:hdt-place-self-{{ block.settings.block_position }}" {{ block.shopify_attributes }}>
+    {%- liquid
+      assign image_background = block.settings.background_image
+      if image_background != blank
+        echo image_background | image_url: width: image_background.width | image_tag: width: image_background.width, height: image_background.height, alt: image_background.alt, class: 'hdt-full-width-link hdt-w-full hdt-h-full hdt-object-cover hdt-pe-none', loading: 'lazy'
+      endif
+    -%}
+    <div class="hdt-column_inner hdt-place-self-{{ block.settings.content_position_mb }} md:hdt-place-self-{{ block.settings.content_position }} hdt-text-{{ block.settings.alignment_mb }} md:hdt-text-{{ block.settings.alignment }}" style="position: relative;z-index:2;">
+      {% content_for 'blocks' %}
+    </div>
+
+  {% style %}
+    #{{ block.id }}{
+      --background-color: {{ block.settings.background_color }};
+      --column-padding-mb: {{ block.settings.spacing_v_mb }}px {{ block.settings.spacing_h_mb }}px;
+      --column-padding-tb: {{ block.settings.spacing_v_tb }}px {{ block.settings.spacing_h_tb }}px;
+      --column-padding-dk: {{ block.settings.spacing_v_dk }}px {{ block.settings.spacing_h_dk }}px;
+      align-content: {{ block.settings.align_content }};
+    }
+    #{{ block.id }} {
+      background-color: var(--background-color);
+      padding: var(--column-padding-mb);
+
+      position: {{ block.settings.block_position_type_mb }};
+      @media(min-width: 1150px) {
+        position: {{ block.settings.block_position_type }};
+      }
+    }
+
+    @media (min-width: 750px) {
+      #{{ block.id }} {
+        padding: var(--column-padding-tb);
+      }
+    }
+
+    @media (min-width: 1150px) {
+      #{{ block.id }} {
+        padding: var(--column-padding-dk);
+      }
+    }
+
+    {% if block.settings.max_content_width > 0 %}
+      #{{ block.id }} > .hdt-column_inner {
+        max-width: {{ block.settings.max_content_width }}px;
+      }
+    {% endif %}
+    {% if block.settings.content_width > 0 %}
+      #{{ block.id }} > .hdt-column_inner {
+        width: {{ block.settings.content_width }}%;
+      }
+    {% endif %}
+    {% if block.settings.custom_css != blank %}
+      #{{ block.id }} {
+        {{ block.settings.custom_css }}
+      }
+    {% endif %}
+  {% endstyle %}
+</div>
+{% schema %}
+  {
+    "name": "Column",
+    "tag": null,
+    "blocks": [
+      {
+        "type": "@theme"
+      },
+      {
+        "type": "@app"
+      },
+      {
+        "type": "heading"
+      },
+      {
+        "type": "text"
+      },
+      {
+        "type": "button"
+      },
+      {
+        "type": "spacer"
+      },
+      {
+        "type": "_newsletter"
+      }, 
+      {
+        "type": "_countdown"
+      },
+      {
+        "type": "_image"
+      },
+      {
+        "type": "_image-banner"
+      },
+      {
+        "type": "_landing-bottom-images"
+      },
+      {
+        "type": "_landing-description"
+      }
+    ],
+    "settings": [
+      {
+        "id": "hide_on_desktop",
+        "type": "checkbox",
+        "label": "Hide on desktop",
+        "default": false
+      },
+      {
+        "id": "hide_on_mobile",
+        "type": "checkbox",
+        "label": "Hide on tablet, mobile",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+        "type": "select",
+        "id": "column_dk",
+        "label": "Column desktop",
+        "options": [
+          {
+            "value": "0",
+            "label": "Hidden"
+          },
+          {
+            "value": "1",
+            "label": "1/12 - 8.33%"
+          },
+          {
+            "value": "2",
+            "label": "2/12 - 16.66%"
+          },
+          {
+            "value": "3",
+            "label": "3/12 - 25%"
+          },
+          {
+            "value": "4",
+            "label": "4/12 - 33.33%" 
+          },
+          {
+            "value": "5",
+            "label": "5/12 - 41.66%"
+          },
+          {
+            "value": "6",
+            "label": "6/12 - 50%"
+          },
+          {
+            "value": "7",
+            "label": "7/12 - 58.33%"
+          },
+          {
+            "value": "8",
+            "label": "8/12 - 66.66%"
+          },
+          {
+            "value": "9",
+            "label": "9/12 - 75%"
+          },
+          {
+            "value": "10",
+            "label": "10/12 - 83.33%"
+          },
+          {
+            "value": "12",
+            "label": "12/12 - 100%"
+          },
+          
+        ],
+        "default": "6"
+      },
+      {
+        "type": "select",
+        "id": "column_tb",
+        "label": "Column tablet",
+        "options": [
+          {
+            "value": "0",
+            "label": "Hidden"
+          },
+          {
+            "value": "1",
+            "label": "1/12 - 8.33%"
+          },
+          {
+            "value": "2",
+            "label": "2/12 - 16.66%"
+          },
+          {
+            "value": "3",
+            "label": "3/12 - 25%"
+          },
+          {
+            "value": "4",
+            "label": "4/12 - 33.33%" 
+          },
+          {
+            "value": "5",
+            "label": "5/12 - 41.66%"
+          },
+          {
+            "value": "6",
+            "label": "6/12 - 50%"
+          },
+          {
+            "value": "7",
+            "label": "7/12 - 58.33%"
+          },
+          {
+            "value": "8",
+            "label": "8/12 - 66.66%"
+          },
+          {
+            "value": "9",
+            "label": "9/12 - 75%"
+          },
+          {
+            "value": "10",
+            "label": "10/12 - 83.33%"
+          },
+          {
+            "value": "12",
+            "label": "12/12 - 100%"
+          },
+        ],
+        "default": "6"
+      },
+      {
+        "type": "select",
+        "id": "column_mb",
+        "label": "Column mobile",
+        "options": [
+          {
+            "value": "0",
+            "label": "Hidden"
+          },
+          /*
+          {
+            "value": "1",
+            "label": "1/12 - 8.33%"
+          },
+          {
+            "value": "2",
+            "label": "2/12 - 16.66%"
+          },
+          {
+            "value": "3",
+            "label": "3/12 - 25%"
+          },
+          {
+            "value": "4",
+            "label": "4/12 - 33.33%" 
+          },
+          {
+            "value": "5",
+            "label": "5/12 - 41.66%"
+          },*/
+          {
+            "value": "6",
+            "label": "6/12 - 50%"
+          },
+          /*{
+            "value": "7",
+            "label": "7/12 - 58.33%"
+          },
+          {
+            "value": "8",
+            "label": "8/12 - 66.66%"
+          },
+          {
+            "value": "9",
+            "label": "9/12 - 75%"
+          },
+          {
+            "value": "10",
+            "label": "10/12 - 83.33%"
+          },*/
+          {
+            "value": "12",
+            "label": "12/12 - 100%"
+          },
+        ],
+        "default": "12"
+      },
+      {
+        "type": "header",
+        "content": "Spacing"
+      },
+      {
+        "type": "range",
+        "id": "spacing_h_dk",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Spacing horizontal",
+        "default": 30
+      },
+      {
+        "type": "range",
+        "id": "spacing_v_dk",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Spacing vertical",
+        "default": 30
+      },
+      {
+        "type": "range",
+        "id": "spacing_h_tb",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Spacing horizontal (tablet)",
+        "default": 30
+      },
+      {
+        "type": "range",
+        "id": "spacing_v_tb",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Spacing vertical (tablet)",
+        "default": 30
+      },
+      {
+        "type": "range",
+        "id": "spacing_h_mb",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Spacing horizontal (mobile)",
+        "default": 15
+      },
+      {
+        "type": "range",
+        "id": "spacing_v_mb",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Spacing vertical (mobile)",
+        "default": 15
+      },
+      {
+        "type": "header",
+        "content": "General"
+      },
+      {
+        "type": "select",
+        "id": "block_position_type",
+        "label": "Block position type (Desktop)",
+        "options": [
+          {"value": "relative", "label": "Relative"},
+          {"value": "absolute", "label": "Absolute"},
+          {"value": "static", "label": "Static"},
+          {"value": "sticky", "label": "Sticky"},
+          {"value": "fixed", "label": "Fixed"}
+        ],
+        "default": "relative",
+        "info": "Position style apply for this block column on desktop"
+      },
+      {
+        "type": "select",
+        "id": "block_position_type_mb",
+        "label": "Block position type (Tablet, Mobile)",
+        "options": [
+          {"value": "relative", "label": "Relative"},
+          {"value": "absolute", "label": "Absolute"},
+          {"value": "static", "label": "Static"},
+          {"value": "sticky", "label": "Sticky"},
+          {"value": "fixed", "label": "Fixed"}
+        ],
+        "default": "relative",
+        "info": "Position style apply for this block column on tablet, mobile."
+      },
+      {
+        "type": "select",
+        "id": "block_position",
+        "label": "Block position",
+        "options": [
+          {"value": "none", "label": "None"},
+          {
+            "value": "start",
+            "label": "t:sections.all.content_position.options.start"
+          },
+          {
+            "value": "start-center",
+            "label": "t:sections.all.content_position.options.start_center"
+          },
+          {
+            "value": "start-end",
+            "label": "t:sections.all.content_position.options.start_end"
+          },
+          {
+            "value": "center",
+            "label": "t:sections.all.content_position.options.center"
+          },
+          {
+            "value": "center-start",
+            "label": "t:sections.all.content_position.options.center_start"
+          },
+          {
+            "value": "center-end",
+            "label": "t:sections.all.content_position.options.center_end"
+          },
+          {
+            "value": "end",
+            "label": "t:sections.all.content_position.options.end"
+          },
+          {
+            "value": "end-start",
+            "label": "t:sections.all.content_position.options.end_start"
+          },
+          {
+            "value": "end-center",
+            "label": "t:sections.all.content_position.options.end_center"
+          }
+        ],
+        "default": "none",
+        "info": "Position apply for this block column on desktop."
+      },
+      {
+        "type": "select",
+        "id": "block_position_mb",
+        "label": "Block position mobile",
+        "options": [
+          {"value": "none", "label": "None"},
+          {
+            "value": "start",
+            "label": "t:sections.all.content_position.options.start"
+          },
+          {
+            "value": "start-center",
+            "label": "t:sections.all.content_position.options.start_center"
+          },
+          {
+            "value": "start-end",
+            "label": "t:sections.all.content_position.options.start_end"
+          },
+          {
+            "value": "center",
+            "label": "t:sections.all.content_position.options.center"
+          },
+          {
+            "value": "center-start",
+            "label": "t:sections.all.content_position.options.center_start"
+          },
+          {
+            "value": "center-end",
+            "label": "t:sections.all.content_position.options.center_end"
+          },
+          {
+            "value": "end",
+            "label": "t:sections.all.content_position.options.end"
+          },
+          {
+            "value": "end-start",
+            "label": "t:sections.all.content_position.options.end_start"
+          },
+          {
+            "value": "end-center",
+            "label": "t:sections.all.content_position.options.end_center"
+          }
+        ],
+        "default": "none",
+        "info": "Position apply for this block column on mobile"
+      },
+      {
+        "type": "select",
+        "id": "content_position",
+        "label": "Content position",
+        "options": [
+          {
+            "value": "start",
+            "label": "t:sections.all.content_position.options.start"
+          },
+          {
+            "value": "start-center",
+            "label": "t:sections.all.content_position.options.start_center"
+          },
+          {
+            "value": "start-end",
+            "label": "t:sections.all.content_position.options.start_end"
+          },
+          {
+            "value": "center",
+            "label": "t:sections.all.content_position.options.center"
+          },
+          {
+            "value": "center-start",
+            "label": "t:sections.all.content_position.options.center_start"
+          },
+          {
+            "value": "center-end",
+            "label": "t:sections.all.content_position.options.center_end"
+          },
+          {
+            "value": "end",
+            "label": "t:sections.all.content_position.options.end"
+          },
+          {
+            "value": "end-start",
+            "label": "t:sections.all.content_position.options.end_start"
+          },
+          {
+            "value": "end-center",
+            "label": "t:sections.all.content_position.options.end_center"
+          }
+        ],
+        "default": "center"
+      },
+      {
+        "type": "select",
+        "id": "content_position_mb",
+        "label": "Content position mobile",
+        "options": [
+          {
+            "value": "start",
+            "label": "t:sections.all.content_position.options.start"
+          },
+          {
+            "value": "start-center",
+            "label": "t:sections.all.content_position.options.start_center"
+          },
+          {
+            "value": "start-end",
+            "label": "t:sections.all.content_position.options.start_end"
+          },
+          {
+            "value": "center",
+            "label": "t:sections.all.content_position.options.center"
+          },
+          {
+            "value": "center-start",
+            "label": "t:sections.all.content_position.options.center_start"
+          },
+          {
+            "value": "center-end",
+            "label": "t:sections.all.content_position.options.center_end"
+          },
+          {
+            "value": "end",
+            "label": "t:sections.all.content_position.options.end"
+          },
+          {
+            "value": "end-start",
+            "label": "t:sections.all.content_position.options.end_start"
+          },
+          {
+            "value": "end-center",
+            "label": "t:sections.all.content_position.options.end_center"
+          }
+        ],
+        "default": "center"
+      },
+      {
+        "type": "text_alignment",
+        "id": "alignment",
+        "label": "Text alignment",
+        "default": "center"
+      },
+      {
+        "type": "text_alignment",
+        "id": "alignment_mb",
+        "label": "Text alignment mobile",
+        "default": "center"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background image"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "#fff"
+      },
+      {
+        "type": "select",
+        "id": "rounded",
+        "label": "Rounded",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "hdt-rounded-xs",
+            "label": "Extra small"
+          },
+          {
+            "value": "hdt-rounded-sm",
+            "label": "Small"
+          },
+          {
+            "value": "hdt-rounded",
+            "label": "Medium"
+          },
+          {
+            "value": "hdt-rounded-lg",
+            "label": "Large"
+          },
+          {
+            "value": "hdt-rounded-full",
+            "label": "Full"
+          }
+        ],
+        "default": "none"
+      },
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "range",
+        "id": "max_content_width",
+        "min": 0,
+        "max": 1000,
+        "step": 10,
+        "unit": "px",
+        "label": "Max content width",
+        "default": 0,
+        "info": "Set to 0 to ignore this setting."
+      },
+      {
+        "type": "range",
+        "id": "content_width",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "label": "Content width",
+        "default": 0,
+        "info": "Set to 0 to ignore this setting."
+      },
+      {
+        "type": "select",
+        "id": "align_content",
+        "label": "Align content",
+        "options": [
+          {"value": "center", "label": "Center"},
+          {"value": "flex-start", "label": "Top"},
+          {"value": "flex-end", "label": "Bottom"}
+        ],
+          "default": "flex-start"
+      },
+      {
+        "type": "textarea",
+        "id": "custom_css",
+        "label": "Custom CSS",
+        "info": "Add custom CSS properties for this block only. Example: background: red; border: 1px solid black;"
+      }
+      
+    ],
+    "presets": [
+      {
+        "name": "Column",
+        "blocks": [
+          {
+            "type": "heading"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

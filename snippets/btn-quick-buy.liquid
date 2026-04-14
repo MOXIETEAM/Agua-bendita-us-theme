@@ -1,0 +1,25 @@
+{%- comment -%}
+  Renders btn ultra
+
+  Accepts:
+  - product: {Object} Product Liquid object (required)
+  - class: {String} a list class. (optional)
+  - disable_sr_only: {Boolean} remove class sr_only (optional)
+  - placement: {String} position tooltip (optional)
+
+  Usage:
+  {% render 'btn-quick-buy', class: 'hdt-pr_btn', product: card_product, disable_sr_only: false %}
+{%- endcomment -%}
+
+
+{% liquid
+  capture hide_class
+    render "hide_desktop_mobile", hide_on_desktop: true
+  endcapture
+%}
+
+<wrapp-hdt-open-modal-btn class="hdt-card-product__btn-qb {{ hide_class }}" placement="{{ placement | default: 'none' }}">
+  <button type="button" handle="{{ product.handle }}" aria-controls="hdt-quick-buy-modal" aria-expanded="false" class="hdt-card-product__btn-ultra {{ class }}" placement="{{ placement | default: 'none' }}" >
+    <span class="hdt-truncate{% unless disable_sr_only %} sr-only{% endunless %}">{{ 'products.product.quick_buy' | t }}</span>
+  </button>
+</wrapp-hdt-open-modal-btn>

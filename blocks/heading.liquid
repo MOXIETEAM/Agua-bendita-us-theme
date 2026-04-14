@@ -1,0 +1,272 @@
+{% liquid
+  assign effect = 'hdt-reveal="slide-in" timeline'
+  if section.id contains 'slideshow'
+    assign effect = 'reval'
+  endif
+%}
+{% liquid
+  capture hide_class
+    render "hide_desktop_mobile", hide_on_desktop: block.settings.hidden_on_desktop, hide_on_mobile: block.settings.hidden_on_mobile
+  endcapture
+%}
+<div {{ effect }} id="block-{{ block.id }}" class="hdt-text-warry hdt-rte {{ block.settings.text_color }}{% if block.settings.hidden_br_mobile %} hdt-br-hidden{% endif %}{% if block.settings.hidden_on_mobile %} hdt-hide-mobile{% endif %} hdt-{{ block.settings.heading_size }} {{ hide_class}}" {{ block.shopify_attributes }} style="{% if block.settings.text_transform %}text-transform: {{ block.settings.text_transform }}{% endif %}">{% if block.settings.raw_heading != blank %}{{ block.settings.raw_heading }}{% else %}{{ block.settings.heading }}{% endif %}</div>
+{%- if block.settings.heading_size == "h_custom" -%}
+  {%- style -%}
+    #block-{{ block.id }} {
+      --heading-fs-lg: {{ block.settings.font_size_heading_lg }}px; --heading-fs-md: {{ block.settings.font_size_heading_md }}px; --heading-fs-mb: {{ block.settings.font_size_heading }}px; --heading-fw: {{ block.settings.font_weight_heading }}; --heading-ls: {{ block.settings.letter_spacing }}px; 
+
+      line-height: {{ block.settings.line_height }};
+
+      {% if block.settings.text_align != "none" %}
+        text-align: {{ block.settings.text_align }};
+      {% endif %}
+
+    }
+    @media(max-width: 1149px) {
+      #block-{{ block.id }} {
+        {% if block.settings.text_align != "none" %}
+          text-align: {{ block.settings.text_align_mb }};
+        {% endif %}
+      }
+    }
+  {%- endstyle -%}
+{%- endif -%}
+{% if block.settings.specific_text_color != blank %}
+  <style>
+    #block-{{ block.id }} {
+      color: {{ block.settings.specific_text_color }};
+    }
+  </style>
+{% endif %}
+{% style %}
+  #block-{{ block.id }} {
+    {% if block.settings.font_family_type == "body" %}
+      --font-heading-family: var(--font-body-family);
+    {% endif %}
+  }
+{% endstyle %}
+{% schema %}
+{
+  "name": "Heading",
+  "tag": null,
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Heading</p>",
+      "info": "Shift + Enter to line break."
+    },
+    {
+      "type": "html",
+      "id": "raw_heading",
+      "label": "Raw heading",
+      "info": "If using Raw heading, please ignore Heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "hidden_br_mobile",
+      "label": "Hidden <br> on mobile",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hidden_on_desktop",
+      "label": "Hidden on desktop",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hidden_on_mobile",
+      "label": "Hidden on mobile",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "font_family_type",
+      "label": "Font family type",
+      "options": [
+        {"value": "heading", "label": "Font heading"},
+        {"value": "body", "label": "Font body"},
+      ],
+      "default": "heading"
+    },
+    {
+      "type": "select",
+      "id": "text_transform",
+      "label": "Text transform",
+      "options": [
+        {"value": "none", "label": "None"},
+        {"value": "uppercase", "label": "Uppercase"},
+        {"value": "capitalize", "label": "Capitalize"},
+        {"value": "lowercase", "label": "lowercase"},
+      ],
+      "default": "none"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text align (Desktop)",
+      "options": [
+        {"value": "none", "label": "None"},
+        {"value": "start", "label": "Start"},
+        {"value": "end", "label": "End"},
+        {"value": "center", "label": "Center"},
+      ],
+      "default": "none"
+    },
+    {
+      "type": "select",
+      "id": "text_align_mb",
+      "label": "Text align (Tablet, Mobile)",
+      "options": [
+        {"value": "none", "label": "None"},
+        {"value": "start", "label": "Start"},
+        {"value": "end", "label": "End"},
+        {"value": "center", "label": "Center"},
+      ],
+      "default": "none"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Size",
+      "options": [
+        {
+          "value": "base",
+          "label": "Base size"
+        },
+        {
+          "value": "h6",
+          "label": "H6 size"
+        },
+        {
+          "value": "h5",
+          "label": "H5 size"
+        },
+        {
+          "value": "h4",
+          "label": "H4 size"
+        },
+        {
+          "value": "h3",
+          "label": "H3 size"
+        },
+        {
+          "value": "h2",
+          "label": "H2 size"
+        },
+        {
+          "value": "h1",
+          "label": "H1 size"
+        },
+        {
+          "value": "h0",
+          "label": "H0 size"
+        },
+        {
+          "value": "h_custom",
+          "label": "Custom size inline"
+        }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "range",
+      "id": "letter_spacing",
+      "min": 0,
+      "max": 10,
+      "step": 0.1,
+      "label": "Letter spacing (in pixel)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "line_height",
+      "min": 0,
+      "max": 2,
+      "step": 0.1,
+      "label": "Line height (Unitless value)",
+      "default": 1
+    },
+    {
+      "type": "select",
+      "id": "text_color",
+      "options": [
+        {
+          "value": "hdt-s-text",
+          "label": "Default"
+        },
+        {
+          "value": "hdt-text-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "hdt-text-body-tertiary",
+          "label": "Tertiary"
+        },
+        {
+          "value": "hdt-text-primary",
+          "label": "Accent"
+        }
+      ],
+      "label": "Text color",
+      "default": "hdt-s-text"
+    },
+    {
+      "type": "color",
+      "id": "specific_text_color",
+      "label": "Specific text color",
+      "info": "This option will overwritten color from 'Text color' option if selected."
+    },
+    {
+      "type": "header",
+      "content": "Custom size options"
+    },
+    {
+      "type": "range",
+      "id": "font_size_heading_lg",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "font_size_heading_md",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Tablet font size",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "font_size_heading",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile font size",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "font_weight_heading",
+      "min": 100,
+      "max": 900,
+      "step": 100,
+      "label": "Font weight",
+      "default": 600
+    },
+  ],
+  "presets": [
+    {
+      "name": "Heading",
+    }
+  ]
+}
+{% endschema %}

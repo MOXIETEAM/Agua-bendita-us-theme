@@ -1,0 +1,50 @@
+{%- if template == 'product.only_config' and request.design_mode == false -%}
+  <hdt-lazy-modal id="hdt-quick-view-modal" section-id="{{ section.id }}" role="dialog" aria-live="polite" class="hdt-quick-view-modal hdt-modal" aria-modal="true" effect="slide" hidden></hdt-lazy-modal>
+{%- else -%}
+  {%- if template == 'product.only_config' %}<hdt-lazy-modal un-detect id="hdt-quick-view-modal" section-id="{{ section.id }}" role="dialog" aria-live="polite" class="hdt-quick-view-modal hdt-modal" aria-modal="true" effect="slide" hidden>{% endif -%}
+  <h3 slot="header"></h3>
+  <div class="hdt-s-gradient hdt-main-product-quick-view" color-scheme="{{ section.settings.color_scheme }}">
+      <div class="hdt-row-grid hdt-grid-cols-1 md:hdt-grid-cols-2" style="--spacing-x:0px;--spacing-y:0px;">
+        {% content_for 'block', type: '_quickview-medias', id: 'quickview-medias' %}
+        {% content_for 'blocks' %}
+      </div>
+  </div>
+  {%- if template == 'product.only_config' -%}
+  </hdt-lazy-modal>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      if (!Shopify.designMode) return;
+      document.addEventListener("shopify:section:select", (event) => {
+        const modal = event.target.querySelector('#hdt-quick-view-modal');
+        if (modal) modal.hidden = false
+      });
+      document.addEventListener("shopify:section:deselect", (event) => {
+        const modal = event.target.querySelector('#hdt-quick-view-modal');
+        if (modal) modal.hidden = true
+      });
+    });
+  </script>
+  {%- endif -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.main-quick-view.name",
+  "tag": "section",
+  "class": "hdt-main-section hdt-main-section--quick-view hdt-quick-view-modal",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    }
+  ],
+  "max_blocks": 1,
+  "blocks": [
+    {
+      "type": "_quickview-content"
+    },
+  ]
+}
+{% endschema %}

@@ -1,0 +1,60 @@
+{%- comment -%}
+  Renders a custom size list
+
+  Accepts:
+  - size_variants: {Array} (required)
+  - size_variants_avai: {Array} (required)
+  - class: {String} a list class. (optional)
+  - size_option_name: {String} (required)
+  - size_option_index: {String} (required)
+{%- endcomment -%}
+{%- liquid 
+  if settings.enable_size_limit
+    assign size_maximum = settings.size_maximum
+  else
+    assign size_maximum = 9999
+  endif 
+-%} 
+
+{% if settings.size_mode == "custom_size" %}
+  {% unless product != blank and size_option_name != blank and size_option_index != blank and product.has_only_default_variant %}
+    <fieldset class="hdt-text-center {{ class }}">
+      <p class="hdt-text-center">{{ 'products.product.size_selector.label' | t }} {{ product.title }}</p>
+      {%- for size in size_variants limit: size_maximum -%}
+        {% assign option_position = forloop.index %}
+        {%- liquid
+          unless size_variants_avai contains size or settings.size_type == 'all'
+            continue
+          endunless
+        -%}
+        {% liquid
+          # Find variant that matches this size option
+          assign found_variant = product.variants | where: size_option_index, size | first
+        %}
+        {% if found_variant %}
+          {% liquid
+              assign is_unavailable = false
+              if found_variant.available == false or found_variant.price == 0
+                assign is_unavailable = true
+              endif
+          %}
+          <size-atc variant-id="{{ found_variant.id }}">
+            <input type="radio" class="single-option-selector-{{ section.id }} "
+              {% comment %} {% if option.selected_value == value %} checked="checked"{% endif %} {% endcomment %}
+              value="{{ size | escape }}"
+              data-index="option{{option_position}}"
+              name="{{ size_option_name | handleize }}"
+              id="SingleOptionSelector-{{product.id}}-{{ forloop.index0 }}"
+              {% if is_unavailable %}
+                disabled="disabled"
+              {% endif %}
+              >
+          </size-atc>
+            <label for="SingleOptionSelector-{{product.id}}-{{ forloop.index0 }}" data-value="{{ size | escape }}" {% if is_unavailable %}class="custom-label-disable"{% endif %}>
+            {{size}}
+          </label>
+      {% endif %}
+      {%- endfor -%}
+    </fieldset>
+  {% endunless %}
+{% endif %}

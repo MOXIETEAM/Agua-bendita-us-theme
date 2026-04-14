@@ -1,0 +1,84 @@
+<!-- blocks/section-heading.liquid -->
+<div id="block-{{ block.id }}" class="hdt-text-{{ block.settings.alignment }} hdt-sections-heading hdt-flex-col" style="--row-gap: {{ block.settings.row_gap }}px;--row-gap-mb: {{ block.settings.row_gap_mb }}px;--margin-bottom: {{ block.settings.margin_bottom }}px;--margin-bottom-mb: {{ block.settings.margin_bottom_mb }}px;">
+  {%- content_for 'blocks' -%}
+</div>
+{% style %}
+  @media (max-width: 1149px) {
+    #block-{{ block.id }} {
+      --heading-mgb: var(--margin-bottom-mb);
+      --heading-gap: var(--row-gap-mb);
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Section heading",
+  "tag": null,
+  "blocks": [
+
+    {
+      "type": "heading"
+    },
+    {
+      "type": "text"
+    },
+  ],  
+  "settings": [
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "Text alignment"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Spacing between items",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "row_gap_mb",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Spacing between items (mobile/tablet)",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin bottom",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mb",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin bottom (mobile/tablet)",
+      "default": 30
+    },
+  ],
+  "presets": [
+    {
+      "name": "Section heading"
+    }
+  ]
+}
+{% endschema %}

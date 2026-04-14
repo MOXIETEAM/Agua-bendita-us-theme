@@ -1,0 +1,317 @@
+{{ 'hdt-product-tabs.css' | asset_url | stylesheet_tag }}
+{{ 'hdt-product-tabs-custom.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  #block-{{ block.id }} {
+    --section-pt:{{ block.settings.padding_top }}px; --section-pb:{{ block.settings.padding_bottom }}px; --section-prate:{{ block.settings.padding_rate }};
+    & > .hdt-container, .hdt-container-full {
+      padding: 0;
+    }
+    {% if block.settings.title_text_transform != "none" %}
+    .hdt-product-accordion__text,
+    hdt-tab button,
+    .hdt-product-tab__item-title {
+      text-transform: {{ block.settings.title_text_transform }};
+    }
+    {% endif %}
+    {% if block.settings.heading_font_family_type == "body" %}
+    .hdt-product-accordion__content {
+      --font-heading-family: var(--font-body-family);
+    }
+    {% endif %}
+    .hdt-product-accordion__content {
+      --font-heading-weight: {{ block.settings.heading_font_weight }};
+      font-size: {{ block.settings.font_size_text }}px;
+    }
+    .hdt-product-accordion__text,
+    hdt-tab button,
+    .hdt-product-tab__item-title {
+      font-size: {{ block.settings.title_font_size_text }}px;
+    }
+  }
+  @media screen and (min-width: 750px) {
+    #block-{{ block.id }} {
+      .hdt-product-accordion__content {
+        font-size: {{ block.settings.font_size_text_md }}px;
+      }
+      .hdt-product-accordion__text,
+      hdt-tab button,
+      .hdt-product-tab__item-title {
+        font-size: {{ block.settings.title_font_size_text_md }}px;
+      }
+    }
+  }
+  @media screen and (min-width: 990px) {
+    #block-{{ block.id }} {
+      .hdt-product-accordion__content {
+        font-size: {{ block.settings.font_size_text_lg }}px;
+      }
+      .hdt-product-accordion__text,
+      hdt-tab button,
+      .hdt-product-tab__item-title {
+        font-size: {{ block.settings.title_font_size_text_lg }}px;
+      }
+    }
+  }
+{%- endstyle -%}
+
+{%- capture tab_content -%}
+  {% content_for "blocks" %}
+{%- endcapture -%}
+{%- assign tab_items = tab_content | split: '<!--tab-item>' -%}
+
+<div id="block-{{ block.id }}" class="hdt-product-tab hdt-s-gradient hdt-section-spacing hdt-section hdt-section-block-tabs" color-scheme="{{ block.settings.color_scheme }}" {{ block.shopify_attributes }}>
+  <div class="hdt-container{% if block.settings.full_width %}-full{% endif %}">
+    {%- if tab_items.size > 1 -%}
+      {%- if block.settings.tabs_design == 'tab' or block.settings.tabs_design == 'tab_vertical' -%}
+        <div class="hdt-type-tab">
+          <div class="hdt-product-tab__wrap hdt-product-tab--{% if block.settings.tabs_design == 'tab' %}default{% else %}vertical{% endif %}">
+            <hdt-tab class="hdt-product-tab__main hdt-flex hdt-scroll-snap hdt-snap-x" aria-controls="product-tabs-{{ block.settings.tabs_design }}-{{ block.id }}">
+              {%- assign is_tab_first = true -%}
+              {%- for item in tab_items -%}
+                {%- if forloop.first -%}{%- continue -%}{%- endif -%}
+                {%- assign tab_parts = item | split: '<!--/tab-title-->' -%}
+                {%- assign tab_title = tab_parts[0] -%}
+                <button aria-current="{% if is_tab_first %}true{% endif %}" class="hdt-s-text hdt-relative hdt-font-semibold">{{ tab_title }}</button>
+                {%- assign is_tab_first = false -%}
+              {%- endfor -%}
+            </hdt-tab> 
+            <div class="hdt-product-tab__content" id="product-tabs-{{ block.settings.tabs_design }}-{{ block.id }}">
+              {%- assign is_first = true -%}
+              {%- for item in tab_items -%}
+                {%- if forloop.first -%}{%- continue -%}{%- endif -%}
+                {%- assign tab_parts = item | split: '<!--/tab-title-->' -%}
+                {%- assign tab_body = tab_parts[1] | split: '<!--/tab-body-->' | first -%}
+                <div class="hdt-tab-item" tab-item{% if is_first %} tab-selected{% endif %}>{{ tab_body }}</div>
+                {%- assign is_first = false -%}
+              {%- endfor -%}
+            </div>
+          </div>
+        </div>
+      {%- elsif block.settings.tabs_design == 'accordion' -%}
+        <div class="hdt-type-accordion">
+          {%- for item in tab_items -%}
+            {%- if forloop.first -%}{%- continue -%}{%- endif -%}
+            {%- assign tab_parts = item | split: '<!--/tab-title-->' -%}
+            {%- assign tab_title = tab_parts[0] -%}
+            {%- assign tab_body = tab_parts[1] | split: '<!--/tab-body-->' | first -%}
+            {%- assign tab_attrs = tab_parts[1] | split: '<!--/tab-body-->' | last | split: '<!--/tab-attrs-->' | first -%}
+            <hdt-accordion class="hdt-contents">
+              <details class="hdt-product-accordion__item" {% if forloop.first and block.settings.enable_first_tab %}open {% endif %} {{ tab_attrs }}>
+                <summary aria-expanded="{% if forloop.first and block.settings.enable_first_tab %}true{% else %}false{% endif %}">
+                  <span class="hdt-product-accordion__text hdt-s-text hdt-font-semibold">{{ tab_title }}</span>
+                  <span class="hdt-product-accordion__icon"></span>
+                </summary>
+                <div class="hdt-product-accordion__content">{{ tab_body }}</div>
+              </details>
+            </hdt-accordion>
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <div class="hdt-type-list">
+          {%- for item in tab_items -%}
+            {%- if forloop.first -%}{%- continue -%}{%- endif -%}
+            {%- assign tab_parts = item | split: '<!--/tab-title-->' -%}
+            {%- assign tab_title = tab_parts[0] -%}
+            {%- assign tab_body = tab_parts[1] | split: '<!--/tab-body-->' | first -%}
+            <div class="hdt-product-tab__item">
+              <div class="hdt-product-tab__item-title hdt-s-text hdt-font-semibold">{{ tab_title }}</div>
+              <div class="hdt-product-tab__item-content">{{ tab_body }}</div>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Block Tabs",
+  "tag": null,
+  "blocks": [
+    { "type": "_block-tabs-html" },
+    { "type": "_block-tabs-liquid" }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "tabs_design",
+      "label": "t:sections.main-product-tabs.settings.tabs_design.label",
+      "default": "tab",
+      "options": [
+        {
+          "value": "tab",
+          "label": "t:sections.main-product-tabs.settings.tabs_design.options__1.label"
+        },
+        {
+          "value": "tab_vertical",
+          "label": "t:sections.main-product-tabs.settings.tabs_design.options__2.label"
+        },
+        {
+          "value": "accordion",
+          "label": "t:sections.main-product-tabs.settings.tabs_design.options__3.label"
+        },
+        {
+          "value": "list",
+          "label": "t:sections.main-product-tabs.settings.tabs_design.options__4.label"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_first_tab",
+      "label": "t:sections.main-product-tabs.settings.enable_first_tab.label",
+      "info": "t:sections.main-product-tabs.settings.enable_first_tab.info",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "title_text_transform",
+      "label": "Title text transform",
+      "options": [
+        {"value": "none", "label": "None"},
+        {"value": "uppercase", "label": "Uppercase"},
+        {"value": "capitalize", "label": "Capitalize"},
+        {"value": "lowercase", "label": "Lowercase"}
+      ],
+      "default": "none"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.all.full_width.label",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "heading_font_family_type",
+      "label": "Font family type for heading inside content of each tab",
+      "options": [
+        {"value": "heading", "label": "Font heading"},
+        {"value": "body", "label": "Font body"}
+      ],
+      "default": "body"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_weight",
+      "label": "Font weight for heading inside content of each tab",
+      "min": 100,
+      "max": 900,
+      "step": 100,
+      "default": 700
+    },
+    {
+      "type": "header",
+      "content": "Title font size"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_text_lg",
+      "label": "Title font size (Desktop)",
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_text_md",
+      "label": "Title font size (Tablet)",
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_text",
+      "label": "Title font size (Mobile)",
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Content font size"
+    },
+    {
+      "type": "range",
+      "id": "font_size_text_lg",
+      "label": "Content font size (Desktop)",
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "font_size_text_md",
+      "label": "Content font size (Tablet)",
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "font_size_text",
+      "label": "Content font size (Mobile)",
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_rate",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:sections.all.padding.padding_rate",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Block Tabs"
+    }
+  ]
+}
+{% endschema %}

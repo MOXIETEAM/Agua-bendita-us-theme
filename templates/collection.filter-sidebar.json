@@ -1,0 +1,174 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "heading": {
+      "type": "heading-collection",
+      "blocks": {
+        "9a1347b4-da62-490d-9fd4-427a03686ac2": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "hidden_br_mobile": false,
+            "hidden_on_mobile": false,
+            "heading_size": "h2",
+            "text_color": "hdt-s-text",
+            "font_size_heading_lg": 50,
+            "font_size_heading_md": 30,
+            "font_size_heading": 24,
+            "font_weight_heading": 600,
+            "letter_spacing_heading": 0
+          }
+        },
+        "6df762d7-beda-4452-bcf6-1242b294077c": {
+          "type": "description",
+          "settings": {
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "9a1347b4-da62-490d-9fd4-427a03686ac2",
+        "6df762d7-beda-4452-bcf6-1242b294077c"
+      ],
+      "settings": {
+        "spacing_hd": 10,
+        "image": "shopify://shop_images/z4683181570507_46fb10fa21da971ae2af71e75431028c.png",
+        "color_scheme": "",
+        "padding_top": 65,
+        "padding_bottom": 65,
+        "padding_rate": 75
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "blocks": {
+        "filter_BjbzRV": {
+          "type": "filter",
+          "settings": {}
+        },
+        "categories_HqByU4": {
+          "type": "categories",
+          "disabled": true,
+          "settings": {
+            "widget_heading": "Product categories",
+            "cat_source": "1",
+            "cat_link_list": "",
+            "count": false
+          }
+        },
+        "featured_products_eeatqy": {
+          "type": "featured_products",
+          "settings": {
+            "widget_heading": "Sale products",
+            "collection": "",
+            "product_list": [
+              "analogue-resin-strap-a",
+              "lace-trimmed-satin-camisole-top",
+              "regular-fit-oxford-shirt-1"
+            ],
+            "products_count": 3,
+            "image_ratio": "adapt_image",
+            "image_size": true
+          }
+        },
+        "iconbox_4gB8U4": {
+          "type": "iconbox",
+          "settings": {
+            "widget_heading": "Shipping & Delivery",
+            "icon_svg1": "box",
+            "custom_svg1": "",
+            "iconbox_content1": "Free shipping_ Free iconbox for all US orders",
+            "link_item1": "",
+            "icon_svg2": "support",
+            "custom_svg2": "",
+            "iconbox_content2": "Premium Support_ Support 24 hours a day",
+            "link_item2": "",
+            "icon_svg3": "return",
+            "custom_svg3": "",
+            "iconbox_content3": "30 Days Return_ You have 30 days to return",
+            "link_item3": "",
+            "icon_svg4": "payment",
+            "custom_svg4": "",
+            "iconbox_content4": "",
+            "link_item4": ""
+          }
+        },
+        "gallery_mn4heM": {
+          "type": "gallery",
+          "settings": {
+            "widget_heading": "Gallery",
+            "img1": "shopify://shop_images/ins_6.jpg",
+            "link1": "shopify://products/jersey-thong-body",
+            "img2": "shopify://shop_images/ins_3.jpg",
+            "link2": "shopify://products/cotton-jersey-top",
+            "img3": "shopify://shop_images/ins_2.jpg",
+            "link3": "shopify://products/regular-fit-linen-blend-shirt",
+            "img4": "shopify://shop_images/ins_9.jpg",
+            "link4": "shopify://products/ribbed-tank-top",
+            "img5": "shopify://shop_images/ins_7.jpg",
+            "link5": "shopify://products/cotton-twill-cap",
+            "img6": "shopify://shop_images/ins_4.jpg",
+            "link6": "shopify://products/patterned-scarf",
+            "open_link": "_blank"
+          }
+        },
+        "social_ixX4Hh": {
+          "type": "social",
+          "settings": {
+            "widget_heading": "Follow us",
+            "socials_style": "default",
+            "socials_size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "filter_BjbzRV",
+        "categories_HqByU4",
+        "featured_products_eeatqy",
+        "iconbox_4gB8U4",
+        "gallery_mn4heM",
+        "social_ixX4Hh"
+      ],
+      "settings": {
+        "product_des": "1",
+        "image_ratio": "custom-pr",
+        "image_size": true,
+        "show_vendor": false,
+        "pr_border": "none",
+        "products_count": 12,
+        "col_dk": "4",
+        "col_tb": "3",
+        "col_mb": "2",
+        "pagination_type": "links",
+        "paginate_pos": "center",
+        "dis_pagination": 60,
+        "enable_sorting": true,
+        "enable_filtering": false,
+        "enable_num_cols_selector": true,
+        "widget_heading": "Product categories",
+        "cat_source": "1",
+        "cat_link_list": "",
+        "count": false,
+        "section_fullwidth": false,
+        "color_scheme": "scheme-2",
+        "sidebar_position": "left",
+        "sidebar_size": "medium",
+        "padding_top": 30,
+        "padding_bottom": 70,
+        "padding_rate": 75
+      }
+    }
+  },
+  "order": [
+    "heading",
+    "main"
+  ]
+}

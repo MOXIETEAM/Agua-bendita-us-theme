@@ -1,0 +1,96 @@
+<!-- blocks/_collection_heading.liquid -->
+{% style %}
+  #block-{{ block.id }} {
+    --heading-mgb: {{ block.settings.margin_bottom_mb }}px;
+    --heading-gap: {{ block.settings.row_gap_mb }}px;
+    @media(min-width: 1150px) {
+      --heading-mgb: {{ block.settings.margin_bottom }}px;
+      --heading-gap: {{ block.settings.row_gap }}px;
+    }
+  }
+{% endstyle %}
+<div id="block-{{ block.id }}" class="{% if block.settings.one_line == false %}hdt-flex-col{% else %}hdt-justify-between md:hdt-align-center{% endif %} hdt-text-{{ block.settings.alignment }} hdt-sections-heading">
+  {%- content_for 'blocks' -%}
+</div>
+{% schema %}
+  {
+    "name": "Section Heading",
+    "class": "hdt-collection-heading",
+    "blocks": [
+      {
+        "type": "heading"
+      },
+      {
+        "type": "text"
+      },
+      {
+        "type": "_heading_slider_button"
+      }
+    ],
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "one_line",
+        "label": "Row layout",
+        "default": false,
+       /* "info": "Only work on desktop"*/
+      },
+      {
+        "type": "text_alignment",
+        "id": "alignment",
+        "label": "Text alignment",
+        "default": "center",
+        "info": "Not work for row layout"
+      },
+      {
+        "type": "header",
+        "content": "Spacing"
+      },
+      {
+        "type": "range",
+        "id": "row_gap",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Spacing between items (Desktop)",
+        "default": 15
+      },
+      {
+        "type": "range",
+        "id": "row_gap_mb",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Spacing between items (Tablet, Mobile)",
+        "default": 15
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Margin bottom (Desktop)",
+        "default": 30
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom_mb",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Margin bottom (Tablet, Mobile)",
+        "default": 30
+      },
+    ],
+    "presets": [
+      {
+        "name": "Section Heading"
+      }
+    ]
+  }
+{% endschema %}

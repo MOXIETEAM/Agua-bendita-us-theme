@@ -1,0 +1,36 @@
+{%- assign bk_title = block.settings.title | default: block.settings.page.title -%}
+{%- unless bk_title == blank or block.settings.content == blank and block.settings.page.content == blank -%}
+<!--tab-item>{{ bk_title | escape }}<!--/tab-title-->
+<div class="hdt-text-warry hdt-rte">{{ block.settings.content }}</div>
+{{ block.settings.page.content }}
+<!--/tab-body-->{{ block.shopify_attributes }}<!--/tab-attrs-->
+{%- endunless -%}
+{% schema %}
+{
+  "name": "Custom HTML",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.main-product-tabs.blocks.title.label",
+      "default": "Tab Custom HTML"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "t:sections.main-product-tabs.blocks.tab_htmls.settings.content.label"
+    },
+    {
+      "type": "page",
+      "id": "page",
+      "label": "t:sections.main-product-tabs.blocks.tab_htmls.settings.page.label"
+    }
+  ],
+  "presets": [
+    { 
+      "name": "Custom HTML"
+    }
+  ]
+}
+{% endschema %}

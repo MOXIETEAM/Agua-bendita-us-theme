@@ -1,0 +1,200 @@
+{% liquid
+  if section.settings.active_from != blank
+    assign from_dt = section.settings.active_from | date: "%s" | plus: 0
+  else
+    assign from_dt = 'now' | date: '%s' | minus: 1
+  endif
+
+  if section.settings.active_to != blank
+    assign to_dt = section.settings.active_to | date: "%s" | plus: 0
+  else
+    assign to_dt = 'now' | date: '%s' | plus: 1
+  endif
+
+  assign now_dt = "now" | date: "%s" | plus: 0
+%}
+
+{% if from_dt <= now_dt and now_dt <= to_dt %}
+{{ 'size-chart.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign chart_size = section.blocks.size
+%}
+
+  {%- liquid
+    capture hide_class
+      render 'hide_desktop_mobile', hide_on_desktop: section.settings.hide_on_desktop, hide_on_mobile: section.settings.hide_on_mobile
+    endcapture
+  -%}
+<div class="hdt-size-chart {{ hide_class }}">
+  {% if chart_size > 0 %}
+    <div class="hdt-size-chart__tabs">
+      <hdt-tab class="hdt-size-chart-tab__main" aria-controls="size-chart-tab-{{ section.id }}">
+        {% for chart in section.blocks %}
+          <button aria-current="{% if forloop.first %}true{% else%}false{% endif %}">{{ chart.settings.title }}</button>
+        {% endfor %}
+      </hdt-tab>
+      <div class="hdt-size-chart-tab__content" id="size-chart-tab-{{ section.id }}">
+        {% for chart in section.blocks %}
+            <div class="hdt-tab-item" tab-item {% if forloop.first %}tab-selected{% endif %}>
+              <div class="hdt-extra-content">
+                {{ chart.settings.extra_content }}
+              </div>
+              <div>
+                <div class="hdt-size-chart-subtab__title">{{ chart.settings.title }}</div>
+                <hdt-tab class="hdt-size-chart-subtab__main" data-size-chart-units>
+                  <button type="button" aria-current="true" data-size-chart-unit="inches">Inch</button>
+                  {% if chart.settings.image_2 != blank or chart.settings.chart_content_2 != blank %}
+                    <button type="button" aria-current="false" data-size-chart-unit="centimeters">CM</button>
+                  {% endif %}
+                </hdt-tab>
+                <div class="hdt-size-chart-subtab__content" data-size-chart-panels>
+                  <div class="hdt-tab-item" data-size-chart-panel="inches">
+                    {% if chart.settings.image != blank %}
+                      {% assign chart_mobile_image = chart.settings.image %}
+                      {% if chart.settings.mobile_image != blank %}
+                        {% assign chart_mobile_image = chart.settings.mobile_image %}
+                      {% endif %}
+                      {% render 'image', image: chart.settings.image, mobile_image: chart_mobile_image %}
+                    {% endif %}
+
+                    {% assign chart_content = chart.settings.chart_content
+                                | replace: '[', '<div class="chart-row"><div class="item">'
+                                | replace: ',', '</div><div class="item">'
+                                | replace: ']', '</div></div>' %}
+                    {{ chart_content }}
+                  </div>
+                  {% if chart.settings.image_2 != blank or chart.settings.chart_content_2 != blank %}
+                    <div class="hdt-tab-item" data-size-chart-panel="centimeters" hidden>
+                      {% if chart.settings.image_2 != blank %}
+                        {% assign chart_mobile_image_2 = chart.settings.image_2 %}
+                        {% if chart.settings.mobile_image_2 != blank %}
+                          {% assign chart_mobile_image_2 = chart.settings.mobile_image_2 %}
+                        {% endif %}
+                        {% render 'image', image: chart.settings.image_2, mobile_image: chart_mobile_image_2 %}
+                      {% endif %}
+
+                      {% assign chart_content = chart.settings.chart_content_2
+                                  | replace: '[', '<div class="chart-row"><div class="item">'
+                                  | replace: ',', '</div><div class="item">'
+                                  | replace: ']', '</div></div>' %}
+                      {{ chart_content }}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+        {% endfor %}
+      </div>
+    </div>
+    <script src="{{ 'size-chart-custom.js' | asset_url }}" defer></script>
+  {% endif %}
+  {% if section.settings.need_help_text != blank %}
+    <div class="hdt-size-chart__help-text">{{- section.settings.need_help_text -}}</div>
+  {% endif %}
+</div>
+{% endif %}
+{% schema %}
+{
+  "name": "Product Size Chart(s)",
+  "settings": [
+    {
+       "type":  "richtext",
+       "id":    "need_help_text",
+       "label": "Size chart help text",
+       "default": "<p>Email for size help</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "size_chart",
+      "name": "Size Chart",
+      "settings": [
+        {
+          "id": "hide_on_desktop",
+          "type": "checkbox",
+          "label": "Hide on desktop",
+          "default": false
+        },
+        {
+          "id": "hide_on_mobile",
+          "type": "checkbox",
+          "label": "Hide on tablet, mobile",
+          "default": false
+        },
+        {
+          "id": "active_from",
+          "label": "Active from (YYYY-MM-DD HH:MM:SS)",
+          "type": "text",
+          "placeholder": "Optional"
+        },
+        {
+          "id": "active_to",
+          "label": "Active up to (YYYY-MM-DD HH:MM:SS)",
+          "type": "text",
+          "placeholder": "Optional"
+        },
+        {
+          "type": "header",
+          "content": "Inches information"
+        },
+        {
+          "type":  "text",
+          "id":    "title",
+          "label": "Chart Title"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "mobile_image",
+            "label": "Mobile Image"
+        },
+        {
+          "type": "textarea",
+          "id": "chart_content_inches",
+          "label": "Inches sizes",
+          "info": "Use the following structure to create columns: ['USA', 'XS', 'S', 'M', 'L', 'XL'] Copy previous snippet for as many rows the chart will have, columns are separated by commas"
+        },
+        {
+          "type": "header",
+          "content": "Centimeters information"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_2",
+            "label": "Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "mobile_image_2",
+            "label": "Mobile Image"
+        },
+        {
+          "type": "textarea",
+          "id": "chart_content_2",
+          "label": "Centimeters sizes",
+          "info": "Use the following structure to create columns: ['USA', 'XS', 'S', 'M', 'L', 'XL'] Copy previous snippet for as many rows the chart will have, columns are separated by commas"
+        },
+        {
+          "type":  "richtext",
+          "id":    "extra_content_2",
+          "label": "Extra Content for the tab, usually use as instructions."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Size Chart(s)",
+      "category": "Product",
+      "settings": {
+        
+      }
+    }
+  ]
+}
+{% endschema %}

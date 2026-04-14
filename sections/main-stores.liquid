@@ -1,0 +1,152 @@
+{% if section.settings.image != blank %}
+    {% render 'module-hero', settings: section.settings %}
+{% endif %}
+
+{{ 'main-stores.css' | asset_url | stylesheet_tag }}
+
+<section class="module module-split-content" data-aos="fade-up">
+    <div class="module-container center-content">
+        <div class="module-content">
+        {% if section.settings.subtitle != blank %}<div class="subtitle">{{section.settings.subtitle}}</div>{% endif %}
+        {% if section.settings.title != blank %}
+            <h1 class="headline" style="color: {{ section.settings.title_color }};">
+                {{section.settings.title}}
+            </h1>
+        {% endif %}
+        {% if section.settings.caption != blank %}<div class="caption">{{section.settings.caption}}</div>{% endif %}
+        </div>
+
+        {% if section.blocks.size > 0 %}
+        <div class="module-image image-slider">
+            {% for block in section.blocks %}
+                {% if block.settings.image != blank %}
+                {% assign mobile_image = block.settings.image %}
+                {% if block.settings.image_mobile != blank %}
+                    {% assign mobile_image = block.settings.image_mobile %}
+                {% endif %}
+                <picture class="slide-image">
+                    <source media="(max-width: 414px)" srcset="{{ mobile_image | img_url: '414x', format: 'pjpg' }}, {{ mobile_image | img_url: '414x', scale: 2, format: 'pjpg' }} 2x" />
+                    <source media="(max-width: 767px)" srcset="{{ mobile_image | img_url: '767x', format: 'pjpg' }}, {{ mobile_image | img_url: '767x', scale: 2, format: 'pjpg' }} 2x" />
+                    <source media="screen" srcset="{{ block.settings.image | img_url: '1440x', format: 'pjpg' }}, {{ block.settings.image | img_url: '1440x', scale: 2, format: 'pjpg' }} 2x" />
+                    <img src="{{ block.settings.image | img_url: '1440x', format: 'pjpg' }}" alt="{{ block.settings.image_title }}" />
+                </picture>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<div class="module module-heading">
+    <div class="module-intro">
+        <div class="headlines-wrap">
+            <h2 class="headline">{{section.settings.intro_title}}</h2>
+            <div class="subtitle">{{section.settings.intro_subtitle}}</div>
+        </div>
+    </div>
+</div>
+
+{% assign default_locale = 'storesInfo.json' | asset_url %}
+<section class="module store-locator" data-stores-info="{{section.settings.stores_info | default: default_locale }}">
+    <div class="list-container">
+        <div class="location-options-container">
+            <span>{{ 'products.facets.filter_button' | t }}</span>
+        </div>
+        <div class="stores-list" id="stores-list"></div>
+    </div>
+    <div class="map-container"></div>
+</section>
+<script src="{{ 'main-stores-custom.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+    "name": "Stores Page",
+    "max_blocks": 10,
+    "class": "landing-page page-stores",
+    "settings": [
+        {
+            "type": "text",
+            "id": "stores_info",
+            "label": "Store Info URL"
+        },
+        {
+            "type": "header",
+            "content": "Hero"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_mobile",
+            "label": "Mobile Image"
+        },
+        {
+            "type": "header",
+            "content": "Page Intro"
+        },
+        {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Sub Title"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "textarea",
+            "id": "caption",
+            "label": "Caption"
+        },
+        {
+            "type": "color",
+            "id": "title_color",
+            "label": "Title Color",
+            "default": "#000000"
+        },
+        {
+            "type": "header",
+            "content": "Stores Info"
+        },
+        {
+            "type": "text",
+            "id": "intro_title",
+            "label": "Intro Title",
+            "default": "Store Locator"
+        },
+        {
+            "type": "text",
+            "id": "intro_subtitle",
+            "label": "Sub Title",
+            "default": "Find the nearest store"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "slide",
+            "name": "Slide",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image_mobile",
+                    "label": "Mobile Image"
+                },
+                {
+                    "type": "text",
+                    "id": "image_title",
+                    "label": "Image Title"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

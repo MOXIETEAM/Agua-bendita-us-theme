@@ -1,0 +1,320 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_image_q4P9nF": {
+      "type": "hero-image",
+      "blocks": {
+        "heading_HtLWNN": {
+          "type": "heading",
+          "settings": {
+            "heading": "<h1>Error 404</h1>",
+            "hidden_br_mobile": false,
+            "hidden_on_mobile": false,
+            "text_transform": "uppercase",
+            "heading_size": "h_custom",
+            "letter_spacing": 0,
+            "line_height": 1.6,
+            "text_color": "hdt-s-text",
+            "specific_text_color": "#ffffff",
+            "font_size_heading_lg": 23,
+            "font_size_heading_md": 34,
+            "font_size_heading": 34,
+            "font_weight_heading": 500
+          },
+          "blocks": {}
+        },
+        "spacer_c9EKzx": {
+          "type": "spacer",
+          "settings": {
+            "direction": false,
+            "space_lg": 20,
+            "space_md": 20,
+            "space": 20
+          },
+          "blocks": {}
+        },
+        "text_mCJCAL": {
+          "type": "text",
+          "name": "Text",
+          "settings": {
+            "text": "<p>The page you're looking is not available</p>",
+            "hidden_br_mobile": false,
+            "hidden_on_mobile": false,
+            "text_size": "custom",
+            "letter_spacing_text": 0,
+            "line_height": 1.2,
+            "space_bt_title": 15,
+            "space_bt_paragraph": 15,
+            "text_color": "hdt-s-text",
+            "specific_text_color": "#ffffff",
+            "max_width": 0,
+            "font_size_text_lg": 25,
+            "font_size_text_md": 20,
+            "font_size_text": 20,
+            "font_weight_text": 400
+          },
+          "blocks": {}
+        },
+        "spacer_8PnGtx": {
+          "type": "spacer",
+          "settings": {
+            "direction": false,
+            "space_lg": 20,
+            "space_md": 20,
+            "space": 20
+          },
+          "blocks": {}
+        },
+        "text_RRLnN6": {
+          "type": "text",
+          "name": "Text",
+          "settings": {
+            "text": "<p>Keep browsing our site, explore our categories</p>",
+            "hidden_br_mobile": false,
+            "hidden_on_mobile": false,
+            "text_size": "custom",
+            "letter_spacing_text": 0,
+            "line_height": 1.2,
+            "space_bt_title": 15,
+            "space_bt_paragraph": 15,
+            "text_color": "hdt-s-text",
+            "specific_text_color": "#ffffff",
+            "max_width": 0,
+            "font_size_text_lg": 16,
+            "font_size_text_md": 16,
+            "font_size_text": 16,
+            "font_weight_text": 400
+          },
+          "blocks": {}
+        },
+        "spacer_nHaBcJ": {
+          "type": "spacer",
+          "settings": {
+            "direction": false,
+            "space_lg": 30,
+            "space_md": 30,
+            "space": 30
+          },
+          "blocks": {}
+        },
+        "dropdown_menu_L9xzgD": {
+          "type": "dropdown-menu",
+          "name": "Dropdown menu",
+          "settings": {
+            "menu": "category-menu",
+            "open_event": "click",
+            "color_scheme": "scheme-1"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_HtLWNN",
+        "spacer_c9EKzx",
+        "text_mCJCAL",
+        "spacer_8PnGtx",
+        "text_RRLnN6",
+        "spacer_nHaBcJ",
+        "dropdown_menu_L9xzgD"
+      ],
+      "name": "t:sections.hero-image.name",
+      "settings": {
+        "hide_on_desktop": false,
+        "hide_on_mobile": false,
+        "active_from": "",
+        "active_to": "",
+        "image": "shopify://shop_images/Error_Mesa_de_trabajo_1.jpg",
+        "image_mb": "shopify://shop_images/Error-02.jpg",
+        "link_img": "",
+        "target": false,
+        "image_height": "adapt_image",
+        "fixed_height": 860,
+        "image_height_mb": "adapt_image",
+        "fixed_height_mb": 300,
+        "image_behavior": "none",
+        "use_overlay": false,
+        "use_bg_content": false,
+        "content_position": "center-start",
+        "content_align": "left",
+        "content_position_mb": "center-start",
+        "content_align_mb": "left",
+        "full_width": true,
+        "boxed_fullwidth": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 75,
+        "padding_bottom": 36,
+        "padding_rate": 75
+      }
+    },
+    "404": {
+      "type": "404",
+      "blocks": {
+        "text_fnq7RX": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Oops...That link is broken.</p>",
+            "hidden_br_mobile": false,
+            "hidden_on_mobile": false,
+            "text_size": "base",
+            "letter_spacing_text": 0,
+            "line_height": 1.6,
+            "space_bt_title": 15,
+            "space_bt_paragraph": 15,
+            "text_color": "hdt-s-text",
+            "specific_text_color": "",
+            "max_width": 0,
+            "font_size_text_lg": 16,
+            "font_size_text_md": 14,
+            "font_size_text": 14,
+            "font_weight_text": 400
+          },
+          "blocks": {}
+        },
+        "button_qALKey": {
+          "type": "button",
+          "settings": {
+            "label": "Button label",
+            "behavior": "open_link",
+            "link": "",
+            "open_in_new_tab": false,
+            "full_width": false,
+            "style_class": "solid",
+            "text_transform": "none",
+            "font_size": "m",
+            "font_weight": "normal",
+            "font_size_btn": 14,
+            "font_size_btn_mb": 14,
+            "letter_spacing_text": 0,
+            "horizontal_padding_btn": 30,
+            "vertical_padding_btn": 5,
+            "min_width_btn": 100,
+            "min_width_dt_btn": 100,
+            "min_height_btn": 40,
+            "icon": "none",
+            "custom_icon": "none",
+            "icon_position": "after",
+            "icon_height": 14,
+            "icon_spacing": 5
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_fnq7RX",
+        "button_qALKey"
+      ],
+      "disabled": true,
+      "settings": {
+        "hide_on_desktop": false,
+        "hide_on_mobile": false,
+        "active_from": "",
+        "active_to": "",
+        "item_spacing": 30,
+        "item_spacing_tb": 15,
+        "item_spacing_mb": 15,
+        "full_width": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_rate": 75
+      }
+    },
+    "featured_collection_carousel_mLKDxY": {
+      "type": "featured-collection-carousel",
+      "blocks": {
+        "featured-collection-carousel": {
+          "type": "_collection_heading",
+          "static": true,
+          "settings": {
+            "one_line": false,
+            "alignment": "center",
+            "row_gap": 30,
+            "margin_bottom": 30
+          },
+          "blocks": {
+            "heading_fRiRcf": {
+              "type": "heading",
+              "name": "Heading",
+              "settings": {
+                "heading": "<h2>But You May Like This</h2>",
+                "hidden_br_mobile": false,
+                "hidden_on_mobile": false,
+                "text_transform": "uppercase",
+                "heading_size": "h_custom",
+                "letter_spacing": 3,
+                "line_height": 1.4,
+                "text_color": "hdt-s-text",
+                "specific_text_color": "",
+                "font_size_heading_lg": 23,
+                "font_size_heading_md": 20,
+                "font_size_heading": 20,
+                "font_weight_heading": 500
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_fRiRcf"
+          ]
+        }
+      },
+      "name": "t:sections.collection_products.carousel_name",
+      "settings": {
+        "hide_on_desktop": false,
+        "hide_on_mobile": false,
+        "active_from": "",
+        "active_to": "",
+        "collection": "swimwear",
+        "product_list": [],
+        "product_des": "13",
+        "image_ratio": "adapt_image",
+        "image_size": true,
+        "show_alt_image": false,
+        "show_secondary_image": false,
+        "show_quick_view": false,
+        "show_wishlist": false,
+        "show_vendor": false,
+        "pr_border": "none",
+        "products_count": 15,
+        "col_dk": "5",
+        "col_tb": "3",
+        "col_mb": "2",
+        "half_item": false,
+        "navUI": true,
+        "btn_vi": "always",
+        "nav_des": "simple",
+        "nav_shape": "rounded",
+        "nav_size": "small",
+        "nav_pos": "middle_out",
+        "nav_icon": "chrvon",
+        "dotUI": true,
+        "hide_dots_on_mobile": false,
+        "dots_des": "default",
+        "dots_align": "center",
+        "dot_distance": 30,
+        "section_fullwidth": true,
+        "color_scheme": "",
+        "horizontal_space_bt_items": 0,
+        "vertical_space_bt_items": 0,
+        "horizontal_space_bt_items_mb": 0,
+        "vertical_space_bt_items_mb": 0,
+        "padding_top": 0,
+        "padding_bottom": 52,
+        "padding_rate": 75
+      }
+    }
+  },
+  "order": [
+    "hero_image_q4P9nF",
+    "404",
+    "featured_collection_carousel_mLKDxY"
+  ]
+}

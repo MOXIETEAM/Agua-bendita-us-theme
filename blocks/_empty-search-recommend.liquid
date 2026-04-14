@@ -1,0 +1,42 @@
+{%- style -%}
+.hdt-group-product-block{z-index:2}
+
+@media (min-width: 768px) {.hdt-group-product-block{position: sticky;top: 3rem;} }
+{%- endstyle -%}
+<div class="hdt-group-product-block hdt-s-gradient hdt-relative" {{ block.shopify_attributes }}>
+  <div id="product-zoom-{{ section.id }}" class="hdt-produc-zoom--wrapp hdt-w-full"></div>
+  <div id="product-info-{{ section.id }}" class="hdt-product-info__list hdt-w-full">
+    {% content_for "blocks" %}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Empty search recommend",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "_media"
+    },
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    },
+    {
+      "type": "_multi_row",
+    },
+    {
+      "type": "_multi_row_2"
+    },
+  ],
+  "settings": [
+  ],
+  "presets": [
+    {
+      "name": "Empty search recommend",
+    }
+  ]
+}
+{% endschema %}
+

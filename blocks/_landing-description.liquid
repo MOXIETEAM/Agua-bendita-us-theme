@@ -1,0 +1,77 @@
+{%- liquid
+  assign block_id = "#block-" | append: block.id
+-%}
+
+{% style %}
+{{ block_id }} {
+  .hdt-landing-collection-description {
+    line-height: 1.4;
+    font-weight: 300;
+
+    b {font-weight: 700};
+
+    .about-drop {
+      margin-top: 20px;
+      @media(min-width: 1150px) {
+        display: grid;
+        max-width: 500px;
+        margin: 20px auto 0;
+        grid-template-columns: 1fr 1fr;
+        text-align: left;
+        .left-column {
+          text-align: right;
+         }
+        .right-column {
+          text-align: left;
+         }
+      }
+
+       div {padding: 0 10px}
+    }
+
+    @media(min-width: 1150px) {
+      &.mobile {
+        display: none !important;
+      }
+    }
+    @media(max-width: 1149px) {
+      &.desktop {
+        display: none !important;
+      }
+    }
+  }
+
+}
+{% endstyle %}
+
+{% liquid
+  assign description_mobile = collection.metafields.custom.landing_description_mobile
+  assign description_desktop = collection.metafields.custom.landing_description
+
+  if description_mobile == blank
+    assign description_mobile = description_desktop
+  endif
+%}
+
+<div id="block-{{ block.id }}" class="hdt-landing-bottom-images" {{ block.shopify_attributes }}>
+  <div class="hdt-landing-collection-description desktop" style="max-width: 768px">{{  description_desktop }}</div>
+  <div class="hdt-landing-collection-description mobile" style="max-width: 768px">{{  description_mobile }}</div>
+</div>
+
+{% schema %}
+{
+  "name": "Landing description",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "This block using metafield custom.landing_description and custom.landing_description_mobile of collection to display the description for collection landing pages"
+    },
+  ],
+  "presets": [
+    {
+      "name": "Landing description"
+    }
+  ]
+}
+{% endschema %}

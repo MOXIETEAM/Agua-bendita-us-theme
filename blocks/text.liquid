@@ -1,0 +1,330 @@
+{% liquid
+  assign effect = 'hdt-reveal="slide-in" timeline'
+  if section.id contains 'slideshow'
+    assign effect = 'reval'
+  endif   
+  if section.id contains 'footer'
+    assign effect = ''
+  endif   
+  
+%}
+{% liquid
+  capture hide_class
+    render "hide_desktop_mobile", hide_on_desktop: block.settings.hidden_on_desktop, hide_on_mobile: block.settings.hidden_on_mobile
+  endcapture
+%}
+<div {{ effect }} id="block-{{ block.id }}" class="hdt-text-warry hdt-rte {{ block.settings.text_color }}{% if block.settings.hidden_br_mobile %} hdt-br-hidden{% endif %}{% if block.settings.hidden_on_mobile %} hdt-hide-mobile{% endif %}{% if block.settings.text_size == "custom" and block.settings.force_custom_size %} hdt-text-custom-force{% else %} hdt-text-{{ block.settings.text_size }}{% endif %} {{ hide_class }}" {{ block.shopify_attributes }}>
+  {%- assign now_y = 'now' | date: '%Y' -%}
+  {% if block.settings.raw_text != blank %}
+    {{ block.settings.raw_text | replace: "[year]", now_y }}
+  {% else %}
+    {{ block.settings.text | replace: "[year]", now_y }}
+  {% endif %}
+</div>
+{%- style -%}
+  #block-{{ block.id }} {
+    {%- if block.settings.text_size == "custom" -%}
+      --text-custom-lg: {{ block.settings.font_size_text_lg }}px; --text-custom-md: {{ block.settings.font_size_text_md }}px; --text-custom-mb: {{ block.settings.font_size_text }}px; --text-fw: {{ block.settings.font_weight_text }}; --text-ls: {{ block.settings.letter_spacing_text }}px; 
+    {%- endif -%}
+    {% if block.settings.max_width > 0 %}
+      max-width: {{ block.settings.max_width }}px;
+    {% endif %}
+
+    line-height: {{ block.settings.line_height }};
+    --font-heading-line-height: {{ block.settings.line_height }};
+
+    {% if block.settings.text_align != "none" %}
+      text-align: {{ block.settings.text_align }};
+    {% endif %}
+
+    h1, h2, h3, h4, h5, h6 {
+        margin-block-start: {{ block.settings.space_bt_title }}px
+    }
+
+    p {
+        margin-block-start: {{ block.settings.space_bt_paragraph }}px
+    }
+
+    strong {
+      font-weight: bold;
+    }
+
+  }
+  @media(max-width: 1149px) {
+    #block-{{ block.id }} {
+      {% if block.settings.text_align != "none" %}
+        text-align: {{ block.settings.text_align_mb }};
+      {% endif %}
+    }
+  }
+
+  #block-{{ block.id }} {
+    {% if block.settings.font_family_type == "body" %}
+      --font-heading-family: var(--font-body-family);
+    {% endif %}
+  }
+
+  {% if block.settings.text_color_link %}
+    #block-{{ block.id }} a {
+      color: {{ block.settings.text_color_link }};
+    }
+  {% endif %}
+{%- endstyle -%}
+{% if block.settings.specific_text_color != blank %}
+  <style>
+    #block-{{ block.id }} {
+      color: {{ block.settings.specific_text_color }};
+    }
+  </style>
+{% endif %}
+{% schema %}
+{
+  "name": "Text",
+  "tag": null,
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+      "info": "Shift + Enter to line break."
+    },
+    {
+      "type": "html",
+      "id": "raw_text",
+      "label": "Raw text",
+      "info": "If using Raw text, please ignore Text"
+    },
+    {
+      "type": "checkbox",
+      "id": "hidden_br_mobile",
+      "label": "Hidden <br> on mobile",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hidden_on_desktop",
+      "label": "Hidden on desktop",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hidden_on_mobile",
+      "label": "Hidden on mobile",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text align (Desktop)",
+      "options": [
+        {"value": "none", "label": "None"},
+        {"value": "start", "label": "Start"},
+        {"value": "end", "label": "End"},
+        {"value": "center", "label": "Center"},
+      ],
+      "default": "none"
+    },
+    {
+      "type": "select",
+      "id": "text_align_mb",
+      "label": "Text align (Tablet, Mobile)",
+      "options": [
+        {"value": "none", "label": "None"},
+        {"value": "start", "label": "Start"},
+        {"value": "end", "label": "End"},
+        {"value": "center", "label": "Center"},
+      ],
+      "default": "none"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": "Size",
+      "options": [
+          {
+            "value": "xs",
+            "label": "Extra Small"
+          },
+          {
+            "value": "sm",
+            "label": "Small"
+          },
+          {
+            "value": "base",
+            "label": "Medium"
+          },
+          {
+            "value": "lg",
+            "label": "Large"
+          },
+          {
+            "value": "xl",
+            "label": "Extra Large"
+          },
+          {
+            "value": "2xl",
+            "label": "2 Extra Large"
+          },
+          {
+            "value": "4xl",
+            "label": "4 Extra Large"
+          },
+          {
+            "value": "custom",
+            "label": "Custom size inline"
+          }
+        ],
+      "default": "base"
+    },
+    {
+      "type": "range",
+      "id": "letter_spacing_text",
+      "min": 0,
+      "max": 10,
+      "step": 0.1,
+      "label": "Letter spacing (in pixel)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "line_height",
+      "min": 0,
+      "max": 2,
+      "step": 0.1,
+      "label": "Line height (Unitless value)",
+      "default": 1.4
+    },
+    {
+      "type": "range",
+      "id": "space_bt_title",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "label": "Space between title(h1, h2 ...)(in pixel)",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "space_bt_paragraph",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "label": "Space between paragraph(in pixel)",
+      "default": 15
+    },
+    {
+      "type": "select",
+      "id": "text_color",
+      "options": [
+        {
+          "value": "hdt-s-text",
+          "label": "Default"
+        },
+        {
+          "value": "hdt-text-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "hdt-text-body-tertiary",
+          "label": "Tertiary"
+        },
+        {
+          "value": "hdt-text-primary",
+          "label": "Accent"
+        }
+      ],
+      "label": "Text color",
+      "default": "hdt-s-text"
+    },
+    {
+      "type": "color",
+      "id": "specific_text_color",
+      "label": "Specific text color",
+      "info": "This option will overwritten color from 'Text color' option if selected."
+    },
+    {
+      "type": "color",
+      "id": "text_color_link",
+      "label": "Text color for link",
+      "default": "#c9a564"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 0,
+      "max": 1024,
+      "step": 16,
+      "unit": "px",
+      "label": "Max width",
+      "default": 0,
+      "info": "Set to 0 to unset max-width"
+    },
+    {
+      "type": "select",
+      "id": "font_family_type",
+      "label": "Font family type for heading",
+      "options": [
+        {"value": "heading", "label": "Font heading"},
+        {"value": "body", "label": "Font body"},
+      ],
+      "default": "body"
+    },
+    {
+      "type": "header",
+      "content": "Custom size options"
+    },
+    {
+      "type": "range",
+      "id": "font_size_text_lg",
+      "min": 10,
+      "max": 70,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "font_size_text_md",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Tablet font size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "font_size_text",
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile font size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "font_weight_text",
+      "min": 100,
+      "max": 900,
+      "step": 100,
+      "label": "Font weight",
+      "default": 400
+    },
+    {
+      "type": "checkbox",
+      "id": "force_custom_size",
+      "label": "Force custom size",
+      "info": "If this option enabled, it will overwrite defined font options(font size, weight) inside text",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text"
+    }
+  ]
+}
+{% endschema %}

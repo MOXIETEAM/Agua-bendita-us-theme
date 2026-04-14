@@ -1,0 +1,414 @@
+{% if page.metafields.custom.page_bg_color != '' %}
+  {% style %}
+    .hdt-section-page-collection .hdt-s-inner {
+      background-color: {{ page.metafields.custom.page_bg_color }};
+      --background-color: {{ page.metafields.custom.page_bg_color }} !important;
+    }
+  {% endstyle %}
+{% endif %}
+<div class="landing-page page-collections{% if page.metafields.custom.css_class != '' %} page-{{page.metafields.custom.css_class | handleize}}{% endif%}" {%- if page.metafields.custom.page_bg_color != '' -%} style="background: {{page.metafields.custom.page_bg_color}}"{% endif %}>
+    {% if page.content != blank %}
+        {% assign section_template = page.content %}
+        {% if section_template == 'page-collections-200' %}
+            {% section 'page-collections-200' %}
+        {% elsif section_template == 'page-collections-199' %}
+            {% section 'page-collections-199' %}
+        {% elsif section_template == 'page-collections-198' %}
+            {% section 'page-collections-198' %}
+        {% elsif section_template == 'page-collections-197' %}
+            {% section 'page-collections-197' %}
+        {% elsif section_template == 'page-collections-196' %}
+            {% section 'page-collections-196' %}
+        {% elsif section_template == 'page-collections-195' %}
+            {% section 'page-collections-195' %}
+        {% elsif section_template == 'page-collections-194' %}
+            {% section 'page-collections-194' %}
+        {% elsif section_template == 'page-collections-193' %}
+            {% section 'page-collections-193' %}
+        {% elsif section_template == 'page-collections-192' %}
+            {% section 'page-collections-192' %}
+        {% elsif section_template == 'page-collections-191' %}
+            {% section 'page-collections-191' %}
+        {% elsif section_template == 'page-collections-190' %}
+            {% section 'page-collections-190' %}
+        {% elsif section_template == 'page-collections-189' %}
+            {% section 'page-collections-189' %}
+        {% elsif section_template == 'page-collections-188' %}
+            {% section 'page-collections-188' %}
+        {% elsif section_template == 'page-collections-187' %}
+            {% section 'page-collections-187' %}
+        {% elsif section_template == 'page-collections-186' %}
+            {% section 'page-collections-186' %}
+        {% elsif section_template == 'page-collections-185' %}
+            {% section 'page-collections-185' %}
+        {% elsif section_template == 'page-collections-184' %}
+            {% section 'page-collections-184' %}
+        {% elsif section_template == 'page-collections-183' %}
+            {% section 'page-collections-183' %}
+        {% elsif section_template == 'page-collections-182' %}
+            {% section 'page-collections-182' %}
+        {% elsif section_template == 'page-collections-181' %}
+            {% section 'page-collections-181' %}
+        {% elsif section_template == 'page-collections-180' %}
+            {% section 'page-collections-180' %}
+        {% elsif section_template == 'page-collections-179' %}
+            {% section 'page-collections-179' %}
+        {% elsif section_template == 'page-collections-178' %}
+            {% section 'page-collections-178' %}
+        {% elsif section_template == 'page-collections-177' %}
+            {% section 'page-collections-177' %}
+        {% elsif section_template == 'page-collections-176' %}
+            {% section 'page-collections-176' %}
+        {% elsif section_template == 'page-collections-175' %}
+            {% section 'page-collections-175' %}
+        {% elsif section_template == 'page-collections-174' %}
+            {% section 'page-collections-174' %}
+        {% elsif section_template == 'page-collections-173' %}
+            {% section 'page-collections-173' %}
+        {% elsif section_template == 'page-collections-172' %}
+            {% section 'page-collections-172' %}
+        {% elsif section_template == 'page-collections-171' %}
+            {% section 'page-collections-171' %}
+        {% elsif section_template == 'page-collections-170' %}
+            {% section 'page-collections-170' %}
+        {% elsif section_template == 'page-collections-169' %}
+            {% section 'page-collections-169' %}
+        {% elsif section_template == 'page-collections-168' %}
+            {% section 'page-collections-168' %}
+        {% elsif section_template == 'page-collections-167' %}
+            {% section 'page-collections-167' %}
+        {% elsif section_template == 'page-collections-166' %}
+            {% section 'page-collections-166' %}
+        {% elsif section_template == 'page-collections-165' %}
+            {% section 'page-collections-165' %}
+        {% elsif section_template == 'page-collections-164' %}
+            {% section 'page-collections-164' %}
+        {% elsif section_template == 'page-collections-163' %}
+            {% section 'page-collections-163' %}
+        {% elsif section_template == 'page-collections-162' %}
+            {% section 'page-collections-162' %}
+        {% elsif section_template == 'page-collections-161' %}
+            {% section 'page-collections-161' %}
+        {% elsif section_template == 'page-collections-160' %}
+            {% section 'page-collections-160' %}
+        {% elsif section_template == 'page-collections-159' %}
+            {% section 'page-collections-159' %}
+        {% elsif section_template == 'page-collections-158' %}
+            {% section 'page-collections-158' %}
+        {% elsif section_template == 'page-collections-157' %}
+            {% section 'page-collections-157' %}
+        {% elsif section_template == 'page-collections-156' %}
+            {% section 'page-collections-156' %}
+        {% elsif section_template == 'page-collections-155' %}
+            {% section 'page-collections-155' %}
+        {% elsif section_template == 'page-collections-154' %}
+            {% section 'page-collections-154' %}
+        {% elsif section_template == 'page-collections-153' %}
+            {% section 'page-collections-153' %}
+        {% elsif section_template == 'page-collections-152' %}
+            {% section 'page-collections-152' %}
+        {% elsif section_template == 'page-collections-151' %}
+            {% section 'page-collections-151' %}
+        {% elsif section_template == 'page-collections-150' %}
+            {% section 'page-collections-150' %}
+        {% elsif section_template == 'page-collections-149' %}
+            {% section 'page-collections-149' %}
+        {% elsif section_template == 'page-collections-148' %}
+            {% section 'page-collections-148' %}
+        {% elsif section_template == 'page-collections-147' %}
+            {% section 'page-collections-147' %}
+        {% elsif section_template == 'page-collections-146' %}
+            {% section 'page-collections-146' %}
+        {% elsif section_template == 'page-collections-145' %}
+            {% section 'page-collections-145' %}
+        {% elsif section_template == 'page-collections-144' %}
+            {% section 'page-collections-144' %}
+        {% elsif section_template == 'page-collections-143' %}
+            {% section 'page-collections-143' %}
+        {% elsif section_template == 'page-collections-142' %}
+            {% section 'page-collections-142' %}
+        {% elsif section_template == 'page-collections-141' %}
+            {% section 'page-collections-141' %}
+        {% elsif section_template == 'page-collections-140' %}
+            {% section 'page-collections-140' %}
+        {% elsif section_template == 'page-collections-139' %}
+            {% section 'page-collections-139' %}
+        {% elsif section_template == 'page-collections-138' %}
+            {% section 'page-collections-138' %}
+        {% elsif section_template == 'page-collections-137' %}
+            {% section 'page-collections-137' %}
+        {% elsif section_template == 'page-collections-136' %}
+            {% section 'page-collections-136' %}
+        {% elsif section_template == 'page-collections-135' %}
+            {% section 'page-collections-135' %}
+        {% elsif section_template == 'page-collections-134' %}
+            {% section 'page-collections-134' %}
+        {% elsif section_template == 'page-collections-133' %}
+            {% section 'page-collections-133' %}
+        {% elsif section_template == 'page-collections-132' %}
+            {% section 'page-collections-132' %}
+        {% elsif section_template == 'page-collections-131' %}
+            {% section 'page-collections-131' %}
+        {% elsif section_template == 'page-collections-130' %}
+            {% section 'page-collections-130' %}
+        {% elsif section_template == 'page-collections-129' %}
+            {% section 'page-collections-129' %}
+        {% elsif section_template == 'page-collections-128' %}
+            {% section 'page-collections-128' %}
+        {% elsif section_template == 'page-collections-127' %}
+            {% section 'page-collections-127' %}
+        {% elsif section_template == 'page-collections-126' %}
+            {% section 'page-collections-126' %}
+        {% elsif section_template == 'page-collections-125' %}
+            {% section 'page-collections-125' %}
+        {% elsif section_template == 'page-collections-124' %}
+            {% section 'page-collections-124' %}
+        {% elsif section_template == 'page-collections-123' %}
+            {% section 'page-collections-123' %}
+        {% elsif section_template == 'page-collections-122' %}
+            {% section 'page-collections-122' %}
+        {% elsif section_template == 'page-collections-121' %}
+            {% section 'page-collections-121' %}
+        {% elsif section_template == 'page-collections-120' %}
+            {% section 'page-collections-120' %}
+        {% elsif section_template == 'page-collections-119' %}
+            {% section 'page-collections-119' %}
+        {% elsif section_template == 'page-collections-118' %}
+            {% section 'page-collections-118' %}
+        {% elsif section_template == 'page-collections-117' %}
+            {% section 'page-collections-117' %}
+        {% elsif section_template == 'page-collections-116' %}
+            {% section 'page-collections-116' %}
+        {% elsif section_template == 'page-collections-115' %}
+            {% section 'page-collections-115' %}
+        {% elsif section_template == 'page-collections-114' %}
+            {% section 'page-collections-114' %}
+        {% elsif section_template == 'page-collections-113' %}
+            {% section 'page-collections-113' %}
+        {% elsif section_template == 'page-collections-112' %}
+            {% section 'page-collections-112' %}
+        {% elsif section_template == 'page-collections-111' %}
+            {% section 'page-collections-111' %}
+        {% elsif section_template == 'page-collections-110' %}
+            {% section 'page-collections-110' %}
+        {% elsif section_template == 'page-collections-109' %}
+            {% section 'page-collections-109' %}
+        {% elsif section_template == 'page-collections-108' %}
+            {% section 'page-collections-108' %}
+        {% elsif section_template == 'page-collections-107' %}
+            {% section 'page-collections-107' %}
+        {% elsif section_template == 'page-collections-106' %}
+            {% section 'page-collections-106' %}
+        {% elsif section_template == 'page-collections-105' %}
+            {% section 'page-collections-105' %}
+        {% elsif section_template == 'page-collections-104' %}
+            {% section 'page-collections-104' %}
+        {% elsif section_template == 'page-collections-103' %}
+            {% section 'page-collections-103' %}
+        {% elsif section_template == 'page-collections-102' %}
+            {% section 'page-collections-102' %}
+        {% elsif section_template == 'page-collections-101' %}
+            {% section 'page-collections-101' %}
+        {% elsif section_template == 'page-collections-100' %}
+            {% section 'page-collections-100' %}
+        {% elsif section_template == 'page-collections-99' %}
+            {% section 'page-collections-99' %}
+        {% elsif section_template == 'page-collections-98' %}
+            {% section 'page-collections-98' %}
+        {% elsif section_template == 'page-collections-97' %}
+            {% section 'page-collections-97' %}
+        {% elsif section_template == 'page-collections-96' %}
+            {% section 'page-collections-96' %}
+        {% elsif section_template == 'page-collections-95' %}
+            {% section 'page-collections-95' %}
+        {% elsif section_template == 'page-collections-94' %}
+            {% section 'page-collections-94' %}
+        {% elsif section_template == 'page-collections-93' %}
+            {% section 'page-collections-93' %}
+        {% elsif section_template == 'page-collections-92' %}
+            {% section 'page-collections-92' %}
+        {% elsif section_template == 'page-collections-91' %}
+            {% section 'page-collections-91' %}
+        {% elsif section_template == 'page-collections-90' %}
+            {% section 'page-collections-90' %}
+        {% elsif section_template == 'page-collections-89' %}
+                {% section 'page-collections-89' %}
+        {% elsif section_template == 'page-collections-88' %}
+            {% section 'page-collections-88' %}
+        {% elsif section_template == 'page-collections-87' %}
+            {% section 'page-collections-87' %}
+        {% elsif section_template == 'page-collections-86' %}
+            {% section 'page-collections-86' %}
+        {% elsif section_template == 'page-collections-85' %}
+            {% section 'page-collections-85' %}
+        {% elsif section_template == 'page-collections-84' %}
+            {% section 'page-collections-84' %}
+        {% elsif section_template == 'page-collections-83' %}
+            {% section 'page-collections-83' %}
+        {% elsif section_template == 'page-collections-82' %}
+            {% section 'page-collections-82' %}
+        {% elsif section_template == 'page-collections-81' %}
+            {% section 'page-collections-81' %}
+        {% elsif section_template == 'page-collections-80' %}
+            {% section 'page-collections-80' %}
+        {% elsif section_template == 'page-collections-79' %}
+            {% section 'page-collections-79' %}
+        {% elsif section_template == 'page-collections-78' %}
+            {% section 'page-collections-78' %}
+        {% elsif section_template == 'page-collections-77' %}
+            {% section 'page-collections-77' %}
+        {% elsif section_template == 'page-collections-76' %}
+            {% section 'page-collections-76' %}
+        {% elsif section_template == 'page-collections-75' %}
+            {% section 'page-collections-75' %}
+        {% elsif section_template == 'page-collections-74' %}
+            {% section 'page-collections-74' %}
+        {% elsif section_template == 'page-collections-73' %}
+            {% section 'page-collections-73' %}
+        {% elsif section_template == 'page-collections-72' %}
+            {% section 'page-collections-72' %}
+        {% elsif section_template == 'page-collections-71' %}
+            {% section 'page-collections-71' %}
+        {% elsif section_template == 'page-collections-70' %}
+            {% section 'page-collections-70' %}
+        {% elsif section_template == 'page-collections-69' %}
+            {% section 'page-collections-69' %}
+        {% elsif section_template == 'page-collections-68' %}
+            {% section 'page-collections-68' %}
+        {% elsif section_template == 'page-collections-67' %}
+            {% section 'page-collections-67' %}
+        {% elsif section_template == 'page-collections-66' %}
+            {% section 'page-collections-66' %}
+        {% elsif section_template == 'page-collections-65' %}
+            {% section 'page-collections-65' %}
+        {% elsif section_template == 'page-collections-64' %}
+            {% section 'page-collections-64' %}
+        {% elsif section_template == 'page-collections-63' %}
+            {% section 'page-collections-63' %}
+        {% elsif section_template == 'page-collections-62' %}
+            {% section 'page-collections-62' %}
+        {% elsif section_template == 'page-collections-61' %}
+            {% section 'page-collections-61' %}
+        {% elsif section_template == 'page-collections-60' %}
+            {% section 'page-collections-60' %}
+        {% elsif section_template == 'page-collections-59' %}
+            {% section 'page-collections-59' %}
+        {% elsif section_template == 'page-collections-58' %}
+            {% section 'page-collections-58' %}
+        {% elsif section_template == 'page-collections-57' %}
+            {% section 'page-collections-57' %}
+        {% elsif section_template == 'page-collections-56' %}
+            {% section 'page-collections-56' %}
+        {% elsif section_template == 'page-collections-55' %}
+            {% section 'page-collections-55' %}
+        {% elsif section_template == 'page-collections-54' %}
+            {% section 'page-collections-54' %}
+        {% elsif section_template == 'page-collections-53' %}
+            {% section 'page-collections-53' %}
+        {% elsif section_template == 'page-collections-52' %}
+            {% section 'page-collections-52' %}
+        {% elsif section_template == 'page-collections-51' %}
+            {% section 'page-collections-51' %}
+        {% elsif section_template == 'page-collections-50' %}
+            {% section 'page-collections-50' %}
+        {% elsif section_template == 'page-collections-49' %}
+            {% section 'page-collections-49' %}
+        {% elsif section_template == 'page-collections-48' %}
+            {% section 'page-collections-48' %}
+        {% elsif section_template == 'page-collections-47' %}
+            {% section 'page-collections-47' %}
+        {% elsif section_template == 'page-collections-46' %}
+            {% section 'page-collections-46' %}
+        {% elsif section_template == 'page-collections-45' %}
+            {% section 'page-collections-45' %}
+        {% elsif section_template == 'page-collections-44' %}
+            {% section 'page-collections-44' %}
+        {% elsif section_template == 'page-collections-43' %}
+            {% section 'page-collections-43' %}
+        {% elsif section_template == 'page-collections-42' %}
+            {% section 'page-collections-42' %}
+        {% elsif section_template == 'page-collections-41' %}
+            {% section 'page-collections-41' %}
+        {% elsif section_template == 'page-collections-40' %}
+            {% section 'page-collections-40' %}
+        {% elsif section_template == 'page-collections-39' %}
+            {% section 'page-collections-39' %}
+        {% elsif section_template == 'page-collections-38' %}
+            {% section 'page-collections-38' %}
+        {% elsif section_template == 'page-collections-37' %}
+            {% section 'page-collections-37' %}
+        {% elsif section_template == 'page-collections-36' %}
+            {% section 'page-collections-36' %}
+        {% elsif section_template == 'page-collections-35' %}
+            {% section 'page-collections-35' %}
+        {% elsif section_template == 'page-collections-34' %}
+            {% section 'page-collections-34' %}
+        {% elsif section_template == 'page-collections-33' %}
+            {% section 'page-collections-33' %}
+        {% elsif section_template == 'page-collections-32' %}
+            {% section 'page-collections-32' %}
+        {% elsif section_template == 'page-collections-31' %}
+            {% section 'page-collections-31' %}
+        {% elsif section_template == 'page-collections-30' %}
+            {% section 'page-collections-30' %}
+        {% elsif section_template == 'page-collections-29' %}
+            {% section 'page-collections-29' %}
+        {% elsif section_template == 'page-collections-28' %}
+            {% section 'page-collections-28' %}
+        {% elsif section_template == 'page-collections-27' %}
+            {% section 'page-collections-27' %}
+        {% elsif section_template == 'page-collections-26' %}
+            {% section 'page-collections-26' %}
+        {% elsif section_template == 'page-collections-25' %}
+            {% section 'page-collections-25' %}
+        {% elsif section_template == 'page-collections-24' %}
+            {% section 'page-collections-24' %}
+        {% elsif section_template == 'page-collections-23' %}
+            {% section 'page-collections-23' %}
+        {% elsif section_template == 'page-collections-22' %}
+            {% section 'page-collections-22' %}
+        {% elsif section_template == 'page-collections-21' %}
+            {% section 'page-collections-21' %}
+        {% elsif section_template == 'page-collections-20' %}
+            {% section 'page-collections-20' %}
+        {% elsif section_template == 'page-collections-19' %}
+            {% section 'page-collections-19' %}
+        {% elsif section_template == 'page-collections-18' %}
+            {% section 'page-collections-18' %}
+        {% elsif section_template == 'page-collections-17' %}
+            {% section 'page-collections-17' %}
+        {% elsif section_template == 'page-collections-16' %}
+            {% section 'page-collections-16' %}
+        {% elsif section_template == 'page-collections-15' %}
+            {% section 'page-collections-15' %}
+        {% elsif section_template == 'page-collections-14' %}
+            {% section 'page-collections-14' %}
+        {% elsif section_template == 'page-collections-13' %}
+            {% section 'page-collections-13' %}
+        {% elsif section_template == 'page-collections-12' %}
+            {% section 'page-collections-12' %}
+        {% elsif section_template == 'page-collections-11' %}
+            {% section 'page-collections-11' %}
+        {% elsif section_template == 'page-collections-10' %}
+            {% section 'page-collections-10' %}
+        {% elsif section_template == 'page-collections-9' %}
+            {% section 'page-collections-9' %}
+        {% elsif section_template == 'page-collections-8' %}
+            {% section 'page-collections-8' %}
+        {% elsif section_template == 'page-collections-7' %}
+            {% section 'page-collections-7' %}
+        {% elsif section_template == 'page-collections-6' %}
+            {% section 'page-collections-6' %}
+        {% elsif section_template == 'page-collections-5' %}
+            {% section 'page-collections-5' %}
+        {% elsif section_template == 'page-collections-4' %}
+            {% section 'page-collections-4' %}
+        {% elsif section_template == 'page-collections-3' %}
+            {% section 'page-collections-3' %}
+        {% elsif section_template == 'page-collections-2' %}
+            {% section 'page-collections-2' %}
+        {% else %}
+            {% section 'page-collections-1' %}
+        {% endif %}
+    {% endif %}
+</div>

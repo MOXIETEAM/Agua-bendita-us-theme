@@ -1,0 +1,170 @@
+
+{% style %}
+  #block-{{ block.id }} {
+    display: {{ block.settings.display_type }};
+    flex-direction: {{ block.settings.direction }};
+    flex-direction: {{ block.settings.direction }};
+    justify-content: {{ block.settings.justify }};
+    align-items: {{ block.settings.align_items }};
+    flex-wrap: {{ block.settings.wrap }};
+    column-gap: {{ block.settings.column_gap }}px;
+    row-gap: {{ block.settings.row_gap }}px;
+    padding: {{ block.settings.padding_top }}px {{ block.settings.padding_right }}px {{ block.settings.padding_bottom }}px {{ block.settings.padding_left }}px;
+  }
+{% endstyle %}
+
+{%liquid
+%}
+
+<div id="block-{{ block.id }}" class="hdt-container-block" color-scheme="{{ block.settings.color_scheme }}" {{ block.shopify_attributes }}>
+  {% content_for 'blocks' %}
+</div>
+
+{% schema %}
+{
+  "name": "Container",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "display_type",
+      "options": [
+        { "value": "flex", "label": "Flex" },
+      ],
+      "default": "flex",
+      "label": "Display type"
+    },
+    {
+      "type": "select",
+      "id": "direction",
+      "options": [
+        { "value": "row", "label": "Row" },
+        { "value": "column", "label": "Column" },
+      ],
+      "default": "row",
+      "label": "Direction"
+    },
+    {
+      "type": "select",
+      "id": "justify",
+      "options": [
+        { "value": "flex-start", "label": "Start" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "End" },
+        { "value": "space-around", "label": "Space around" },
+        { "value": "space-between", "label": "Space between" },
+        { "value": "space-evenly", "label": "Space evenly" },
+      ],
+      "default": "flex-start",
+      "label": "Justify",
+    },
+    {
+      "type": "select",
+      "id": "align_items",
+      "options": [
+        { "value": "flex-start", "label": "Start" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "End" },
+        { "value": "space-around", "label": "Space around" },
+        { "value": "space-between", "label": "Space between" },
+        { "value": "space-evenly", "label": "Space evenly" },
+        { "value": "baseline", "label": "Baseline" },
+        { "value": "normal", "label": "Normal" },
+      ],
+      "default": "normal",
+      "label": "Align items",
+    },
+    {
+      "type": "select",
+      "id": "wrap",
+      "options": [
+        {"value": "wrap", "label": "Yes"},
+        {"value": "no-wrap", "label": "No"},
+      ],
+      "default": "no-wrap",
+      "label": "Wrap"
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Column gap",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Row gap",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_right",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding right",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_left",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding left",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Color"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme"
+    }
+  ],
+  "blocks": [
+    {"type": "@theme"},
+    {"type": "@app"},
+    {"type": "_footer-menu"},
+    {"type": "_copyright"},
+    {"type": "_custom-socials"},
+    {"type": "_footer-slim-menu"},
+  ],
+  "presets": [{"name": "Container"}]
+}
+{% endschema %}

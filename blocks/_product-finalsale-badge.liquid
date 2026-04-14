@@ -1,0 +1,34 @@
+
+{%- liquid
+  assign all_tags = product.tags | downcase
+
+  assign is_final_sale = false
+  if all_tags contains settings.product_finalsale_tag
+    assign is_final_sale = true
+    assign final_sale_badge = settings.product_finalsale_badge
+    assign product_finalsale_msg = settings.product_finalsale_message
+  endif
+
+  assign product_form_id = 'product-form-'| append: section.id | append: product.id
+
+-%}
+
+{%- if is_final_sale -%}
+  <div class="hdt-product-info__item hdt-product__final-sale-badge" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+    <input form="{{ product_form_id}}" type="hidden" id="final-sale" name="properties[{{ final_sale_badge }}]" value="{{ product_finalsale_msg }}"/>
+      <span>{{ final_sale_badge }}</span>
+  </div>
+{%- endif -%}
+{% schema %}
+{
+  "name": "Final sale badge",
+  "tag": null,
+  "settings": [
+  ],
+  "presets": [
+    { 
+      "name": "Final sale badge" ,
+    }
+  ]
+}
+{% endschema %}

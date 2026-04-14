@@ -1,0 +1,25 @@
+<section class="photoslurp-widget-wrapper">
+  <h2 class="hdt-visually-hidden">As seen on Instagram</h2>
+  <div class="container">
+      {% render 'flowbox-product' %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "flowbox-product",
+  "class": "flowbox-section",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+  ],
+  "presets": [
+    {
+      "name": "flowbox-product"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}

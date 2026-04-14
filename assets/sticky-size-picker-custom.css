@@ -1,0 +1,117 @@
+/* sticky-size-picker-custom.css */
+/* Size picker overlay for sticky ATC on mobile */
+
+/* Container: covers viewport when open */
+.hdt-sticky-size-picker {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+.hdt-sticky-size-picker[hidden] {
+  display: none !important;
+}
+.hdt-sticky-size-picker.is-open {
+  pointer-events: auto;
+}
+
+/* Semi-transparent backdrop */
+.hdt-sticky-size-picker__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.hdt-sticky-size-picker.is-open .hdt-sticky-size-picker__overlay {
+  opacity: 1;
+}
+
+/* Bottom panel */
+.hdt-sticky-size-picker__panel {
+  position: relative;
+  background: #fff;
+  border-radius: 1.2rem 1.2rem 0 0;
+  padding: 2rem 1.6rem calc(2rem + var(--hdt-sticky-atc-height, 70px));
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+}
+.hdt-sticky-size-picker.is-open .hdt-sticky-size-picker__panel {
+  transform: translateY(0);
+}
+
+/* Header with title + close */
+.hdt-sticky-size-picker__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.4rem;
+}
+.hdt-sticky-size-picker__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.hdt-sticky-size-picker__close {
+  background: none;
+  border: none;
+  padding: 0.4rem;
+  cursor: pointer;
+  color: inherit;
+  line-height: 0;
+}
+
+/* Size option buttons */
+.hdt-sticky-size-picker__options {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.hdt-sticky-size-picker__option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 5.4rem;
+  padding: 1.2rem 1.6rem;
+  background: #fff;
+  border: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  color: #111;
+}
+.hdt-sticky-size-picker__option:hover:not(:disabled) {
+  color: #0066FF;
+  background-color: rgba(0, 102, 255, 0.05);
+}
+.hdt-sticky-size-picker__option.is-selected {
+  color: #0066FF;
+  background-color: rgba(0, 102, 255, 0.05);
+}
+.hdt-sticky-size-picker__option:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+/* Loading state on button after selection */
+.hdt-sticky-size-picker__option.is-loading {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Only used on mobile */
+@media (min-width: 768px) {
+  .hdt-sticky-size-picker {
+    display: none !important;
+  }
+}

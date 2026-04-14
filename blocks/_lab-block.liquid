@@ -1,0 +1,28 @@
+{% style %}
+.lab-block-text {
+  color: {{ block.settings.color }}
+}
+{% endstyle %}
+<div class="lab-block-text">hoho: {{ block.settings.text }}</div>
+{%content_for 'blocks' %}
+
+
+{% schema %}
+{
+  "name": "lab-block",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "color",
+      "label": "Color"
+    },
+  ],
+  "blocks": [{"type": "@theme"}],
+  "presets": [{"name": "Lab block"}]
+}
+{% endschema %}

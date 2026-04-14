@@ -1,0 +1,1007 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_hV8RKY": {
+      "type": "image-banner",
+      "disabled": true,
+      "settings": {
+        "hide_on_desktop": false,
+        "hide_on_mobile": false,
+        "active_from": "",
+        "active_to": "",
+        "image_height": "adapt_image",
+        "fixed_height": 860,
+        "image_height_mb": "adapt_image",
+        "fixed_height_mb": 300,
+        "hide_placeholder_img": false,
+        "link_img": "shopify://collections/new",
+        "target": false,
+        "image_behavior": "none",
+        "use_overlay": false,
+        "use_bg_content": false,
+        "content_position": "middle-center",
+        "content_position_mb": "middle-center",
+        "full_width": true,
+        "boxed_fullwidth": false,
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_rate": 0
+      }
+    },
+    "slideshow_jmfCKL": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_item_rNbjhE": {
+          "type": "_slide-item",
+          "settings": {
+            "image": "shopify://shop_images/ENG_1_BannerB_desktop_76b4576c-c0d4-48d4-9295-aed1052d16a7.jpg",
+            "image_mb": "shopify://shop_images/ENG_1_BannerB_mobil_ebfece5f-fd23-4614-bb8a-909e1b0a91c8.jpg",
+            "url": "shopify://pages/essentials-swimsuits",
+            "banner_target": false,
+            "color_scheme": "",
+            "content_position": "center-start",
+            "alignment": "left",
+            "content_position_mb": "center-start",
+            "alignment_mb": "left",
+            "image_height": "adapt_image",
+            "fixed_height": 860,
+            "image_height_mb": "adapt_image",
+            "fixed_height_mb": 300,
+            "background_content": false,
+            "bg_opacity": 0,
+            "box_square": false,
+            "content_rounded": false,
+            "use_border_content": false,
+            "border_opacity": 0,
+            "border_style": "none",
+            "border_pd_dk": 0,
+            "padding_vertical": 0,
+            "padding_horizontal": 0,
+            "min_width_content": 100,
+            "border_pd": 0,
+            "full_width": true
+          },
+          "blocks": {}
+        },
+        "slide_item_8MaGf8": {
+          "type": "_slide-item",
+          "settings": {
+            "image": "shopify://shop_images/ENG_1_BannerB_desktop-2.jpg",
+            "image_mb": "shopify://shop_images/ENG_1_BannerB_mobil-2.jpg",
+            "url": "shopify://collections/new",
+            "banner_target": false,
+            "color_scheme": "",
+            "content_position": "center-start",
+            "alignment": "left",
+            "content_position_mb": "center-start",
+            "alignment_mb": "left",
+            "image_height": "adapt_image",
+            "fixed_height": 860,
+            "image_height_mb": "adapt_image",
+            "fixed_height_mb": 300,
+            "background_content": false,
+            "bg_opacity": 0,
+            "box_square": false,
+            "content_rounded": false,
+            "use_border_content": false,
+            "border_opacity": 0,
+            "border_style": "none",
+            "border_pd_dk": 0,
+            "padding_vertical": 0,
+            "padding_horizontal": 0,
+            "min_width_content": 100,
+            "border_pd": 0,
+            "full_width": true
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "slide_item_rNbjhE",
+        "slide_item_8MaGf8"
+      ],
+      "name": "Banner rotativo",
+      "settings": {
+        "hide_on_desktop": false,
+        "hide_on_mobile": false,
+        "active_from": "",
+        "active_to": "",
+        "image_height": "adapt_image",
+        "fixed_height": 700,
+        "image_height_mb": "adapt_image",
+        "fixed_height_mb": 300,
+        "is_fade": false,
+        "loop": true,
+        "auto_play": 6,
+        "pause_hover": false,
+        "navUI": true,
+        "nav_des": "default",
+        "nav_rounded_full": false,
+        "dotUI": true,
+        "dot_vertical": false,
+        "dot_style": "default",
+        "dot_align": "center",
+        "dot_space": 30,
+        "color_scheme": "",
+        "full_width": true
+      }
+    },
+    "banner_ccDbDC": {
+      "type": "banner",
+      "blocks": {
+        "banner_item_AgtQeE": {
+          "type": "_banner-item",
+          "settings": {
+            "banner_url": "shopify://collections/ready-to-wear",
+            "banner_target": false,
+            "use_as_placeholder_for_video": false,
+            "img_effect": "none",
+            "b_effect": "none",
+            "color_scheme": "",
+            "content_position": "center",
+            "alignment": "center",
+            "content_position_mb": "center",
+            "alignment_mb": "center"
+          },
+          "blocks": {
+            "banner-media": {
+              "type": "_media",
+              "static": true,
+              "settings": {
+                "source": "image",
+                "image": "shopify://shop_images/ENG_2_BannerA_0eb81bfb-2563-4b77-aa3f-501e574e4890.jpg",
+                "external_video_url": "",
+                "link": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "banner_item_7rXqPn": {
+          "type": "_banner-item",
+          "settings": {
+            "banner_url": "shopify://collections/women-swimwear",
+            "banner_target": false,
+            "use_as_placeholder_for_video": false,
+            "img_effect": "none",
+            "b_effect": "none",
+            "color_scheme": "",
+            "content_position": "center",
+            "alignment": "center",
+            "content_position_mb": "center",
+            "alignment_mb": "center"
+          },
+          "blocks": {
+            "banner-media": {
+              "type": "_media",
+              "static": true,
+              "settings": {
+                "source": "image",
+                "image": "shopify://shop_images/ENG_2_BannerB_4469f5af-be43-4f28-8ecc-4f5afc527a85.jpg",
+                "external_video_url": "",
+                "link": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "banner_item_NiTzk7": {
+          "type": "_banner-item",
+          "settings": {
+            "banner_url": "shopify://collections/sets",
+            "banner_target": false,
+            "use_as_placeholder_for_video": false,
+            "img_effect": "none",
+            "b_effect": "none",
+            "color_scheme": "",
+            "content_position": "center",
+            "alignment": "center",
+            "content_position_mb": "center",
+            "alignment_mb": "center"
+          },
+          "blocks": {
+            "banner-media": {
+              "type": "_media",
+              "static": true,
+              "settings": {
+                "source": "image",
+                "image": "shopify://shop_images/ENG_2_BannerC_7b8fe725-a96f-4b1d-997b-6169ed9d2cef.jpg",
+                "external_video_url": "",
+                "link": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "banner-heading": {
+          "type": "section-heading",
+          "disabled": true,
+          "static": true,
+          "settings": {
+            "alignment": "left",
+            "row_gap": 15,
+            "row_gap_mb": 8,
+            "margin_bottom": 30,
+            "margin_bottom_mb": 30
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "banner_item_AgtQeE",
+        "banner_item_7rXqPn",
+        "banner_item_NiTzk7"
+      ],
+      "name": "Banners desktop",
+      "settings": {
+        "active_from": "",
+        "active_to": "",
+        "hide_on_desktop": false,
+        "hide_on_mobile": true,
+        "vertical_space_images": 4,
+        "horizontal_space_images": 4,
+        "image_height": "full",
+        "fixed_height": 400,
+        "image_height_mb": "fixed",
+        "fixed_height_mb": 300,
+        "col_dk": "3",
+        "col_tb": "2",
+        "col_mb": "2",
+        "scrollnap": true,
+        "color_scheme": "",
+        "box_content": false,
+        "full_width": true,
+        "gap_r": 0,
+        "gap_c": 0,
+        "gap_r_mb": 0,
+        "gap_c_mb": 0,
+        "padding_top": 4,
+        "padding_bottom": 0,
+        "padding_rate": 0
+      }
+    },
+    "banner_XmHGQf": {
+      "type": "banner",
+      "blocks": {
+        "banner_item_JhiCMg": {
+          "type": "_banner-item",
+          "settings": {
+            "banner_url": "shopify://collections/ready-to-wear",
+            "banner_target": false,
+            "use_as_placeholder_for_video": false,
+            "img_effect": "none",
+            "b_effect": "none",
+            "color_scheme": "",
+            "content_position": "center",
+            "alignment": "center",
+            "content_position_mb": "center",
+            "alignment_mb": "center"
+          },
+          "blocks": {
+            "banner-media": {
+              "type": "_media",
+              "static": true,
+              "settings": {
+                "source": "image",
+                "image": "shopify://shop_images/mobile-_ENG_2_BannerA_30e95726-c18e-4118-a301-4ef8991aa11e.jpg",
+                "external_video_url": "",
+                "link": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "banner_item_JHADwQ": {
+          "type": "_banner-item",
+          "settings": {
+            "banner_url": "shopify://collections/women-swimwear",
+            "banner_target": false,
+            "use_as_placeholder_for_video": false,
+            "img_effect": "none",
+            "b_effect": "none",
+            "color_scheme": "",
+            "content_position": "center",
+            "alignment": "center",
+            "content_position_mb": "center",
+            "alignment_mb": "center"
+          },
+          "blocks": {
+            "banner-media": {
+              "type": "_media",
+              "static": true,
+              "settings": {
+                "source": "image",
+                "image": "shopify://shop_images/mobile-_ENG_2_BannerB_b87887f6-6372-4b8f-821b-7dbe8fd1ce54.jpg",
+                "external_video_url": "",
+                "link": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "banner-heading": {
+          "type": "section-heading",
+          "disabled": true,
+          "static": true,
+          "settings": {
+            "alignment": "left",
+            "row_gap": 15,
+            "row_gap_mb": 8,
+            "margin_bottom": 30,
+            "margin_bottom_mb": 30
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "banner_item_JhiCMg",
+        "banner_item_JHADwQ"
+      ],
+      "name": "Banners mobile",
+      "settings": {
+        "active_from": "",
+        "active_to": "",
+        "hide_on_desktop": true,
+        "hide_on_mobile": false,
+        "vertical_space_images": 2,
+        "horizontal_space_images": 2,
+        "image_height": "full",
+        "fixed_height": 400,
+        "image_height_mb": "fixed",
+        "fixed_height_mb": 300,
+        "col_dk": "3",
+        "col_tb": "2",
+        "col_mb": "2",
+        "scrollnap": false,
+        "color_scheme": "",
+        "box_content": false,
+        "full_width": true,
+        "gap_r": 0,
+        "gap_c": 0,
+        "gap_r_mb": 0,
+        "gap_c_mb": 0,
+        "padding_top": 2,
+        "padding_bottom": 0,
+        "padding_rate": 100
+      }
+    },
+    "featured_collection_carousel_9wW8nw": {
+      "type": "featured-collection-carousel",
+      "blocks": {
+        "featured-collection-carousel": {
+          "type": "_collection_heading",
+          "static": true,
+          "settings": {
+            "one_line": false,
+            "alignment": "center",
+            "row_gap": 15,
+            "row_gap_mb": 15,
+            "margin_bottom": 20,
+            "margin_bottom_mb": 20
+          },
+          "blocks": {
+            "heading_LEAktH": {
+              "type": "heading",
+              "settings": {
+                "heading": "<h2>AGUA BENDITA ESSENTIALS</h2>",
+                "raw_heading": "",
+                "hidden_br_mobile": false,
+                "hidden_on_desktop": false,
+                "hidden_on_mobile": false,
+                "font_family_type": "heading",
+                "text_transform": "none",
+                "text_align": "none",
+                "text_align_mb": "none",
+                "heading_size": "h_custom",
+                "letter_spacing": 0,
+                "line_height": 1,
+                "text_color": "hdt-s-text",
+                "specific_text_color": "",
+                "font_size_heading_lg": 25,
+                "font_size_heading_md": 22,
+                "font_size_heading": 22,
+                "font_weight_heading": 700
+              },
+              "blocks": {}
+            },
+            "text_fELGjy": {
+              "type": "text",
+              "name": "Text(desktop)",
+              "settings": {
+                "text": "",
+                "raw_text": "Inspired by the sun, the sea, and the spirit of freedom. Discover our reversible, handmade swimwear basics:\ntwo looks, one aguabendita style.",
+                "hidden_br_mobile": false,
+                "hidden_on_desktop": false,
+                "hidden_on_mobile": true,
+                "text_align": "none",
+                "text_align_mb": "none",
+                "text_size": "base",
+                "letter_spacing_text": 0,
+                "line_height": 1.4,
+                "space_bt_title": 15,
+                "space_bt_paragraph": 15,
+                "text_color": "hdt-text-secondary",
+                "specific_text_color": "",
+                "text_color_link": "#c9a564",
+                "max_width": 0,
+                "font_family_type": "body",
+                "font_size_text_lg": 14,
+                "font_size_text_md": 14,
+                "font_size_text": 14,
+                "font_weight_text": 400,
+                "force_custom_size": false
+              },
+              "blocks": {}
+            },
+            "text_VdND74": {
+              "type": "text",
+              "name": "Text(mobile)",
+              "settings": {
+                "text": "",
+                "raw_text": "Inspired by the sun, the sea, and the spirit of freedom. Discover our reversible, <br>handmade swimwear basics:\ntwo looks, one aguabendita style.",
+                "hidden_br_mobile": false,
+                "hidden_on_desktop": true,
+                "hidden_on_mobile": false,
+                "text_align": "none",
+                "text_align_mb": "none",
+                "text_size": "base",
+                "letter_spacing_text": 0,
+                "line_height": 1.4,
+                "space_bt_title": 15,
+                "space_bt_paragraph": 15,
+                "text_color": "hdt-text-secondary",
+                "specific_text_color": "",
+                "text_color_link": "#c9a564",
+                "max_width": 0,
+                "font_family_type": "body",
+                "font_size_text_lg": 14,
+                "font_size_text_md": 14,
+                "font_size_text": 14,
+                "font_weight_text": 400,
+                "force_custom_size": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_LEAktH",
+            "text_fELGjy",
+            "text_VdND74"
+          ]
+        }
+      },
+      "settings": {
+        "hide_on_desktop": false,
+        "hide_on_mobile": false,
+        "active_from": "",
+        "active_to": "",
+        "collection": "home-sale",
+        "product_list": [],
+        "product_des": "13",
+        "image_ratio": "adapt_image",
+        "image_size": true,
+        "show_alt_image": false,
+        "show_secondary_image": true,
+        "show_quick_view": true,
+        "show_wishlist": true,
+        "show_price": true,
+        "show_custom_size_selector": true,
+        "show_vendor": false,
+        "pr_border": "none",
+        "products_count": 12,
+        "col_dk": "4",
+        "col_tb": "3",
+        "col_mb": "2",
+        "half_item": false,
+        "navUI": true,
+        "btn_vi": "always",
+        "nav_des": "simple",
+        "nav_shape": "rounded",
+        "nav_size": "small",
+        "nav_pos": "middle_out",
+        "nav_icon": "chrvon",
+        "dotUI": true,
+        "hide_dots_on_mobile": false,
+        "dots_des": "default",
+        "dots_align": "center",
+        "dot_distance": 30,
+        "section_fullwidth": true,
+        "color_scheme": "",
+        "horizontal_space_bt_items": 0,
+        "vertical_space_bt_items": 0,
+        "horizontal_space_bt_items_mb": 0,
+        "vertical_space_bt_items_mb": 0,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_rate": 100
+      }
+    },
+    "banner_Tw9Yed": {
+      "type": "banner",
+      "blocks": {
+        "banner_item_zEdPQY": {
+          "type": "_banner-item",
+          "settings": {
+            "banner_url": "shopify://collections/one-piece",
+            "banner_target": false,
+            "use_as_placeholder_for_video": false,
+            "img_effect": "none",
+            "b_effect": "none",
+            "color_scheme": "",
+            "content_position": "center",
+            "alignment": "center",
+            "content_position_mb": "center",
+            "alignment_mb": "center"
+          },
+          "blocks": {
+            "banner-media": {
+              "type": "_media",
+              "static": true,
+              "settings": {
+                "source": "image",
+                "image": "shopify://shop_images/Home_2A-DESK.jpg",
+                "external_video_url": "",
+                "link": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "banner_item_reWDKi": {
+          "type": "_banner-item",
+          "settings": {
+            "banner_url": "shopify://collections/batik-resort-2026",
+            "banner_target": false,
+            "use_as_placeholder_for_video": false,
+            "img_effect": "none",
+            "b_effect": "none",
+            "color_scheme": "",
+            "content_position": "center",
+            "alignment": "center",
+            "content_position_mb": "center",
+            "alignment_mb": "center"
+          },
+          "blocks": {
+            "banner-media": {
+              "type": "_media",
+              "static": true,
+              "settings": {
+                "source": "image",
+                "image": "shopify://shop_images/ENG_3_BannerB_27a8f1ca-9d03-4d2f-828b-91fb3b7be3d5.jpg",
+                "external_video_url": "",
+                "link": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "banner_item_CKhypc": {
+          "type": "_banner-item",
+          "settings": {
+            "banner_url": "shopify://collections/beachwear-cover-ups",
+            "banner_target": false,
+            "use_as_placeholder_for_video": false,
+            "img_effect": "none",
+            "b_effect": "none",
+            "color_scheme": "",
+            "content_position": "center",
+            "alignment": "center",
+            "content_position_mb": "center",
+            "alignment_mb": "center"
+          },
+          "blocks": {
+            "banner-media": {
+              "type": "_media",
+              "static": true,
+              "settings": {
+                "source": "image",
+                "image": "shopify://shop_images/ENG_3_BannerC_8aabd2a2-b5c8-449b-adbc-260b97b09ffb.jpg",
+                "external_video_url": "",
+                "link": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "banner-heading": {
+          "type": "section-heading",
+          "disabled": true,
+          "static": true,
+          "settings": {
+            "alignment": "left",
+            "row_gap": 15,
+            "row_gap_mb": 8,
+            "margin_bottom": 30,
+            "margin_bottom_mb": 30
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "banner_item_zEdPQY",
+        "banner_item_reWDKi",
+        "banner_item_CKhypc"
+      ],
+      "name": "Banners desktop",
+      "settings": {
+        "active_from": "",
+        "active_to": "",
+        "hide_on_desktop": false,
+        "hide_on_mobile": true,
+        "vertical_space_images": 4,
+        "horizontal_space_images": 4,
+        "image_height": "full",
+        "fixed_height": 400,
+        "image_height_mb": "fixed",
+        "fixed_height_mb": 300,
+        "col_dk": "3",
+        "col_tb": "2",
+        "col_mb": "2",
+        "scrollnap": true,
+        "color_scheme": "",
+        "box_content": false,
+        "full_width": true,
+        "gap_r": 0,
+        "gap_c": 0,
+        "gap_r_mb": 0,
+        "gap_c_mb": 0,
+        "padding_top": 4,
+        "padding_bottom": 0,
+        "padding_rate": 0
+      }
+    },
+    "banner_NBJpdp": {
+      "type": "banner",
+      "blocks": {
+        "banner_item_gWhTcg": {
+          "type": "_banner-item",
+          "settings": {
+            "banner_url": "shopify://collections/beachwear-cover-ups",
+            "banner_target": false,
+            "use_as_placeholder_for_video": false,
+            "img_effect": "none",
+            "b_effect": "none",
+            "color_scheme": "",
+            "content_position": "center",
+            "alignment": "center",
+            "content_position_mb": "center",
+            "alignment_mb": "center"
+          },
+          "blocks": {
+            "banner-media": {
+              "type": "_media",
+              "static": true,
+              "settings": {
+                "source": "image",
+                "image": "shopify://shop_images/mobile-_ENG_3_BannerA_8e16cb20-d847-477e-899a-5ba5d5ce25f5.jpg",
+                "external_video_url": "",
+                "link": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "banner_item_7h6rHi": {
+          "type": "_banner-item",
+          "settings": {
+            "banner_url": "shopify://collections/dresses",
+            "banner_target": false,
+            "use_as_placeholder_for_video": false,
+            "img_effect": "none",
+            "b_effect": "none",
+            "color_scheme": "",
+            "content_position": "center",
+            "alignment": "center",
+            "content_position_mb": "center",
+            "alignment_mb": "center"
+          },
+          "blocks": {
+            "banner-media": {
+              "type": "_media",
+              "static": true,
+              "settings": {
+                "source": "image",
+                "image": "shopify://shop_images/mobile-_ENG_3_BannerB_a740ce18-cb5d-458c-b4b4-7f7d63e478ec.jpg",
+                "external_video_url": "",
+                "link": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "banner-heading": {
+          "type": "section-heading",
+          "disabled": true,
+          "static": true,
+          "settings": {
+            "alignment": "left",
+            "row_gap": 15,
+            "row_gap_mb": 8,
+            "margin_bottom": 30,
+            "margin_bottom_mb": 30
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "banner_item_gWhTcg",
+        "banner_item_7h6rHi"
+      ],
+      "name": "Banners mobile",
+      "settings": {
+        "active_from": "",
+        "active_to": "",
+        "hide_on_desktop": true,
+        "hide_on_mobile": false,
+        "vertical_space_images": 2,
+        "horizontal_space_images": 2,
+        "image_height": "full",
+        "fixed_height": 400,
+        "image_height_mb": "fixed",
+        "fixed_height_mb": 300,
+        "col_dk": "3",
+        "col_tb": "2",
+        "col_mb": "2",
+        "scrollnap": false,
+        "color_scheme": "",
+        "box_content": false,
+        "full_width": true,
+        "gap_r": 0,
+        "gap_c": 0,
+        "gap_r_mb": 0,
+        "gap_c_mb": 0,
+        "padding_top": 2,
+        "padding_bottom": 0,
+        "padding_rate": 100
+      }
+    },
+    "image_banner_N6aiTt": {
+      "type": "image-banner",
+      "disabled": true,
+      "settings": {
+        "hide_on_desktop": false,
+        "hide_on_mobile": false,
+        "active_from": "",
+        "active_to": "",
+        "image_height": "adapt_image",
+        "fixed_height": 860,
+        "image_height_mb": "adapt_image",
+        "fixed_height_mb": 300,
+        "hide_placeholder_img": false,
+        "link_img": "shopify://collections/sets",
+        "target": false,
+        "image_behavior": "none",
+        "use_overlay": false,
+        "use_bg_content": false,
+        "content_position": "middle-center",
+        "content_position_mb": "middle-center",
+        "full_width": true,
+        "boxed_fullwidth": false,
+        "color_scheme": "",
+        "padding_top": 13,
+        "padding_bottom": 0,
+        "padding_rate": 100
+      }
+    },
+    "custom_section_inWaLE": {
+      "type": "custom-section",
+      "blocks": {
+        "multi_row_2_8Rb7EX": {
+          "type": "_multi_row_2",
+          "settings": {
+            "hide_on_desktop": false,
+            "hide_on_mobile": false,
+            "flip_content_on_desktop": false,
+            "flip_content_on_mobile": false,
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "padding_left": 0,
+            "padding_right": 0,
+            "padding_top_mb": 0,
+            "padding_bottom_mb": 0,
+            "padding_left_mb": 0,
+            "padding_right_mb": 0,
+            "column_gap_dk": 0,
+            "row_gap_mb": 0,
+            "column_gap_mb": 0,
+            "row_gap_dk": 0,
+            "rounded": "none",
+            "max_width": 0,
+            "align_content": "default",
+            "custom_css": ""
+          },
+          "blocks": {
+            "multi_column_2_A7T8LF": {
+              "type": "_multi_column_2",
+              "settings": {
+                "hide_on_desktop": false,
+                "hide_on_mobile": false,
+                "column_dk": "10",
+                "column_tb": "10",
+                "column_mb": "10",
+                "spacing_h_dk": 0,
+                "spacing_v_dk": 0,
+                "spacing_h_tb": 0,
+                "spacing_v_tb": 0,
+                "spacing_h_mb": 0,
+                "spacing_v_mb": 0,
+                "content_position": "center",
+                "content_position_mb": "center",
+                "alignment": "center",
+                "alignment_mb": "center",
+                "background_color": "#ffffff",
+                "rounded": "none",
+                "max_content_width": 0,
+                "content_width": 0,
+                "align_content": "flex-start",
+                "custom_css": ""
+              },
+              "blocks": {
+                "heading_iGnwEq": {
+                  "type": "heading",
+                  "settings": {
+                    "heading": "<h3>AGUA BENDITA COMMUNITY</h3>",
+                    "raw_heading": "",
+                    "hidden_br_mobile": false,
+                    "hidden_on_desktop": false,
+                    "hidden_on_mobile": false,
+                    "font_family_type": "heading",
+                    "text_transform": "uppercase",
+                    "text_align": "none",
+                    "text_align_mb": "none",
+                    "heading_size": "h_custom",
+                    "letter_spacing": 0,
+                    "line_height": 1,
+                    "text_color": "hdt-s-text",
+                    "specific_text_color": "",
+                    "font_size_heading_lg": 25,
+                    "font_size_heading_md": 22,
+                    "font_size_heading": 22,
+                    "font_weight_heading": 700
+                  },
+                  "blocks": {}
+                },
+                "spacer_RyWyhG": {
+                  "type": "spacer",
+                  "settings": {
+                    "direction": false,
+                    "space_lg": 16,
+                    "space_md": 16,
+                    "space": 16
+                  },
+                  "blocks": {}
+                },
+                "text_N8LEFg": {
+                  "type": "text",
+                  "name": "Text(desktop)",
+                  "settings": {
+                    "text": "",
+                    "raw_text": "We love our <strong>#ABgirls</strong> community! Check our favorite looks so far…\n<br>Tag <strong><a href=\"https://www.instagram.com/aguabenditasw/\" style=\"text-decoration-line: unset;\">@aguabenditasw</a></strong> on IG!\n<style>\n.hpmodule.hp-html-module .headline{\ncolor: #292B28;\ntext-transform: capitalize;\n}\n</style>",
+                    "hidden_br_mobile": false,
+                    "hidden_on_desktop": false,
+                    "hidden_on_mobile": true,
+                    "text_align": "none",
+                    "text_align_mb": "none",
+                    "text_size": "lg",
+                    "letter_spacing_text": 0.4,
+                    "line_height": 1.6,
+                    "space_bt_title": 15,
+                    "space_bt_paragraph": 15,
+                    "text_color": "hdt-text-secondary",
+                    "specific_text_color": "",
+                    "text_color_link": "#c9a564",
+                    "max_width": 1024,
+                    "font_family_type": "body",
+                    "font_size_text_lg": 16,
+                    "font_size_text_md": 14,
+                    "font_size_text": 14,
+                    "font_weight_text": 400,
+                    "force_custom_size": false
+                  },
+                  "blocks": {}
+                },
+                "text_amD4yi": {
+                  "type": "text",
+                  "name": "Text(mobile)",
+                  "settings": {
+                    "text": "",
+                    "raw_text": "We love our <strong>#ABgirls</strong> community\n<br>Check our favorite looks so far…\n<br>Tag <strong><a href=\"https://www.instagram.com/aguabenditasw/\" style=\"text-decoration-line: unset;\">@aguabenditasw</a></strong> on IG! \n<style>\n.hpmodule.hp-html-module .headline{\ncolor: #292B28;\ntext-transform: capitalize;\n}\n</style>",
+                    "hidden_br_mobile": false,
+                    "hidden_on_desktop": true,
+                    "hidden_on_mobile": false,
+                    "text_align": "none",
+                    "text_align_mb": "none",
+                    "text_size": "lg",
+                    "letter_spacing_text": 0.4,
+                    "line_height": 1.6,
+                    "space_bt_title": 15,
+                    "space_bt_paragraph": 15,
+                    "text_color": "hdt-text-secondary",
+                    "specific_text_color": "",
+                    "text_color_link": "#c9a564",
+                    "max_width": 1024,
+                    "font_family_type": "body",
+                    "font_size_text_lg": 16,
+                    "font_size_text_md": 14,
+                    "font_size_text": 14,
+                    "font_weight_text": 400,
+                    "force_custom_size": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "heading_iGnwEq",
+                "spacer_RyWyhG",
+                "text_N8LEFg",
+                "text_amD4yi"
+              ]
+            }
+          },
+          "block_order": [
+            "multi_column_2_A7T8LF"
+          ]
+        }
+      },
+      "block_order": [
+        "multi_row_2_8Rb7EX"
+      ],
+      "settings": {
+        "hide_on_desktop": false,
+        "hide_on_mobile": false,
+        "active_from": "",
+        "active_to": "",
+        "item_spacing": 30,
+        "item_spacing_tb": 15,
+        "item_spacing_mb": 15,
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 26,
+        "padding_bottom": 0,
+        "padding_rate": 77
+      }
+    },
+    "flowbox_homepage_jAekx6": {
+      "type": "flowbox-homepage",
+      "name": "flowbox-homepage",
+      "settings": {
+        "flowKey": "n_vtp2ySTOC5q4eOTXPGYw",
+        "flowLocale": "en-US",
+        "tag_selector_mode": "manual",
+        "manual_tags": "home",
+        "operator": "any"
+      }
+    }
+  },
+  "order": [
+    "image_banner_hV8RKY",
+    "slideshow_jmfCKL",
+    "banner_ccDbDC",
+    "banner_XmHGQf",
+    "featured_collection_carousel_9wW8nw",
+    "banner_Tw9Yed",
+    "banner_NBJpdp",
+    "image_banner_N6aiTt",
+    "custom_section_inWaLE",
+    "flowbox_homepage_jAekx6"
+  ]
+}

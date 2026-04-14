@@ -1,0 +1,40 @@
+{%- comment -%}
+  Renders sort by popover
+
+  Accepts:
+  - results: {Object} Collection or Search object (required)
+  - section_id: {String} The ID of the section that contains this card. (required)
+
+  Usage:
+  {%- render 'sort-by-popover', results: collection -%}
+{%- endcomment -%}
+
+{%- liquid
+  assign sort_by = results.sort_by | default: results.default_sort_by
+  assign option_selected = results.sort_options | where: "value", sort_by | first
+  assign id = results.id | default: 'main_6868'
+-%}
+
+<hdt-popover-sorting class="hdt-popover__sorting" section-id="{{ section_id }}">
+  <button aria-controls="dropdown{{ id }}" aria-owns="listbox{{ id }}" class="hdt-flex hdt-align-center hdt-justify-between">
+    <span class="hdt-block">{{ 'products.sorting.title' | t -}}</span>
+  </button>
+  <hdt-popover class="hdt-popover hdt-dropdown hdt-hidden hdt-collection-sorting" id="dropdown{{ id }}" placement="bottom" color-scheme="{{ settings.color_scheme_dialog }}" config='{ "closeRichlistSelect": true }'>
+      <p slot="header" class="hdt-s-text">{{ 'products.facets.sort_by_label' | t }}</p>
+      <hdt-richlist role="listbox" selected="{{ option_selected.value }}" id="listbox{{ id }}">
+        {%- for option in results.sort_options -%}
+        <button type="button" role="option" value="{{ option.value }}" aria-selected="{% if option.value == sort_by %}true{% else %}false{% endif %}">
+          <span class="hdt-check"></span>
+          <span>{{ 'products.sorting.' | append: option.value | replace: "-", "_" | t | escape }}</span>
+        </button>
+        {%- endfor -%}
+
+        <div class="hdt-divider"></div>
+        <div class="hdt-col hdt-control-sorting">
+          <div class="hdt-control-sorting__title">View</div>
+          {%- render 'layout-switch', results: results, section_id: section_id, controls_id: controls_id, use_text: true, col_mobile: col_mobile, col_tablet: col_tablet, col_desktop: col_desktop -%}
+        </div>
+
+      </hdt-richlist>
+  </hdt-popover>
+</hdt-popover-sorting>

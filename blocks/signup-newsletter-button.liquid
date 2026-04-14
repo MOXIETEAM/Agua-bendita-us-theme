@@ -1,0 +1,35 @@
+
+<signup-newsletter-btn class="hdt-signup-newsletter-btn mox-custom-trigger" {{ block.shopify_attributes }}>
+  {% comment %}
+  <button class="hdt-btn hdt-btn-outline">
+    {{ block.settings.label }}
+    <i class="icon-drop-right"></i>
+  </button>
+  {% endcomment %}
+  <i class="hdt-custom-icon-mail"></i>
+  {% content_for 'block', type: "button", id: "signup-newsletter-btn" %}
+</signup-newsletter-btn>
+
+{% schema %}
+{
+  "name": "Signup Newsletter button",
+  "tag": null,
+  "blocks": [{"type": "button"}],
+  "presets": [
+    {
+      "name": "Signup Newsletter button",
+      "blocks": [
+        {
+          "type": "button",
+          "static": true,
+          "id": "signup-newsletter-btn",
+          "settings": {
+            "label": "Subscribe to our Newsletter",
+            "behavior": "button_only"
+          }
+        },
+      ],
+    }
+  ],
+}
+{% endschema %}

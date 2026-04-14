@@ -1,0 +1,781 @@
+<!-- sections/banner.liquid -->
+{% liquid
+  if block.settings.active_from != blank
+    assign from_dt = block.settings.active_from | date: "%s" | plus: 0
+  else
+    assign from_dt = 'now' | date: '%s' | minus: 1
+  endif
+
+  if block.settings.active_to != blank
+    assign to_dt = block.settings.active_to | date: "%s" | plus: 0
+  else
+    assign to_dt = 'now' | date: '%s' | plus: 1
+  endif
+
+  assign now_dt = "now" | date: "%s" | plus: 0
+%}
+
+{% if from_dt <= now_dt and now_dt <= to_dt %}
+  {% style %}
+    #{{ block.id }} .hdt-media-overlap-content{
+      --media-overlap-content-gap-r: {{ block.settings.gap_r }}px;
+      --media-overlap-content-gap-c: {{ block.settings.gap_c }}px;
+    }
+    #{{block.id}}{ 
+      {% if block.settings.image_height_mb == 'fixed' %}
+        --aspect-ratioapt:{{ block.settings.fixed_height_mb }}px;
+      {% endif %}
+      {% if block.settings.image_height == 'fixed' %}
+        --aspect-ratioapt-md:{{ block.settings.fixed_height }}px;
+      {% endif %}
+      --section-pt: {{ block.settings.padding_top }}px;
+      --section-pb: {{ block.settings.padding_bottom }}px; 
+      --section-prate: {{ block.settings.padding_rate }};
+    }
+    @media (max-width: 767px){
+      #{{ block.id }} .hdt-media-overlap-content{
+        --media-overlap-content-gap-r: {{ block.settings.gap_r_mb }}px;
+        --media-overlap-content-gap-c: {{ block.settings.gap_c_mb }}px;
+      }
+    }
+    /*
+    hdt-video-player > :is(video, iframe,img) {
+      position: absolute !important;
+      height: 100% !important;
+      width: 100% !important;
+      object-fit: cover !important;
+    }
+    */
+
+    /* Make placeholder image full height like video */
+    #{{ block.id }} .hdt-banner__item.hdt-placeholder-for-video .hdt-media-wrapper img {
+    /*
+      position: absolute !important;
+      height: 100vh;
+      width: 100%;
+      object-fit: cover !important;
+      */
+      /*height: 100vh;*/
+    }
+
+    /*
+    #{{ block.id }} .hdt-banner__item.hdt-placeholder-for-video .hdt-media-wrapper {
+      position: absolute !important;
+      height: 100% !important;
+      width: 100% !important;
+      top: 0;
+      left: 0;
+    }
+    */
+
+    /*
+    @media (max-width: 767px) {
+      #{{ block.id }} .hdt-banner__item {
+        height: 100vh;
+      }
+      #{{ block.id }} hdt-video-player {
+        height: 100vh !important;
+      }
+    }
+    */
+
+    {% if block.settings.content_width > 0 %}
+      @media(min-width: 768px) {
+        #{{ block.id }} .hdt-container-full, #{{ block.id }} .hdt-container {
+          width: {{ block.settings.content_width }}%;
+        }
+      }
+    {% endif %}
+
+    {% comment %}
+    {% if block.settings.make_image_as_placeholder %}
+      #{{ block.id }} .hdt-banner-row {
+        position: relative;
+      }
+      #{{ block.id }} .hdt-banner__item.hdt-placeholder-for-video {
+        top: 0;
+        z-index: 1;
+      }
+      #{{ block.id }} .hdt-banner__item:not(.hdt-placeholder-for-video) {
+        z-index: -1;
+      }
+      {% if block.settings.content_width > 0 %}
+        @media(min-width: 768px) {
+          #{{ block.id }} .hdt-container-full, #{{ block.id }} .hdt-container {
+            width: {{ block.settings.content_width }}%;
+          }
+        }
+      {% endif %}
+
+      @media(max-width: 767px) {
+        #{{ block.id }} .hdt-banner-row {
+              --col-width: 100% !important;
+        }
+      }
+    {% endif %}
+    {% endcomment %}
+
+
+  {% endstyle %}
+  {% liquid
+    capture hide_class
+      render "hide_desktop_mobile", hide_on_desktop: block.settings.hide_on_desktop, hide_on_mobile: block.settings.hide_on_mobile
+    endcapture
+  %}
+  <div id="{{ block.id }}" class="hdt-banner-wrapper hdt-s-gradient hdt-section-spacing {{ hide_class }}" color-scheme="{{ block.settings.color_scheme }}">
+    <div class="hdt-container{% if block.settings.full_width %}-full{% endif %}">
+      {% content_for "block", type: "section-heading", id: "banner-heading" %}
+    </div>
+    <div class="hdt-container{% if block.settings.full_width %}-full{% endif %}{% if block.settings.box_content %} hdt-px-15 md:hdt-px-30 lg:hdt-px-40{% endif %}">
+      <div class="hdt-banner-row hdt-row-grid hdt-grid-cols-{{ block.settings.col_mb }} md:hdt-grid-cols-{{ block.settings.col_tb }} lg:hdt-grid-cols-{{ block.settings.col_dk }}{% if block.settings.scrollnap %} hdt-scroll-snap hdt-snap-x hdt-snap-start sm:hdt-snap-grid{% endif %}" style="--col-width:100%;column-gap: {{ block.settings.vertical_space_images }}px; row-gap: {{ block.settings.horizontal_space_images }}px;">
+        {% content_for "blocks" %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% schema %}
+  {
+    "name": "t:sections.banner.name",
+    "class": "hdt-banner hdt-section section-allow-transparent",
+    "tag": "section",
+    "blocks": [
+      {
+        "type": "_custom-banner-item"
+      },
+      {
+        "type": "_banner-item"
+      },
+      {
+        "type": "_banner_item_split"
+      }
+    ],
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:sections.banner.headers.label"
+      },
+      {
+        "id": "active_from",
+        "label": "Active from (YYYY-MM-DD HH:MM:SS)",
+        "type": "text",
+        "placeholder": "Optional"
+      },
+      {
+        "id": "active_to",
+        "label": "Active up to (YYYY-MM-DD HH:MM:SS)",
+        "type": "text",
+        "placeholder": "Optional"
+      },
+      {
+        "id": "hide_on_desktop",
+        "type": "checkbox",
+        "label": "Hide on desktop",
+        "default": false
+      },
+      {
+        "id": "hide_on_mobile",
+        "type": "checkbox",
+        "label": "Hide on tablet, mobile",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "vertical_space_images",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Vertical Space between images",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "horizontal_space_images",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Horizontal Space between images",
+        "default": 0
+      },
+      {
+        "type": "select",
+        "id": "image_height",
+        "options": [
+          {
+            "value": "adapt_image",
+            "label": "t:sections.slideshow.settings.image_height.options__2.label"
+          },
+          {
+            "value": "full",
+            "label": "t:sections.slideshow.settings.image_height.options__3.label"
+          },
+          {
+            "value": "fixed",
+            "label": "t:sections.slideshow.settings.image_height.options__4.label"
+          }
+        ],
+        "default": "adapt_image",
+        "label": "t:sections.slideshow.settings.image_height.label",
+        "info": "t:sections.slideshow.settings.image_height.info"
+      },
+      {
+        "type": "range",
+        "id": "fixed_height",
+        "min": 200,
+        "max": 1000,
+        "step": 10,
+        "unit": "px",
+        "label": "t:sections.slideshow.settings.fixed_height.label",
+        "default": 860
+      },
+      {
+        "type": "select",
+        "id": "image_height_mb",
+        "options": [
+          {
+            "value": "adapt_image",
+            "label": "t:sections.slideshow.settings.image_height.options__2.label"
+          },
+          {
+            "value": "full",
+            "label": "t:sections.slideshow.settings.image_height.options__3.label"
+          },
+          {
+            "value": "fixed",
+            "label": "t:sections.slideshow.settings.image_height.options__4.label"
+          }
+        ],
+        "default": "adapt_image",
+        "label": "t:sections.slideshow.settings.image_height_mb.label"
+      },
+      {
+        "type": "range",
+        "id": "fixed_height_mb",
+        "min": 100,
+        "max": 1000,
+        "step": 10,
+        "unit": "px",
+        "label": "t:sections.slideshow.settings.fixed_height_mb.label",
+        "default": 300
+      },
+      {
+        "type": "select",
+        "id": "col_dk",
+        "label": "Columns Desktop",
+        "options": [
+          {
+            "value": "1",
+            "label": "1"
+          },
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          },
+          {
+            "value": "4",
+            "label": "4"
+          },
+          {
+            "value": "5",
+            "label": "5"
+          },
+          {
+            "value": "6",
+            "label": "6"
+          }
+        ],
+        "default": "3"
+      },
+      {
+        "type": "select",
+        "id": "col_tb",
+        "label": "Columns Tablet",
+        "options": [
+          {
+            "value": "1",
+            "label": "1"
+          },
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          },
+          {
+            "value": "4",
+            "label": "4"
+          },
+          {
+            "value": "5",
+            "label": "5"
+          },
+          {
+            "value": "6",
+            "label": "6"
+          }
+        ],
+        "default": "2"
+      },
+      {
+        "type": "select",
+        "id": "col_mb",
+        "label": "Columns Mobile",
+        "options": [
+          {
+            "value": "1",
+            "label": "1"
+          },
+          {
+            "value": "2",
+            "label": "2"
+          }
+        ],
+        "default": "1"
+      },
+      {
+        "type": "checkbox",
+        "id": "scrollnap",
+        "label": "Enable scrollnap slider on mobile",
+        "default": false,
+        "info": "Scrollnap wil be change the size of banner item"
+      },
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "t:sections.all.colors.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "box_content",
+        "label": "Boxed content",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "full_width",
+        "label": "t:sections.all.full_width.label",
+        "default": false
+      },
+      {
+          "type": "range",
+          "id": "content_width",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "label": "Content Width (Desktop Only)",
+          "default": 0
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.screen.options.desktop"
+      },
+      {
+        "type": "range",
+        "id": "gap_r",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "t:blocks.banner_item.settings.gap_r",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "gap_c",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "t:blocks.banner_item.settings.gap_c",
+        "default": 20
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.screen.options.mobile"
+      },
+      {
+        "type": "range",
+        "id": "gap_r_mb",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "t:blocks.banner_item.settings.gap_r",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "gap_c_mb",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "t:blocks.banner_item.settings.gap_c",
+        "default": 20
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 52
+      },
+      {
+        "type": "range",
+        "id": "padding_rate",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "label": "t:sections.all.padding.padding_rate",
+        "default": 75
+      }
+    ],
+    "presets": [
+      {
+        "name": "t:sections.banner.name",
+        "settings": {
+          "image_height": "fixed",
+          "fixed_height": 400,
+          "image_height_mb": "fixed",
+          "fixed_height_mb": 300,
+          "col_dk": "3",
+          "col_tb": "2",
+          "col_mb": "1",
+          "scrollnap": true,
+          "color_scheme": "",
+          "full_width": false,
+          "gap_r": 20,
+          "gap_c": 20,
+          "gap_r_mb": 20,
+          "gap_c_mb": 20,
+          "padding_top": 0,
+          "padding_bottom": 52,
+          "padding_rate": 49
+        },
+        "blocks": [
+          {
+            "type": "_banner-item",
+            "blocks": [
+              {
+                "type": "heading",
+                "settings": {
+                  "heading": "<p>SALE OFF UP TO 70%</p>",
+                  "hidden_br_mobile": false,
+                  "hidden_on_mobile": false,
+                  "heading_size": "h5",
+                  "text_color": "",
+                  "font_size_heading_lg": 50,
+                  "font_size_heading_md": 30,
+                  "font_size_heading": 24,
+                  "font_weight_heading": 600
+                }
+              },
+              {
+                "type": "text",
+                "settings": {
+                  "text": "<p>SS 2025 New Arrival</p>",
+                  "hidden_br_mobile": false,
+                  "hidden_on_mobile": false,
+                  "text_size": "4xl",
+                  "text_color": "",
+                  "font_size_text_lg": 16,
+                  "font_size_text_md": 14,
+                  "font_size_text": 14,
+                  "font_weight_text": 400,
+                  "letter_spacing_text": 0
+                }
+              },
+              {
+                "type": "spacer",
+                "settings": {
+                  "direction": false,
+                  "space_lg": 50,
+                  "space_md": 50,
+                  "space": 50
+                }
+              },
+              {
+                "type": "button",
+                "settings": {
+                  "label": "Shop now",
+                  "link": "",
+                  "open_in_new_tab": false,
+                  "full_width": false,
+                  "style_class": "solid",
+                  "font_size": "m",
+                  "font_weight": "normal",
+                  "font_size_btn": 14,
+                  "min_width_btn": 100,
+                  "min_width_dt_btn": 100,
+                  "min_height_btn": 40,
+                  "icon": "none",
+                  "icon_position": "after",
+                  "icon_height": 16,
+                  "icon_spacing": 5
+                }
+              }
+            ]
+          },
+          {
+            "type": "_banner-item",
+            "blocks": [
+              {
+                "type": "heading",
+                "settings": {
+                  "heading": "<p>SALE OFF UP TO 70%</p>",
+                  "hidden_br_mobile": false,
+                  "hidden_on_mobile": false,
+                  "heading_size": "h5",
+                  "text_color": "",
+                  "font_size_heading_lg": 50,
+                  "font_size_heading_md": 30,
+                  "font_size_heading": 24,
+                  "font_weight_heading": 600
+                }
+              },
+              {
+                "type": "text",
+                "settings": {
+                  "text": "<p>SS 2025 New Arrival</p>",
+                  "hidden_br_mobile": false,
+                  "hidden_on_mobile": false,
+                  "text_size": "4xl",
+                  "text_color": "",
+                  "font_size_text_lg": 16,
+                  "font_size_text_md": 14,
+                  "font_size_text": 14,
+                  "font_weight_text": 400,
+                  "letter_spacing_text": 0
+                }
+              },
+              {
+                "type": "spacer",
+                "settings": {
+                  "direction": false,
+                  "space_lg": 50,
+                  "space_md": 50,
+                  "space": 50
+                }
+              },
+              {
+                "type": "button",
+                "settings": {
+                  "label": "Shop now",
+                  "link": "",
+                  "open_in_new_tab": false,
+                  "full_width": false,
+                  "style_class": "solid",
+                  "font_size": "m",
+                  "font_weight": "normal",
+                  "font_size_btn": 14,
+                  "min_width_btn": 100,
+                  "min_width_dt_btn": 100,
+                  "min_height_btn": 40,
+                  "icon": "none",
+                  "icon_position": "after",
+                  "icon_height": 16,
+                  "icon_spacing": 5
+                }
+              }
+            ]
+          },
+          {
+            "type": "_banner-item",
+            "blocks": [
+              {
+                "type": "heading",
+                "settings": {
+                  "heading": "<p>SALE OFF UP TO 70%</p>",
+                  "hidden_br_mobile": false,
+                  "hidden_on_mobile": false,
+                  "heading_size": "h5",
+                  "text_color": "",
+                  "font_size_heading_lg": 50,
+                  "font_size_heading_md": 30,
+                  "font_size_heading": 24,
+                  "font_weight_heading": 600
+                }
+              },
+              {
+                "type": "text",
+                "settings": {
+                  "text": "<p>SS 2025 New Arrival</p>",
+                  "hidden_br_mobile": false,
+                  "hidden_on_mobile": false,
+                  "text_size": "4xl",
+                  "text_color": "",
+                  "font_size_text_lg": 16,
+                  "font_size_text_md": 14,
+                  "font_size_text": 14,
+                  "font_weight_text": 400,
+                  "letter_spacing_text": 0
+                }
+              },
+              {
+                "type": "spacer",
+                "settings": {
+                  "direction": false,
+                  "space_lg": 50,
+                  "space_md": 50,
+                  "space": 50
+                }
+              },
+              {
+                "type": "button",
+                "settings": {
+                  "label": "Shop now",
+                  "link": "",
+                  "open_in_new_tab": false,
+                  "full_width": false,
+                  "style_class": "solid",
+                  "font_size": "m",
+                  "font_weight": "normal",
+                  "font_size_btn": 14,
+                  "min_width_btn": 100,
+                  "min_width_dt_btn": 100,
+                  "min_height_btn": 40,
+                  "icon": "none",
+                  "icon_position": "after",
+                  "icon_height": 16,
+                  "icon_spacing": 5
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Video",
+        "blocks": [
+          {
+            "type": "_banner-item",
+            "settings": {
+              "banner_url": "",
+              "banner_target": false,
+              "color_scheme": "",
+              "content_position": "center",
+              "alignment": "center",
+              "content_position_mb": "center",
+              "alignment_mb": "center"
+            },
+            "blocks": [
+              {
+                "type": "heading",
+                "settings": {
+                  "heading": "<p>SALE OFF UP TO 70%</p>",
+                  "hidden_br_mobile": false,
+                  "hidden_on_mobile": false,
+                  "heading_size": "h5",
+                  "text_color": "hdt-s-text",
+                  "font_size_heading_lg": 50,
+                  "font_size_heading_md": 30,
+                  "font_size_heading": 24,
+                  "font_weight_heading": 600
+                }
+              },
+              {
+                "type": "text",
+                "settings": {
+                  "text": "<p>SS 2025 New Arrival</p>",
+                  "hidden_br_mobile": false,
+                  "hidden_on_mobile": false,
+                  "text_size": "4xl",
+                  "text_color": "hdt-s-text",
+                  "font_size_text_lg": 16,
+                  "font_size_text_md": 14,
+                  "font_size_text": 14,
+                  "font_weight_text": 400,
+                  "letter_spacing_text": 0
+                }
+              },
+              {
+                "type": "spacer",
+                "settings": {
+                  "direction": false,
+                  "space_lg": 50,
+                  "space_md": 50,
+                  "space": 50
+                }
+              },
+              {
+                "type": "button",
+                "settings": {
+                  "label": "Shop now",
+                  "link": "",
+                  "open_in_new_tab": false,
+                  "full_width": false,
+                  "style_class": "solid",
+                  "font_size": "m",
+                  "font_weight": "normal",
+                  "font_size_btn": 14,
+                  "min_width_btn": 100,
+                  "min_width_dt_btn": 100,
+                  "min_height_btn": 40,
+                  "icon": "none",
+                  "icon_position": "after",
+                  "icon_height": 16,
+                  "icon_spacing": 5
+                }
+              },
+              {
+                "type": "_media",
+                "static": true,
+                "id": "banner-media",
+                "settings": {
+                  "source": "video",
+                  "external_video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
+                }
+              }
+            ]
+          },
+        ],
+        "settings": {
+          "image_height": "adapt_image",
+          "fixed_height": 400,
+          "image_height_mb": "fixed",
+          "fixed_height_mb": 500,
+          "col_dk": "1",
+          "col_tb": "1",
+          "col_mb": "1",
+          "scrollnap": true,
+          "color_scheme": "",
+          "full_width": true,
+          "gap_r": 20,
+          "gap_c": 20,
+          "gap_r_mb": 20,
+          "gap_c_mb": 20,
+          "padding_top": 0,
+          "padding_bottom": 52,
+          "padding_rate": 49
+        }
+      }
+    ]
+  }
+{% endschema %}
+

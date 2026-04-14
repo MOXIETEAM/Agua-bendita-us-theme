@@ -1,0 +1,48 @@
+
+{%- if block.settings.text_copR != blank -%}
+  <div id="block={{ block.id }}" class=" hdt-footer-copyright hdt-flex hdt-flex-col hdt-justify-center hdt-align-center hdt-s-text2 {{ block.settings.text_size }}" {{ block.shopify_attributes }}>
+    <div class =" hdt-list-toleft hdt-flex hdt-flex-col hdt-text-center md:hdt-text-start">
+      {%- assign now_y = 'now' | date: '%Y' -%}
+      <div class="hdt-coppy-right"> 
+          {{- block.settings.text_copR | replace: "[year]", now_y -}}
+      </div>
+      {%- if block.settings.show_policy == true -%}
+        <ul class="hdt-policies hdt-row-flex md:hdt-justify-start hdt-justify-center">
+          {%- for policy in shop.policies -%}
+            {%- if policy != blank -%}
+              <li class="hdt-inline-flex"><a href="{{ policy.url }}">{{ policy.title }}</a></li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Copyright",
+  "tag": null,
+  "settings": [
+    {
+      "type": "html",
+      "id": "text_copR",
+      "label": "t:sections.footer.settings.text_copR.label",
+      "info": "t:sections.footer.settings.text_copR.info",
+      "default": "© [year] <span class=\"\">Ecomus</span> . All rights reserved."
+    },
+    {
+      "type": "header",
+      "content": "Policy links",
+      "info": "t:sections.footer.settings.policy_links.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_policy",
+      "default": false,
+      "label": "t:sections.footer.settings.show_policy.label"
+    },
+  ],
+  "presets": [{"name": "Copyright"}]
+}
+{% endschema %}

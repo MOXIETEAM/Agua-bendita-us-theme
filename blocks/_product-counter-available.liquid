@@ -1,0 +1,46 @@
+<script>
+const variantStock = [
+    {%- for variant in product.variants -%}
+        { variant: {{- variant.id -}}, inventory: {{- variant.inventory_quantity -}} } {%- unless forloop.last -%},{%- endunless -%} 
+    {%- endfor -%}
+];
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  const formId = document.querySelector("hdt-variant-picker").getAttribute("form");
+  document.querySelector("#" + formId).addEventListener("variant:change", function(e) {
+    console.log("event changed: ", e);
+
+    const inventoryDisplayThreshold = 3;
+
+    const variant = e?.detail?.variant;
+
+    if(typeof variantStock !== 'undefined' && variant){
+        let selectedVariantInventoryInfo = variantStock.filter( (item)=> item.variant == variant.id );
+        let selectedVariantInventory = selectedVariantInventoryInfo[0].inventory;
+        let unitsWording = selectedVariantInventory == 1 ? 'unit' : 'units';
+        // console.log('selectedVariantInventoryInfo', selectedVariantInventoryInfo);
+        // console.log('inventory for selected variant is:', selectedVariantInventoryInfo[0].inventory);
+        if(selectedVariantInventory > 0 && selectedVariantInventory <= inventoryDisplayThreshold){
+            $productWrapper.find('.variant-selection-availability').addClass('active').find('.qty').text(selectedVariantInventory);
+            $productWrapper.find('.variant-selection-availability').find('units').text(unitsWording);
+        }else{
+            $productWrapper.find('.variant-selection-availability').removeClass('active').find('.qty').empty;
+        }
+    }
+
+  });
+
+});
+</script>
+{% schema %}
+{
+  "name": "Available product counter",
+  "tag": null,
+  "settings": [],
+  "presets": [
+    { 
+      "name": "Available product counter",
+    }
+  ]
+}
+{% endschema %}

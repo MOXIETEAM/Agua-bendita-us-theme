@@ -1,0 +1,119 @@
+
+{%-
+  liquid
+  assign pd_item = block.settings.padding_inner | remove: 'px ' | split: ','
+-%}
+
+<div id="block-{{ block.id }}" class= "hdt-footer-menu hdt-border-column-{{ block.settings.border-column }} hdt-col-block hdt-col hdt-relative hdt-text-center" style="--cus-width:{{ block.settings.custom_w_dk }}%;--pd-top: {{ pd_item[0] | default: 0 }};--pd-right: {{ pd_item[1] | default: 0 }};--pd-bottom: {{ pd_item[2] | default: 0 }};--pd-left: {{ pd_item[3] | default: 0 }};" {{ block.shopify_attributes }}>
+  {%- if block.settings.heading_menu != blank -%}
+    <div class="hdt-heading-f collapsible hdt-flex hdt-align-center">
+      <h6 class=" {{ section.settings.heading_fs }} hdt-s-text {{ section.settings.text_weight }}"> {{ block.settings.heading_menu }}</h6>
+      <span class="hdt-collapse-icon hdt-relative"></span>
+    </div>
+  {%- endif -%}
+  {%- if block.settings.menu != blank -%}
+    <ul class="hdt-collapse-content hdt-footer-menu-list">
+      {% if block.settings.enable_contact_form %}
+        <li class="hdt-footer-menu_item hdt-footer-menu_item-contact-form">
+          <a class="link" href="{{ block.settings.contact_form_url }}">{{ "sections.footer.contact_form" | t }}</a>
+        </li>
+      {% endif %}
+      {%- for  link in block.settings.menu.links -%}
+        {%- liquid 
+            assign link_title = link.title | downcase
+            assign link_handle = link.title | handleize
+            assign is_email = false
+            if link.url contains "mailto:"
+                assign is_email = true
+            endif 
+        -%}
+        <li class="hdt-footer-menu_item{% if link.levels > 0 %} has-children{% endif %} {{ link.handle }}">
+          {%- if link.levels > 0 -%} 
+            <p class="link-title">{{ link.title }}</p>
+          {%- else -%}
+            <a class="link{% if is_email %} is-email{% endif %}" href="{{ link.url }}">{{ link.title }}</a>
+          {%- endif -%}
+
+          {%- for sublink in link.links -%}
+            {%- assign is_email = false -%}
+            {%- if sublink.url contains "mailto:" -%}
+              {%- assign is_email = true -%}
+            {%- endif -%}
+            {%- if sublink.url == '/' -%}
+              <p class="info">{{ sublink.title }}</p>
+            {%- else -%}
+              <a class="link{% if is_email %} is-email{% endif %}" href="{{ sublink.url }}">{{ sublink.title }}</a>
+            {%- endif -%}
+          {%- endfor -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Footer menu",
+  "tag": null,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "border-column",
+      "label": "t:sections.footer.settings.border-column",
+      "default": false,
+      "info":"t:sections.footer.settings.info"
+    },
+    {
+      "type": "text",
+      "id": "heading_menu",
+      "default": "Heading",
+      "label": "t:sections.footer.menu.settings.heading_menu"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "footer",
+      "label": "t:sections.footer.menu.settings.menu"
+    },
+    {
+      "type": "text",
+      "id": "padding_inner",
+      "label": "t:sections.footer.settings.padding_inner.label",
+      "placeholder": "30px,,30px,",
+      "info": "t:sections.footer.settings.padding_inner.info",
+      "default": "30px,30px,30px,30px"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.these_columns.content"
+    },
+    {
+      "type": "text",
+      "id": "custom_w_dk",
+      "label": "t:sections.footer.settings.custom_w_dk.label",
+      "info": "t:sections.footer.settings.custom_w_dk.info",
+      "default": "25"
+    },
+    {
+      "type": "header",
+      "content": "Contact form"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_contact_form",
+      "label": "Show contact form",
+      "default": false
+    },
+    {
+      "type": "url",
+      "id": "contact_form_url",
+      "label": "Contact form link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer menu"
+    },
+  ]
+}
+{% endschema %}

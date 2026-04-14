@@ -1,0 +1,50 @@
+{% if block.settings.menu != blank %}
+  <div id="block-{{ block.id }}" class="hdt-custom-dropdown-menu" color-scheme="{{ section.settings.color_scheme }}">
+    <button aria-controls="dropdown{{ block.id }}" aria-owns="listbox{{ block.id }}" class="hdt-flex hdt-align-center hdt-justify-between hdt-custom-dropdown-menu__toggle">
+      Choose a category
+      <span class="hdt-icon"></span>
+    </button>
+    <hdt-popover class="hdt-popover hdt-dropdown hdt-hidden hdt-custom-dropdown-menu__popover" id="dropdown{{ block.id }}" placement="bottom" config='{ "closeRichlistSelect": true }' color-scheme="{{ settings.color_scheme_dialog }}">
+        <hdt-richlist role="listbox" id="listbox{{ block.id }}">
+          {% for link in block.settings.menu.links %}
+            <button type="button" role="option">
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            </button>
+          {%- endfor -%}
+        </hdt-richlist>
+    </hdt-popover>
+  </div>
+{% endif %}
+{% schema %}
+{
+  "name": "Dropdown menu",
+  "tag": null,
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu"
+    },
+    {
+      "type": "select",
+      "id": "open_event",
+      "label": "Open event",
+      "options": [
+        {"value": "click", "label": "Click"},
+        {"value": "hover", "label": "Hover"}
+      ],
+      "default": "click"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label"
+    },
+  ],
+  "presets": [
+    {
+      "name": "Dropdown menu"
+    }
+  ]
+}
+{% endschema %}

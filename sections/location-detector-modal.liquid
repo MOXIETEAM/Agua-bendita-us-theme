@@ -1,0 +1,159 @@
+<!-- sections/newsletter-modal.liquid -->
+{% liquid
+  if section.settings.active_from != blank
+    assign from_dt = section.settings.active_from | date: "%s" | plus: 0
+  else
+    assign from_dt = 'now' | date: '%s' | minus: 1
+  endif
+
+  if section.settings.active_to != blank
+    assign to_dt = section.settings.active_to | date: "%s" | plus: 0
+  else
+    assign to_dt = 'now' | date: '%s' | plus: 1
+  endif
+
+  assign now_dt = "now" | date: "%s" | plus: 0
+%}
+
+{% if from_dt <= now_dt and now_dt <= to_dt %}
+  {{ 'hdt-newsletter-popup.css' | asset_url | stylesheet_tag }}
+  {%- assign s_id = section.id | prepend: 'modalLocationDetector-' -%}
+  {%- liquid
+    capture hide_class
+      render 'hide_desktop_mobile', hide_on_desktop: section.settings.hide_on_desktop, hide_on_mobile: section.settings.hide_on_mobile
+    endcapture
+  -%}
+{% style %}
+  #modalLocationDetector-{{ section.id }}::part(wrapper) {
+    align-items: center;
+  }
+  #modalLocationDetector-{{ section.id }}::part(header) {
+    display: block;
+  }
+  #modalLocationDetector-{{ section.id }}::part(close-button) {
+    width: 30px;
+    height: 30px;
+    border-radius: var(--rounded-full);
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    z-index: 1;
+    background-color: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+    border: none;
+    cursor: pointer;
+    transition: color .25s ease-in-out;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #modalLocationDetector-{{ section.id }}::part(content) {
+    position: relative;
+    max-width: {{ section.settings.max_width_mb }}vw;
+  }
+  @media(min-width: 1025px) {
+    #modalLocationDetector-{{ section.id }}::part(content) {
+      max-width: {{ section.settings.max_width }}px;
+    }
+  }
+{% endstyle %}
+    <hdt-modal id="modalLocationDetector-{{ section.id }}" class="hdt-modal hdt-modal-location-detector hdt-hidden hdt-modal-{{ section.settings.direction }}" color-scheme="{{ section.settings.color_scheme }}">
+      <div class="hdt-wrapper hdt-s-gradient hdt-ratio--adapt_image {% if section.settings.direction == "hor" %} hdt-flex hdt-justify-center{% endif %}">
+        {%- if section.blocks.size > 0 -%}   
+          {% comment %}<div class="hdt-content-wrapper">{% endcomment %}
+            <div class="hdt-content hdt-text-center">
+    <div class="hdt-newsletter-parent hdt-w-full hdt-inline-block">
+                {% content_for 'blocks' %}
+    </div>
+            </div>
+          {% comment %}</div>{% endcomment %}
+        {%- endif -%}
+      </div>
+    </hdt-modal>
+{% endif %}
+{% schema %}
+{
+  "name": "Location detector modal",
+  "class": "hdt-section-admn2-fixed sys-location-detector",
+  "settings": [
+    {
+      "id": "hide_on_desktop",
+      "type": "checkbox",
+      "label": "Hide on desktop",
+      "default": false
+    },
+    {
+      "id": "hide_on_mobile",
+      "type": "checkbox",
+      "label": "Hide on tablet, mobile",
+      "default": false
+    },
+    {
+      "id": "active_from",
+      "label": "Active from (YYYY-MM-DD HH:MM:SS)",
+      "type": "text",
+      "placeholder": "Optional"
+    },
+    {
+      "id": "active_to",
+      "label": "Active up to (YYYY-MM-DD HH:MM:SS)",
+      "type": "text",
+      "placeholder": "Optional"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.newsletter_popup.settings.color",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 500,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "label": "Modal Max width(desktop)",
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "max_width_mb",
+      "min": 50,
+      "max": 100,
+      "step": 10,
+      "unit": "vw",
+      "label": "Modal Max width(mobile)",
+      "default": 80
+    },
+  ],
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    },
+    {
+      "type": "_multi_row",
+    },
+    {
+      "type": "_multi_row_2"
+    },
+    {
+      "type": "_image-banner"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Location detector modal",
+    }
+  ],
+  "enabled_on": {
+    "groups": [
+      "custom.system"
+    ]
+  }
+}
+{% endschema %}

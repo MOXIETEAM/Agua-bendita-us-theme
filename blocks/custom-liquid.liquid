@@ -1,0 +1,123 @@
+{% liquid
+  if block.settings.active_from != blank
+    assign from_dt = block.settings.active_from | date: "%s" | plus: 0
+  else
+    assign from_dt = 'now' | date: '%s' | minus: 1
+  endif
+
+  if block.settings.active_to != blank
+    assign to_dt = block.settings.active_to | date: "%s" | plus: 0
+  else
+    assign to_dt = 'now' | date: '%s' | plus: 1
+  endif
+
+  assign now_dt = "now" | date: "%s" | plus: 0
+%}
+
+{% if from_dt <= now_dt and now_dt <= to_dt %}
+  {% style %}
+    #block-{{ block.id }}{
+      --section-pt: {{ block.settings.padding_top }}px;
+      --section-pb: {{ block.settings.padding_bottom }}px; 
+      --section-prate: {{ block.settings.padding_rate }};
+    }
+  {% endstyle %}
+  {%- liquid
+    capture hide_class
+      render 'hide_desktop_mobile', hide_on_desktop: block.settings.hide_on_desktop, hide_on_mobile: block.settings.hide_on_mobile
+    endcapture
+  -%}
+  <div id="block-{{ block.id }}" class="hdt-section hdt-s-inner hdt-s-gradient hdt-section-spacing {{ hide_class }}" color-scheme="{{ block.settings.color_scheme }}" hdt-reveal="fade-in" {{ block.shopify_attributes }}>
+    <div class="hdt-container {%- if block.settings.section_fullwidth -%}-full{%- endif -%}">
+      {{- block.settings.custom_liquid -}}
+    </div>
+  </div>
+{% endif %}
+{% schema %}
+{
+  "name": "t:sections.custom-liquid.name",
+  "tag": null,
+  "settings": [
+    {
+      "id": "hide_on_desktop",
+      "type": "checkbox",
+      "label": "Hide on desktop",
+      "default": false
+    },
+    {
+      "id": "hide_on_mobile",
+      "type": "checkbox",
+      "label": "Hide on tablet, mobile",
+      "default": false
+    },
+    {
+      "id": "active_from",
+      "label": "Active from (YYYY-MM-DD HH:MM:SS)",
+      "type": "text",
+      "placeholder": "Optional"
+    },
+    {
+      "id": "active_to",
+      "label": "Active up to (YYYY-MM-DD HH:MM:SS)",
+      "type": "text",
+      "placeholder": "Optional"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_fullwidth",
+      "label": "t:sections.all.section_fullwidth",
+      "default": false
+    },
+    {
+      "type": "liquid",
+      "id": "custom_liquid",
+      "label": "t:sections.custom-liquid.settings.custom_liquid.label",
+      "info": "t:sections.custom-liquid.settings.custom_liquid.info"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "padding_rate",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:sections.all.padding.padding_rate",
+      "default": 75
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.custom-liquid.presets.name"
+    }
+  ]
+}
+{% endschema %}

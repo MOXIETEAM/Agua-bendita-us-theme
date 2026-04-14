@@ -1,0 +1,23 @@
+
+{%-liquid
+  if image != blank
+    assign img_class = 'hdt-object-pos-mb hdt-obj-eff'
+    echo '<picture class="hdt-media-wrapper">'
+    if mobile_image != blank and mobile_image != image
+      assign srcset = mobile_image | image_url: width: mobile_image.width | image_tag: widths: '200,400,600,800,1000', alt: null | split: 'srcset="' | last
+      unless srcset contains 'src='
+        echo '<source media="(max-width: 767px)" srcset="' | append: srcset | replace_first: 'style=', 'data-none='
+      endunless
+    endif
+    echo image | image_url: width: image.width | image_tag: loading: 'eager', class: img_class, widths: '100,200,300,400,600,800,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200,3400,3600'
+    echo '</picture>'
+  else
+    capture current
+      cycle 1, 2 , 3
+    endcapture
+    echo '<div class="hdt-media-wrapper hdt-h-full">'
+    echo 'hero-apparel-' | append: current | placeholder_svg_tag: 'placeholder-svg hdt-placeholder hdt-w-full hdt-h-full'
+    echo '</div>'
+  endif
+-%}
+

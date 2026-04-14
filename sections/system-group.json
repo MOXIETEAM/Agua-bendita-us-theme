@@ -1,0 +1,369 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.name_group.system",
+  "type": "custom.system",
+  "sections": {
+    "cart-drawer": {
+      "type": "cart-drawer",
+      "blocks": {
+        "subtotal_8UtWWn": {
+          "type": "subtotal",
+          "settings": {}
+        },
+        "tax_mEDMCP": {
+          "type": "tax",
+          "disabled": true,
+          "settings": {}
+        },
+        "agree_Rhrhcq": {
+          "type": "agree",
+          "disabled": true,
+          "settings": {
+            "content": "I agree with the terms and conditions"
+          }
+        },
+        "btn_cart_checkout_fVQqmY": {
+          "type": "btn_cart_checkout",
+          "settings": {
+            "enable_btn_cart": true,
+            "btn_style_cart": "solid",
+            "btn_fw_cart": "normal",
+            "btn_icon_cart": "none",
+            "enable_btn_continue_shopping": true,
+            "btn_style_continue_shopping": "outline",
+            "btn_fw_continue_shopping": "normal",
+            "btn_icon_continue_shopping": "none",
+            "enable_btn_checkout": false,
+            "btn_style_checkout": "solid",
+            "btn_fw_checkout": "normal",
+            "btn_icon_checkout": "none"
+          }
+        }
+      },
+      "block_order": [
+        "subtotal_8UtWWn",
+        "tax_mEDMCP",
+        "agree_Rhrhcq",
+        "btn_cart_checkout_fVQqmY"
+      ],
+      "custom_css": [
+        ".hdt-mini-cart__view-checkout {display: flex !important; flex-direction: column-reverse;}"
+      ],
+      "settings": {
+        "hide_on_desktop": false,
+        "hide_on_mobile": false,
+        "active_from": "",
+        "active_to": "",
+        "color_scheme": "",
+        "show_free_shipping_bar": true,
+        "show_cart_note": false,
+        "show_gift_wrap": false,
+        "show_shipping_estimator": false,
+        "heading": "You may also like",
+        "product_list": [],
+        "replaces_products_selected": true,
+        "auto_close": true,
+        "auto_close_time": 6
+      }
+    },
+    "newsletter_modal_QQRMYD": {
+      "type": "newsletter-modal",
+      "blocks": {
+        "text_PyXDra": {
+          "type": "text",
+          "settings": {
+            "text": "JOIN OUR COMMUNITY"
+          }
+        },
+        "sub_text_eX6p6q": {
+          "type": "sub_text",
+          "settings": {
+            "sub_text": "Join our exclusive community and <strong>receive 10% off.</strong> Enjoy privileged access to new arrivals, members-only offers, and personalized content"
+          }
+        },
+        "newsletter_mz9adN": {
+          "type": "newsletter",
+          "settings": {
+            "button_lb": "SUBSCRIBE",
+            "btn_fw": "normal",
+            "agree_form": true,
+            "content": "<em>I have read and agree to the </em><a href=\"/pages/terms-and-conditions\" title=\"Terms and conditions\"><em>terms and conditions</em></a>",
+            "terms_content": "<p>AGUA BENDITA LLC in fulfillment of the law 1581 of 2012 and other concordant and additional regulations acts as responsible for the treatment of the data provided to it. The data provided will be processed for the following purposes: For the development of any contractual, commercial, or other relationships you have with AGUA BENDITA SAS and the performance of the obligations arising from them, for the delivery of orders, the registering and processing of transactions on our website, for the communication of advertising and marketing campaigns, for the offering of discounts or promotions of products or services, as well as for the promotion of new products or services; To manage formalities (requests, complaints, claims) and care of guarantees; to share with data controllers that collaborate with the company and that, for the fulfillment of their responsibilities, must have access to some extent to the information, such as courier service providers, advertising agencies, billing companies, product suppliers and service centers for guarantee purposes, among others. As a holder you have the following rights: a) Access free of charge to the data provided that have been subject to treatment.b) To request the updating and modification of your information regarding any partial, inaccurate, incomplete, fractioned, or misleading data, or data whose processing is prohibited or has not been authorized. c) To request proof of the authorization granted. d) To file complaints before the Superintendence of Industry and Commerce (SIC) for violations of the provisions of the regulations in force. e) Revoke the authorization and/or request the removal of the data, unless there is a legal or contractual duty that makes it imperative to keep the information. f) Refrain from answering questions about sensitive data or data of children and adolescents. You may execute the rights of consulting, suppression and revocation and other rights by accessing the user portal of the website <a href=\"http://www.aguabyaguabendita.com/\" target=\"_blank\">www.aguabyaguabendita.com</a>, sending your request in writing to the administrative offices of AGUA BENDITA LLC at 5220 NW 72nd Ave, Suite #3 - Miami, Florida 33166 USA, by email to care@aguabyaguabendita.com.co . To learn more about our policy of personal data processing and its significant changes, please visit <a href=\"https://www.aguabyaguabendita.co/pages/privacy-policy\" target=\"_blank\">https://www.aguabyaguabendita.co/pages/privacy-policy</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_PyXDra",
+        "sub_text_eX6p6q",
+        "newsletter_mz9adN"
+      ],
+      "disabled": true,
+      "settings": {
+        "hide_on_desktop": false,
+        "hide_on_mobile": false,
+        "active_from": "",
+        "active_to": "",
+        "color_scheme": "",
+        "direction": "hor",
+        "after": "scroll",
+        "time_delay": 2,
+        "scroll_delay": 800,
+        "day_next": 1
+      }
+    },
+    "location_detector_modal_8E9CML": {
+      "type": "location-detector-modal",
+      "blocks": {
+        "multi_row_dM6TTA": {
+          "type": "_multi_row",
+          "name": "Multi row 12",
+          "settings": {
+            "hide_on_desktop": false,
+            "hide_on_mobile": false,
+            "flip_content_on_desktop": false,
+            "flip_content_on_mobile": false,
+            "padding_top": 60,
+            "padding_bottom": 60,
+            "padding_left": 80,
+            "padding_right": 80,
+            "padding_top_mb": 10,
+            "padding_bottom_mb": 10,
+            "padding_left_mb": 30,
+            "padding_right_mb": 30,
+            "column_gap_dk": 0,
+            "row_gap_mb": 0,
+            "column_gap_mb": 0,
+            "row_gap_dk": 0,
+            "rounded": "none",
+            "max_width": 0,
+            "align_content": "default"
+          },
+          "blocks": {
+            "multi_column_m9jcdE": {
+              "type": "_multi_column",
+              "name": "Column",
+              "settings": {
+                "hide_on_desktop": false,
+                "hide_on_mobile": false,
+                "column_dk": "12",
+                "column_tb": "12",
+                "column_mb": "12",
+                "spacing_h_dk": 70,
+                "spacing_v_dk": 0,
+                "spacing_h_tb": 30,
+                "spacing_v_tb": 0,
+                "spacing_h_mb": 30,
+                "spacing_v_mb": 0,
+                "content_position": "center",
+                "content_position_mb": "center",
+                "alignment": "center",
+                "alignment_mb": "center",
+                "background_color": "#ffffff",
+                "rounded": "none",
+                "max_content_width": 0,
+                "content_width": 0,
+                "align_content": "flex-start"
+              },
+              "blocks": {
+                "heading_N4pwpE": {
+                  "type": "heading",
+                  "settings": {
+                    "heading": "",
+                    "raw_heading": "<h2 id=\"location-detector-heading\">Are you in<br> {country}?</h2>",
+                    "hidden_br_mobile": false,
+                    "hidden_on_desktop": false,
+                    "hidden_on_mobile": false,
+                    "text_transform": "uppercase",
+                    "text_align": "none",
+                    "text_align_mb": "none",
+                    "heading_size": "h_custom",
+                    "letter_spacing": 1.5,
+                    "line_height": 1.4,
+                    "text_color": "hdt-s-text",
+                    "specific_text_color": "",
+                    "font_size_heading_lg": 23,
+                    "font_size_heading_md": 20,
+                    "font_size_heading": 20,
+                    "font_weight_heading": 500
+                  },
+                  "blocks": {}
+                },
+                "spacer_6kJUk4": {
+                  "type": "spacer",
+                  "name": "Spacer",
+                  "settings": {
+                    "direction": false,
+                    "space_lg": 20,
+                    "space_md": 20,
+                    "space": 20
+                  },
+                  "blocks": {}
+                },
+                "text_DVbAf9": {
+                  "type": "text",
+                  "name": "Text",
+                  "settings": {
+                    "text": "<p>Want us to redirect you there? All the prices will be shown in your current currency.</p>",
+                    "raw_text": "",
+                    "hidden_br_mobile": false,
+                    "hidden_on_desktop": false,
+                    "hidden_on_mobile": false,
+                    "text_align": "none",
+                    "text_align_mb": "none",
+                    "text_size": "custom",
+                    "letter_spacing_text": 0.5,
+                    "line_height": 1.4,
+                    "space_bt_title": 15,
+                    "space_bt_paragraph": 15,
+                    "text_color": "hdt-s-text",
+                    "specific_text_color": "",
+                    "max_width": 0,
+                    "font_size_text_lg": 14,
+                    "font_size_text_md": 14,
+                    "font_size_text": 14,
+                    "font_weight_text": 400
+                  },
+                  "blocks": {}
+                },
+                "spacer_epKhpY": {
+                  "type": "spacer",
+                  "name": "Spacer",
+                  "settings": {
+                    "direction": false,
+                    "space_lg": 40,
+                    "space_md": 40,
+                    "space": 40
+                  },
+                  "blocks": {}
+                },
+                "button_LUfgRm": {
+                  "type": "button",
+                  "name": "Button",
+                  "settings": {
+                    "label": "Go to the Store",
+                    "behavior": "open_link",
+                    "link": "https://locationDetectorPlaceholderUrl.com",
+                    "open_in_new_tab": false,
+                    "full_width": false,
+                    "style_class": "solid",
+                    "text_transform": "uppercase",
+                    "font_size": "custom custom-inline",
+                    "font_weight": "bold",
+                    "font_size_btn": 14,
+                    "font_size_btn_mb": 14,
+                    "letter_spacing_text": 1,
+                    "horizontal_padding_btn": 24,
+                    "vertical_padding_btn": 10,
+                    "min_width_btn": 150,
+                    "min_width_dt_btn": 150,
+                    "min_height_btn": 50,
+                    "icon": "none",
+                    "custom_icon": "none",
+                    "icon_position": "after",
+                    "icon_height": 14,
+                    "icon_spacing": 5
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "heading_N4pwpE",
+                "spacer_6kJUk4",
+                "text_DVbAf9",
+                "spacer_epKhpY",
+                "button_LUfgRm"
+              ]
+            }
+          },
+          "block_order": [
+            "multi_column_m9jcdE"
+          ]
+        }
+      },
+      "block_order": [
+        "multi_row_dM6TTA"
+      ],
+      "name": "Location detector modal",
+      "settings": {
+        "hide_on_desktop": false,
+        "hide_on_mobile": false,
+        "active_from": "",
+        "active_to": "",
+        "color_scheme": "",
+        "max_width": 600,
+        "max_width_mb": 80
+      }
+    },
+    "newsletter-popup": {
+      "type": "newsletter-popup",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {}
+    },
+    "toolbar-mobile": {
+      "type": "toolbar-mobile",
+      "blocks": {
+        "shop_jQccrN": {
+          "type": "shop",
+          "settings": {
+            "title": "Shop",
+            "collection_list": [],
+            "menu_categories": "",
+            "link": ""
+          }
+        },
+        "wishlist_FLDXnV": {
+          "type": "wishlist",
+          "settings": {
+            "title": "Wishlist"
+          }
+        },
+        "cart_qEaYLM": {
+          "type": "cart",
+          "settings": {
+            "title": "Cart"
+          }
+        },
+        "account_KBmadz": {
+          "type": "account",
+          "settings": {
+            "title": "Account"
+          }
+        },
+        "search_wxK4Le": {
+          "type": "search",
+          "settings": {
+            "title": "Search"
+          }
+        }
+      },
+      "block_order": [
+        "shop_jQccrN",
+        "wishlist_FLDXnV",
+        "cart_qEaYLM",
+        "account_KBmadz",
+        "search_wxK4Le"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "show_txt": true
+      }
+    }
+  },
+  "order": [
+    "cart-drawer",
+    "newsletter_modal_QQRMYD",
+    "location_detector_modal_8E9CML",
+    "newsletter-popup",
+    "toolbar-mobile"
+  ]
+}

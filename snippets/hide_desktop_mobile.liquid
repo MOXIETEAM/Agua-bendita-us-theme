@@ -1,0 +1,18 @@
+{%- if hide_type == "style"-%}
+  {%- if hide_on_desktop -%}
+    @media (min-width: 1150px) {
+      {{ selector }} {
+          display: none !important;
+      }
+    }
+  {%- endif -%}
+  {%- if hide_on_mobile -%}
+    @media (max-width: 1149px) {
+      {{ selector }} {
+          display: none !important;
+      }
+    }
+  {%- endif -%}
+{%- else -%}
+  {%- if hide_on_desktop -%}hdt-hide-on-desktop{%- endif -%}{%- if hide_on_mobile %} hdt-hide-on-mobile{%- endif -%}
+{%- endif -%}

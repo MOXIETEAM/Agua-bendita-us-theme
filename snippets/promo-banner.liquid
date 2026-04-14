@@ -1,0 +1,38 @@
+{%- comment -%}
+  Renders product variant options
+
+  Accepts:
+  - url: {String} Promotion URL.
+  - image: {Object} Promotion URL.
+
+{%- endcomment -%}
+
+<hdt-card-product class="hdt-card-product hdt-promo-item hdt-promo-item-content-{{ content_position }}" style="--promo-span-cols: {{ span_cols }}; --vertical-position: {{ vertical_content_position }}%;--horizontal-position: {{ horizontal_content_position }}%;">
+<div class="hdt-card-product__wrapper">
+  <div class="hdt-card-product__media hdt-relative hdt-oh">
+    {% comment %}
+    <a data-pr-url href="{{ url }}" data-instant  calc-nav class="hdt-card-product__media-wrapp"{% if image_ratio == 'adapt_image' %} style="--aspect-ratioapt: {{ image.aspect_ratio | default: '127.7777778%' }}"{% endif %}>
+      {% endcomment %}
+    <a data-pr-url href="{{ url }}" data-instant  calc-nav class="hdt-card-product__media-wrapp hdt-ratio" style="--aspect-ratioapt: {{ ratio }};--aspect-ratioapt-mb: {{ ratio_mb }}">
+      {%- if image -%}
+        {%- liquid
+          assign class = "hdt-card-product__media--main"
+          if image_mobile
+            assign class = class | append: " hdt-hide-on-mobile"
+          endif
+          echo image | image_url: width: image.width | image_tag: loading: 'lazy', sizes: sizes, widths: '165, 360, 533, 668, 720, 940, 940, 1066, 1200, 1450', data-widths: '[165, 360, 533, 668, 720, 940, 940, 1066, 1200, 1450]', class: class
+          if image_mobile
+            echo image_mobile | image_url: width: image_mobile.width | image_tag: loading: 'lazy', sizes: sizes, widths: '165, 360, 533, 668, 720, 940, 940, 1066, 1200, 1450', data-widths: '[165, 360, 533, 668, 720, 940, 940, 1066, 1200, 1450]', class: 'hdt-card-product__media--main hdt-hide-on-desktop'
+          endif
+        -%}
+      {%- endif -%}
+    </a>
+  </div>
+  {% if text != blank and url != blank %}
+    <div class="hdt-card-product__info hdt-card-align-center">
+      <div class="hdt-card-product__title hdt-text-{{ settings.pr_title_size }} hdt-font-{{ settings.pr_title_weight }} hdt-line-clamp" data-instant>{{ text }}</div>
+      <a data-pr-url href="{{ url }}">{{ button_text }}</a>
+    </div>
+  {% endif %}
+</div>
+</hdt-card-product>

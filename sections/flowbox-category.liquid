@@ -1,0 +1,47 @@
+{% unless collection.metafields["global"]["hide_photoslurp"] == true %}
+<div class="hdt-collection-social-carousel" role="region" aria-label="carousel">
+    <section class="photoslurp-widget-wrapper">
+        <h2 class="hdt-visually-hidden">Instagram Community - Customers wearing Agua Bendita</h2>
+        <div class="container">
+          <script>
+              (function(d, id) {
+                if (!window.flowbox) { var f = function () { f.q.push(arguments); }; f.q = []; window.flowbox = f; }
+                if (d.getElementById(id)) {return;}
+                var s = d.createElement('script'), fjs = d.scripts[d.scripts.length - 1]; s.id = id; s.async = true;
+                s.src = 'https://connect.getflowbox.com/flowbox.js';
+                fjs.parentNode.insertBefore(s, fjs);
+              })(document, 'flowbox-js-embed');
+            </script>
+            <div id="js-flowbox-product" style="width: 100%;"></div>
+            <script>
+              window.flowbox('init', {
+                container: '#js-flowbox-product',
+                key: 'iIhuWuG-R7WBkt7vwpg5-Q',
+                locale: '{{ shop.metafields.custom.flowbox_locale | default: "en-USA" }}',
+                tags: '{{ collection.metafields.seo.us_url | default: collection.handle }}'
+              })
+          </script>
+        </div>
+    </section>
+</div>
+{% endunless %}
+  
+{% schema %}
+{
+  "name": "flowbox-category",
+  "class": "flowbox-section",
+  "enabled_on": {
+    "templates": ["collection"]
+  },
+  "settings": [
+  ],
+  "presets": [
+    {
+      "name": "flowbox-category"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}

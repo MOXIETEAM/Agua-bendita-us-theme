@@ -1,0 +1,63 @@
+{% liquid 
+  assign product_form_id = 'product-form-'| append: section.id | append: product.id
+%}
+
+<hdt-available-product-counter class="variant-selection-availability">
+  <span class="qty"></span> available
+</hdt-available-product-counter>
+
+ <div id="sizebay-container"></div>
+ <!-- <a href="#" class="size-chart-trigger" aria-controls="SizeChartModal" aria-label="Size chart Modal" aria-expanded="false">{{ 'products.product.size_chart_cta' | t }}</a> -->
+
+<script>
+const variantStock = [
+    {%- for variant in product.variants -%}
+        { variant: {{- variant.id -}}, inventory: {{- variant.inventory_quantity -}} } {%- unless forloop.last -%},{%- endunless -%} 
+    {%- endfor -%}
+];
+
+class AvailableProductCounter extends HTMLElement {
+  constructor() {
+    super();
+    const formId = "{{ product_form_id }}";
+    const This = this;
+    document.querySelector("#" + formId).addEventListener("variant:change", function(e) {
+      const inventoryDisplayThreshold = 3;
+
+      const variant = e?.detail?.variant;
+
+      if (typeof variantStock !== 'undefined' && variant) {
+        let selectedVariantInventoryInfo = variantStock.filter((item) => item.variant == variant.id);
+        let selectedVariantInventory = selectedVariantInventoryInfo[0].inventory;
+        let unitsWording = selectedVariantInventory == 1 ? 'unit' : 'units';
+
+        if (selectedVariantInventory > 0 && selectedVariantInventory <= inventoryDisplayThreshold) {
+          This.classList.add("active");
+          This.querySelector(".qty").innerHTML = selectedVariantInventory;
+        } else {
+          This.classList.remove("active")
+          This.querySelector(".qty").innerHTML = "";
+        }
+
+      }
+    });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  customElements.define("hdt-available-product-counter", AvailableProductCounter);
+});
+</script>
+
+{% schema %}
+{
+  "name": "Available product counter",
+  "tag": null,
+  "settings": [],
+  "presets": [
+    { 
+      "name": "Available product counter",
+    }
+  ]
+}
+{% endschema %}

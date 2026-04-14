@@ -1,0 +1,19 @@
+<script>
+    (function(d, id) {
+      if (!window.flowbox) { var f = function () { f.q.push(arguments); }; f.q = []; window.flowbox = f; }
+      if (d.getElementById(id)) {return;}
+      var s = d.createElement('script'), fjs = d.scripts[d.scripts.length - 1]; s.id = id; s.async = true;
+      s.src = 'https://connect.getflowbox.com/flowbox.js';
+      fjs.parentNode.insertBefore(s, fjs);
+    })(document, 'flowbox-js-embed');
+  </script>
+  <div id="js-flowbox-product" style="width: 100%;"></div>
+  <script>
+    window.flowbox('init', {
+      container: '#js-flowbox-product',
+      key: 'z7O581CkRn6GAQH1IuLfbA',
+      locale: '{{ shop.metafields.custom.flowbox_locale | default: "en-USA" }}',
+      productId: '{{ product.selected_or_first_available_variant.sku | split: "-" | first}}'
+    })
+  </script>
+  

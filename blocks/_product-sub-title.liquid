@@ -1,0 +1,27 @@
+
+{%- liquid
+	unless product 
+    assign product = section.settings.product
+  endunless
+-%}
+{%- if section.id contains 'quick-view' or section.id contains 'featured_product' -%}
+  <div class="hdt-product-info__item hdt-product__title" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+    <a href="{{ product.url }}" class="hdt-inline-block hdt-s-text"><h2 class="hdt-product__title hdt-font-normal">{{ product.title | escape }}</h2></a>
+  </div>
+{%- else -%}
+  <h1 class="hdt-product__title hdt-font-normal">{{ product.title | escape }}</h1>
+{%- endif -%}
+{% schema %}
+	{
+		"name": "t:sections.main-product.blocks.title.name",
+		"tag": null,
+    "settings":[
+
+    ],
+		"presets": [
+      { 
+        "name": "t:sections.main-product.blocks.title.name"
+      }
+    ]
+	}
+{% endschema %}

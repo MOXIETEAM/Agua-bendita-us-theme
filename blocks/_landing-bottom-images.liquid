@@ -1,0 +1,151 @@
+{%- liquid
+  assign block_id = "#block-" | append: block.id
+-%}
+
+{% style %}
+  @media (min-width: 1150px) {
+    {{ block_id }} .hdt-landing-bottom-images__grid {
+      grid-template-columns: repeat({{ block.settings.col_dk }}, 1fr);
+      column-gap: {{ block.settings.column_gap_dk }}px;
+      row-gap: {{ block.settings.row_gap_dk }}px;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1149px) {
+    {{ block_id }} .hdt-landing-bottom-images__grid {
+      grid-template-columns: repeat({{ block.settings.col_tb }}, 1fr);
+      column-gap: {{ block.settings.column_gap_dk }}px;
+      row-gap: {{ block.settings.row_gap_dk }}px;
+    }
+  }
+  @media (max-width: 767px) {
+    {{ block_id }} .hdt-landing-bottom-images__grid {
+      grid-template-columns: repeat({{ block.settings.col_mb }}, 1fr);
+      column-gap: {{ block.settings.column_gap_mb }}px;
+      row-gap: {{ block.settings.row_gap_mb }}px;
+    }
+  }
+
+  {{ block_id }} .hdt-landing-bottom-images__item img {
+    width: 100%;
+  }
+{% endstyle %}
+
+<div id="block-{{ block.id }}" class="hdt-landing-bottom-images" {{ block.shopify_attributes }}>
+  <div class="hdt-landing-bottom-images__grid">
+    {%- for image_item in collection.metafields.custom.landing_bottom_banners.value -%}
+      <div class="hdt-landing-bottom-images__item">
+        {%- render 'image', image: image_item -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+<style>
+  .hdt-landing-bottom-images__grid {
+    display: grid;
+  }
+  .hdt-landing-bottom-images__item {
+    overflow: hidden;
+  }
+</style>
+{% schema %}
+{
+  "name": "Landing bottom images",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "This block using metafield custom.landing_bottom_banners of collection to display the images for collection landing pages"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "col_dk",
+      "label": "Columns on desktop",
+      "default": "3",
+      "options": [
+        { "label": "2", "value": "2" },
+        { "label": "3", "value": "3" },
+        { "label": "4", "value": "4" },
+        { "label": "5", "value": "5" },
+        { "label": "6", "value": "6" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "col_tb",
+      "label": "Columns on tablet",
+      "default": "3",
+      "options": [
+        { "label": "1", "value": "1" },
+        { "label": "2", "value": "2" },
+        { "label": "3", "value": "3" },
+        { "label": "4", "value": "4" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "col_mb",
+      "label": "Columns on mobile",
+      "default": "2",
+      "options": [
+        { "label": "1", "value": "1" },
+        { "label": "2", "value": "2" },
+        { "label": "3", "value": "3" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "column_gap_dk",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Space between columns (desktop)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "row_gap_dk",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Space between rows (desktop)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "column_gap_mb",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Space between columns (mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "row_gap_mb",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Space between rows (mobile)",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Landing bottom images"
+    }
+  ]
+}
+{% endschema %}

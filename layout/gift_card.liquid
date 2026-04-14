@@ -1,0 +1,73 @@
+<!doctype html>
+  {%- liquid
+    assign iso_code  = request.locale.iso_code
+    assign config_rtl  = settings.right_to_left | default: 'enable-with-list'
+    assign is_rtl = false
+    assign dir = 'ltr'
+    if config_rtl == 'enable-with-list'
+      assign iso_code_ck = iso_code | split: '-' | first | append: ';' | prepend: ';'
+      assign lis_rtl = ';ae;ar;arc;bqi;ckb;dv;fa;glk;ha;he;kwh;ks;ku;mzn;nqo;pnb;ps;sd;ug;ur;yi;'
+      if lis_rtl contains iso_code_ck
+        assign is_rtl = true
+        assign dir = 'rtl'
+      endif
+    elsif config_rtl == 'enable'
+      assign is_rtl = true
+      assign dir = 'rtl'
+    endif
+  -%}
+<html lang="{{ request.locale.iso_code }}" class="hdt-badge__shape-{{ settings.badge_shape }} dir--{{ dir }}" dir--{{ dir }} >
+  <head>
+    <script src="{{ 'vendor/qrcode.js' | shopify_asset_url }}" defer></script>
+    {% comment %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="{{ settings.color_background }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+    {% endcomment %}
+    {% render 'head-code' %}
+
+    {% comment %}
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+      <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 48, height: 48 }}">
+    {%- endif -%}
+    {% endcomment %}
+
+    {%- if settings.library_font == "shopify" -%}
+      {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
+        <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+      {%- endunless -%}
+    {%- endif -%}
+    {% render 'custom-font' %}
+
+    {% comment %}
+    {%- assign formatted_balance = gift_card.balance | money_without_trailing_zeros | strip_html -%}
+
+    <title>{{ 'gift_cards.issued.title' | t: value: formatted_balance, shop: shop.name }}</title>
+
+    <meta name="description" content="{{ 'gift_cards.issued.subtext' | t }}">
+    {% endcomment %}
+
+    {%- liquid
+      render 'social-meta-tags'
+      render 'js-head'
+      render 'css-variables', is_rtl: is_rtl
+      echo 'theme.css' | asset_url | stylesheet_tag
+      echo 'the4-custom.css' | asset_url | stylesheet_tag
+    -%}
+    {{ content_for_header }}
+  </head>
+
+  <body class="hdt-page-type-{{ request.page_type }}{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %} template-{{ template.name }}" style="overflow-x: hidden">
+    {%- unless template == 'product.only_config' and request.design_mode == false -%}{%- sections 'header-group' -%}{%- endunless -%}
+    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+      <h1>kakak</h1>
+      {{ content_for_layout }}
+    </main>
+    <div hidden>
+      <span id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</span>
+    </div>
+  </body>
+</html>

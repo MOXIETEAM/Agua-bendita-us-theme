@@ -1,0 +1,26 @@
+
+{%- liquid
+  unless product 
+    assign product = section.settings.product
+  endunless
+-%}
+
+{% if product.metafields.pdp.sewing_hours != blank %}
+  <p class="hdt-product-info__item hdt-product__subtitle" data-type="{{ block.type }}" {{ block.shopify_attributes }}>
+    {{ product.metafields.pdp.sewing_hours }}
+  </p>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Subtitle",
+  "tag": null,
+  "settings":[
+  ],
+  "presets": [
+    { 
+    "name": "Subtitle"
+    }
+  ]
+}
+{% endschema %}

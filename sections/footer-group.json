@@ -1,0 +1,171 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer Group",
+  "sections": {
+    "8b1cf2b6-9e6b-4ace-85e5-e52ad96e7b43": {
+      "type": "footer",
+      "blocks": {
+        "footer_menu_bwPy9K": {
+          "type": "_footer-menu",
+          "settings": {
+            "border-column": false,
+            "heading_menu": "About Us",
+            "menu": "footer-menu-1",
+            "padding_inner": "",
+            "custom_w_dk": "25",
+            "enable_contact_form": false,
+            "contact_form_url": ""
+          },
+          "blocks": {}
+        },
+        "footer_menu_DrynaJ": {
+          "type": "_footer-menu",
+          "settings": {
+            "border-column": false,
+            "heading_menu": "Customer Service",
+            "menu": "footer",
+            "padding_inner": "",
+            "custom_w_dk": "25",
+            "enable_contact_form": false,
+            "contact_form_url": ""
+          },
+          "blocks": {}
+        },
+        "footer_menu_TDikk3": {
+          "type": "_footer-menu",
+          "settings": {
+            "border-column": false,
+            "heading_menu": "Contact Us",
+            "menu": "contact-menu",
+            "padding_inner": "",
+            "custom_w_dk": "25",
+            "enable_contact_form": true,
+            "contact_form_url": "shopify://pages/contact-form"
+          },
+          "blocks": {}
+        },
+        "signup-newsletter-button": {
+          "type": "signup-newsletter-button",
+          "static": true,
+          "settings": {},
+          "blocks": {
+            "signup-newsletter-btn": {
+              "type": "button",
+              "static": true,
+              "settings": {
+                "label": "Subscribe to our Newsletter",
+                "behavior": "button_only",
+                "link": "",
+                "open_in_new_tab": false,
+                "full_width": false,
+                "min_width_dt_btn": 100,
+                "min_height_btn": 40,
+                "specific_bg_color": "#000000",
+                "solid_label_color": "#ffffff",
+                "solid_border_color": "#000000",
+                "border_width": 1,
+                "outline_color": "#000000",
+                "style_class": "outline",
+                "text_transform": "none",
+                "font_size": "custom custom-inline",
+                "font_weight": "normal",
+                "font_size_btn": 16,
+                "font_size_btn_mb": 16,
+                "letter_spacing_text": 0,
+                "horizontal_padding_btn": 10,
+                "vertical_padding_btn": 5,
+                "min_width_btn": 100,
+                "icon": "none",
+                "custom_icon": "none",
+                "icon_position": "after",
+                "icon_height": 14,
+                "icon_spacing": 5
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "store-locator": {
+          "type": "_store-locator",
+          "static": true,
+          "settings": {
+            "url": "shopify://pages/store-locator-ab-stores"
+          },
+          "blocks": {}
+        },
+        "custom-socials": {
+          "type": "_custom-socials",
+          "static": true,
+          "settings": {
+            "social_menu": "social-menu"
+          },
+          "blocks": {}
+        },
+        "copyright": {
+          "type": "_copyright",
+          "static": true,
+          "settings": {
+            "text_copR": "© [year] Agua Bendita LLC | All rights reserved<br>5220 NW 72nd Ave, Suite #3 - Miami, Florida 33166 USA\n<br> \n<br>\n<a href=\"https://www.moxiedigital.co/\" target=\"_blank\">Built by MOXIE</a>",
+            "show_policy": false
+          },
+          "blocks": {}
+        },
+        "footer-slim-menu": {
+          "type": "_footer-slim-menu",
+          "static": true,
+          "settings": {
+            "slim_menu": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "footer_menu_bwPy9K",
+        "footer_menu_DrynaJ",
+        "footer_menu_TDikk3"
+      ],
+      "custom_css": [],
+      "settings": {
+        "hide_on_desktop": false,
+        "hide_on_mobile": false,
+        "active_from": "",
+        "active_to": "",
+        "collapse": true,
+        "border-f": "top-bottom",
+        "border-ps_main": "container",
+        "heading_fs": "hdt-text-base",
+        "text_weight": "hdt-font-normal",
+        "spacing_bt_heading": 20,
+        "text_size": "hdt-text-base",
+        "padding-t-main": 40,
+        "padding-bt-main": 40,
+        "newletter_title": "Subscribe to our Newsletter",
+        "svg": "visa,paypal,master,american_express,diners_club",
+        "height": 30,
+        "width-image_list": 200,
+        "enable_follow_on_shop": true,
+        "show_currency": true,
+        "show_language": true,
+        "section_fullwidth": false,
+        "color_scheme": "scheme-e3bdb5cc-2ab5-424f-8deb-a6045c98d30b",
+        "spacing_top": 0,
+        "padding_top": 0,
+        "padding_bottom": 23,
+        "padding_rate": 100
+      }
+    }
+  },
+  "order": [
+    "8b1cf2b6-9e6b-4ace-85e5-e52ad96e7b43"
+  ]
+}

@@ -1,0 +1,455 @@
+<!-- section/slideshow.liquid -->
+{{ 'hdt-slideshow.css' | asset_url | stylesheet_tag }}
+{%- style -%}#Slider-{{block.id}}{ {% if block.settings.image_height_mb=='adapt_image_first' or block.settings.image_height_mb=='fixed' %}--aspect-ratioapt:{% if block.settings.image_height_mb=='adapt_image_first' %}var(--slide-{{ block.blocks.first.id }}-ratio){% else %}{{block.settings.fixed_height_mb}}px{% endif %};{% endif %}{% if block.settings.image_height=='adapt_image_first' or block.settings.image_height=='fixed' %}--aspect-ratioapt-md:{% if block.settings.image_height=='adapt_image_first' %}var(--slide-{{ block.blocks.first.id }}-ratio-md){% else %}{{block.settings.fixed_height}}px{% endif %};{% endif %}}
+
+{% if block.settings.use_nav_on_mobile %}
+  .hdt-slider__button.hdt-show-all {
+    margin: 0;
+    --slide-btn_w: 30px !important;
+    --slide-btn_h: 30px !important;
+  }
+{% endif %}
+{%- endstyle -%}
+<div class="hdt-s-inner{% if block.settings.hide_on_desktop %} hdt-hide-on-desktop{% endif %}{% if block.settings.hide_on_mobile %} hdt-hide-on-mobile{% endif %}" {%- unless block.index == 1 -%}hdt-reveal="fade-in"{%- endunless -%}>
+  <hdt-slideshow {% if block.settings.is_fade %}isfade {% endif %}id="Slider-{{ block.id }}" autoheight class="hdt-slider hdt-relative hdt-container{% if block.settings.full_width %}-full{% endif %} hdt-slideshow hdt-slides-1 hdt-relative" config='{"loop": {{ block.settings.loop }}, "navUI": {{ block.settings.navUI }}, "dotUI": {{ block.settings.dotUI }}, "autoPlay": {{ block.settings.auto_play | times: 1000 }}, "pauseOnHover": {{ block.settings.pause_hover }}, "align": "center", "classNames": true, "autoHeight": true, "slidesToScroll": 1 }'>
+    <div class="hdt-slider__viewport md:hdt-height--{{ block.settings.image_height }} hdt-height--{{ block.settings.image_height_mb }}">
+      <div class="hdt-slider__container">
+        {% content_for "blocks" %}
+      </div>
+    </div>
+    {%- if block.settings.navUI == true -%}
+      <div class="hdt-prev-next_wrap hdt-nav-{{ block.settings.nav_des }} hdt-full-width-link hdt-container-full hdt-pe-none hdt-flex hdt-justify-between hdt-align-center" color-scheme="{{ block.settings.color_scheme }}">
+        <button aria-controls="Slider-{{ block.id }}" class="hdt-slider__button hdt-slider__button--prev hdt-inline-flex hdt-align-center hdt-justify-center{% if block.settings.nav_rounded_full %} hdt-rounded-full{% endif %} hdt-absolute hdt-left-0{% if block.settings.use_nav_on_mobile %} hdt-show-all{% endif %}" name="previous"><svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="currentColor">
+          <path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z"/>
+        </svg></button>
+        <button aria-controls="Slider-{{ block.id }}" class="hdt-slider__button hdt-slider__button--next hdt-inline-flex hdt-align-center hdt-justify-center{% if block.settings.nav_rounded_full %} hdt-rounded-full{% endif %} hdt-absolute hdt-right-0{% if block.settings.use_nav_on_mobile %} hdt-show-all{% endif %}" name="next"><svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="currentColor">
+          <path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z"/>
+        </svg></button>
+      </div>
+    {%- endif -%}
+    {%- if block.settings.dotUI == true -%}
+      <div hdt-slider-dots aria-controls="Slider-{{ block.id }}" class="hdt-slider__dots hdt-slideshow-dots{% if block.settings.dot_vertical %} hdt-dot-vertical hdt-right-0 hdt-top-0 hdt-flex-col{%else%} hdt-container hdt-left-0 hdt-right-0{% endif %} hdt-slider__dots-{{ block.settings.dot_style }} hdt-pe-none hdt-inline-flex hdt-justify-{{ block.settings.dot_align }} hdt-absolute hdt-bottom-0" color-scheme="{{ block.settings.color_scheme }}" style="--dot-space:{{ block.settings.dot_space }}px;"></div>
+    {%- endif -%}
+  </hdt-slideshow>
+
+</div>
+{% schema %}
+{
+  "name": "t:sections.slideshow.name",
+  "tag": null,
+  "class": "hdt-slideshow hdt-section section-allow-transparent",
+  "blocks": [{ "type": "_slide-item" }],
+  "settings": [
+    {
+      "id": "hide_on_desktop",
+      "type": "checkbox",
+      "label": "Hide on desktop",
+      "default": false
+    },
+    {
+      "id": "hide_on_mobile",
+      "type": "checkbox",
+      "label": "Hide on tablet, mobile",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.slideshow.settings.image_height.label"
+    },
+    {
+      "type": "select",
+      "id": "image_height",
+      "options": [
+        {
+          "value": "adapt_image_first",
+          "label": "t:sections.slideshow.settings.image_height.options__1.label"
+        },
+        {
+          "value": "adapt_image",
+          "label": "t:sections.slideshow.settings.image_height.options__2.label"
+        },
+        {
+          "value": "full",
+          "label": "t:sections.slideshow.settings.image_height.options__3.label"
+        },
+        {
+          "value": "fixed",
+          "label": "t:sections.slideshow.settings.image_height.options__4.label"
+        }
+      ],
+      "default": "adapt_image",
+      "label": "t:sections.slideshow.settings.image_height.label",
+      "info": "t:sections.slideshow.settings.image_height.info"
+    },
+    {
+      "type": "range",
+      "id": "fixed_height",
+      "min": 200,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "label": "t:sections.slideshow.settings.fixed_height.label",
+      "default": 860
+    },
+    {
+      "type": "select",
+      "id": "image_height_mb",
+      "options": [
+        {
+          "value": "adapt_image_first",
+          "label": "t:sections.slideshow.settings.image_height.options__1.label"
+        },
+        {
+          "value": "adapt_image",
+          "label": "t:sections.slideshow.settings.image_height.options__2.label"
+        },
+        {
+          "value": "full",
+          "label": "t:sections.slideshow.settings.image_height.options__3.label"
+        },
+        {
+          "value": "fixed",
+          "label": "t:sections.slideshow.settings.image_height.options__4.label"
+        }
+      ],
+      "default": "adapt_image",
+      "label": "t:sections.slideshow.settings.image_height_mb.label"
+    },
+    {
+      "type": "range",
+      "id": "fixed_height_mb",
+      "min": 100,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "label": "t:sections.slideshow.settings.fixed_height_mb.label",
+      "default": 300
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.slider.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "is_fade",
+      "label": "t:sections.slideshow.settings.is_fade.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "t:sections.all.slider.loop",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "auto_play",
+      "min": 0,
+      "max": 10,
+      "step": 0.5,
+      "unit": "s",
+      "label": "t:sections.all.slider.autoPlay.label",
+      "default": 0,
+      "info": "t:sections.all.slider.autoPlay.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_hover",
+      "label": "t:sections.all.slider.pauseOnHover",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "navUI",
+      "label": "t:sections.all.slider.navUI",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "nav_des",
+      "label": "t:sections.all.slider.nav_des.label",
+      "options": [
+        {
+          "value": "default",
+          "label": "t:sections.all.slider.nav_des.options.default"
+        },
+        {
+          "value": "simple",
+          "label": "t:sections.all.slider.nav_des.options.simple"
+        }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "checkbox",
+      "id": "nav_rounded_full",
+      "label": "t:sections.all.slider.nav_rounded_full",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "use_nav_on_mobile",
+      "label": "Use prev/next button on mobile",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "dotUI",
+      "label": "t:sections.all.slider.dotUI",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "dot_vertical",
+      "label": "Dot vertical",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "dot_style",
+      "label": "t:sections.all.slider.dots_des.label",
+      "options": [
+        {
+          "value": "default",
+          "label": "t:sections.all.slider.dots_des.options.default"
+        },
+        {
+          "value": "elessi",
+          "label": "t:sections.all.slider.dots_des.options.elessi"
+        },
+        {
+          "value": "outline",
+          "label": "t:sections.all.slider.dots_des.options.outline"
+        },
+        {
+          "value": "dashed",
+          "label": "t:sections.all.slider.dots_des.options.dashed"
+        }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "select",
+      "id": "dot_align",
+      "label": "Dots align",
+      "options": [
+        {
+          "value": "start",
+          "label": "Start"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "end",
+          "label": "End"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "dot_space",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Dots space bottom",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Options for layout section"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make section full width",
+      "default": true
+    },
+  ],
+  "presets": [
+    {
+      "name": "t:sections.slideshow.name",
+      "blocks": [
+        {
+          "type": "_slide-item",
+          "settings": {
+            "url": "",
+            "banner_target": false,
+            "color_scheme": "",
+            "content_position": "center-start",
+            "content_position_mb": "center-start"
+          },
+          "blocks": [
+            {
+              "type": "heading",
+              "settings": {
+                "heading": "<h2>Glamorous <br>Glam<\/h2>",
+                "heading_size": "h2"
+              }
+            },
+            {
+              "type": "spacer",
+              "settings": {
+                "space_lg": 20,
+                "space_md": 16,
+                "space": 10
+              }
+            },
+            {
+              "type": "text",
+              "settings": {
+                "text": "<p>From casual to formal, we've got you covered<\/p>",
+                "text_size": "2xl"
+              }
+            },
+            {
+              "type": "spacer",
+              "settings": {
+                "space_lg": 50,
+                "space_md": 30,
+                "space": 20
+              }
+            },
+            {
+              "type": "button",
+              "settings": {
+                "label": "Shop collection",
+                "link": "shopify:\/\/collections",
+                "open_in_new_tab": false,
+                "full_width": false,
+                "style_class": "hdt-btn-solid",
+                "icon": "none",
+                "icon_position": "after",
+                "icon_height": 16,
+                "icon_spacing": 5
+              }
+            }
+          ]
+        },
+        {
+          "type": "_slide-item",
+          "settings": {
+            
+            "url": "",
+            "banner_target": false,
+            "color_scheme": "",
+            "content_position": "center-start",
+            "content_position_mb": "center-start"
+          },
+          "blocks": [
+            {
+              "type": "heading",
+              "settings": {
+                "heading": "<h2>Simple <br>Style<\/h2>",
+                "heading_size": "h2"
+              }
+            },
+            {
+              "type": "spacer",
+              "settings": {
+                "space_lg": 20,
+                "space_md": 16,
+                "space": 10
+              }
+            },
+            {
+              "type": "text",
+              "settings": {
+                "text": "<p>From casual to formal, we've got you covered<\/p>",
+                "text_size": "2xl"
+              }
+            },
+            {
+              "type": "spacer",
+              "settings": {
+                "space_lg": 50,
+                "space_md": 30,
+                "space": 20
+              }
+            },
+            {
+              "type": "button",
+              "settings": {
+                "label": "Shop collection",
+                "link": "shopify:\/\/collections",
+                "open_in_new_tab": false,
+                "full_width": false,
+                "style_class": "hdt-btn-solid",
+                "icon": "none",
+                "icon_position": "after",
+                "icon_height": 16,
+                "icon_spacing": 5
+              }
+            }
+          ]
+        },
+        {
+          "type": "_slide-item",
+          "settings": {
+            
+            "url": "",
+            "banner_target": false,
+            "color_scheme": "",
+            "content_position": "center-start",
+            "content_position_mb": "center-start"
+          },
+          "blocks": [
+            {
+              "type": "heading",
+              "settings": {
+                "heading": "<h2>Discreet <br>Style<\/h2>",
+                "heading_size": "h2"
+              }
+            },
+            {
+              "type": "spacer",
+              "settings": {
+                "space_lg": 20,
+                "space_md": 16,
+                "space": 10
+              }
+            },
+            {
+              "type": "text",
+              "settings": {
+                "text": "<p>From casual to formal, we've got you covered<\/p>",
+                "text_size": "2xl"
+              }
+            },
+            {
+              "type": "spacer",
+              "settings": {
+                "space_lg": 50,
+                "space_md": 30,
+                "space": 20
+              }
+            },
+            {
+              "type": "button",
+              "settings": {
+                "label": "Shop collection",
+                "link": "shopify:\/\/collections",
+                "open_in_new_tab": false,
+                "full_width": false,
+                "style_class": "hdt-btn-solid",
+                "icon": "none",
+                "icon_position": "after",
+                "icon_height": 16,
+                "icon_spacing": 5
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

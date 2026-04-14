@@ -1,0 +1,102 @@
+{% assign flowbox_tags = '' %}
+
+{% if section.settings.tag_selector_mode == 'collection' %}
+  {% if collection %}
+    {% assign flowbox_tags = collection.handle %}
+  {% endif %}
+{% else %}
+  {% assign raw_tags = section.settings.manual_tags | split: ',' %}
+  {% assign clean_tags_array = '' %}
+  {% for tag in raw_tags %}
+    {% assign tag_cleaned = tag | strip %}
+    {% if clean_tags_array == '' %}
+      {% assign clean_tags_array = tag_cleaned %}
+    {% else %}
+      {% assign clean_tags_array = clean_tags_array | append: ',' | append: tag_cleaned %}
+    {% endif %}
+  {% endfor %}
+  {% assign flowbox_tags = clean_tags_array %}
+{% endif %}
+
+<script>
+  (function(d, id) {
+    if (!window.flowbox) {
+      var f = function () { f.q.push(arguments); };
+      f.q = [];
+      window.flowbox = f;
+    }
+    if (d.getElementById(id)) return;
+    var s = d.createElement('script'),
+        fjs = d.scripts[d.scripts.length - 1];
+    s.id = id;
+    s.async = true;
+    s.src = 'https://connect.getflowbox.com/flowbox.js';
+    fjs.parentNode.insertBefore(s, fjs);
+  })(document, 'flowbox-js-embed');
+</script>
+
+<div id="js-flowbox-flow" style="display:block !important;"></div>
+
+<script>
+  window.flowbox('init', {
+    container: '#js-flowbox-flow',
+    key: '{{ section.settings.flowKey }}',
+    locale: '{{ section.settings.flowLocale }}',
+    tags: '{{ flowbox_tags }}',
+    tagsOperator: '{{ section.settings.operator }}'
+  });
+</script>
+
+{% schema %}
+{
+  "name": "flowbox-homepage",
+  "class": "flowbox-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "flowKey",
+      "label": "Flow Key"
+    },
+    {
+      "type": "text",
+      "id": "flowLocale",
+      "label": "Locale",
+      "default": "en-US"
+    },
+    {
+      "type": "select",
+      "id": "tag_selector_mode",
+      "label": "Tag Source",
+      "options": [
+        { "value": "manual", "label": "Manual Tag" },
+        { "value": "collection", "label": "Collection Handle" }
+      ],
+      "default": "manual"
+    },
+    {
+      "type": "text",
+      "id": "manual_tags",
+      "label": "Manual Tags (comma separated)",
+      "info": "Enter a single tag or multiple tags separated by commas. Used only if 'Manual Tag' is selected."
+    },
+    {
+      "type": "select",
+      "id": "operator",
+      "label": "Operator (for multiple tags)",
+      "options": [
+        { "value": "all", "label": "All the tags" },
+        { "value": "any", "label": "At least one tag" }
+      ],
+      "default": "any"
+    }
+  ],
+  "presets": [
+    {
+      "name": "flowbox-homepage"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}

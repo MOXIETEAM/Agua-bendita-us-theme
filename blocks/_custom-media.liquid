@@ -1,0 +1,444 @@
+{%- if block.settings.source == "image" -%}
+  {%- liquid
+    assign object_pos = block.settings.image_mb.presentation.focal_point
+
+    if block.settings.image != blank
+      assign aspect_ratio_img = block.settings.image.aspect_ratio
+    endif
+    if block.settings.image_mb != blank
+      assign image_mb = block.settings.image_mb | default: block.settings.image
+      assign aspect_ratio_img_mb = image_mb.aspect_ratio
+    endif
+  -%}
+  {% style %}
+    #{{ block.id }}{
+      {% if block.settings.image_height_mb == 'adapt_image' %}
+        {% assign image_mb = block.settings.image_mb | default: block.settings.image %}
+          --aspect-ratioapt: {{ image_mb.aspect_ratio | default: 2.0 }};
+      {% endif %}
+      {% if block.settings.image_height == 'adapt_image' %}
+        --aspect-ratioapt-md: {{ block.settings.image.aspect_ratio | default: 2.0 }};
+      {% endif %}
+      {% if object_pos != blank %}
+        --object-pos-mb: {{ object_pos }}
+      {% endif %}
+    }
+  {% endstyle %}
+  {%-liquid
+    if block.settings.image != blank
+      assign img_class = 'hdt-object-pos-mb hdt-obj-eff'
+      echo '<picture id="' | append: block.id | append: '" class="hdt-media-wrapper"'
+      if aspect_ratio_img != blank and block.settings.image_height == 'adapt_image'
+        echo ' data-aspect-ratio-md=' | append: aspect_ratio_img
+      endif
+      if aspect_ratio_img_mb != blank and block.settings.image_height_mb == 'adapt_image'
+        echo ' data-aspect-ratio=' | append: aspect_ratio_img_mb
+      endif
+      echo '>'
+      if block.settings.image_mb != blank and block.settings.image_mb != block.settings.image
+        assign srcset = block.settings.image_mb | image_url: width: block.settings.image_mb.width | image_tag: widths: '200,400,600,800,1000', alt: null | split: 'srcset="' | last
+        unless srcset contains 'src='
+          echo '<source media="(max-width: 767px)" srcset="' | append: srcset | replace_first: 'style=', 'data-none='
+        endunless
+      endif
+      echo block.settings.image | image_url: width: block.settings.image.width | image_tag: loading: 'eager', class: img_class, widths: '100,200,300,400,600,800,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200,3400,3600'
+      echo '</picture>'
+    else
+      capture current
+        cycle 1, 2 , 3
+      endcapture
+      echo '<div class="hdt-media-wrapper hdt-h-full">'
+      echo 'hero-apparel-' | append: current | placeholder_svg_tag: 'placeholder-svg hdt-placeholder hdt-w-full hdt-h-full'
+      echo '</div>'
+    endif
+  -%}
+{% else %}
+  {% style %}
+    #media-{{ block.id }} {
+      pointer-events: unset !important;
+    }
+    .hdt-video-ctrl {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      cursor: pointer !important;
+      font-size: 20px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+    }
+    .hdt-video-ctrl::before {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        height: 50px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 50px;
+        border-radius: 50%;
+        z-index: 1;
+        cursor: inherit;
+        pointer-events: none;
+      }
+
+      {% if block.settings.display_video_ctrl_on_hover %}
+        #media-{{ block.id }}[playing] .hdt-video-ctrl {
+          transition: opacity 0.3s ease;
+          opacity: 0;
+        }
+        .hdt-full-width-link:hover ~ #media-{{ block.id }}[playing] .hdt-video-ctrl {
+          opacity: 1 !important;
+        }
+        #media-{{ block.id }}[playing] .hdt-video-ctrl:hover {
+          opacity: 1;
+        }
+      {% endif %}
+
+      #media-{{ block.id }}:not([playing]) .hdt-video-ctrl::before {
+        content: "";
+        text-indent: 5px;
+
+        speak: none;
+        -webkit-font-smoothing: antialiased;
+        color: rgb(0, 0, 0);
+        font-size: inherit;
+        font-style: normal;
+        font-weight: 400;
+        text-transform: none;
+        font-family: icomoon !important;
+        font-variant: normal;
+      }
+      #media-{{ block.id }}[playing] .hdt-video-ctrl::before {
+        content: "";
+        text-indent: 0px;
+
+        speak: none;
+        -webkit-font-smoothing: antialiased;
+        color: rgb(0, 0, 0);
+        font-size: inherit;
+        font-style: normal;
+        font-weight: 400;
+        text-transform: none;
+        font-family: icomoon !important;
+        font-variant: normal;
+      }
+  {% endstyle %}
+  {%- if block.settings.video != blank -%}
+    {% style %}
+    #media-{{ block.id }}{
+      {% if block.settings.image_height_mb == 'adapt_image' %}
+          --aspect-ratioapt: {{ block.settings.video.aspect_ratio | default: 2.0 }};
+      {% endif %}
+      {% if block.settings.image_height == 'adapt_image' %}
+        --aspect-ratioapt-md: {{ block.settings.video.aspect_ratio | default: 2.0 }};
+      {% endif %}
+    }
+  {% endstyle %}
+    <hdt-video-player autoplay id="media-{{ block.id }}">
+      {{- block.settings.video | video_tag: image_size: '1500x', playsinline: true, muted: true, loop: true, controls: false, preload: 'metadata' -}}
+    </hdt-video-player>
+  {%- else -%}
+    {%- liquid
+      assign external_video_url = block.settings.external_video_url
+      assign external_video_url_mb = block.settings.external_video_url_mb | default: external_video_url
+      assign has_separate_mobile_video = false
+      if block.settings.external_video_url_mb != blank
+        if block.settings.external_video_url_mb.id != external_video_url.id
+          assign has_separate_mobile_video = true
+        endif
+      endif
+      assign ph_image_mb = block.settings.ph_image_mb | default: block.settings.ph_image
+      assign ph_image = block.settings.ph_image
+      assign use_placeholder_image = false
+      if ph_image_mb != blank
+        assign use_placeholder_image = true
+      endif
+      assign default_video_ratio = 0.5625
+      if block.settings.video_ratio == 'placeholder_image'
+        assign video_ratio_mb = ph_image_mb.aspect_ratio | default: default_video_ratio
+        assign video_ratio_md = ph_image.aspect_ratio | default: video_ratio_mb
+      else
+        assign video_ratio_mb = default_video_ratio
+        assign video_ratio_md = default_video_ratio
+      endif
+    -%}
+    {% comment %} Set default aspect ratio of video when image placeholder not set{% endcomment %}
+    {% style %}
+      #media-{{ block.id }}{
+        {% if block.settings.image_height_mb == 'adapt_image' %}
+          --aspect-ratioapt: {{ video_ratio_mb }};
+        {% endif %}
+        {% if block.settings.image_height == 'adapt_image' %}
+          --aspect-ratioapt-md: {{ video_ratio_md }};
+        {% endif %}
+      }
+    {% endstyle %}
+    <hdt-video-player host="{{ external_video_url.type }}" {% if has_separate_mobile_video %}host-mb="{{ external_video_url_mb.type }}"{% endif %} type="background" autoplay id="media-{{ block.id }}">
+      {% if block.settings.enable_video_ctrl %}<div class="hdt-video-ctrl" role="button"></div>{% endif %}
+    {% comment %} Placeholder image for video {% endcomment %}
+    {% if use_placeholder_image %}
+    {% style %}
+      #media-{{ block.id }}{
+        .hdt-placeholder-for-video {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 1;
+        }
+        .hdt-placeholder-for-video img {
+          width: 100%;
+        }
+      }
+    {% endstyle %}
+    {% liquid 
+      if block.settings.ph_image != blank
+        assign img_class = 'hdt-object-pos-mb hdt-obj-eff'
+        echo '<picture class="hdt-media-wrapper hdt-placeholder-for-video">'
+        if block.settings.ph_image_mb != blank and block.settings.ph_image_mb != block.settings.ph_image
+          assign srcset = block.settings.ph_image_mb | image_url: width: block.settings.ph_image_mb.width | image_tag: widths: '200,400,600,800,1000', alt: null | split: 'srcset="' | last
+          unless srcset contains 'src='
+            echo '<source media="(max-width: 767px)" srcset="' | append: srcset | replace_first: 'style=', 'data-none='
+          endunless
+        endif
+        echo block.settings.ph_image | image_url: width: block.settings.ph_image.width | image_tag: loading: 'eager', class: img_class, widths: '100,200,300,400,600,800,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200,3400,3600'
+        echo '</picture>'
+      else
+        capture current
+          cycle 1, 2 , 3
+        endcapture
+        echo '<div class="hdt-media-wrapper hdt-h-full">'
+        echo 'hero-apparel-' | append: current | placeholder_svg_tag: 'placeholder-svg hdt-placeholder hdt-w-full hdt-h-full'
+        echo '</div>'
+      endif
+    %}
+    {% endif %}
+
+      <template data-device="desktop">
+        {%- if external_video_url.type == 'youtube' -%}
+          <iframe id="iframe-{{ block.id }}" src="https://www.youtube.com/embed/{{ external_video_url.id }}?playsinline=1&autoplay=1&controls=0&mute=1&loop=1&playlist={{ external_video_url.id }}&enablejsapi=1&rel=0&modestbranding=1&origin={{ 'https://' | append: request.host | url_encode }}" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+        {%- elsif external_video_url.type == 'vimeo' -%}
+          <iframe id="iframe-{{ block.id }}" src="https://player.vimeo.com/video/{{ external_video_url.id }}?autoplay=1&autopause=1&background=1&loop=1&muted=1&transparent=1&portrait=0&title=0&byline=0&color={{ settings.color_accent | remove_first: '#' }}" allow="autoplay; encrypted-media;" allowfullscreen="allowfullscreen"></iframe>
+        {%- endif -%}
+      </template>
+      {%- if has_separate_mobile_video -%}
+      <template data-device="mobile">
+        {%- if external_video_url_mb.type == 'youtube' -%}
+          <iframe id="iframe-mb-{{ block.id }}" src="https://www.youtube.com/embed/{{ external_video_url_mb.id }}?playsinline=1&autoplay=1&controls=0&mute=1&loop=1&playlist={{ external_video_url_mb.id }}&enablejsapi=1&rel=0&modestbranding=1&origin={{ 'https://' | append: request.host | url_encode }}" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+        {%- elsif external_video_url_mb.type == 'vimeo' -%}
+          <iframe id="iframe-mb-{{ block.id }}" src="https://player.vimeo.com/video/{{ external_video_url_mb.id }}?autoplay=1&autopause=1&background=1&loop=1&muted=1&transparent=1&portrait=0&title=0&byline=0&color={{ settings.color_accent | remove_first: '#' }}" allow="autoplay; encrypted-media;" allowfullscreen="allowfullscreen"></iframe>
+        {%- endif -%}
+      </template>
+      {%- endif -%}
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const blockId = "media-{{ block.id }}";
+          const placeHolderImage = document.querySelector(`#${blockId} .hdt-placeholder-for-video`)
+          console.log("placeHolderImage: ", placeHolderImage);
+          if (placeHolderImage) {
+            const myinterval = setInterval(function() {
+              const frame = document.querySelector(`#${ blockId }[playing]`);
+              if (frame) {
+                document.querySelector(`#${blockId} .hdt-placeholder-for-video`).style.zIndex = "-1";
+                clearInterval(myinterval);
+              }
+            }, 100);
+          }
+
+          const videoCtrl = document.querySelector(`#${blockId} .hdt-video-ctrl`);
+          if (videoCtrl) {
+            videoCtrl.addEventListener("click", function() {
+              const videoPlayer = this.parentElement;
+              // Try different approaches to control the video
+              if (videoPlayer.getAttribute("playing") !== null) {
+                // Try multiple methods
+                if (typeof videoPlayer.pause === 'function') {
+                  videoPlayer.pause();
+                } else if (typeof videoPlayer.stop === 'function') {
+                  videoPlayer.stop();
+                }
+              } else {
+                if (typeof videoPlayer.play === 'function') {
+                  videoPlayer.play();
+                } else if (typeof videoPlayer.start === 'function') {
+                  videoPlayer.start();
+                }
+              }
+            });
+          }
+        });
+      </script>
+    </hdt-video-player>
+  {%- endif -%}
+{%- endif -%}
+{% schema %}
+  {
+    "name": "Custom media",
+    "tag": null,
+    "settings": [
+      {
+        "type": "select",
+        "id": "source",
+        "label": "Use source",
+        "options": [
+          {
+            "value": "image",
+            "label": "Image"
+          },
+          {
+            "value": "video",
+            "label": "Video"
+          }
+        ],
+        "default": "image"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_mb",
+        "label": "Image Mobile"
+      },
+      {
+        "type": "video",
+        "id": "video",
+        "label": "t:sections.video.settings.video.label",
+        "info": "t:sections.video.settings.video.info"
+      },
+      {
+        "type": "video_url",
+        "id": "external_video_url",
+        "accept": [
+          "vimeo",
+          "youtube"
+        ],
+        "label": "t:sections.video.settings.video.label",
+        "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
+      },
+      {
+        "type": "video_url",
+        "id": "external_video_url_mb",
+        "accept": [
+          "vimeo",
+          "youtube"
+        ],
+        "label": "External video URL (Mobile)",
+        "info": "If not set, the desktop video URL will be used for mobile"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_video_ctrl",
+        "label": "Enable video control button",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "display_video_ctrl_on_hover",
+        "label": "Display video control button on hover",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "image_height",
+        "options": [
+          {
+            "value": "adapt_image",
+            "label": "t:sections.slideshow.settings.image_height.options__2.label"
+          },
+          {
+            "value": "full",
+            "label": "t:sections.slideshow.settings.image_height.options__3.label"
+          },
+          {
+            "value": "fixed",
+            "label": "t:sections.slideshow.settings.image_height.options__4.label"
+          }
+        ],
+        "default": "adapt_image",
+        "label": "t:sections.slideshow.settings.image_height.label",
+        "info": "t:sections.slideshow.settings.image_height.info"
+      },
+      {
+        "type": "range",
+        "id": "fixed_height",
+        "min": 200,
+        "max": 1000,
+        "step": 10,
+        "unit": "px",
+        "label": "t:sections.slideshow.settings.fixed_height.label",
+        "default": 860
+      },
+      {
+        "type": "select",
+        "id": "image_height_mb",
+        "options": [
+          {
+            "value": "adapt_image",
+            "label": "t:sections.slideshow.settings.image_height.options__2.label"
+          },
+          {
+            "value": "full",
+            "label": "t:sections.slideshow.settings.image_height.options__3.label"
+          },
+          {
+            "value": "fixed",
+            "label": "t:sections.slideshow.settings.image_height.options__4.label"
+          }
+        ],
+        "default": "adapt_image",
+        "label": "t:sections.slideshow.settings.image_height_mb.label"
+      },
+      {
+        "type": "range",
+        "id": "fixed_height_mb",
+        "min": 100,
+        "max": 1000,
+        "step": 10,
+        "unit": "px",
+        "label": "t:sections.slideshow.settings.fixed_height_mb.label",
+        "default": 300
+      },
+      {
+        "type": "image_picker",
+        "id": "ph_image",
+        "label": "Place holder image for video (Desktop)"
+      },
+      {
+        "type": "image_picker",
+        "id": "ph_image_mb",
+        "label": "Place holder image for video (Mobile)"
+      },
+      {
+        "type": "select",
+        "id": "video_ratio",
+        "label": "Video ratio",
+        "options": [
+          {
+            "value": "placeholder_image",
+            "label": "Use placeholder image ratio"
+          },
+          {
+            "value": "9:16",
+            "label": "9:16"
+          }
+        ],
+        "default": "placeholder_image",
+        "info": "If 'Use placeholder image ratio' is selected but no placeholder image for video is set, 9:16 ratio will be used"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom media"
+      }
+    ]
+  }
+{% endschema %}

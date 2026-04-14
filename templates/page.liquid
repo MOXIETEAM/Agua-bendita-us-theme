@@ -1,0 +1,30 @@
+<div class="default-page {{ page.handle }}">
+  {% if page.metafields.custom.page_template != blank %}
+      {% assign section_template = page.metafields.custom.page_template %}
+      {% if section_template == 'page-default-1' %}
+        {% section 'page-default-1' %}
+      {% elsif section_template == 'page-default-2' %}
+        {% section 'page-default-2' %}
+      {% elsif section_template == 'page-default-3' %}
+        {% section 'page-default-3' %}
+      {% elsif section_template == 'page-default-4' %}
+        {% section 'page-default-4' %}
+      {% elsif section_template == 'page-default-5' %}
+        {% section 'page-default-5' %}
+      {% elsif section_template == 'page-default-6' %}
+        {% section 'page-default-6' %}
+      {% elsif section_template == 'page-default-7' %}
+        {% section 'page-default-7' %}
+      {% elsif section_template == 'page-default-8' %}
+        {% section 'page-default-8' %}
+      {% elsif section_template == 'page-default-9' %}
+        {% section 'page-default-9' %}
+      {% elsif section_template == 'page-default-10' %}
+        {% section 'page-default-10' %}
+      {% else %}
+        {% section 'main-page' %}
+      {% endif %}
+  {% else %}
+    {% section 'main-page' %}
+  {% endif %}
+</div>
