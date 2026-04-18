@@ -35,6 +35,13 @@
 	line-height: 33px;
 }
 
+.hdt-mini-cart__header-title:focus,
+.hdt-mini-cart__header-title:focus-visible {
+	outline: 0.2rem solid rgb(var(--color-focus));
+	outline-offset: 0.3rem;
+	border-radius: 0.2rem;
+}
+
 .hdt-mini-cart__subtitle {
 	display: none;
 	text-align: center;
