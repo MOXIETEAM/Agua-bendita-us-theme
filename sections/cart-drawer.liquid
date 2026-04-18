@@ -34,9 +34,9 @@
       render 'hide_desktop_mobile', hide_on_desktop: section.settings.hide_on_desktop, hide_on_mobile: section.settings.hide_on_mobile
     endcapture
   -%}
-  <hdt-cart-drawer detect-adm-se-evt id="CartDrawer" section-id="{{ section.id }}" initial-focus="false" class="hdt-drawer hdt-mini-cart hdt-hidden hdt-right-0 {{ hide_class }}" color-scheme="{{ section.settings.color_scheme }}" effect="right">
+  <hdt-cart-drawer detect-adm-se-evt id="CartDrawer" section-id="{{ section.id }}" initial-focus="false" aria-labelledby="CartDrawer-Title-{{ section.id }}" class="hdt-drawer hdt-mini-cart hdt-hidden hdt-right-0 {{ hide_class }}" color-scheme="{{ section.settings.color_scheme }}" effect="right">
     <div slot="header" class="hdt-mini-cart__header hdt-flex hdt-align-center hdt-justify-between hdt-flex-col">
-      <h3 class="hdt-mini-cart__header-title hdt-text-2xl hdt-font-medium">{{ 'sections.cart.mini_cart.title' | t }}</h3>
+      <h2 id="CartDrawer-Title-{{ section.id }}" class="hdt-mini-cart__header-title hdt-text-2xl hdt-font-medium">{{ 'sections.cart.mini_cart.title' | t }}</h2>
       <p class="hdt-mini-cart__subtitle">Free worldwide shipping</p>
     </div>
     {%- if section.settings.show_free_shipping_bar and shipping_amount > -1 -%}
