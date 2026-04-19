@@ -616,6 +616,7 @@ hdt-sticky-header:hover {
   white-space: nowrap;
 }
 
+/*
 .hdt-logo>a::before {
   speak: none;
   -webkit-font-smoothing: antialiased;
@@ -631,6 +632,7 @@ hdt-sticky-header:hover {
   text-indent: 0;
   text-transform: none;
 }
+*/
 
 .hdt-logo [aria-hidden=true] {
   display: none;
@@ -643,11 +645,13 @@ hdt-sticky-header:hover {
   }
 }
 
+/*
 @media(min-width: 1150px) {
   .hdt-header-logo_left .hdt-logo {
     margin-left: -8px;
   }
 }
+*/
 
 /*Icons*/
 .hdt-site-top_nav {
