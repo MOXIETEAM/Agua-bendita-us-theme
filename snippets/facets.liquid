@@ -360,10 +360,8 @@
             assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
           endif
         -%}
-        <a href="{{ results_url }}">
-          <button data-loading-bar  class="hdt-filter-drawer-clear-btn hdt-inline-flex hdt-align-center hdt-justify-center hdt-relative hdt-btn hdt-oh hdt-btn-outline">
-            <span class="hdt-truncate">Clear Filters</span>
-          </button>
+        <a href="{{ results_url }}" data-loading-bar class="hdt-filter-drawer-clear-btn hdt-inline-flex hdt-align-center hdt-justify-center hdt-relative hdt-btn hdt-oh hdt-btn-outline">
+          <span class="hdt-truncate">Clear Filters</span>
         </a>
       </wrapp-hdt-facet-url>
       <wrapp-close-btn>
