@@ -1,7 +1,7 @@
 {%- assign bk_title = block.settings.title | default: block.settings.page.title -%}
 {%- unless bk_title == blank or block.settings.content == blank and block.settings.page.content == blank -%}
   <!--item-title>
-  <button aria-current="{%- if block.settings.open %}true{% else %}false{% endif %}" class="hdt-s-text hdt-relative hdt-font-semibold"><h2>{{ bk_title | escape }}</h2></button>
+  <h3><button aria-current="{%- if block.settings.open %}true{% else %}false{% endif %}" class="hdt-s-text hdt-relative hdt-font-semibold">{{ bk_title | escape }}</button></h3>
   -->
   <div class="hdt-tab-item-content hdt-rte" tab-item {%- if block.settings.open %} tab-selected{% endif %} data-type={{ block.type }} {{ block.shopify_attributes }}>
     <div class="hdt-rte">{{ block.settings.content }}</div>

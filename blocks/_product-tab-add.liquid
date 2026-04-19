@@ -5,7 +5,7 @@
 -%}
 {%- unless block.settings.title == blank or product.has_only_default_variant -%}
   <!--item-title>
-  <button aria-current="{%- if block.settings.open %}true{% else %}false{% endif %}" class="hdt-s-text hdt-relative hdt-font-semibold"><h2>{{ block.settings.title | escape }}</h2></button>
+  <h3><button aria-current="{%- if block.settings.open %}true{% else %}false{% endif %}" class="hdt-s-text hdt-relative hdt-font-semibold">{{ block.settings.title | escape }}</button></h3>
   -->
   <div class="hdt-tab-item" tab-item {%- if block.settings.open %} tab-selected{% endif %} data-type={{ block.type }} {{ block.shopify_attributes }}>
       <table>
