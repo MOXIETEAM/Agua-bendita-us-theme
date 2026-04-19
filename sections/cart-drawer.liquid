@@ -18,6 +18,7 @@
 {% if from_dt <= now_dt and now_dt <= to_dt %}
   {%- liquid
     assign form_id = 'CartDrawer-Form'
+    assign cart_drawer_title_id = 'CartDrawer-Title-' | append: section.id
     assign shipping_amount = settings.free_ship_pr.metafields.theme.shipping_money.value | default: settings.free_ship_pr.price | default: -1
     assign gift_wrap_pr = settings.gift_wrap_pr
     if gift_wrap_pr != blank and gift_wrap_pr.available
@@ -34,9 +35,9 @@
       render 'hide_desktop_mobile', hide_on_desktop: section.settings.hide_on_desktop, hide_on_mobile: section.settings.hide_on_mobile
     endcapture
   -%}
-  <hdt-cart-drawer detect-adm-se-evt id="CartDrawer" section-id="{{ section.id }}" initial-focus="false" aria-labelledby="CartDrawer-Title-{{ section.id }}" class="hdt-drawer hdt-mini-cart hdt-hidden hdt-right-0 {{ hide_class }}" color-scheme="{{ section.settings.color_scheme }}" effect="right">
+  <hdt-cart-drawer detect-adm-se-evt id="CartDrawer" section-id="{{ section.id }}" initial-focus="false" aria-labelledby="{{ cart_drawer_title_id }}" class="hdt-drawer hdt-mini-cart hdt-hidden hdt-right-0 {{ hide_class }}" color-scheme="{{ section.settings.color_scheme }}" effect="right">
     <div slot="header" class="hdt-mini-cart__header hdt-flex hdt-align-center hdt-justify-between hdt-flex-col">
-      <h2 id="CartDrawer-Title-{{ section.id }}" class="hdt-mini-cart__header-title hdt-text-2xl hdt-font-medium">{{ 'sections.cart.mini_cart.title' | t }}</h2>
+      <h2 id="{{ cart_drawer_title_id }}" class="hdt-mini-cart__header-title hdt-text-2xl hdt-font-medium" tabindex="-1">{{ 'sections.cart.mini_cart.title' | t }}</h2>
       <p class="hdt-mini-cart__subtitle">Free worldwide shipping</p>
     </div>
     {%- if section.settings.show_free_shipping_bar and shipping_amount > -1 -%}
@@ -277,6 +278,7 @@
       <path d="M1.61967 13.4726C1.77963 13.4726 1.81162 13.4566 1.95559 13.4246L4.83487 12.8488C5.13879 12.7688 5.44271 12.6248 5.68265 12.3849L12.6569 5.41065C13.7286 4.33892 13.7286 2.49937 12.6569 1.42764L12.0651 0.803799C10.9933 -0.267933 9.13779 -0.267933 8.06606 0.803799L1.0918 7.79405C0.867858 8.018 0.707898 8.33792 0.627918 8.64184L0.0200697 11.5531C-0.0599103 12.097 0.10005 12.6248 0.483954 13.0087C0.787878 13.3127 1.23577 13.4726 1.61967 13.4726ZM2.16353 8.94576L9.13779 1.95551C9.60167 1.49163 10.4495 1.49163 10.8974 1.95551L11.5052 2.56336C12.0491 3.10722 12.0491 3.87503 11.5052 4.4029L4.54694 11.3932L1.58768 11.889L2.16353 8.94576ZM12.5929 14.4644H0.787878C0.323994 14.4644 0.0200697 14.7683 0.0200697 15.2322C0.0200697 15.6961 0.403974 16 0.787878 16H12.5289C12.9928 16 13.3767 15.6961 13.3767 15.2322C13.3607 14.7683 12.9768 14.4644 12.5929 14.4644Z"/>
     </symbol>
   </svg>
+  <script src="{{ 'cart-drawer-custom.js' | asset_url }}" defer></script>
   {%- endif -%}
 
   {% if section.settings.auto_close %}
