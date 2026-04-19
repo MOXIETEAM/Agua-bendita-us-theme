@@ -2805,7 +2805,8 @@ hdt-drawer#hdt-filter_form {
   align-items: center;
 }
 
-.hdt-filter-drawer-footer-btns-wrapper button {
+.hdt-filter-drawer-footer-btns-wrapper button,
+.hdt-filter-drawer-footer-btns-wrapper a {
   width: 100%;
 }
 
