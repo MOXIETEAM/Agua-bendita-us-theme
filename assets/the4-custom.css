@@ -4638,6 +4638,14 @@ hdt-available-product-counter.active {
   font-weight: 400 !important;
 }
 
+.hdt-filter .hdt-filter-group__fieldset {
+  border: 0;
+  margin: 0;
+  min-inline-size: 0;
+  min-width: 0;
+  padding: 0;
+}
+
 .hdt-filter .hdt-filter-group__list-item .hdt-facets-label {
   font-size: 12px !important;
 }

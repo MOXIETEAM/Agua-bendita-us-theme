@@ -856,14 +856,17 @@
                                 {%- endif -%}
                                 {%- case filter.type -%}
                                   {%- when 'boolean' -%}
-                                    <ul class="hdt-filter-group__list type_boolean">
-                                      {%- for filter_value in filter.values -%}
-                                        <li class="hdt-filter-group__list-item">
-                                          <input class="" type="checkbox" name="{{ filter_value.param_name }}" value="{{ filter_value.value }}" id="Filter-sidebar-{{ filter.param_name }}-{{ forloop.index }}"{% if filter_value.active %} checked{% endif %}{% if filter_value.count == 0 and filter_value.active == false %} disabled{% endif %}>
-                                          <label for="Filter-sidebar-{{ filter.param_name }}-{{ forloop.index }}">{{ filter_value.label }}</label>
-                                        </li>
-                                      {%- endfor -%}
-                                    </ul>
+                                    <fieldset class="hdt-filter-group__fieldset">
+                                      <legend class="sr-only">{{ filter.label }}</legend>
+                                      <ul class="hdt-filter-group__list type_boolean">
+                                        {%- for filter_value in filter.values -%}
+                                          <li class="hdt-filter-group__list-item">
+                                            <input class="" type="checkbox" name="{{ filter_value.param_name }}" value="{{ filter_value.value }}" id="Filter-sidebar-{{ filter.param_name }}-{{ forloop.index }}"{% if filter_value.active %} checked{% endif %}{% if filter_value.count == 0 and filter_value.active == false %} disabled{% endif %}>
+                                            <label for="Filter-sidebar-{{ filter.param_name }}-{{ forloop.index }}">{{ filter_value.label }}</label>
+                                          </li>
+                                        {%- endfor -%}
+                                      </ul>
+                                    </fieldset>
                                     {% comment %} <div class="hdt-filter-group__submit"><input type="submit" value="{{ 'products.facets.apply' | t }}"></div> {% endcomment %}
 
                                   {%- comment %} {%- when 'boolean' or 'list' -%} {% endcomment -%}
@@ -877,54 +880,60 @@
                                         assign colors2 = color_values.colors.value
                                       -%}
 
-                                      <ul class="hdt-filter-group__list hdt-filter-group__list--color">
-                                        {%- for filter_value in filter.values -%}
+                                      <fieldset class="hdt-filter-group__fieldset">
+                                        <legend class="sr-only">{{ filter.label }}</legend>
+                                        <ul class="hdt-filter-group__list hdt-filter-group__list--color">
+                                          {%- for filter_value in filter.values -%}
 
-                                          {%- liquid
-                                          assign color_downcase = filter_value.label | downcase
-                                          assign color_handle = filter_value.label | handle
-                                          assign color_obj = colors[color_handle] | default: colors2[color_handle]
-                                          assign color_style_inline = ''
-                                          assign image = images[color_obj.imageName]
-                                          if image != blank
-                                            assign color_image = image | image_url: width: 80
-                                            assign color_image_style = '--hdt-bg-image: url(' | append: color_image | append: ');'
-                                          else
-                                            assign color_image_style = nil
-                                            assign color_style_inline = color_obj.colorsCSS
-                                          endif -%}
-                                          <li class="hdt-filter-group__list-item hdt-relative hdt-align-center">
-                                            <input class="sr-only" type="checkbox" name="{{ filter_value.param_name }}" value="{{ filter_value.value }}" id="Filter-sidebar-{{ filter.param_name }}-{{ forloop.index }}"{% if filter_value.active %} checked{% endif %}{% if filter_value.count == 0 and filter_value.active == false %} disabled{% endif %}>
-                                            <label for="Filter-sidebar-{{ filter.param_name }}-{{ forloop.index }}">
-                                              <span class="hdt-relative">
-                                                <span class="hdt-facets-checkbox-color hdt-filter-group__color{% if color_white == color_downcase %} hdt-bg-color-white{% endif %}"{% if color_image_style or color_style_inline.size > 0 %} style="{{ color_image_style }}{{ color_style_inline }}"{% endif %}>
-                                                  <span class="sr-only">{{ filter_value.label }}</span>
+                                            {%- liquid
+                                            assign color_downcase = filter_value.label | downcase
+                                            assign color_handle = filter_value.label | handle
+                                            assign color_obj = colors[color_handle] | default: colors2[color_handle]
+                                            assign color_style_inline = ''
+                                            assign image = images[color_obj.imageName]
+                                            if image != blank
+                                              assign color_image = image | image_url: width: 80
+                                              assign color_image_style = '--hdt-bg-image: url(' | append: color_image | append: ');'
+                                            else
+                                              assign color_image_style = nil
+                                              assign color_style_inline = color_obj.colorsCSS
+                                            endif -%}
+                                            <li class="hdt-filter-group__list-item hdt-relative hdt-align-center">
+                                              <input class="sr-only" type="checkbox" name="{{ filter_value.param_name }}" value="{{ filter_value.value }}" id="Filter-sidebar-{{ filter.param_name }}-{{ forloop.index }}"{% if filter_value.active %} checked{% endif %}{% if filter_value.count == 0 and filter_value.active == false %} disabled{% endif %}>
+                                              <label for="Filter-sidebar-{{ filter.param_name }}-{{ forloop.index }}">
+                                                <span class="hdt-relative">
+                                                  <span class="hdt-facets-checkbox-color hdt-filter-group__color{% if color_white == color_downcase %} hdt-bg-color-white{% endif %}"{% if color_image_style or color_style_inline.size > 0 %} style="{{ color_image_style }}{{ color_style_inline }}"{% endif %}>
+                                                    <span class="sr-only">{{ filter_value.label }}</span>
+                                                  </span>
+                                                  <span class="hdt-facets-color-icon hdt-full-width-link hdt-flex hdt-align-center hdt-justify-center hdt-pe-none">
+                                                    <svg focusable="false" width="24" height="24" viewBox="0 0 24 24" role="presentation"><path fill="currentColor" d="M9 20l-7-7 3-3 4 4L19 4l3 3z"></path></svg>
+                                                  </span>
                                                 </span>
-                                                <span class="hdt-facets-color-icon hdt-full-width-link hdt-flex hdt-align-center hdt-justify-center hdt-pe-none">
+                                                <span class="hdt-base hdt-font-normal hdt-filter-group__color-label"><span>{{ filter_value.label }}</span> <span> ({{ filter_value.count }})</span></span>
+                                              </label>
+                                            </li>
+                                          {%- endfor -%}
+                                        </ul>
+                                      </fieldset>
+                                    {%- else -%}
+                                      <fieldset class="hdt-filter-group__fieldset">
+                                        <legend class="sr-only">{{ filter.label }}</legend>
+                                        <ul class="hdt-filter-group__list">
+                                          {%- for filter_value in filter.values -%}
+                                            <li class="hdt-filter-group__list-item">
+                                              <input class="sr-only" type="checkbox" name="{{ filter_value.param_name }}" value="{{ filter_value.value }}" id="Filter-sidebar-{{ filter.param_name }}-{{ forloop.index }}"{% if filter_value.active %} checked{% endif %}{% if filter_value.count == 0 and filter_value.active == false %} disabled{% endif %}>
+                                              <label for="Filter-sidebar-{{ filter.param_name }}-{{ forloop.index }}">
+                                                <span class="hdt-facets-checkbox" >
                                                   <svg focusable="false" width="24" height="24" viewBox="0 0 24 24" role="presentation"><path fill="currentColor" d="M9 20l-7-7 3-3 4 4L19 4l3 3z"></path></svg>
                                                 </span>
-                                              </span>
-                                              <span class="hdt-base hdt-font-normal hdt-filter-group__color-label"><span>{{ filter_value.label }}</span> <span> ({{ filter_value.count }})</span></span>
-                                            </label>
-                                          </li>
-                                        {%- endfor -%}
-                                      </ul>
-                                    {%- else -%}
-                                      <ul class="hdt-filter-group__list">
-                                        {%- for filter_value in filter.values -%}
-                                          <li class="hdt-filter-group__list-item">
-                                            <input class="sr-only" type="checkbox" name="{{ filter_value.param_name }}" value="{{ filter_value.value }}" id="Filter-sidebar-{{ filter.param_name }}-{{ forloop.index }}"{% if filter_value.active %} checked{% endif %}{% if filter_value.count == 0 and filter_value.active == false %} disabled{% endif %}>
-                                            <label for="Filter-sidebar-{{ filter.param_name }}-{{ forloop.index }}">
-                                              <span class="hdt-facets-checkbox" >
-                                                <svg focusable="false" width="24" height="24" viewBox="0 0 24 24" role="presentation"><path fill="currentColor" d="M9 20l-7-7 3-3 4 4L19 4l3 3z"></path></svg>
-                                              </span>
-                                              <span class="hdt-facets-label hdt-base hdt-normal">
-                                                <span>{{ filter_value.label }}</span> <span> ({{ filter_value.count }})</span>
-                                              </span>
-                                            </label>
-                                          </li>
-                                        {%- endfor -%}
-                                      </ul>
+                                                <span class="hdt-facets-label hdt-base hdt-normal">
+                                                  <span>{{ filter_value.label }}</span> <span> ({{ filter_value.count }})</span>
+                                                </span>
+                                              </label>
+                                            </li>
+                                          {%- endfor -%}
+                                        </ul>
+                                      </fieldset>
                                     {%- endif -%}
                                     {%- comment %}<div class="hdt-filter-group__submit"><input type="submit" value="{{ 'products.facets.apply' | t }}"></div>{% endcomment -%}
 
