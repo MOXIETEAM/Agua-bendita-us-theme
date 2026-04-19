@@ -188,7 +188,7 @@
     </hdt-available-product-counter>
     {% endcomment %}
 
-    <hdt-available-product-counter form-id="{{ product_form_id }}">
+    <hdt-available-product-counter form-id="{{ product_form_id }}" role="status">
       <script type="application/json" data-variant-stock>
         [
           {%- for variant in product.variants -%}
