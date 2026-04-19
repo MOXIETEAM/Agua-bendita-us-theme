@@ -99,6 +99,15 @@
 						<div class="hdt-row-grid hdt-row-grid--modify hdt-grid-cols-{{ row_col }} hdt-justify-center hdt-header-gap-20" data-all-leaf="{{ hdt_all_leaf }}">
 							{%- if link.links != blank -%}
 								<div class="hdt-menu-col{% if hdt_all_leaf %} hdt-all-leaf{% endif %}">
+									{%- liquid
+										assign mega_menu_has_heading_submenu = false
+										for heading_link in link.links
+											if heading_link.links != blank
+												assign mega_menu_has_heading_submenu = true
+												break
+											endif
+										endfor
+									-%}
 									<div class="hdt-mega-items hdt-flex hdt-justify-center hdt-text-start{% if hdt_all_leaf %} hdt-mega-items--column{% endif %}">
 										{%- for link in link.links -%}
                       {% liquid
@@ -119,7 +128,7 @@
 														{%- assign arr_title = link.title | split: '[' -%}
 														{%- assign arr_label = arr_title[1] | split: ',' -%}
 														<span class="hdt-menu-link-text hdt-block{% if arr_label.size > 0 %} hdt-relative hdt-title_size-{{ arr_title[0].size | at_most: 20 }} hdt-has-{{ arr_label.size | at_most: 2 }}label{% endif %}">
-															<span class="hdt-block">{{ arr_title[0] }}</span>
+															<span class="hdt-block"{% if mega_menu_has_heading_submenu %} role="heading" aria-level="2"{% endif %}>{{ arr_title[0] }}</span>
 															{%- if arr_label.size > 0 -%}
 																<span class="hdt_label_menu hdt-absolute hdt-inline-flex hdt-align-center hdt-justify-center hdt-text-xs hdt-font-medium">
 																	{%- for label in arr_label limit: 2 -%}
@@ -198,7 +207,7 @@
 														{%- assign arr_title = link.title | split: '[' -%}
 														{%- assign arr_label = arr_title[1] | split: ',' -%}
 														<span class="hdt-menu-link-text hdt-block{% if arr_label.size > 0 %} hdt-relative hdt-title_size-{{ arr_title[0].size | at_most: 20 }} hdt-has-{{ arr_label.size | at_most: 2 }}label{% endif %}">
-															<span class="hdt-block hdt-line-clamp">{{ arr_title[0] }}</span>
+															<span class="hdt-block hdt-line-clamp"{% if mega_menu_has_heading_submenu %} role="heading" aria-level="2"{% endif %}>{{ arr_title[0] }}</span>
 															{%- if arr_label.size > 0 -%}
 																<span class="hdt_label_menu hdt-absolute hdt-inline-flex hdt-align-center hdt-justify-center hdt-text-xs hdt-font-medium">
 																	{%- for label in arr_label limit: 2 -%}
@@ -322,6 +331,15 @@
 						<div class="hdt-flex hdt-justify-center hdt-header-gap-20">
 							{%- if link.links != blank -%}
 								<div class="hdt-menu-col {% if block.settings.product_list != blank %}hdt-custom-col-8{% else %}hdt-custom-col-12{% endif %}">
+									{%- liquid
+										assign mega_menu_has_heading_submenu = false
+										for heading_link in link.links
+											if heading_link.links != blank
+												assign mega_menu_has_heading_submenu = true
+												break
+											endif
+										endfor
+									-%}
 									<div class="hdt-row-grid hdt-grid-cols-{{ link.links.size | at_most: 6 }}">
 										{%- for link in link.links -%}
 											<div class="hdt-mega-item hdt-text-start">
@@ -330,7 +348,7 @@
 														{%- assign arr_title = link.title | split: '[' -%}
 														{%- assign arr_label = arr_title[1] | split: ',' -%}
 														<span class="hdt-menu-link-text hdt-block{% if arr_label.size > 0 %} hdt-relative hdt-title_size-{{ arr_title[0].size | at_most: 20 }} hdt-has-{{ arr_label.size | at_most: 2 }}label{% endif %}">
-															<span class="hdt-block hdt-line-clamp">{{ arr_title[0] }}</span>
+															<span class="hdt-block hdt-line-clamp"{% if mega_menu_has_heading_submenu %} role="heading" aria-level="2"{% endif %}>{{ arr_title[0] }}</span>
 															{%- if arr_label.size > 0 -%}
 																<span class="hdt_label_menu hdt-absolute hdt-inline-flex hdt-align-center hdt-justify-center hdt-text-xs hdt-font-medium">
 																	{%- for label in arr_label limit: 2 -%}
@@ -390,10 +408,10 @@
 													</ul>
 												{%- else -%}
 													<a id="hdt-mega-{{ link.handle }}" class="hdt-mega-heading hdt-flex hdt-align-center hdt-justify-between hdt-relative{% if link.current and section.settings.active_link %} hdt-menu-link--active{% endif %}" href="{{ link.url }}" {% if link.current %} aria-current="page" {% endif %}>
-														{%- assign arr_title = link.title | split: '[' -%}
-														{%- assign arr_label = arr_title[1] | split: ',' -%}
-														<span class="hdt-menu-link-text hdt-block{% if arr_label.size > 0 %} hdt-relative hdt-title_size-{{ arr_title[0].size | at_most: 20 }} hdt-has-{{ arr_label.size | at_most: 2 }}label{% endif %}">
-															<span class="hdt-block hdt-line-clamp">{{ arr_title[0] }}</span>
+												{%- assign arr_title = link.title | split: '[' -%}
+												{%- assign arr_label = arr_title[1] | split: ',' -%}
+												<span class="hdt-menu-link-text hdt-block{% if arr_label.size > 0 %} hdt-relative hdt-title_size-{{ arr_title[0].size | at_most: 20 }} hdt-has-{{ arr_label.size | at_most: 2 }}label{% endif %}">
+													<span class="hdt-block hdt-line-clamp"{% if mega_menu_has_heading_submenu %} role="heading" aria-level="2"{% endif %}>{{ arr_title[0] }}</span>
 															{%- if arr_label.size > 0 -%}
 																<span class="hdt_label_menu hdt-absolute hdt-inline-flex hdt-align-center hdt-justify-center hdt-text-xs hdt-font-medium">
 																	{%- for label in arr_label limit: 2 -%}
@@ -477,6 +495,15 @@
 					{{ 'sections.header.add_content' | t: item: "pages" }}
 				{%- else -%}
 						<div class="hdt-container{% if block.settings.mega_width == "custom" %}-full{% endif %}">
+							{%- liquid
+								assign mega_menu_has_heading_submenu = false
+								for heading_link in link.links
+									if heading_link.links != blank
+										assign mega_menu_has_heading_submenu = true
+										break
+									endif
+								endfor
+							-%}
 							<div class="hdt-row-grid hdt-row-grid--modify hdt-grid-cols-{{ link.links.size | at_most: 6}} hdt-justify-center hdt-header-gap-20">
 								{%- for link in link.links -%}
 									<div class="hdt-mega-item hdt-text-start">
@@ -485,7 +512,7 @@
 												{%- assign arr_title = link.title | split: '[' -%}
 												{%- assign arr_label = arr_title[1] | split: ',' -%}
 												<span class="hdt-menu-link-text hdt-block{% if arr_label.size > 0 %} hdt-relative hdt-title_size-{{ arr_title[0].size | at_most: 20 }} hdt-has-{{ arr_label.size | at_most: 2 }}label{% endif %}">
-													<span class="hdt-block hdt-line-clamp">{{ arr_title[0] }}</span>
+													<span class="hdt-block hdt-line-clamp"{% if mega_menu_has_heading_submenu %} role="heading" aria-level="2"{% endif %}>{{ arr_title[0] }}</span>
 													{%- if arr_label.size > 0 -%}
 														<span class="hdt_label_menu  hdt-flex hdt-align-center hdt-justify-center hdt-text-xs hdt-font-medium">
 															{%- for label in arr_label limit: 2 -%}
@@ -548,7 +575,7 @@
 												{%- assign arr_title = link.title | split: '[' -%}
 												{%- assign arr_label = arr_title[1] | split: ',' -%}
 												<span class="hdt-menu-link-text hdt-block{% if arr_label.size > 0 %} hdt-relative hdt-title_size-{{ arr_title[0].size | at_most: 20 }} hdt-has-{{ arr_label.size | at_most: 2 }}label{% endif %}">
-													<span class="hdt-block hdt-line-clamp">{{ arr_title[0] }}</span>
+													<span class="hdt-block hdt-line-clamp"{% if mega_menu_has_heading_submenu %} role="heading" aria-level="2"{% endif %}>{{ arr_title[0] }}</span>
 													{%- if arr_label.size > 0 -%}
 														<span class="hdt_label_menu hdt-absolute hdt-inline-flex hdt-align-center hdt-justify-center hdt-text-xs hdt-font-medium">
 															{%- for label in arr_label limit: 2 -%}
