@@ -69,12 +69,10 @@
 		</div>
 		{%- if settings.wishlist_mode != '0' -%}
 			{%- if section.settings.enabled_wishlist -%}
-				<div class="hdt-site-nav_icon hdt-site-nav_wishlist lg:hdt-inline-flex md:hdt-inline-flex hdt-align-center hdt-hidden hdt-relative">
-					<a href="#hero-wishlist" aria-controls="hero-wishlist" role="button">
-						<button class="block-title icon-heart" type="button">
-						    <span class="icon-fallback-text">Wishlist</span>
-						</button>
-					</a>
+					<div class="hdt-site-nav_icon hdt-site-nav_wishlist lg:hdt-inline-flex md:hdt-inline-flex hdt-align-center hdt-hidden hdt-relative">
+						<a class="block-title icon-heart" href="#hero-wishlist" aria-controls="hero-wishlist">
+							<span class="icon-fallback-text">Wishlist</span>
+						</a>
 
 					{% comment %}
 					<hdt-wishlist-a class="hdt-contents">

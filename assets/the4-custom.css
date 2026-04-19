@@ -717,7 +717,7 @@ hdt-sticky-header:hover {
   top: 0;
 }
 
-.hdt-site-top_nav .hdt-site-nav_wishlist a button::before {
+.hdt-site-top_nav .hdt-site-nav_wishlist :is(a.icon-heart, a button)::before {
   speak: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1269,7 +1269,7 @@ hdt-sticky-header:hover {
   display: none;
 }
 
-.hdt-drawer-menu-mb .hdt-site-nav_wishlist a button::before {
+.hdt-drawer-menu-mb .hdt-site-nav_wishlist :is(a.icon-heart, a button)::before {
   speak: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
