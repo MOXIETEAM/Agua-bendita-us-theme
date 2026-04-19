@@ -57,7 +57,7 @@
       }
     {% endif %}
   {% endstyle %}
-  <hdt-sticky-header sticky-type="always", prefix="header" class="{{ hide_class }}">
+  <hdt-sticky-header sticky-type="always", prefix="header" class="{{ hide_class }}" role="region" aria-label="carousel-{{ section.id }}">
     <div aria-hidden="false" id="hdt-announcement-main" class="hdt-announcement-bar hdt-s-gradient{% if section.settings.show_line_separator and section.blocks.size > 0 %} hdt-announcement-bar--bottom-border{% endif %}" color-scheme="{{ section.settings.color_scheme }}">
       <div class="hdt-container-full{% if section.settings.design == 'slider' %} hdt-px-10 lg:hdt-px-40{% elsif section.settings.design == 'marquee' and section.settings.show_close_btn %} hdt-pe-15 lg:hdt-pe-40{% endif %}">
         {%- if section.settings.design == 'slider' -%}
