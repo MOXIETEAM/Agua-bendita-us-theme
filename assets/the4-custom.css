@@ -4561,6 +4561,12 @@ hdt-available-product-counter.active {
 /* ----- Filter drawer ------ */
 .hdt-filter-group-summary>.hdt-facet-title {
   position: relative;
+  font-family: inherit;
+  font-style: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  color: inherit;
+  word-break: normal;
 }
 
 .hdt-filter-group-summary>.hdt-facet-title svg {
