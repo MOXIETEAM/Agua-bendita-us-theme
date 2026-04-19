@@ -19,7 +19,7 @@
 {% if settings.size_mode == "custom_size" %}
   {% unless product != blank and size_option_name != blank and size_option_index != blank and product.has_only_default_variant %}
     <fieldset class="hdt-text-center {{ class }}">
-      <p class="hdt-text-center">{{ 'products.product.size_selector.label' | t }} {{ product.title }}</p>
+      <legend class="hdt-text-center">{{ 'products.product.size_selector.label' | t }} {{ product.title }}</legend>
       {%- for size in size_variants limit: size_maximum -%}
         {% assign option_position = forloop.index %}
         {%- liquid
