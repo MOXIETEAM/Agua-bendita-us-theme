@@ -160,7 +160,8 @@
     "before_after": "Percentage of after image shown",
     "go_to_slide": "Go to slide {{ number }}",
     "go_to_page": "Go to page {{ number }}",
-    "go_to_item": "Go to item {{ number }}"
+    "go_to_item": "Go to item {{ number }}",
+    "items_in_cart": "items in cart"
   },
   "blogs": {
     "article": {
