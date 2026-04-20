@@ -142,6 +142,7 @@
   "accessibility": {
     "skip_to_text": "Skip to content",
     "skip_to_product_info": "Skip to product information",
+    "mobile_navigation_logo": "{{ name }} logo",
     "close": "Close",
     "unit_price_separator": "per",
     "vendor": "Vendor:",

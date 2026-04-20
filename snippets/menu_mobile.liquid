@@ -215,21 +215,31 @@
 {%- endif -%}
 
 <div slot="site-nav" class="hdt-nav-mobile">
-	<div class="hdt-site-top_nav hdt-flex hdt-align-center hdt-justify-end">
-		<div class="hdt-site-nav_icon hdt-site-nav_search hdt-inline-flex hdt-align-center">
-			<a href="{{ routes.search_url }}" class="hdt-inline-flex hdt-align-center hdt-relative" aria-controls="drawer-search-form">
-			</a>
-		</div>
-		<div class="hdt-site-nav_icon hdt-site-nav_cart hdt-inline-flex hdt-align-center">
-			<a class="hdt-inline-flex hdt-align-center hdt-relative hdt-has-count-box" href="{{ routes.cart_url }}"{% if request.page_type != 'cart' %} aria-controls="CartDrawer"{% endif %}>
-				<hdt-cart-count class="hdt-absolute">{{ cart.item_count }}</hdt-cart-count>
-			</a>
-		</div>
+		<div class="hdt-site-top_nav hdt-flex hdt-align-center hdt-justify-end">
+			<div class="hdt-site-nav_icon hdt-site-nav_search hdt-inline-flex hdt-align-center">
+				<a href="{{ routes.search_url }}" class="hdt-inline-flex hdt-align-center hdt-relative" aria-controls="drawer-search-form">
+					<span class="hdt-visually-hidden">{{ 'general.search.search' | t }}</span>
+				</a>
+			</div>
+			<div class="hdt-site-nav_icon hdt-site-nav_cart hdt-inline-flex hdt-align-center">
+				<a class="hdt-inline-flex hdt-align-center hdt-relative hdt-has-count-box" href="{{ routes.cart_url }}"{% if request.page_type != 'cart' %} aria-controls="CartDrawer"{% endif %}>
+					<span class="hdt-visually-hidden">
+						{%- if cart.item_count > 0 -%}
+							{{ 'general.cart.view' | t: count: cart.item_count }}
+						{%- else -%}
+							{{ 'general.cart.view_empty_cart' | t }}
+						{%- endif -%}
+					</span>
+					<hdt-cart-count class="hdt-absolute">{{ cart.item_count }}</hdt-cart-count>
+				</a>
+			</div>
   </div>
 </div>
 
 <div slot="header" class="hdt-flex hdt-align-center hdt-justify-between">
-	<div class="hdt-mobile-nav-logo"></div>
+	<div class="hdt-mobile-nav-logo">
+		<span class="hdt-visually-hidden">{{ 'accessibility.mobile_navigation_logo' | t: name: shop.name }}</span>
+	</div>
 </div>
 
 <div slot="footer" class="hdt-mobile_bottom">
