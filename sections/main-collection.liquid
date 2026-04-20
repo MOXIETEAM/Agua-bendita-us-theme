@@ -5,6 +5,8 @@
   assign color_list = 'products.theme_settings.color' | t | downcase | strip | replace: ' ,', ',' | replace: ', ', ',' | split: ',' | uniq
   assign size_list = 'products.theme_settings.size' | t | downcase | strip | replace: ' ,', ',' | replace: ', ', ',' | split: ',' | uniq
   assign products_id = 'products-' | append: section.id
+  assign products_heading_id = products_id | append: '-heading'
+  assign collection_item_class = 'hdt-collection-item hdt-reval-item'
   assign arr_col_from_attr = cart.attributes.products_items_per_row | split: '.'
   assign col_mb = section.settings.col_mb | plus: 0
   assign col_tb = section.settings.col_tb | plus: 0
@@ -232,8 +234,9 @@
                 {{ 'products.facets.use_fewer_filters_html' | t: link: collection.url, class: 'hdt-btn hdt-btn-link' }}
               </div>
             {%- else -%}
-              <hdt-reval-items reveal-on-scroll="true" id="{{ products_id }}" scroll-into-view class="hdt-collection-products hdt-collection-has-pr{{ section.settings.product_des }} hdt-pr-border_{{ section.settings.pr_border }} hdt-row-grid hdt-grid-cols-{{ col_mobile }} md:hdt-grid-cols-{{ col_tablet }} lg:hdt-grid-cols-{{ col_desktop }} hdt-ratio--{{ section.settings.image_ratio }}{% unless section.settings.image_size %} hdt-ratio--contain{% endunless %}">
-                <h2 class="hdt-visually-hidden">Product List for {{collection.title}}</h2>
+              <hdt-reval-items reveal-on-scroll="true" selector=".hdt-collection-item" scroll-into-view>
+                <h2 id="{{ products_heading_id }}" class="hdt-visually-hidden">Product List for {{ collection.title }}</h2>
+                <ul id="{{ products_id }}" aria-labelledby="{{ products_heading_id }}" class="hdt-collection-products hdt-collection-has-pr{{ section.settings.product_des }} hdt-pr-border_{{ section.settings.pr_border }} hdt-row-grid hdt-grid-cols-{{ col_mobile }} md:hdt-grid-cols-{{ col_tablet }} lg:hdt-grid-cols-{{ col_desktop }} hdt-ratio--{{ section.settings.image_ratio }}{% unless section.settings.image_size %} hdt-ratio--contain{% endunless %}">
                 {% liquid 
                   if collection.metafields.plp.in_grid_promo_image_1 != blank
                     capture in_grid_promo_1
@@ -258,7 +261,9 @@
                     unless settings.remove_collection_url
                       assign product_url = product.url | within: collection
                     endunless
+                    echo '<li class="' | append: collection_item_class | append: '">'
                     render 'card-product-list', card_product: product, class: "hdt-pr-list", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
+                    echo '</li>'
                   endfor
                 else
                   case section.settings.product_des
@@ -272,7 +277,9 @@
                         unless settings.remove_collection_url
                           assign product_url = product.url | within: collection
                         endunless
+                        echo '<li class="' | append: collection_item_class | append: '">'
                         render 'card-product1', card_product: product, class: "hdt-pr-style1", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
+                        echo '</li>'
                       endfor
                     when '2'
                       capture btn_wishlist_code
@@ -284,7 +291,9 @@
                         unless settings.remove_collection_url
                           assign product_url = product.url | within: collection
                         endunless
+                        echo '<li class="' | append: collection_item_class | append: '">'
                         render 'card-product2', card_product: product, class: "hdt-pr-style2", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
+                        echo '</li>'
                       endfor
                     when '3'
                       capture btn_wishlist_code
@@ -296,7 +305,9 @@
                         unless settings.remove_collection_url
                           assign product_url = product.url | within: collection
                         endunless
+                        echo '<li class="' | append: collection_item_class | append: '">'
                         render 'card-product3', card_product: product, class: "hdt-pr-style3", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
+                        echo '</li>'
                       endfor
                     when '4'
                       capture btn_wishlist_code
@@ -308,7 +319,9 @@
                         unless settings.remove_collection_url
                           assign product_url = product.url | within: collection
                         endunless
+                        echo '<li class="' | append: collection_item_class | append: '">'
                         render 'card-product4', card_product: product, class: "hdt-pr-style4", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
+                        echo '</li>'
                       endfor
                     when '5'
                       capture btn_wishlist_code
@@ -320,7 +333,9 @@
                         unless settings.remove_collection_url
                           assign product_url = product.url | within: collection
                         endunless
+                        echo '<li class="' | append: collection_item_class | append: '">'
                         render 'card-product5', card_product: product, class: "hdt-pr-style5", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
+                        echo '</li>'
                       endfor
                     when '6'
                       capture btn_wishlist_code
@@ -332,7 +347,9 @@
                         unless settings.remove_collection_url
                           assign product_url = product.url | within: collection
                         endunless
+                        echo '<li class="' | append: collection_item_class | append: '">'
                         render 'card-product6', card_product: product, class: "hdt-pr-style6", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
+                        echo '</li>'
                       endfor
                     when '7'
                       capture btn_wishlist_code
@@ -344,7 +361,9 @@
                         unless settings.remove_collection_url
                           assign product_url = product.url | within: collection
                         endunless
+                        echo '<li class="' | append: collection_item_class | append: '">'
                         render 'card-product7', card_product: product, class: "hdt-pr-style7", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
+                        echo '</li>'
                       endfor
                     when '8'
                       capture btn_wishlist_code
@@ -356,7 +375,9 @@
                         unless settings.remove_collection_url
                           assign product_url = product.url | within: collection
                         endunless
+                        echo '<li class="' | append: collection_item_class | append: '">'
                         render 'card-product8', card_product: product, class: "hdt-pr-style8", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
+                        echo '</li>'
                       endfor
                     when '9'
                       capture btn_wishlist_code
@@ -368,7 +389,9 @@
                         unless settings.remove_collection_url
                           assign product_url = product.url | within: collection
                         endunless
+                        echo '<li class="' | append: collection_item_class | append: '">'
                         render 'card-product9', card_product: product, class: "hdt-pr-style1 hdt-pr-style9", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
+                        echo '</li>'
                       endfor
                     when '10'
                       capture btn_wishlist_code
@@ -380,7 +403,9 @@
                         unless settings.remove_collection_url
                           assign product_url = product.url | within: collection
                         endunless
+                        echo '<li class="' | append: collection_item_class | append: '">'
                         render 'card-product10', card_product: product, class: "hdt-pr-style1 hdt-pr-style10", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
+                        echo '</li>'
                       endfor
                     when '11' or '12'
                       capture btn_wishlist_code
@@ -393,7 +418,9 @@
                           assign product_url = product.url | within: collection
                         endunless
                         assign class = "hdt-slider__slide hdt-pr-style1 hdt-pr-style" | append: section.settings.product_des
+                        echo '<li class="' | append: collection_item_class | append: '">'
                         render 'card-product11', card_product: product, section_id: section.id, class: class, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
+                        echo '</li>'
                       endfor
                     when '13'
 
@@ -493,7 +520,7 @@
                             endif
                           endcapture
 
-                          render 'card-product13', card_product: product, class: "hdt-pr-style4", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor, show_alt_image: section.settings.show_alt_image, index: forloop.index, col_desktop: col_desktop, hide_quick_view_on_desktop: section.settings.hide_quick_view_on_desktop, hide_quick_view_on_mobile: section.settings.hide_quick_view_on_mobile
+                          render 'card-product13', card_product: product, class: "hdt-pr-style4", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor, show_alt_image: section.settings.show_alt_image, index: forloop.index, col_desktop: col_desktop, hide_quick_view_on_desktop: section.settings.hide_quick_view_on_desktop, hide_quick_view_on_mobile: section.settings.hide_quick_view_on_mobile, render_as_list_item: true, list_item_class: collection_item_class
 
                           comment
                           if paginate.current_page == 1
@@ -513,6 +540,7 @@
                   endcase
                 endif
                 -%}
+                </ul>
               </hdt-reval-items>
               {%- if paginate.pages > 1 -%}
                 {%- render 'pagination', paginate: paginate, anchor: '', section_id: section.id , pagination_type: section.settings.pagination_type, append_id: products_id, paginate_pos: section.settings.paginate_pos, dis_pagination: section.settings.dis_pagination -%}

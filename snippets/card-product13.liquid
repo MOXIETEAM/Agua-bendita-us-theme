@@ -22,6 +22,8 @@
   - size_list: {Array}
   - color_list: {Array}
   - show_notify_me: {Array}
+  - render_as_list_item: {Boolean} Wrap banners and product card in list items. Default: false
+  - list_item_class: {String} Class list for the optional list item wrapper
 
   Usage:
   {%- render 'card-product', card_product: product, show_vendor: section.settings.show_vendor -%}
@@ -84,6 +86,14 @@
     assign show_notify_me = true
   endif
 
+  if render_as_list_item == nil
+    assign render_as_list_item = false
+  endif
+
+  if render_as_list_item and list_item_class == blank
+    assign list_item_class = 'hdt-collection-item hdt-reval-item'
+  endif
+
   
   if card_product.has_only_default_variant == false and settings.color_mode != 'hide' or settings.size_mode != 'hide'
      assign available_variants = card_product.variants | where: "available"
@@ -143,12 +153,21 @@
     %}
     {% if index == numberStart %}
       {% assign text = item.text | metafield_tag %}
+      {% if render_as_list_item %}
+        <li class="{{ list_item_class }}">
+      {% endif %}
       {% render 'promo-banner', button_text: item.button_url.value.text, url: item.button_url.value.url, image:  item.image, image_mobile: item.image_mobile, text: text, content_position: item.content_position, vertical_content_position: item.vertical_content_position, horizontal_content_position: item.horizontal_content_position, ratio: aspect_ratio, ratio_mb: aspect_ratio_mb, span_cols: span_cols, sizes: sizes %}
+      {% if render_as_list_item %}
+        </li>
+      {% endif %}
     {% endif %}
   {% endif %}
 {% endfor %}
 {% comment %} End Banners {% endcomment %}
-  
+
+  {% if render_as_list_item %}
+    <li class="{{ list_item_class }}">
+  {% endif %}
   <hdt-card-product class="hdt-card-product {{ class }}{% if card_product.available == false %} hdt-pr-sold_out{% endif %}" role="group" aria-label="product">
     <div class="hdt-card-product__wrapper">
       <div class="hdt-card-product__media hdt-relative hdt-oh{% if size_count > 0 %} hdt-has-size-list{% endif %}">
@@ -263,3 +282,6 @@
       {% endif %}
     </div>
   </hdt-card-product>
+  {% if render_as_list_item %}
+    </li>
+  {% endif %}
