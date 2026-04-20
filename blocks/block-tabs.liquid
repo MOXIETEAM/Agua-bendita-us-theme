@@ -27,6 +27,14 @@
     .hdt-product-tab__item-title {
       font-size: {{ block.settings.title_font_size_text }}px;
     }
+    .hdt-product-accordion__text {
+      margin: 0;
+      font-family: inherit;
+      font-style: inherit;
+      line-height: inherit;
+      letter-spacing: inherit;
+      color: inherit;
+    }
   }
   @media screen and (min-width: 750px) {
     #block-{{ block.id }} {
@@ -98,7 +106,7 @@
             <hdt-accordion class="hdt-contents">
               <details class="hdt-product-accordion__item" {% if forloop.first and block.settings.enable_first_tab %}open {% endif %} {{ tab_attrs }}>
                 <summary aria-expanded="{% if forloop.first and block.settings.enable_first_tab %}true{% else %}false{% endif %}">
-                  <span class="hdt-product-accordion__text hdt-s-text hdt-font-semibold">{{ tab_title }}</span>
+                  <h2 class="hdt-product-accordion__text hdt-s-text hdt-font-semibold">{{ tab_title }}</h2>
                   <span class="hdt-product-accordion__icon"></span>
                 </summary>
                 <div class="hdt-product-accordion__content">{{ tab_body }}</div>
