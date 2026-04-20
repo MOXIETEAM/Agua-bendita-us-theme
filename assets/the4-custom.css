@@ -4873,7 +4873,13 @@ hdt-available-product-counter.active {
 
 .hdt-page-cart__title {
   margin: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
   font-weight: 400 !important;
+  letter-spacing: inherit;
+  line-height: inherit;
 }
 
 .hdt-page-cart__title-link {
