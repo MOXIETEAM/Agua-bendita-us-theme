@@ -21,7 +21,9 @@
       </a>
     </div>
     <div class="hdt-page-cart__info">
-      <a href="{{ item.url }}" class="hdt-page-cart__title hdt-s-text">{{ item.product.title }}</a>
+      <h3 class="hdt-page-cart__title hdt-s-text">
+        <a href="{{ item.url }}" class="hdt-page-cart__title-link">{{ item.product.title }}</a>
+      </h3>
       {%- unless item.product.has_only_default_variant -%}<div class="hdt-page-cart__meta-variant hdt-text-normal hdt-font-normal hdt-s-text2 hdt-block">{{ item.variant.title | escape }}</div>{%- endunless -%}
       {% comment %} {%- if item_pr.has_only_default_variant == false -%}
         <div class="hdt-page-cart__edit">

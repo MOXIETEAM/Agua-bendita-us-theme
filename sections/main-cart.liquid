@@ -69,6 +69,7 @@
           <wrapp-hdt-cart-page-form class="hdt-contents">
             <form will-change-cart action="{{ routes.cart_url }}" method="POST" id="{{ form_id }}" section-id="{{ section.id }}">
               <input type="hidden" name="attributes[products_items_per_row]" value="">
+              <h2 class="sr-only">{{ 'sections.cart.title' | t }}</h2>
               <table class="hdt-cart-items hdt-table-page-cart">
                 <caption class="sr-only">{{ 'sections.cart.title' | t }}</caption>
                 <thead>

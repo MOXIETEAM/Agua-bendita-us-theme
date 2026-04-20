@@ -4872,7 +4872,13 @@ hdt-available-product-counter.active {
 }
 
 .hdt-page-cart__title {
+  margin: 0;
   font-weight: 400 !important;
+}
+
+.hdt-page-cart__title-link {
+  color: inherit;
+  text-decoration: none;
 }
 
 .hdt-page-cart .hdt-cart-item__price,
