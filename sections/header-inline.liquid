@@ -148,9 +148,10 @@
     {%- endif -%}
   </hdt-sticky-header>
 
-  <hdt-drawer id="menu_mobile" class="hdt-drawer hdt-drawer-menu-mb hdt-hidden hdt-header-menu-mobile hdt-fixed hdt-top-0 hdt-left-0 hdt-bottom-0" color-scheme="{{ section.settings.header_mobile_colors }}" effect="left" aria-label="{{ 'general.aria.mobile_menu' | t }}" config='{"appendToBody": true}'>
+  <hdt-drawer id="menu_mobile" class="hdt-drawer hdt-drawer-menu-mb hdt-hidden hdt-header-menu-mobile hdt-fixed hdt-top-0 hdt-left-0 hdt-bottom-0" color-scheme="{{ section.settings.header_mobile_colors }}" effect="left" aria-label="{{ 'general.aria.mobile_menu' | t }}" tabindex="-1" config='{"appendToBody": true}'>
     {%- render 'menu_mobile' -%}
   </hdt-drawer>
+  <script src="{{ 'header-inline-mobile-menu-focus.js' | asset_url }}" defer></script>
 
   <script type="application/ld+json">
     {
