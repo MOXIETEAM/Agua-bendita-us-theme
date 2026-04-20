@@ -31,7 +31,7 @@
       </div>
     </div>
   </hdt-progress-bar>
-  <span class="hdt-progress-msg hdt-block hdt-s-text">
+  <span class="hdt-progress-msg hdt-block hdt-s-text" role="status">
     {%- if progress_shipping == 0 -%}
       {{ 'sections.cart.free_shipping_bar.intial_html' | t: money: money_need_add }}
     {%- elsif progress_shipping == 1 -%}
