@@ -17,6 +17,7 @@
   - sizes: {Array} a array width image
   - selected_variant
   - un_no_pick
+  - show_full_size_link: {Boolean} Show visible full-size image link for image media (optional)
 
   Usage:
   {%- render 'media', media: media -%}
@@ -56,6 +57,11 @@
     <div class="hdt-ratio hdt-product__media" {{ imgatt }}style="{% if image_ratio == 'adapt_image' %}--aspect-ratioapt:{{ image.aspect_ratio }};{% endif %}--mw-media:{{ image.width }}px">
       {{ image | image_url: width: image.width | image_tag: loading: lazy, sizes: sizes, widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946', hdt-el: '' }}
     </div>
+    {%- if show_full_size_link -%}
+      <a href="{{ image | image_url: width: image.width }}" target="_blank" rel="noopener" class="hdt-product-media__full-size-link" data-media-type="full_size_image_link" onpointerdown="event.stopPropagation()" onmousedown="event.stopPropagation()" ontouchstart="event.stopPropagation()" onclick="event.stopPropagation()">
+        {{- 'products.product.media.open_full_size_image' | t -}}
+      </a>
+    {%- endif -%}
   </div>
 {%- else -%}
   <div {{ media_hidden }} class="{{ class }} hdt-product__media-item" data-media-id="{{ media.id }}" data-media-type="{{ media.media_type }}" data-vhost="{{ media.host }}" data-group-name="{{ media_option_name }}" data-group-value="{{ media_option_value | escape }}">

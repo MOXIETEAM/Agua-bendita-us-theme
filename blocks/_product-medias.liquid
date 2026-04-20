@@ -62,7 +62,7 @@
           {%- endif -%}
         {%- when 'one_media_size' -%}
           <div class="hdt-product-media__main hdt-ratio--{{ block.settings.image_ratio }}{% unless block.settings.image_size %} hdt-ratio--contain{% endunless %}">
-            {%- render 'media', media: product.media.first, lazy_load: false -%}
+            {%- render 'media', media: product.media.first, lazy_load: false, show_full_size_link: true -%}
           </div>
 
         {%- when 'thumbnail_bottom' or 'thumbnail_left' or 'thumbnail_right' or 'without_thumbnails' -%}
@@ -76,7 +76,7 @@
                         if media.position > 1
                           assign lazy_load = true
                         endif
-                        render 'media', media: media, selected_variant: selected_variant, un_no_pick: un_no_pick, position: media.position, group_media_obj: group_media_obj, variant_images: variant_images, class: 'hdt-slider__slide', autoplay: block.settings.enable_media_autoplay, loop: block.settings.enable_video_looping, lazy_load: lazy_load
+                        render 'media', media: media, selected_variant: selected_variant, un_no_pick: un_no_pick, position: media.position, group_media_obj: group_media_obj, variant_images: variant_images, class: 'hdt-slider__slide', autoplay: block.settings.enable_media_autoplay, loop: block.settings.enable_video_looping, lazy_load: lazy_load, show_full_size_link: true
                       endfor
                     -%}
                 </div>
@@ -135,7 +135,7 @@
                       if media.position > 1
                         assign lazy_load = true
                       endif
-                      render 'media', media: media, selected_variant: selected_variant, un_no_pick: un_no_pick, position: media.position, group_media_obj: group_media_obj, variant_images: variant_images, class: 'hdt-slider__slide', autoplay: block.settings.enable_media_autoplay, loop: block.settings.enable_video_looping, lazy_load: lazy_load
+                      render 'media', media: media, selected_variant: selected_variant, un_no_pick: un_no_pick, position: media.position, group_media_obj: group_media_obj, variant_images: variant_images, class: 'hdt-slider__slide', autoplay: block.settings.enable_media_autoplay, loop: block.settings.enable_video_looping, lazy_load: lazy_load, show_full_size_link: true
                     endfor
                     -%}
                 </div>
