@@ -5458,3 +5458,24 @@ body.template-password .title {
   bottom: 0;
   display: block !important;
 }
+
+.hdt-table-page-cart__heading--product {
+  text-align: start !important;
+}
+
+.hdt-table-page-cart__heading--total {
+  text-align: end;
+}
+
+.hdt-table-page-cart__placeholder-header,
+.hdt-table-page-cart__row-header {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

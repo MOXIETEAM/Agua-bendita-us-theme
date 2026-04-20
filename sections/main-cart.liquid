@@ -74,15 +74,17 @@
                 <caption class="sr-only">{{ 'sections.cart.title' | t }}</caption>
                 <thead>
                   <tr>
-                    <th>{{ 'sections.cart.headings.product' | t }}</th>
-                    <th>{{ 'sections.cart.headings.price' | t }}</th>
-                    <th>{{ 'sections.cart.headings.quantity' | t }}</th>
-                    <th>{{ 'sections.cart.headings.total' | t }}</th>
+                    <th class="hdt-table-page-cart__placeholder-header" aria-hidden="true"></th>
+                    <th class="hdt-table-page-cart__heading hdt-table-page-cart__heading--product" scope="col">{{ 'sections.cart.headings.product' | t }}</th>
+                    <th class="hdt-table-page-cart__heading" scope="col">{{ 'sections.cart.headings.price' | t }}</th>
+                    <th class="hdt-table-page-cart__heading" scope="col">{{ 'sections.cart.headings.quantity' | t }}</th>
+                    <th class="hdt-table-page-cart__heading hdt-table-page-cart__heading--total" scope="col">{{ 'sections.cart.headings.total' | t }}</th>
                   </tr>
                 </thead>
                 <tbody>
                   {%- for item in cart.items -%}
                     <tr class="hdt-cart-item hdt-page-cart__item hdt-relative hdt-oh{% if item.variant.id == gift_wrap_pr_id or item.gift_card %} is-gift-wrap{% endif %}" id="CartItem-{{ item.index | plus: 1 }}">
+                      <th class="hdt-table-page-cart__row-header" scope="row">{{ item.product.title }}</th>
                       <td class="hdt-cart-item__product hdt-page-cart__infos hdt-text-start">{%- render 'item-cart-page', item: item, form_id: form_id -%}</td>
                       <td class="hdt-cart-item__price hdt-page-cart__prices hdt-text-center" cart-data-title="{{ 'sections.cart.headings.price' | t }}">{%- render 'line-item-price', line_item: item, price_class: 'hdt-price-wrapp hdt-justify-center' -%}</td>
                       <td class="hdt-cart-item__quantity hdt-page-cart__quantity" cart-data-title="{{ 'sections.cart.headings.quantity' | t }}">
