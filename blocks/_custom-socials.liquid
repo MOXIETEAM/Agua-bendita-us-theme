@@ -1,14 +1,22 @@
 <div id="block-{{ block.id }}" class="hdt-social-wrapper">
-  <div class="hdt-social-links" {{ block.shopify_attributes }}>
-      {%- assign footer_social_linklist = block.settings.social_menu -%}
-      {%- if linklists[footer_social_linklist].links.size > 0 %}
-        {%- for social in linklists[footer_social_linklist].links -%}
-          {%- assign social_handle = social.title | handleize -%}
-          <a class="hdt-social-link hdt-social hdt-custom-icon-{{ social_handle }}-outline" href="{{ social.url }}" title="{{ 'general.social.links.' | append: social.handle | t }}" target="_blank">
+  <ul class="hdt-social-links" {{ block.shopify_attributes }}>
+    {%- assign footer_social_linklist = block.settings.social_menu -%}
+    {%- if linklists[footer_social_linklist].links.size > 0 %}
+      {%- for social in linklists[footer_social_linklist].links -%}
+        {%- assign social_handle = social.title | handleize -%}
+        {%- assign social_label_key = 'general.social.links.' | append: social_handle -%}
+        {%- assign social_label = social_label_key | t -%}
+        {%- if social_label == social_label_key -%}
+          {%- assign social_label = social.title -%}
+        {%- endif -%}
+        <li class="hdt-social-item">
+          <a class="hdt-social-link hdt-social hdt-custom-icon-{{ social_handle }}-outline" href="{{ social.url }}" title="{{ social_label | escape }}" target="_blank">
+            <span class="sr-only">{{ social_label }}</span>
           </a>
-        {%- endfor -%}
-      {%- endif -%}
-    </div>
+        </li>
+      {%- endfor -%}
+    {%- endif -%}
+  </ul>
 </div>
 
 {% schema %}
