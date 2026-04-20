@@ -3444,6 +3444,40 @@ hdt-drawer#hdt-filter_form {
   bottom: 0;
 }
 
+.hdt-product-media__main .hdt-product__media-item {
+  position: relative;
+}
+
+.hdt-product-media__full-size-link {
+  position: absolute;
+  right: 12px;
+  bottom: 64px;
+  z-index: 6;
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 8px 12px;
+  border: 1px solid rgba(34, 34, 34, 0.2);
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #222;
+  font-size: 13px;
+  line-height: 1.2;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
+}
+
+.hdt-product-media__full-size-link:hover {
+  background: #fff;
+  color: #000;
+}
+
+.hdt-product-media__full-size-link:focus-visible {
+  outline: 0.2rem solid rgb(var(--color-focus));
+  outline-offset: 0.3rem;
+}
+
 @media (max-width: 767px) {
   .hdt-product-media__main .hdt-slider__button--prev {
     left: -25px;
