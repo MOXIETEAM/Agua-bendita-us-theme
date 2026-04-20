@@ -499,7 +499,10 @@
       "next_announcement": "Next announcement",
       "carousel": "Carousel",
       "announcement": "Announcement",
-      "announcement_bar": "Announcement bar"
+      "announcement_bar": "Announcement bar",
+      "carousel_instructions_manual": "This is an announcement carousel. Use the Previous and Next buttons to review announcements.",
+      "carousel_instructions_autoplay": "This is an auto-rotating announcement carousel. Use the Previous and Next buttons to review announcements.",
+      "carousel_instructions_autoplay_pause_on_hover": "This is an auto-rotating announcement carousel. Use the Previous and Next buttons to review announcements. Hover over the carousel to pause rotation."
     },
     "header": {
       "announcement": "Announcement",

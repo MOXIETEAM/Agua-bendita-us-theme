@@ -72,7 +72,19 @@
                 {%- endif -%}
               </div>
             {%- elsif section.blocks.size > 1 -%}
+              {%- liquid
+                if section.settings.au_time > 0
+                  if section.settings.slider_pause_when_hover
+                    assign carousel_instructions_key = 'sections.announcements.carousel_instructions_autoplay_pause_on_hover'
+                  else
+                    assign carousel_instructions_key = 'sections.announcements.carousel_instructions_autoplay'
+                  endif
+                else
+                  assign carousel_instructions_key = 'sections.announcements.carousel_instructions_manual'
+                endif
+              -%}
               <hdt-slider id="Slider-{{ section.id }}" class="hdt-announcement-bar__wrap hdt-text-center hdt-slider lg:hdt-slides-1 hdt-relative hdt-oh" config='{ "navUI": true, "loop": true, "autoPlay": {{ section.settings.au_time | times: 1000 }}, "pauseOnHover":{{ section.settings.slider_pause_when_hover }} }'>
+                <p class="sr-only">{{ carousel_instructions_key | t }}</p>
                 <div class="hdt-announcement-bar__slider hdt-flex hdt-align-center hdt-justify-between">
                   <button aria-controls="Slider-{{ section.id }}" class="hdt-slider__button hdt-slider__button--prev hdt-inline-flex hdt-align-center hdt-justify-start hdt-p-0" type="button" name="previous"><svg class="hdt-slider__button-icon" width="10px" height="6px" viewBox="0 0 10 6" fill="currentcolor"><path d="M-3.87939e-08 0.886524L5 5.88652L10 0.886523L9.1125 -0.000976601L5 4.11152L0.8875 -0.000976242L-3.87939e-08 0.886524Z"></path></svg></button>
                   <div class="hdt-slider__viewport">
