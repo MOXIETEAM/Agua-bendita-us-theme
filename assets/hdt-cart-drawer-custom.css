@@ -60,12 +60,18 @@
 	opacity: 0.5;
 }
 
+.hdt-mini-cart__items {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
 .hdt-mini-cart .hdt-mini-cart__item {
 	border-bottom: 0.1rem solid #828282 !important;
 	margin: 0 30px !important;
 }
 
-.hdt-mini-cart .hdt-mini-cart__item:last-child {
+.hdt-mini-cart .hdt-mini-cart__items > li:last-child .hdt-mini-cart__item {
 	border-bottom: 0.1rem solid rgb(var(--color-line-border));
 }
 

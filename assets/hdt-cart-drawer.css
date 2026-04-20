@@ -109,6 +109,11 @@
   flex: 1 1 auto;
   height: 100%;
 }
+.hdt-mini-cart__items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 .hdt-mini-cart__main{
   flex: 1 1 auto;
 }
@@ -168,7 +173,7 @@
   background: rgb(var(--color-background2));
   border-radius: var(--rounded-button);
 }
-.hdt-mini-cart .hdt-mini-cart__item:last-child {
+.hdt-mini-cart .hdt-mini-cart__items > li:last-child .hdt-mini-cart__item {
   border-bottom: 0;
 }
 .hdt-mini-cart-discount_item svg{top:-0.2rem;}

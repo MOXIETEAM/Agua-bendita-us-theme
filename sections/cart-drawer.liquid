@@ -59,11 +59,13 @@
               {%- endif -%}
             </div>
           {%- else -%}
-            <div class="hdt-mini-cart__items hdt-ratio--adapt_image">
+            <ul class="hdt-mini-cart__items hdt-ratio--adapt_image" role="list">
               {%- for item in cart.items -%}
-                {%- render 'item-cart', item: item, form_id: form_id, gift_wrap_pr_id: gift_wrap_pr_id -%}
+                <li>
+                  {%- render 'item-cart', item: item, form_id: form_id, gift_wrap_pr_id: gift_wrap_pr_id -%}
+                </li>
               {%- endfor -%}
-            </div>
+            </ul>
             {%- render 'cart-complementary' -%}
           {%- endif -%}
         </div>
