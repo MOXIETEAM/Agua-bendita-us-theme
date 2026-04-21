@@ -1,7 +1,20 @@
 {{ 'hdt-product-tabs.css' | asset_url | stylesheet_tag }}
 {% style %}
   #{{ block.id }} {
-    .hdt-product-tab__main > h3 {
+    .hdt-product-tab__main > .hdt-product-tab__list {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      min-width: 100%;
+      gap: 3px !important;
+    }
+
+    .hdt-product-tab__main > .hdt-product-tab__list > li {
+      display: flex;
+      flex: 0 0 auto;
+    }
+
+    .hdt-product-tab__main > .hdt-product-tab__list > li > h3 {
       margin: 0;
       font-size: inherit;
       font-family: var(--font-body-family);
@@ -18,9 +31,16 @@
 <div id="{{ block.id }}" class="hdt-type-tab" {{ block.shopify_attributes }}>
   <div class="hdt-product-tab__wrap hdt-product-tab--default">
     <hdt-tab class="hdt-product-tab__main hdt-flex hdt-justify-center hdt-scroll-snap hdt-snap-x" aria-controls="product-tabs-{{ section.settings.tabs_design }}-{{ section.id }}">
-      {%- for tab in tab_list_title -%}
-        {{- tab | split: '-->' | first -}}
-      {%- endfor -%}
+      <ul class="hdt-product-tab__list" role="list">
+        {%- for tab in tab_list_title -%}
+          {%- assign tab_title = tab | split: '-->' | first | strip -%}
+          {%- unless tab_title == blank -%}
+            <li>
+              {{- tab_title -}}
+            </li>
+          {%- endunless -%}
+        {%- endfor -%}
+      </ul>
     </hdt-tab>
     <div class="hdt-product-tab__content" id="product-tabs-{{ section.settings.tabs_design }}-{{ section.id }}">
       {{ tab_list }}
