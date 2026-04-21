@@ -11,14 +11,16 @@
     assign logo_default = section.settings.logo_transparent | default: logo_default
   endif
   assign logo = logo_default
+  assign logo_accessibility_name = section.settings.logo_accessibility_label | default: logo.alt | default: section.settings.logo.alt | default: shop.name
+  assign logo_accessibility_label = logo_accessibility_name | escape
+  assign home_aria_label = 'general.aria.home_link' | t: name: logo_accessibility_name | escape
 -%}
 <div class="hdt-logo hdt-flex hdt-align-center{% if section.settings.header_layout == "logo_center" %} hdt-justify-center{% endif %} {{ header_e_commerce_attr }}">
   {%- if logo != blank -%}
-    <a class="hdt-inline-flex hdt-align-center" href="{{ page_brand.metafields.theme.brand.value.url.value.url | default: routes.root_url }}">
+    <a class="hdt-inline-flex hdt-align-center" href="{{ page_brand.metafields.theme.brand.value.url.value.url | default: routes.root_url }}" aria-label="{{ home_aria_label }}">
       {%- liquid
         assign logo_width_2x = section.settings.logo_width | times: 2
         assign logo_width_mb_2x = section.settings.logo_width_mb | times: 2
-        assign logo_accessibility_label = section.settings.logo_accessibility_label | default: logo.alt | default: section.settings.logo.alt | default: shop.name | escape
         assign logo_height = section.settings.logo_width | divided_by: section.settings.logo.aspect_ratio | round
         assign logo_mobile = page_brand.metafields.theme.brand.value.logo_mobile | default: section.settings.logo_mobile | default: logo_default
       -%}
@@ -67,6 +69,6 @@
     {%- endstyle -%}
   {%- else -%}
     <span aria-hidden="true" > {{- shop.name -}}</span>
-    <a class="hdt-inline-flex hdt-align-center" href="{{ page_brand.metafields.theme.brand.value.url.value.url | default: routes.root_url }}"></a>
+    <a class="hdt-inline-flex hdt-align-center" href="{{ page_brand.metafields.theme.brand.value.url.value.url | default: routes.root_url }}" aria-label="{{ home_aria_label }}"></a>
   {%- endif -%}
 </div>
