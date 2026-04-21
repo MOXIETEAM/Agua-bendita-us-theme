@@ -169,16 +169,16 @@
           <hdt-accordion class="hdt-contents">
             <details class="hdt-filter-group" aria-expanded="false" {% unless collapse_by_default %}open{% endunless %}>
               <summary class="hdt-filter-group-summary"{% if filter.type != 'price_range' %} aria-label="{{ filter.label }} ({{ 'products.facets.filters_selected.one' | t: count: filter.active_values.size }})"{% endif %}>
-                <div class="hdt-facet-title hdt-text-base hdt-font-normal hdt-s-text hdt-flex">
+                <h2 class="hdt-facet-title hdt-text-base hdt-font-normal hdt-s-text hdt-flex">
                   <span class="hdt-inline-flex hdt-facet-title_group">
-                    <h2 class="hdt-flex hdt-flex-col">
+                    <span class="hdt-flex hdt-flex-col">
                       {{ filter.label }}
                       {% if filter_labels %}
                         <span class="hdt-facet-selected-values">{{ filter_labels }}</span>
                       {% else %}
                         <span class="hdt-facet-selected-values">All</span>
                       {% endif %}
-                    </h2>
+                    </span>
                     {% if filter.active_values.size > 0 %}
                       <span class="hdt-hidden">
                         ({{ filter.active_values.size }})
@@ -190,7 +190,7 @@
                       <path d="M11 5.5L5.5 6.55868e-08L-6.55868e-08 5.5L0.97625 6.47625L5.5 1.9525L10.0238 6.47625L11 5.5Z"/>
                     </svg>
                   </span>
-                </div>
+                </h2>
               </summary>
               <div class="hdt-filter-group__display">
                 {%- if filter.type != 'price_range' -%}
