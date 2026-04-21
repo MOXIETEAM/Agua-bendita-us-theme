@@ -134,6 +134,7 @@
     "aria": {
       "back_to_top": "Back to the top",
       "mobile_menu": "Mobile menu",
+      "home_link": "{{ name }} home",
       "exit_popup": {
         "copy": "Copy",
         "copied": "Copied"
