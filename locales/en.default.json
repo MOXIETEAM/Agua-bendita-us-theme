@@ -429,6 +429,7 @@
     "sorting": {
       "title": "Sort By",
       "manual": "Featured",
+      "most_relevant": "Most Relevant",
       "relevance": "Relevance",
       "best_selling": "Sales",
       "title_ascending": "From A-Z",

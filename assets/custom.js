@@ -2528,6 +2528,32 @@ document.addEventListener("DOMContentLoaded", function() {
   initLocationModal();
 })
 
+function removeSortPopoverAriaHaspopup(root = document) {
+  const scope = root && typeof root.querySelectorAll === "function" ? root : document;
+
+  scope.querySelectorAll('[data-remove-aria-haspopup="true"]').forEach(button => {
+    button.removeAttribute("aria-haspopup");
+  });
+}
+
+function scheduleRemoveSortPopoverAriaHaspopup(root = document) {
+  requestAnimationFrame(function() {
+    removeSortPopoverAriaHaspopup(root);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  scheduleRemoveSortPopoverAriaHaspopup();
+});
+
+document.addEventListener("products:update", function(event) {
+  scheduleRemoveSortPopoverAriaHaspopup(event.target);
+});
+
+document.addEventListener("lazyhtml:added", function(event) {
+  scheduleRemoveSortPopoverAriaHaspopup(event.target);
+});
+
 // --------------------------
 // Auto open Filter drawer after click filter values
 // --------------------------
