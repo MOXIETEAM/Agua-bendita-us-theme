@@ -207,7 +207,7 @@
                   {%- when 'boolean' -%}
                     <fieldset class="hdt-filter-group__fieldset">
                       <legend class="sr-only">{{ filter.label }}</legend>
-                      <ul class="hdt-filter-group__list type_boolean">
+                      <ul class="hdt-filter-group__list type_boolean" role="presentation">
                         {%- for filter_value in filter.values -%}
                           {% if filter_value.count > 0 or filter_value.active == true %}
                             <li class="hdt-filter-group__list-item">
@@ -233,7 +233,7 @@
       
                       <fieldset class="hdt-filter-group__fieldset">
                         <legend class="sr-only">{{ filter.label }}</legend>
-                        <ul class="hdt-filter-group__list hdt-filter-group__list--color">
+                        <ul class="hdt-filter-group__list hdt-filter-group__list--color" role="presentation">
                           {%- for filter_value in filter.values -%}
       
                             {%- liquid
@@ -278,7 +278,7 @@
                       {%- endif -%}
                       <fieldset class="hdt-filter-group__fieldset">
                         <legend class="sr-only">{{ filter.label }}</legend>
-                        <ul class="hdt-filter-group__list">
+                        <ul class="hdt-filter-group__list" role="presentation">
                           {%- for filter_value in filter.values -%}
                             {%- comment -%}
                               Calculate display count for this filter value
