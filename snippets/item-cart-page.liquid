@@ -12,13 +12,13 @@
 <hdt-line-item class="hdt-line-item{% if item.variant.id == gift_wrap_pr_id %} is-gift-wrap{% endif %}">
   <div class="hdt-page-cart__infos-wrap hdt-flex">
     <div class="hdt-page-cart__image">
-      <a href="{{ item.url }}" class="hdt-page-cart__img hdt-block hdt-relative hdt-oh hdt-ratio" style="--aspect-ratioapt:{{ image.aspect_ratio | default: 0.6811989100817438 }}">
+      <div class="hdt-page-cart__img hdt-block hdt-relative hdt-oh hdt-ratio" style="--aspect-ratioapt:{{ image.aspect_ratio | default: 0.6811989100817438 }}">
         {%- if image != blank -%}
-          {{ image | image_url: width: image.width | image_tag: loading: 'lazy', width: image.width, height: image.height, sizes: '(max-width: 767px) 80px, 160px', widths: '80, 160' }}
+          {{ image | image_url: width: image.width | image_tag: loading: 'lazy', width: image.width, height: image.height, sizes: '(max-width: 767px) 80px, 160px', widths: '80, 160', alt: '' }}
         {%- else -%}
           <span class="hdt-page-cart__img-placeholder"></span>
         {%- endif -%}
-      </a>
+      </div>
     </div>
     <div class="hdt-page-cart__info">
       <h3 class="hdt-page-cart__title hdt-s-text">
