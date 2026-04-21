@@ -16,7 +16,7 @@
 -%}
 
 <hdt-popover-sorting class="hdt-popover__sorting" section-id="{{ section_id }}">
-  <button aria-controls="dropdown{{ id }}" aria-owns="listbox{{ id }}" class="hdt-flex hdt-align-center hdt-justify-between">
+  <button aria-controls="dropdown{{ id }}" data-remove-aria-haspopup="true" class="hdt-flex hdt-align-center hdt-justify-between">
     <span class="hdt-block">{{ 'products.sorting.title' | t -}}</span>
   </button>
   <hdt-popover class="hdt-popover hdt-dropdown hdt-hidden hdt-collection-sorting" id="dropdown{{ id }}" placement="bottom" color-scheme="{{ settings.color_scheme_dialog }}" config='{ "closeRichlistSelect": true }'>
