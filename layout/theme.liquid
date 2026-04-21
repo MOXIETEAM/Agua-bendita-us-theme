@@ -82,12 +82,15 @@
       {%- if request.page_type == "policy" -%}
         {%- section 'main-heading' -%}
       {%- endif -%}
+      {%- if request.page_type == "index" -%}
+        <h1 class="hdt-hidden">{{ page_title | default: shop.name }}</h1>
+      {%- endif -%}
       {{ content_for_layout }}
     </main>
 
     {%- unless template == 'product.only_config' and request.design_mode == false -%}
     {%- sections 'footer-group' -%}
-    {%- if request.page_type == "index" or request.page_type == "policy" -%}
+    {%- if request.page_type == "policy" -%}
     <h1 class="hdt-hidden">{{ page_title | default: shop.name }}</h1>
     {%- endif -%}
     {%- render 's-dom-temp' -%}
