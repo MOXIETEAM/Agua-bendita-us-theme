@@ -97,7 +97,7 @@ endif
 							<ul class="hdt-mini-search__listSuggest hdt-d-inline-block" style="--li-pl: 0px">
 								{%- for query in predictive_search.resources.queries -%}
 									<li id="query-{{ forloop.index }}" class="hdt-d-inline-block" role="option" aria-selected="false">
-										<a href="{{ routes.predictive_search_url }}?q={{ query.text }}" data-key='{{ query.text | escape }}' class="hdt-mini-search-suggest" tabindex="-1" aria-label="{{ query.text }}">
+										<a href="{{ routes.predictive_search_url }}?q={{ query.text }}" data-key='{{ query.text | escape }}' class="hdt-mini-search-suggest" aria-label="{{ query.text }}">
 											{{ query.styled_text }}{% unless forloop.last %},{% endunless %}
 										</a>
 									</li>
