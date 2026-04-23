@@ -497,14 +497,17 @@ hdt-sticky-header:hover {
 */
 
 #hdt-nav-ul>li>.hdt-menu-link,
-#hdt-nav-ul>li details>.hdt-menu-link,
-.hdt-site-top_nav .hdt-site-nav_icon a {
+#hdt-nav-ul>li details>.hdt-menu-link {
   color: rgb(var(--color-foreground2));
 }
 
 #hdt-nav-ul>li>.hdt-menu-link:hover,
 #hdt-nav-ul>li details>.hdt-menu-link:hover {
   color: #000;
+}
+
+.hdt-site-top_nav .hdt-site-nav_icon a {
+  color: rgb(var(--color-foreground));
 }
 
 .hdt-site-top_nav .hdt-site-nav_icon a:hover {
@@ -517,7 +520,7 @@ hdt-sticky-header:hover {
   #hdt-nav-ul>li>.hdt-menu-link,
   #hdt-nav-ul>li details>.hdt-menu-link,
   .hdt-site-top_nav .hdt-site-nav_icon a {
-    color: rgb(var(--color-foreground2));
+    color: rgb(var(--color-foreground));
   }
 
   .hdt-main-header-content:hover,
@@ -750,7 +753,7 @@ hdt-sticky-header:hover {
   left: 25px;
   position: absolute;
   top: 25px;
-  color: rgb(var(--color-foreground2));
+  color: rgb(var(--color-foreground));
 }
 
 .hdt-site-top_nav .wishlist-hero-items-count:before {
