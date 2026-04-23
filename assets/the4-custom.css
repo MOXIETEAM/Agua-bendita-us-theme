@@ -2267,14 +2267,15 @@ hdt-sticky-header:hover {
   justify-content: center;
   align-items: center;
   opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
   background-color: #fff;
 }
 
-.hdt-card-product:hover .hdt-product-btns-size-list {
+.hdt-card-product:hover .hdt-product-btns-size-list,
+.hdt-card-product:focus-within .hdt-product-btns-size-list {
   opacity: 1;
-  visibility: visible;
+  pointer-events: auto;
 }
 
 .hdt-product-btns-size-list fieldset {
@@ -2292,7 +2293,15 @@ hdt-sticky-header:hover {
 }
 
 .hdt-product-btns-size-list input[type="radio"] {
-  display: none;
+  position: absolute !important;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  word-wrap: normal !important;
 }
 
 .hdt-product-btns-size-list label {
@@ -2324,9 +2333,14 @@ hdt-sticky-header:hover {
   color: #fff;
 }
 
-.hdt-product-btns-size-list input[type="radio"]:checked+label {
+.hdt-product-btns-size-list input[type="radio"]:checked+label,
+.hdt-product-btns-size-list size-atc:has(input[type="radio"]:checked)+label {
   background-color: #000;
   color: #fff;
+}
+
+.hdt-product-btns-size-list size-atc:has(input[type="radio"]:focus-visible)+label {
+  box-shadow: 0 0 0 0.2rem rgb(var(--color-base-background)), 0 0 0 0.4rem rgb(var(--color-focus));
 }
 
 .hdt-product-btns-size-list p {
