@@ -52,7 +52,7 @@
                 <ul id="predictive-search-results-queries-list " class="hdt-search-results-queries hdt-text-base hdt-font-normal predictive-search__results-list list-unstyled hdt-current-scrollbar" role="group" aria-labelledby="predictive-search-queries">
                   {%- for query in predictive_search.resources.queries -%}
                     <li id="predictive-search-option-query-{{ forloop.index }}" class="predictive-search__list-item" role="option" aria-selected="false">
-                      <a href="{{ query.url }}" class="predictive-search__item link link--text" tabindex="-1">
+                      <a href="{{ query.url }}" class="predictive-search__item link link--text">
                         <div class="predictive-search__item-content predictive-search__item-content--centered">
                           <p class="predictive-search__item-heading predictive-search__item-query-result h5" aria-label="{{ query.text }}">{{ query.styled_text }}</p>
                         </div>
@@ -70,7 +70,7 @@
                 <ul id="predictive-search-results-pages-list-desktop hdt-current-scrollbar" class="hdt-search-results-pages hdt-text-base hdt-font-normal predictive-search__results-list list-unstyled hdt-current-scrollbar" role="group" aria-labelledby="predictive-search-pages-desktop">
                   {%- for page in predictive_search.resources.pages -%}
                     <li id="predictive-search-option-page-desktop-{{ forloop.index }}" class="predictive-search__list-item" role="option" aria-selected="false">
-                      <a href="{{ page.url }}" class="predictive-search__item link link--text" tabindex="-1">
+                      <a href="{{ page.url }}" class="predictive-search__item link link--text">
                         <div class="predictive-search__item-content predictive-search__item-content--centered">
                           <p class="predictive-search__item-heading h5">{{ page.title }}</p>
                         </div>
@@ -113,7 +113,7 @@
             <ul id="predictive-search-results-queries-list" class="hdt-search-results-queries hdt-quicklink-list" role="group" aria-labelledby="predictive-search-queries">
             {%- for query in predictive_search.resources.queries -%}
               <li id="predictive-search-option-query-{{ forloop.index }}" class="predictive-search__list-item" role="option" aria-selected="false">
-                <a href="{{ query.url }}" class="predictive-search__item link link--text hdt-text-base hdt-font-normal hdt-inline-flex" tabindex="-1">
+                <a href="{{ query.url }}" class="predictive-search__item link link--text hdt-text-base hdt-font-normal hdt-inline-flex">
                   <div class="predictive-search__item-content predictive-search__item-content--centered">
                     <p class="predictive-search__item-heading predictive-search__item-query-result h5" aria-label="{{ query.text }}">{{ query.styled_text }}</p>
                   </div>
@@ -175,7 +175,7 @@
             <ul id="predictive-search-results-pages-list-desktop hdt-current-scrollbar" class="hdt-search-results-list hdt-text-base hdt-font-normal predictive-search__results-list list-unstyled" role="group" aria-labelledby="predictive-search-pages-desktop">
               {%- for page in predictive_search.resources.pages -%}
                 <li id="predictive-search-option-page-desktop-{{ forloop.index }}" class="predictive-search__list-item" role="option" aria-selected="false">
-                  <a href="{{ page.url }}" class="predictive-search__item link link--text" tabindex="-1">
+                  <a href="{{ page.url }}" class="predictive-search__item link link--text">
                     <div class="predictive-search__item-content predictive-search__item-content--centered">
                       <p class="predictive-search__item-heading h5">{{ page.title }}</p>
                     </div>
