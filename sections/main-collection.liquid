@@ -689,7 +689,7 @@
                               <div class="hdt-col-item hdt-gallery-item">
                                 <{{ ARRhtml[0] }} {{ ARRhtml[1] }}href="{{ url }}" {{ ARRhtml[2] }}target="{{ open_link }}" class="hdt-effect hdt-relative hdt-oh hdt-d-block">
                                   <div class="hdt-ratio" style="background: url({{ image | image_url: width: 1 }});">
-                                    {{ image | image_url: width: image.width | image_tag: loading: 'lazy', width: image.width, height: image.height, class: '' , sizes: sizes, widths: "110,150,200,300,400,500,600" }}
+                                    {{ image | image_url: width: image.width | image_tag: loading: 'lazy', width: image.width, height: image.height, class: '' , sizes: sizes, widths: "110,150,200,300,400,500,600", alt: image.alt | default: 'Gallery image' }}
                                   </div>
                                 </{{ ARRhtml[0] }}>
                               </div>
@@ -733,7 +733,7 @@
                                         <div class="hdt-product-img hdt-ratio" style="--aspect-ratioapt: 1">
                                           {{ 'product-apparel-' | append: current | placeholder_svg_tag: 'hdt-placeholder-svg' }}
                                         </div>
-                                      <a data-pr-href class="hdt-full-width-link" href="{{ product.url }}"></a>
+                                      <a data-pr-href class="hdt-full-width-link" href="{{ product.url }}" aria-label="{{ 'products.product.view_product' | t | default: 'View product' }}"></a>
                                     </div>
                                     <div class="hdt-card-product__info">
                                       <a href="{{ product_url }}" class="hdt-card-product__title hdt-h6" data-not-instant>{{ 'onboarding.product_title' | t }}</a>
@@ -775,7 +775,7 @@
                             {%- if iconbox_content != blank -%}
                               {%- assign iconbox_content = iconbox_content | replace: ' _', '_' | replace: '_ ', '_' | split: '_' -%}
                               <div class="hdt-iconbox-item hdt-flex hdt-align-center hdt-relative">
-                                {% if link_item != blank %}<a data-pr-href class="hdt-full-width-link" href="{{ link_item }}"></a>{% endif %}
+                                {% if link_item != blank %}<a data-pr-href class="hdt-full-width-link" href="{{ link_item }}" aria-label="{{ 'general.links.view_link' | t | default: 'View item' }}"></a>{% endif %}
                                 <span class="hdt-iconbox-icon hdt-flex hdt-align-center hdt-justify-center">
                                   {%- if iconbox_icon_img != blank -%}
                                     {{ iconbox_icon_img | image_url: width: iconbox_icon_img.width | image_tag: loading: 'lazy', width: iconbox_icon_img.width, height: iconbox_icon_img.height, class: '' , sizes: sizes, widths: "24, 52, 48, 104, 120, 240" }}

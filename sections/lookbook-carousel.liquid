@@ -47,7 +47,7 @@
                 <div class="hdt-lookbook_nav hdt-pe-none hdt-nav_mixed hdt-inline-flex hdt-justify-center hdt-align-center hdt-absolute hdt-left-0 hdt-right-0">
                   <div class="hdt-lookbook_nav-wrap hdt-s-gradient hdt-inline-flex hdt-align-center">
                     {%- if section.settings.navUI == true -%}              
-                      <button aria-controls="lookbook-carousel-id-{{ section.id }}" disabled="" class="hdt-slide_button previous" name="previous"><svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="currentColor">
+                      <button aria-controls="lookbook-carousel-id-{{ section.id }}" aria-label="{{ 'general.slider.previous_slide' | t }}" disabled="" class="hdt-slide_button previous" name="previous"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="currentColor">
                         <path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z"/>
                       </svg></button>
                     {%- endif -%}
@@ -55,7 +55,7 @@
                       <div aria-controls="lookbook-carousel-id-{{ section.id }}" hdt-slider-dots class="hdt-slider__dots hdt-inline-flex hdt-justify-center"></div>
                     {%- endif -%}
                     {%- if section.settings.navUI == true -%}
-                      <button aria-controls="lookbook-carousel-id-{{ section.id }}" disabled="" class="hdt-slide_button next" name="next"><svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="currentColor">
+                      <button aria-controls="lookbook-carousel-id-{{ section.id }}" aria-label="{{ 'general.slider.next_slide' | t }}" disabled="" class="hdt-slide_button next" name="next"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="currentColor">
                         <path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z"/>
                       </svg></button>
                     {%- endif -%}
@@ -65,12 +65,12 @@
             {%- elsif section.settings.navigate_style == 'normal' -%}
               {%- if section.settings.navUI == true -%}
                 <div class="hdt-lookbook_nav2 hdt-hidden@mobile hdt-nav_normal hdt-pe-none hdt-flex hdt-justify-between hdt-align-center hdt-absolute hdt-left-0 hdt-right-0">
-                  <button aria-controls="lookbook-carousel-id-{{ section.id }}" disabled="" class="hdt-slider__button hdt-slider__button--prev hdt-rounded-full hdt-inline-flex hdt-align-center hdt-justify-center" name="previous">
+                  <button aria-controls="lookbook-carousel-id-{{ section.id }}" aria-label="{{ 'general.slider.previous_slide' | t }}" disabled="" class="hdt-slider__button hdt-slider__button--prev hdt-rounded-full hdt-inline-flex hdt-align-center hdt-justify-center" name="previous">
                     <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="currentColor">
                       <path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z"/>
                     </svg>
                   </button>
-                  <button aria-controls="lookbook-carousel-id-{{ section.id }}" disabled="" class="hdt-slider__button hdt-slider__button--next hdt-rounded-full hdt-inline-flex hdt-align-center hdt-justify-center" name="next">
+                  <button aria-controls="lookbook-carousel-id-{{ section.id }}" aria-label="{{ 'general.slider.next_slide' | t }}" disabled="" class="hdt-slider__button hdt-slider__button--next hdt-rounded-full hdt-inline-flex hdt-align-center hdt-justify-center" name="next">
                     <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="currentColor">
                       <path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z"/>
                     </svg>

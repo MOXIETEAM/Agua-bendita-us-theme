@@ -45,7 +45,7 @@
     <div class="hdt-card-product__wrapper hdt-flex">
       <div class="hdt-card-product__media hdt-relative hdt-oh">
         {%- if featured_media -%}
-          <a data-pr-url href="{{ product_url }}" data-instant calc-nav class="hdt-card-product__media-wrapp hdt-ratio"{% if image_ratio == 'adapt_image' %} style="--aspect-ratioapt: {{ featured_media.aspect_ratio }}"{% endif %}>
+          <a data-pr-url href="{{ product_url }}" data-instant calc-nav class="hdt-card-product__media-wrapp hdt-ratio" aria-label="{{ card_product.title }}"{% if image_ratio == 'adapt_image' %} style="--aspect-ratioapt: {{ featured_media.aspect_ratio }}"{% endif %}>
             {%- liquid
               echo featured_media | image_url: width: featured_media.width | image_tag: loading: 'lazy', sizes: sizes, widths: '165, 360', data-widths: '[165, 360]', class: 'hdt-card-product__media--main'
               if card_product.media[1] != null and settings.show_secondary_image

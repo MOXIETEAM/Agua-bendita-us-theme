@@ -167,10 +167,10 @@
                     </div>
                   </div>
                   {%- if section.settings.navUI -%}
-                    <button aria-controls="Slider-{{ section.id }}" class="hdt-slider__button hdt-slider-nav hdt-btn-outline hdt-inline-flex hdt-align-center hdt-justify-center hdt-slider__button--prev" type="button" disabled name="previous">
+                    <button aria-controls="Slider-{{ section.id }}" aria-label="{{ 'general.slider.previous_slide' | t }}" class="hdt-slider__button hdt-slider-nav hdt-btn-outline hdt-inline-flex hdt-align-center hdt-justify-center hdt-slider__button--prev" type="button" disabled name="previous">
                       <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z" fill="currentColor"/></svg>
                     </button>
-                    <button aria-controls="Slider-{{ section.id }}" class="hdt-slider__button hdt-slider-nav hdt-btn-outline hdt-inline-flex hdt-align-center hdt-justify-center hdt-slider__button--next" type="button" disabled name="next">
+                    <button aria-controls="Slider-{{ section.id }}" aria-label="{{ 'general.slider.next_slide' | t }}" class="hdt-slider__button hdt-slider-nav hdt-btn-outline hdt-inline-flex hdt-align-center hdt-justify-center hdt-slider__button--next" type="button" disabled name="next">
                         <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none"><path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z" fill="currentColor"/></svg>
                     </button>
                   {%- endif -%}
