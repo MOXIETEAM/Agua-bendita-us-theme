@@ -2278,8 +2278,10 @@ customElements.define("tab-hover", tabHover);
 
 // footer accodion
 function handleAccordionClick() {
-  let accordion = this.parentElement;
+  let accordion = this.closest('.hdt-footer-menu');
+  if (!accordion) return;
   accordion.classList.toggle('open');
+  this.setAttribute('aria-expanded', accordion.classList.contains('open'));
   if (window.innerWidth <= 1024) {
     let content = accordion.querySelector('.hdt-collapse-content');
     if (!content) return;
@@ -2290,24 +2292,32 @@ function handleAccordionClick() {
     }
   }
 }
+function closeFooterAccordion(accordion) {
+  accordion.classList.remove("open");
+  accordion.querySelector(".hdt-footer-menu__toggle")?.setAttribute("aria-expanded", "false");
+  const content = accordion.querySelector(".hdt-collapse-content");
+  if (content) {
+    content.style.height = 0;
+  }
+}
 function updateMaxHeight() {
-  if (window.innerWidth >= 768) {
+  if (window.innerWidth > 1024) {
     document.querySelectorAll('.hdt-footer-section .hdt-collapse-content').forEach(function(content) {
       content.style.height = '';
     });
   }
 }
-document.querySelectorAll('.hdt-footer-section .hdt-heading-f').forEach(function(element) {
+document.querySelectorAll('.hdt-footer-section .hdt-footer-menu__toggle').forEach(function(element) {
   element.addEventListener('click', handleAccordionClick);
 });
 window.addEventListener('resize', function() {
-  if (window.innerWidth < 768) {
-    document.querySelectorAll('.hdt-footer-section .hdt-heading-f').forEach(function(element) {
+  if (window.innerWidth <= 1024) {
+    document.querySelectorAll('.hdt-footer-section .hdt-footer-menu__toggle').forEach(function(element) {
       element.removeEventListener('click', handleAccordionClick);
       element.addEventListener('click', handleAccordionClick);
     });
   } else {
-    document.querySelectorAll('.hdt-footer-section .hdt-heading-f').forEach(function(element) {
+    document.querySelectorAll('.hdt-footer-section .hdt-footer-menu__toggle').forEach(function(element) {
       element.removeEventListener('click', handleAccordionClick);
     });
     updateMaxHeight();
@@ -2634,8 +2644,7 @@ class CustomFooterAccordions extends HTMLElement {
       currentElem.addEventListener("click", function() {
         This.querySelectorAll(".hdt-footer-menu").forEach(item => {
           if (item !== currentElem) {
-            item.classList.remove("open");
-            item.querySelector(".hdt-collapse-content").style.height = 0;
+            closeFooterAccordion(item);
           }
         });
       })

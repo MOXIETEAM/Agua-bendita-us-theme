@@ -7,12 +7,16 @@
 <div id="block-{{ block.id }}" class= "hdt-footer-menu hdt-border-column-{{ block.settings.border-column }} hdt-col-block hdt-col hdt-relative hdt-text-center" style="--cus-width:{{ block.settings.custom_w_dk }}%;--pd-top: {{ pd_item[0] | default: 0 }};--pd-right: {{ pd_item[1] | default: 0 }};--pd-bottom: {{ pd_item[2] | default: 0 }};--pd-left: {{ pd_item[3] | default: 0 }};" {{ block.shopify_attributes }}>
   {%- if block.settings.heading_menu != blank -%}
     <div class="hdt-heading-f collapsible hdt-flex hdt-align-center">
-      <h6 class=" {{ section.settings.heading_fs }} hdt-s-text {{ section.settings.text_weight }}"> {{ block.settings.heading_menu }}</h6>
-      <span class="hdt-collapse-icon hdt-relative"></span>
+      <h6 class=" {{ section.settings.heading_fs }} hdt-s-text {{ section.settings.text_weight }}">
+        <button type="button" class="hdt-footer-menu__toggle hdt-flex hdt-align-center" aria-expanded="false" aria-controls="FooterMenu-{{ block.id }}">
+          <span>{{ block.settings.heading_menu }}</span>
+          <span class="hdt-collapse-icon hdt-relative" aria-hidden="true"></span>
+        </button>
+      </h6>
     </div>
   {%- endif -%}
   {%- if block.settings.menu != blank -%}
-    <ul class="hdt-collapse-content hdt-footer-menu-list">
+    <ul id="FooterMenu-{{ block.id }}" class="hdt-collapse-content hdt-footer-menu-list">
       {% if block.settings.enable_contact_form %}
         <li class="hdt-footer-menu_item hdt-footer-menu_item-contact-form">
           <a class="link" href="{{ block.settings.contact_form_url }}">{{ "sections.footer.contact_form" | t }}</a>

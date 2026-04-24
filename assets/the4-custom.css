@@ -1540,8 +1540,27 @@ hdt-sticky-header:hover {
   font-weight: 700;
   letter-spacing: normal;
   line-height: 1.2;
+  margin: 0;
 }
 
+.hdt-footer-menu .hdt-footer-menu__toggle {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+}
+
+.hdt-footer-menu .hdt-footer-menu__toggle:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
 
 .hdt-footer-menu .hdt-footer-menu-list .hdt-footer-menu_item {
   font-size: 16px;
@@ -1601,11 +1620,16 @@ hdt-sticky-header:hover {
     margin-bottom: 0;
   }
 
+  .hdt-footer-menu .hdt-heading-f h6,
+  .hdt-footer-menu .hdt-footer-menu__toggle {
+    width: 100%;
+  }
+
   .hdt-footer-menu .hdt-heading-f .hdt-collapse-icon {
     display: none;
   }
 
-  .hdt-footer-menu .hdt-heading-f:after {
+  .hdt-footer-menu .hdt-footer-menu__toggle:after {
     speak: none;
     -webkit-font-smoothing: antialiased;
     color: rgb(112, 112, 112);
@@ -1620,7 +1644,7 @@ hdt-sticky-header:hover {
     font-variant: normal;
   }
 
-  .hdt-footer-menu.open .hdt-heading-f:after {
+  .hdt-footer-menu.open .hdt-footer-menu__toggle:after {
     speak: none;
     -webkit-font-smoothing: antialiased;
     color: inherit;
