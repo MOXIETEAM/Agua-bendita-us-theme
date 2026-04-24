@@ -51,7 +51,7 @@
       {%- endfor -%}
     </select>
     {%- endunless -%}
-    <input class="hdt-input" type="email" name="contact[email]" autocomplete="email" autocorrect="off" autocapitalize="off" required="required" placeholder="{{ 'products.product.back_in_stock.email' | t }}">
+    <input class="hdt-input" type="email" name="contact[email]" autocomplete="email" autocorrect="off" autocapitalize="off" required="required" placeholder="{{ 'products.product.back_in_stock.email' | t }}" aria-label="{{ 'products.product.back_in_stock.email' | t }}">
     <button type="submit" class="hdt-product-notify__submit hdt-inline-flex hdt-align-center hdt-justify-center hdt-relative hdt-btn hdt-oh hdt-btn-solid hdt-font-semibold">{{ 'products.product.back_in_stock.submit' | t }}</button>
   {%- endform -%}
 </hdt-back-instock>

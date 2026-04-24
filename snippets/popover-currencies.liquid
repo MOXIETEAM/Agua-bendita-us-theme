@@ -6,7 +6,7 @@
     {%- form 'localization', id: formID -%}
       {%- if localization.available_countries.size > 9 -%}
         <country-filter>
-          <input type="search" class="hdt-country_filter hdt-input" value placeholder="Search" name="country_filter">
+          <input type="search" class="hdt-country_filter hdt-input" value placeholder="Search" name="country_filter" aria-label="{{ 'general.search.search' | t }}">
         </country-filter>
       {%- endif -%}
       <hdt-richlist role="listbox" selected="{{ localization.country.iso_code }}">
@@ -43,7 +43,7 @@
   <hdt-popover class="hdt-popover-currencies hdt-popover hdt-dropdown hdt-hidden hdt-text-start hdt-current-scrollbar hdt-flag-size-sm" id="popover-currencies" placement="bottom" color-scheme="{{ settings.color_scheme_dialog }}" config='{ "closeRichlistSelect": true }'>
     {%- if supported_codes.size > 9 -%}
     <country-filter>
-      <input type="search" class="hdt-country_filter hdt-input" value placeholder="Search" name="country_filter">
+      <input type="search" class="hdt-country_filter hdt-input" value placeholder="Search" name="country_filter" aria-label="{{ 'general.search.search' | t }}">
     </country-filter>
   {%- endif -%}
     <hdt-richlist role="listbox" selected="">

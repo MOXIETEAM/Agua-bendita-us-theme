@@ -103,9 +103,9 @@
 											  <div class="hdt-collection-inner hdt-relative hdt-oh hdt-grid">
 											    <div class="hdt-collection-img" style="--aspect-ratioapt: {{ image.aspect_ratio | default: 1.2 }};">
 											      <div class="hdt-ratio" style="--aspect-ratioapt: {{ image.aspect_ratio | default: 1 }};">
-						              		{{ image | image_url: width: image.width | image_tag: loading: 'lazy', width: image.width, height: image.height, class: '', sizes: sizes, widths: '250, 345, 400, 500, 700, 800, 1000, 1400, 1600, 1800, 2000' }}
+						              		{{ image | image_url: width: image.width | image_tag: loading: 'lazy', width: image.width, height: image.height, class: '', sizes: sizes, widths: '250, 345, 400, 500, 700, 800, 1000, 1400, 1600, 1800, 2000', alt: image.alt | default: collection.title }}
 						              	</div>
-											      <a class="hdt-full-width-link" href="{{ collection.url }}"></a>
+												      <a class="hdt-full-width-link" href="{{ collection.url }}" aria-label="{{ collection.title }}"></a>
 											    </div>
 											    <div class="hdt-collection-content hdt-absolute hdt-place-self-end-center">
 										        <a class="hdt-collection-title hdt-inline-flex hdt-align-center hdt-justify-center hdt-text-lg hdt-font-medium" href="{{ collection.url }}">
@@ -310,7 +310,7 @@
 								<a href="{{ item.url }}" title="{{ item.name }}">
 									{%- if image != blank -%}
 										<div class="hdt-demo-image hdt-relative hdt-block">
-											<img src="{{ image | image_url: width: 300 }}" width="600" height="657" srcset="{{ image | image_url: width: 300 }} 1x, {{ image | image_url: width: 600 }} 2x" sizes="300px" loading='lazy'>
+										<img src="{{ image | image_url: width: 300 }}" width="600" height="657" srcset="{{ image | image_url: width: 300 }} 1x, {{ image | image_url: width: 600 }} 2x" sizes="300px" loading='lazy' alt="{{ item.name }}">
 											{% if item.label.value.size > 0 %}
 												<div class="hdt-demo-label hdt-flex hdt-absolute">
 													{%- for label in item.label.value -%}
@@ -336,7 +336,7 @@
 										<a href="{{ item.url }}" title="{{ item.name }}">
 											{%- if image != blank -%}
 												<div class="hdt-demo-image hdt-relative hdt-block">
-													<img src="{{ image | image_url: width: 300 }}" width="600" height="657" srcset="{{ image | image_url: width: 300 }} 1x, {{ image | image_url: width: 600 }} 2x" sizes="300px" loading='lazy'>
+													<img src="{{ image | image_url: width: 300 }}" width="600" height="657" srcset="{{ image | image_url: width: 300 }} 1x, {{ image | image_url: width: 600 }} 2x" sizes="300px" loading='lazy' alt="{{ item.name }}">
 													{% if item.label.value.size > 0 %}
 														<div class="hdt-demo-label hdt-flex hdt-absolute">
 															{%- for label in item.label.value -%}

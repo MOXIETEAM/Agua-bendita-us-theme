@@ -76,7 +76,7 @@
   <hdt-card-product class="hdt-card-product {{ class }}{% if settings.show_ultra_btn == false %} hdt-no-ultra_btn{% endif %}{% if card_product.available == false %} hdt-pr-sold_out{% endif %}">
     <div class="hdt-card-product__wrapper" calc-nav>
       <div class="hdt-card-product__media hdt-relative hdt-oh">
-        <a data-pr-url href="{{ product_url }}" data-instant calc-nav class="hdt-card-product__media-wrapp hdt-ratio"{% if image_ratio == 'adapt_image' %} style="--aspect-ratioapt: {{ featured_media.aspect_ratio | default: '127.7777778%' }}"{% endif %}>
+        <a data-pr-url href="{{ product_url }}" data-instant calc-nav class="hdt-card-product__media-wrapp hdt-ratio" aria-label="{{ card_product.title }}"{% if image_ratio == 'adapt_image' %} style="--aspect-ratioapt: {{ featured_media.aspect_ratio | default: '127.7777778%' }}"{% endif %}>
           {%- if featured_media -%}
             {%- liquid
               echo featured_media | image_url: width: featured_media.width | image_tag: loading: 'lazy', sizes: sizes, widths: '165, 360, 533, 668, 720, 940, 940, 1066, 1200, 1450', data-widths: '[165, 360, 533, 668, 720, 940, 940, 1066, 1200, 1450]', class: 'hdt-card-product__media--main'

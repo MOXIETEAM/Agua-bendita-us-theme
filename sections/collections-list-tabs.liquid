@@ -65,7 +65,7 @@
               <div tab-item class="hdt-tab-item hdt-collection-img" {% if forloop.first %} tab-selected{% endif %}>
                 {%- capture current -%}{%- cycle 1, 2, 3, 4 -%}{%- endcapture -%}
                 {%- assign image = collection.metafields.theme.featured_image_collection.value | default: collection.image | default: collection.products.first.featured_image -%}
-                <a href="{{ collection_link }}" class="hdt-full-width-link"></a>
+                <a href="{{ collection_link }}" class="hdt-full-width-link" aria-label="{{ collection.title }}"></a>
                 <span class="hdt-ratio" style="--aspect-ratioapt: {{ image.aspect_ratio | default: 1.2 }};">
                   {%- if image != blank -%}
                     {{ image | image_url: width: image.width | image_tag: loading: 'lazy', width: image.width, height: image.height, class: '', sizes: sizes, widths: '800, 720, 600, 500, 400, 300' }}
@@ -115,7 +115,7 @@
               <div tab-item class="hdt-tab-item hdt-collection-img" {% if forloop.first %} tab-selected{% endif %}>
                 {%- assign image = block.settings.image | default: collection.metafields.theme.featured_image_collection.value | default: collection.image | default: collection.products.first.featured_image -%}
                 {%- capture current -%}{%- cycle 1, 2, 3, 4, 5, 6 -%}{%- endcapture -%}
-                <a href="{{ collection_link }}" class="hdt-full-width-link"></a>
+                <a href="{{ collection_link }}" class="hdt-full-width-link" aria-label="{{ collection.title }}"></a>
                 <span class="hdt-ratio" style="--aspect-ratioapt: {{ image.aspect_ratio | default: 1.2 }};">
                   {%- if image != blank -%}
                     {{- image | image_url: width: image.width | image_tag: loading: 'lazy', width: image.width, height: image.height, class: '', sizes: '700px', widths: '720, 600, 500, 400, 300' -}}

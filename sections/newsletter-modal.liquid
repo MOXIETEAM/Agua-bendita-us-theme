@@ -28,7 +28,8 @@
       <div class="hdt-wrapper hdt-s-gradient hdt-ratio--adapt_image {% if section.settings.direction == "hor" %} hdt-flex hdt-justify-center{% endif %}">
         <div class="hdt-img_wrap">
           {%- if section.settings.image != blank -%}
-            <div class="hdt-modal-newsletter-image_dk" style="background-image: url('{{ section.settings.image | image_url: width: section.settings.image.width }}');">
+            <div class="hdt-ratio hdt-modal-newsletter-image_dk hdt-hidden@mobile" style="--aspect-ratioapt: {{ section.settings.image.aspect_ratio | default: 1.6 }};">
+              {{ section.settings.image | image_url: width: section.settings.image.width | image_tag: loading: 'lazy', sizes: "(min-width: 768px) 625px, 100vw", class: 'hdt-object-pos-mb', widths: '400,600,800,1000,1200,1400,1500', alt: section.settings.image.alt | default: shop.name }}
             </div>
           {%- endif -%}
           {%- if section.settings.image_mb != blank -%}

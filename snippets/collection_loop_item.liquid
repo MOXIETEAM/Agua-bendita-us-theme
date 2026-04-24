@@ -12,7 +12,7 @@
           {{ 'collection-apparel-1' | placeholder_svg_tag: 'hdt-placeholder-svg' }}  
         {%- endif -%}
       </span>
-      <a data-pr-href class="hdt-full-width-link" href="{{ collection.url }}"></a>
+      <a data-pr-href class="hdt-full-width-link" href="{{ collection.url }}" aria-label="{{ collection.title }}"></a>
     </div>
     {%- if collection.title != blank -%}
       <div class="hdt-loop-content">

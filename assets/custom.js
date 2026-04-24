@@ -2275,6 +2275,211 @@ class tabHover extends HTMLElement {
 }
 customElements.define("tab-hover", tabHover);
 
+// tabs a11y enhancement
+const syncTabA11yState = (tabElement, panelsContainer) => {
+  const tabButtons = Array.from(tabElement.querySelectorAll('button'));
+  const tabPanels = Array.from(panelsContainer.querySelectorAll('[tab-item]'));
+
+  if (!tabButtons.length || !tabPanels.length) return;
+
+  let activeIndex = tabButtons.findIndex((button) => button.getAttribute('aria-current') === 'true');
+  if (activeIndex < 0) {
+    activeIndex = tabPanels.findIndex((panel) => panel.hasAttribute('tab-selected'));
+  }
+  if (activeIndex < 0) activeIndex = 0;
+
+  tabButtons.forEach((button, index) => {
+    const isActive = index === activeIndex;
+    button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    button.setAttribute('tabindex', isActive ? '0' : '-1');
+  });
+
+  tabPanels.forEach((panel, index) => {
+    panel.setAttribute('aria-hidden', index === activeIndex ? 'false' : 'true');
+  });
+};
+
+const setupTabA11y = (tabElement) => {
+  if (!(tabElement instanceof HTMLElement)) return;
+
+  const panelsContainerId = tabElement.getAttribute('aria-controls');
+  if (!panelsContainerId) return;
+
+  const panelsContainer = document.getElementById(panelsContainerId);
+  if (!panelsContainer) return;
+
+  const tabButtons = Array.from(tabElement.querySelectorAll('button'));
+  const tabPanels = Array.from(panelsContainer.querySelectorAll('[tab-item]'));
+
+  if (!tabButtons.length || !tabPanels.length) return;
+
+  tabElement.setAttribute('role', 'tablist');
+
+  tabButtons.forEach((button, index) => {
+    const panel = tabPanels[index];
+    if (!panel) return;
+
+    const panelId = panel.id || `${panelsContainerId}-panel-${index + 1}`;
+    const tabId = button.id || `${panelsContainerId}-tab-${index + 1}`;
+
+    panel.id = panelId;
+    button.id = tabId;
+
+    button.setAttribute('role', 'tab');
+    button.setAttribute('aria-controls', panelId);
+
+    panel.setAttribute('role', 'tabpanel');
+    panel.setAttribute('aria-labelledby', tabId);
+  });
+
+  syncTabA11yState(tabElement, panelsContainer);
+
+  if (tabElement.dataset.a11yTabsBound === 'true') return;
+  tabElement.dataset.a11yTabsBound = 'true';
+
+  tabElement.addEventListener('click', () => {
+    requestAnimationFrame(() => syncTabA11yState(tabElement, panelsContainer));
+  });
+
+  const observer = new MutationObserver(() => {
+    syncTabA11yState(tabElement, panelsContainer);
+  });
+
+  observer.observe(tabElement, {
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['aria-current']
+  });
+
+  observer.observe(panelsContainer, {
+    subtree: true,
+    childList: true,
+    attributes: true,
+    attributeFilter: ['tab-selected']
+  });
+};
+
+const setupAllTabsA11y = () => {
+  document.querySelectorAll('hdt-tab[aria-controls]').forEach((tabElement) => {
+    setupTabA11y(tabElement);
+  });
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', setupAllTabsA11y, { once: true });
+} else {
+  setupAllTabsA11y();
+}
+
+document.addEventListener('shopify:section:load', setupAllTabsA11y);
+document.addEventListener('shopify:block:select', setupAllTabsA11y);
+
+// ----------------------------------------
+// Slider a11y: label dots and nav buttons
+// generated dynamically by global.min.js
+// ----------------------------------------
+const labelSliderDots = (container) => {
+  container.querySelectorAll('.hdt-slider__dot').forEach((dot, i) => {
+    if (!dot.hasAttribute('aria-label')) {
+      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    }
+  });
+};
+
+const labelSliderNavBtns = (container) => {
+  container.querySelectorAll('.hdt-slider__button[name="previous"]:not([aria-label])').forEach(btn => {
+    btn.setAttribute('aria-label', 'Previous slide');
+  });
+  container.querySelectorAll('.hdt-slider__button[name="next"]:not([aria-label])').forEach(btn => {
+    btn.setAttribute('aria-label', 'Next slide');
+  });
+};
+
+const labelAllSliders = () => {
+  document.querySelectorAll('hdt-slider, hdt-slideshow').forEach(slider => {
+    labelSliderDots(slider);
+    labelSliderNavBtns(slider);
+  });
+};
+
+// Run once DOM is ready and also watch for dynamically created slider elements
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', labelAllSliders);
+} else {
+  labelAllSliders();
+}
+
+const sliderA11yObserver = new MutationObserver((mutations) => {
+  mutations.forEach(({ addedNodes }) => {
+    addedNodes.forEach(node => {
+      if (node.nodeType !== 1) return;
+      // Check if a dot/nav button was added inside a slider
+      if (node.closest && node.closest('hdt-slider, hdt-slideshow')) {
+        if (node.classList.contains('hdt-slider__dot') && !node.hasAttribute('aria-label')) {
+          const siblings = node.parentElement ? node.parentElement.querySelectorAll('.hdt-slider__dot') : [];
+          siblings.forEach((dot, i) => { if (!dot.hasAttribute('aria-label')) dot.setAttribute('aria-label', 'Go to slide ' + (i + 1)); });
+        } else if (node.classList.contains('hdt-slider__dots')) {
+          labelSliderDots(node);
+        } else if (node.classList.contains('hdt-slider__button')) {
+          const name = node.getAttribute('name');
+          if (name === 'previous' && !node.hasAttribute('aria-label')) node.setAttribute('aria-label', 'Previous slide');
+          if (name === 'next' && !node.hasAttribute('aria-label')) node.setAttribute('aria-label', 'Next slide');
+        }
+      }
+      // Also scan within any added subtree
+      labelSliderDots(node);
+      labelSliderNavBtns(node);
+    });
+  });
+});
+
+sliderA11yObserver.observe(document.body, { childList: true, subtree: true });
+
+document.addEventListener('shopify:section:load', labelAllSliders);
+document.addEventListener('shopify:block:select', labelAllSliders);
+
+// ----------------------------------------
+// Iframe a11y: add titles to iframes without them
+// ----------------------------------------
+const fixIframeTitles = () => {
+  document.querySelectorAll('iframe:not([title])').forEach(iframe => {
+    if (iframe.id && iframe.id.includes('web-pixel-sandbox')) {
+      iframe.setAttribute('title', 'Tracking pixel');
+    } else if (iframe.src && iframe.src.includes('youtube')) {
+      iframe.setAttribute('title', 'Video content');
+    } else if (iframe.src && iframe.src.includes('vimeo')) {
+      iframe.setAttribute('title', 'Video content');
+    } else if (!iframe.title && iframe.id) {
+      iframe.setAttribute('title', iframe.id);
+    } else if (!iframe.title) {
+      iframe.setAttribute('title', 'Embedded content');
+    }
+  });
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', fixIframeTitles);
+} else {
+  fixIframeTitles();
+}
+
+// Watch for dynamically injected iframes (e.g., Shopify Pixels)
+const iframeA11yObserver = new MutationObserver((mutations) => {
+  mutations.forEach(({ addedNodes }) => {
+    addedNodes.forEach(node => {
+      if (node.nodeType !== 1) return;
+      if (node.tagName === 'IFRAME' && !node.hasAttribute('title')) {
+        fixIframeTitles();
+      }
+      if (node.querySelector && node.querySelector('iframe:not([title])')) {
+        fixIframeTitles();
+      }
+    });
+  });
+});
+
+iframeA11yObserver.observe(document.body, { childList: true, subtree: true });
+
 
 // footer accodion
 function handleAccordionClick() {

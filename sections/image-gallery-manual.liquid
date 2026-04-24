@@ -44,11 +44,11 @@
               <div class="hdt-gallery-img" style="--aspect-ratioapt: {{ image.aspect_ratio | default: 1.2 }};">
                 <div class="{% if section.settings.image_ratio != "custom" %}hdt-ratio {% endif %}hdt-oh hdt-rounded">
                 {%- if image != blank -%}
-                  {{ image | image_url: width: image.width | image_tag: loading: 'lazy', width: image.width, height: image.height, class: '', sizes: '(max-width: 767px) 200px', widths: '285, 370, 385, 200' }}
+                  {{ image | image_url: width: image.width | image_tag: loading: 'lazy', width: image.width, height: image.height, class: '', sizes: '(max-width: 767px) 200px', widths: '285, 370, 385, 200', alt: image.alt | default: 'Gallery image' }}
                 {%- else -%}
                   {{ 'hero-apparel-' | append: current | placeholder_svg_tag: 'hdt-placeholder-svg' }}  
                 {%- endif -%}
-                {% if block.settings.item_link != blank %}<a class="hdt-full-width-link" href="{{ block.settings.item_link }}"></a>{% endif %}
+                {% if block.settings.item_link != blank %}<a class="hdt-full-width-link" href="{{ block.settings.item_link }}" aria-label="{{ image.alt | default: 'Open gallery image link' }}"></a>{% endif %}
               </div>
               </div>
               {%- if product != blank -%}

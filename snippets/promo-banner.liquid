@@ -13,7 +13,7 @@
     {% comment %}
     <a data-pr-url href="{{ url }}" data-instant  calc-nav class="hdt-card-product__media-wrapp"{% if image_ratio == 'adapt_image' %} style="--aspect-ratioapt: {{ image.aspect_ratio | default: '127.7777778%' }}"{% endif %}>
       {% endcomment %}
-    <a data-pr-url href="{{ url }}" data-instant  calc-nav class="hdt-card-product__media-wrapp hdt-ratio" style="--aspect-ratioapt: {{ ratio }};--aspect-ratioapt-mb: {{ ratio_mb }}">
+    <a data-pr-url href="{{ url }}" data-instant  calc-nav class="hdt-card-product__media-wrapp hdt-ratio" aria-label="{{ text | default: button_text | default: 'Open promotion' }}" style="--aspect-ratioapt: {{ ratio }};--aspect-ratioapt-mb: {{ ratio_mb }}">
       {%- if image -%}
         {%- liquid
           assign class = "hdt-card-product__media--main"

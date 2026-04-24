@@ -6,7 +6,7 @@
 <div class="hdt-article-navigation hdt-row-grid md:hdt-grid-cols-2 hdt-grid-cols-2 hdt-w-full hdt-section-spacing" style="--section-pt: {{ block.settings.padding_top }}px; --section-pb: {{ block.settings.padding_bottom }}px; --section-prate:{{ block.settings.padding_rate }};" {{ block.shopify_attributes }}>
   <article class="hdt-article-item hdt-article-previous hdt-justify-start hdt-align-center hdt-flex hdt-relative"  timeline hdt-reveal="slide-in">
     {%- if blog.previous_article -%}
-      <a href="{{ blog.previous_article.url }}" class="hdt-button-navigation hdt-inline-flex hdt-align-center hdt-justify-center hdt-s-text"><svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none">
+      <a href="{{ blog.previous_article.url }}" aria-label="Previous article: {{ blog.previous_article.title | escape }}" class="hdt-button-navigation hdt-inline-flex hdt-align-center hdt-justify-center hdt-s-text"><svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none" aria-hidden="true" focusable="false">
         <path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z" fill="currentColor"/>
       </svg></a>
       <div class="hdt-article-inner hdt-oh hdt-text-start hdt-flex hdt-flex-col">
@@ -25,7 +25,7 @@
           <h6 class="hdt-article-title hdt-font-normal hdt-h6"><a href="{{ blog.next_article.url }}">{{ blog.next_article.title }}</a></h6>
         </div>
       </div>
-      <a href="{{ blog.next_article.url }}" class="hdt-button-navigation hdt-inline-flex hdt-align-center hdt-justify-center hdt-s-text hdt-s-text"><svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none">
+      <a href="{{ blog.next_article.url }}" aria-label="Next article: {{ blog.next_article.title | escape }}" class="hdt-button-navigation hdt-inline-flex hdt-align-center hdt-justify-center hdt-s-text hdt-s-text"><svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none" aria-hidden="true" focusable="false">
         <path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z" fill="currentColor"/>
       </svg></a>
     {%- endif -%}

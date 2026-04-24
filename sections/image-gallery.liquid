@@ -67,12 +67,12 @@
                       <div class="hdt-gallery-img" style="--aspect-ratioapt: {{ image.aspect_ratio | default: 1.2 }};">
                         <span class="hdt-ratio">
                           {%- if image != blank -%}
-                            {{ image | image_url: width: image.width | image_tag: loading: 'lazy', width: image.width, height: image.height, class: '', sizes: sizes, widths: '220, 285, 350, 385, 400' }}
+                            {{ image | image_url: width: image.width | image_tag: loading: 'lazy', width: image.width, height: image.height, class: '', sizes: sizes, widths: '220, 285, 350, 385, 400', alt: image.alt | default: 'Gallery image' }}
                           {%- else -%}
                             {{ 'hero-apparel-' | append: current | placeholder_svg_tag: 'hdt-placeholder-svg' }}  
                           {%- endif -%}
                         </span>
-                        {% if block.settings.item_link != blank and section.settings.image_action == 'go_link' %}<a class="hdt-full-width-link" href="{{ block.settings.item_link }}"></a>{% endif %}
+                        {% if block.settings.item_link != blank and section.settings.image_action == 'go_link' %}<a class="hdt-full-width-link" href="{{ block.settings.item_link }}" aria-label="{{ image.alt | default: 'Open gallery image link' }}"></a>{% endif %}
                       </div>
                       {%- if product != blank and section.settings.image_action == 'go_link' -%}
                         {%- if settings.show_ultra_btn %}{% render 'btn-ultra', class: 'hdt-pr_btn hdt-gallery-product hdt-inline-flex hdt-align-center hdt-justify-center', product: product, product_url: product.url, section_id: block.id, placement: 'top' %}{% endif -%}

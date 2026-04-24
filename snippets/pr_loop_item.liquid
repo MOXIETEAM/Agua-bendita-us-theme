@@ -10,7 +10,7 @@
             {{ image | image_url: width: image.width | image_tag: loading: 'lazy', width: image.width, height: image.height, class: '', sizes: sizes, widths: widths }}
           </div>
         {%- endif -%}
-        <a data-pr-href class="hdt-full-width-link" href="{{ product.url }}"></a>
+        <a data-pr-href class="hdt-full-width-link" href="{{ product.url }}" aria-label="{{ product.title }}"></a>
       </div>
       <div class="hdt-card-product__info">
         {%- if settings.show_rating %}{% render 'hdt-pr-card-rating', product: card_product %}{% endif -%}
