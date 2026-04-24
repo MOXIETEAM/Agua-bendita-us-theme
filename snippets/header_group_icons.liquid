@@ -1,3 +1,23 @@
+{%- liquid
+	assign header_icon_id_suffix = section.id | default: 'header'
+	if has_text
+		assign header_icon_id_suffix = header_icon_id_suffix | append: '-with-text'
+	else
+		assign header_icon_id_suffix = header_icon_id_suffix | append: '-icons'
+	endif
+	assign search_icon_title_id = 'HeaderGroupIconsSearchTitle-' | append: header_icon_id_suffix
+	assign cart_icon_title_id = 'HeaderGroupIconsCartTitle-' | append: header_icon_id_suffix
+	assign cart_mobile_icon_title_id = 'HeaderGroupIconsCartMobileTitle-' | append: header_icon_id_suffix
+	assign search_link_label = 'general.search.search' | t
+	capture cart_link_label
+		if cart.item_count > 0
+			echo 'general.cart.view' | t: count: cart.item_count
+		else
+			echo 'general.cart.view_empty_cart' | t
+		endif
+	endcapture
+	assign cart_link_label = cart_link_label | strip
+-%}
 {%- if has_text -%}
 	<div class="hdt-site-top_nav hdt-site-top_nav_has_text hdt-flex hdt-align-center hdt-justify-end">
 		{%- if section.settings.enabled_user -%}
@@ -37,20 +57,22 @@
 			{%- endif -%}
 		{%- endif -%}
 		<div class="hdt-site-nav_icon hdt-site-nav_search lg:hdt-hidden hdt-inline-flex hdt-align-center">
-			<a href="{{ routes.search_url }}" class="hdt-inline-flex hdt-align-center hdt-relative" aria-controls="drawer-search-form">
-				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="currentColor"><path d="M17.7241 16.1932L13.6436 12.1127C14.626 10.8049 15.1563 9.21299 15.1546 7.57728C15.1546 3.39919 11.7554 0 7.57728 0C3.39919 0 0 3.39919 0 7.57728C0 11.7554 3.39919 15.1546 7.57728 15.1546C9.21299 15.1563 10.8049 14.626 12.1127 13.6436L16.1932 17.7241C16.3998 17.9088 16.6692 18.0073 16.9461 17.9996C17.2231 17.9918 17.4865 17.8783 17.6824 17.6824C17.8783 17.4865 17.9918 17.2231 17.9996 16.9461C18.0073 16.6692 17.9088 16.3998 17.7241 16.1932ZM2.16494 7.57728C2.16494 6.50682 2.48237 5.4604 3.07708 4.57034C3.6718 3.68029 4.51709 2.98657 5.50607 2.57693C6.49504 2.16728 7.58328 2.0601 8.63318 2.26893C9.68307 2.47777 10.6475 2.99325 11.4044 3.75018C12.1613 4.5071 12.6768 5.47149 12.8856 6.52138C13.0945 7.57128 12.9873 8.65952 12.5776 9.64849C12.168 10.6375 11.4743 11.4828 10.5842 12.0775C9.69416 12.6722 8.64774 12.9896 7.57728 12.9896C6.14237 12.9879 4.76672 12.4171 3.75208 11.4025C2.73744 10.3878 2.16666 9.01219 2.16494 7.57728Z"/></svg>
+			<a href="{{ routes.search_url }}" class="hdt-inline-flex hdt-align-center hdt-relative" aria-label="{{ search_link_label | escape }}" aria-controls="drawer-search-form">
+				<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="{{ search_icon_title_id }}" width="18" height="18" viewBox="0 0 18 18" fill="currentColor"><title id="{{ search_icon_title_id }}">{{ 'general.search.search' | t }}</title><path d="M17.7241 16.1932L13.6436 12.1127C14.626 10.8049 15.1563 9.21299 15.1546 7.57728C15.1546 3.39919 11.7554 0 7.57728 0C3.39919 0 0 3.39919 0 7.57728C0 11.7554 3.39919 15.1546 7.57728 15.1546C9.21299 15.1563 10.8049 14.626 12.1127 13.6436L16.1932 17.7241C16.3998 17.9088 16.6692 18.0073 16.9461 17.9996C17.2231 17.9918 17.4865 17.8783 17.6824 17.6824C17.8783 17.4865 17.9918 17.2231 17.9996 16.9461C18.0073 16.6692 17.9088 16.3998 17.7241 16.1932ZM2.16494 7.57728C2.16494 6.50682 2.48237 5.4604 3.07708 4.57034C3.6718 3.68029 4.51709 2.98657 5.50607 2.57693C6.49504 2.16728 7.58328 2.0601 8.63318 2.26893C9.68307 2.47777 10.6475 2.99325 11.4044 3.75018C12.1613 4.5071 12.6768 5.47149 12.8856 6.52138C13.0945 7.57128 12.9873 8.65952 12.5776 9.64849C12.168 10.6375 11.4743 11.4828 10.5842 12.0775C9.69416 12.6722 8.64774 12.9896 7.57728 12.9896C6.14237 12.9879 4.76672 12.4171 3.75208 11.4025C2.73744 10.3878 2.16666 9.01219 2.16494 7.57728Z"/></svg>
 			</a>
 		</div>
 		
 		<div class="hdt-site-nav_icon hdt-site-nav_cart hdt-inline-flex hdt-align-center">
-			<a class="hdt-inline-flex hdt-align-center hdt-relative hdt-has-count-box" href="{{ routes.cart_url }}"{% if request.page_type != 'cart' %} aria-controls="CartDrawer"{% endif %}>
-				<svg class="lg:hdt-block hdt-hidden" xmlns="http://www.w3.org/2000/svg" width="26" height="29" viewBox="0 0 26 29" fill="currentColor">
+			<a class="hdt-inline-flex hdt-align-center hdt-relative hdt-has-count-box" href="{{ routes.cart_url }}" aria-label="{{ cart_link_label | escape }}"{% if request.page_type != 'cart' %} aria-controls="CartDrawer"{% endif %}>
+				<svg class="lg:hdt-block hdt-hidden" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="{{ cart_icon_title_id }}" width="26" height="29" viewBox="0 0 26 29" fill="currentColor">
+				  <title id="{{ cart_icon_title_id }}">{{ 'general.cart.view_empty_cart' | t }}</title>
 				  <path d="M24.5556 29H1.44444C1.06135 29 0.693954 28.8472 0.423068 28.5753C0.152182 28.3034 0 27.9346 0 27.55V1.45C0 1.06544 0.152182 0.696623 0.423068 0.424695C0.693954 0.152767 1.06135 0 1.44444 0H24.5556C24.9386 0 25.306 0.152767 25.5769 0.424695C25.8478 0.696623 26 1.06544 26 1.45V27.55C26 27.9346 25.8478 28.3034 25.5769 28.5753C25.306 28.8472 24.9386 29 24.5556 29ZM23.1111 26.1V2.9H2.88889V26.1H23.1111ZM8.66667 5.8V8.7C8.66667 9.85369 9.12321 10.9601 9.93587 11.7759C10.7485 12.5917 11.8507 13.05 13 13.05C14.1493 13.05 15.2515 12.5917 16.0641 11.7759C16.8768 10.9601 17.3333 9.85369 17.3333 8.7V5.8H20.2222V8.7C20.2222 10.6228 19.4613 12.4669 18.1069 13.8265C16.7525 15.1862 14.9155 15.95 13 15.95C11.0845 15.95 9.24755 15.1862 7.89312 13.8265C6.53869 12.4669 5.77778 10.6228 5.77778 8.7V5.8H8.66667Z"/>
 				</svg>
-				<svg class="lg:hdt-hidden hdt-block" xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="currentColor">
+				<svg class="lg:hdt-hidden hdt-block" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="{{ cart_mobile_icon_title_id }}" width="17" height="18" viewBox="0 0 17 18" fill="currentColor">
+					<title id="{{ cart_mobile_icon_title_id }}">{{ 'general.cart.view_empty_cart' | t }}</title>
 					<path d="M15.3 18H0.9C0.661305 18 0.432387 17.9052 0.263604 17.7364C0.0948211 17.5676 0 17.3387 0 17.1V0.9C0 0.661305 0.0948211 0.432387 0.263604 0.263604C0.432387 0.0948211 0.661305 0 0.9 0H15.3C15.5387 0 15.7676 0.0948211 15.9364 0.263604C16.1052 0.432387 16.2 0.661305 16.2 0.9V17.1C16.2 17.3387 16.1052 17.5676 15.9364 17.7364C15.7676 17.9052 15.5387 18 15.3 18ZM14.4 16.2V1.8H1.8V16.2H14.4ZM5.4 3.6V5.4C5.4 6.11608 5.68446 6.80284 6.19081 7.30919C6.69716 7.81554 7.38392 8.1 8.1 8.1C8.81608 8.1 9.50284 7.81554 10.0092 7.30919C10.5155 6.80284 10.8 6.11608 10.8 5.4V3.6H12.6V5.4C12.6 6.59347 12.1259 7.73807 11.282 8.58198C10.4381 9.42589 9.29347 9.9 8.1 9.9C6.90653 9.9 5.76193 9.42589 4.91802 8.58198C4.07411 7.73807 3.6 6.59347 3.6 5.4V3.6H5.4Z"/>
 				</svg>
-				<span class="sr-only">{{ 'accessibility.items_in_cart' | t }}</span>
+				<span class="sr-only">{{ cart_link_label }}</span>
 				<hdt-cart-count class="hdt-count-box hdt-absolute">{{ cart.item_count }}</hdt-cart-count>
 			</a>
 		</div>
@@ -58,12 +80,13 @@
 {%- else -%}
 	<div class="hdt-site-top_nav hdt-flex hdt-align-center hdt-justify-end">
 		<div class="hdt-site-nav_icon hdt-site-nav_search hdt-inline-flex hdt-align-center">
-			<a href="{{ routes.search_url }}" class="hdt-inline-flex hdt-align-center hdt-relative" aria-controls="drawer-search-form">
+			<a href="{{ routes.search_url }}" class="hdt-inline-flex hdt-align-center hdt-relative" aria-label="{{ search_link_label | escape }}" aria-controls="drawer-search-form">
+				<span class="hdt-visually-hidden">{{ search_link_label }}</span>
 			</a>
 		</div>
 		<div class="hdt-site-nav_icon hdt-site-nav_cart hdt-inline-flex hdt-align-center">
-			<a class="hdt-inline-flex hdt-align-center hdt-relative hdt-has-count-box" href="{{ routes.cart_url }}"{% if request.page_type != 'cart' %} aria-controls="CartDrawer"{% endif %}>
-				<span class="sr-only">{{ 'accessibility.items_in_cart' | t }}</span>
+			<a class="hdt-inline-flex hdt-align-center hdt-relative hdt-has-count-box" href="{{ routes.cart_url }}" aria-label="{{ cart_link_label | escape }}"{% if request.page_type != 'cart' %} aria-controls="CartDrawer"{% endif %}>
+				<span class="hdt-visually-hidden">{{ cart_link_label }}</span>
 				<hdt-cart-count class="hdt-absolute">{{ cart.item_count }}</hdt-cart-count>
 			</a>
 		</div>
