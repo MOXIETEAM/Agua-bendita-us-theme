@@ -263,13 +263,15 @@
                               {%- assign image = img_block.settings.image %}
                               {%- assign image_url = img_block.settings.image_url %}
                               {%- assign image_text = img_block.settings.image_text %}
+                              {%- assign image_link_label = image_text | default: block.settings.title | strip %}
+                              {%- capture image_link_alt -%}View {{ image_link_label }}{%- endcapture -%}
                               <div class="hdt-collection-item hdt-mega-item-collection hdt-rounded-f hdt-collection-style1">
                                 <div class="hdt-collection-inner hdt-relative hdt-oh">
                                 <div class="hdt-collection-img" style="--aspect-ratioapt: {{ image.aspect_ratio | default: 1.2 }};">
                                   <div class="hdt-ratio" style="--aspect-ratioapt: {{ image.aspect_ratio | default: 1 }};">
-                                  {{ image | image_url: width: image.width | image_tag: loading: 'lazy', width: image.width, height: image.height, class: '', sizes: sizes, widths: '250, 345, 400, 500, 700, 800, 1000, 1400, 1600, 1800, 2000' }}
+                                  {{ image | image_url: width: image.width | image_tag: loading: 'lazy', width: image.width, height: image.height, class: '', sizes: sizes, widths: '250, 345, 400, 500, 700, 800, 1000, 1400, 1600, 1800, 2000', alt: image_link_alt }}
                                   </div>
-                                  <a class="hdt-full-width-link" href="{{ image_url }}"></a>
+                                  <a class="hdt-full-width-link" href="{{ image_url }}" aria-label="{{ image_link_alt | escape }}"></a>
                                 </div>
                                 {% if image_text != blank %}
                                   <div class="hdt-collection-content hdt-place-self-end-center">
@@ -293,13 +295,15 @@
                             {%- assign image = block.settings.image %}
                             {%- assign image_url = block.settings.image_url %}
                             {%- assign image_text = block.settings.image_text %}
+                            {%- assign image_link_label = image_text | default: block.settings.title | strip %}
+                            {%- capture image_link_alt -%}View {{ image_link_label }}{%- endcapture -%}
                             <div class="hdt-collection-item hdt-mega-item-collection hdt-rounded-f hdt-collection-style1">
                               <div class="hdt-collection-inner hdt-relative hdt-oh">
                               <div class="hdt-collection-img" style="--aspect-ratioapt: {{ image.aspect_ratio | default: 1.2 }};">
                                 <div class="hdt-ratio" style="--aspect-ratioapt: {{ image.aspect_ratio | default: 1 }};">
-                                {{ image | image_url: width: image.width | image_tag: loading: 'lazy', width: image.width, height: image.height, class: '', sizes: sizes, widths: '250, 345, 400, 500, 700, 800, 1000, 1400, 1600, 1800, 2000' }}
+                                {{ image | image_url: width: image.width | image_tag: loading: 'lazy', width: image.width, height: image.height, class: '', sizes: sizes, widths: '250, 345, 400, 500, 700, 800, 1000, 1400, 1600, 1800, 2000', alt: image_link_alt }}
                                 </div>
-                                <a class="hdt-full-width-link" href="{{ image_url }}"></a>
+                                <a class="hdt-full-width-link" href="{{ image_url }}" aria-label="{{ image_link_alt | escape }}"></a>
                               </div>
                               {% if image_text != blank %}
                                 <div class="hdt-collection-content hdt-place-self-end-center">
