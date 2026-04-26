@@ -23,7 +23,7 @@
     assign final_sale_badge = settings.product_finalsale_badge
   endif
 -%}
-<hdt-line-item class="hdt-mini-cart__item hdt-cart-item hdt-flex hdt-relative hdt-oh hdt-line-item{% if item.variant.id == gift_wrap_pr_id or item.gift_card %} is-gift-wrap{% endif %}">
+<hdt-line-item class="hdt-mini-cart__item hdt-cart-item hdt-flex hdt-relative hdt-oh hdt-line-item{% if item.variant.id == gift_wrap_pr_id or item.gift_card %} is-gift-wrap{% endif %}" role="group" aria-label="product">
   <div class="hdt-mini-cart__image">
     <a href="{{ item_url }}" class="hdt-mini-cart__img hdt-block hdt-relative hdt-oh hdt-ratio" style="--aspect-ratioapt:{{ image.aspect_ratio | default: 0.6811989100817438 }}">
       {%- if image != blank -%}
