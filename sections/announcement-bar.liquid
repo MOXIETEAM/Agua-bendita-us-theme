@@ -13,9 +13,31 @@
   endif
 
   assign now_dt = "now" | date: "%s" | plus: 0
+  assign active_slider_blocks = 0
 %}
 
 {% if from_dt <= now_dt and now_dt <= to_dt %}
+  {%- liquid
+    for block in section.blocks
+      if block.settings.text != blank
+        if block.settings.active_from != blank
+          assign from_dt = block.settings.active_from | date: "%s" | plus: 0
+        else
+          assign from_dt = 'now' | date: '%s' | minus: 1
+        endif
+
+        if block.settings.active_to != blank
+          assign to_dt = block.settings.active_to | date: "%s" | plus: 0
+        else
+          assign to_dt = 'now' | date: '%s' | plus: 1
+        endif
+
+        if from_dt <= now_dt and now_dt <= to_dt
+          assign active_slider_blocks = active_slider_blocks | plus: 1
+        endif
+      endif
+    endfor
+  -%}
   <style>{%- if section.settings.show_close_btn and request.design_mode == false -%}.hdt-announcement-hidden {display: none;}{%- endif -%}</style>
   {{ 'hdt-announcement-bar.css' | asset_url | stylesheet_tag }}
   {%- if section.settings.show_close_btn and section.blocks.size > 0 -%}
@@ -62,16 +84,33 @@
       <div class="hdt-container-full{% if section.settings.design == 'slider' %} hdt-px-10 lg:hdt-px-40{% elsif section.settings.design == 'marquee' and section.settings.show_close_btn %} hdt-pe-15 lg:hdt-pe-40{% endif %}">
         {%- if section.settings.design == 'slider' -%}
           <div class="hdt-announcement-bar__grid{% if section.settings.show_close_btn %} hdt-announcement-bar__grid-has-close{% endif %}">
-            {%- if section.blocks.size == 1 -%}
+            {%- if active_slider_blocks == 1 -%}
               <div class="hdt-announcement-bar__wrap hdt-text-center">
-                {%- assign total_size = total_size | plus: section.blocks.first.settings.text.size -%}
-                {%- if section.blocks.first.settings.text != blank -%}
-                  <div class="hdt-announcement-bar__item">
-                    <p class="hdt-announcement-bar__text hdt-inline-block {{class_format_richtext}}">{{ section.blocks.first.settings.text }}</p>
-                  </div>
-                {%- endif -%}
+                {%- for block in section.blocks -%}
+                  {%- if block.settings.text != blank -%}
+                    {% liquid
+                      if block.settings.active_from != blank
+                        assign from_dt = block.settings.active_from | date: "%s" | plus: 0
+                      else
+                        assign from_dt = 'now' | date: '%s' | minus: 1
+                      endif
+
+                      if block.settings.active_to != blank
+                        assign to_dt = block.settings.active_to | date: "%s" | plus: 0
+                      else
+                        assign to_dt = 'now' | date: '%s' | plus: 1
+                      endif
+                    %}
+                    {% if from_dt <= now_dt and now_dt <= to_dt %}
+                      <div class="hdt-announcement-bar__item">
+                        <p class="hdt-announcement-bar__text hdt-inline-block {{class_format_richtext}}">{{ block.settings.text }}</p>
+                      </div>
+                    {% endif %}
+                  {%- endif -%}
+                  {%- assign total_size = total_size | plus: block.settings.text.size -%}
+                {%- endfor -%}
               </div>
-            {%- elsif section.blocks.size > 1 -%}
+            {%- elsif active_slider_blocks > 1 -%}
               {%- liquid
                 if section.settings.au_time > 0
                   if section.settings.slider_pause_when_hover
@@ -83,10 +122,11 @@
                   assign carousel_instructions_key = 'sections.announcements.carousel_instructions_manual'
                 endif
               -%}
-              <hdt-slider id="Slider-{{ section.id }}" class="hdt-announcement-bar__wrap hdt-text-center hdt-slider lg:hdt-slides-1 hdt-relative hdt-oh" config='{ "navUI": true, "loop": true, "autoPlay": {{ section.settings.au_time | times: 1000 }}, "pauseOnHover":{{ section.settings.slider_pause_when_hover }} }'>
-                <p class="sr-only">{{ carousel_instructions_key | t }}</p>
+              {%- assign active_slide_index = 0 -%}
+              <hdt-slider id="Slider-{{ section.id }}" class="hdt-announcement-bar__wrap hdt-text-center hdt-slider lg:hdt-slides-1 hdt-relative hdt-oh" config='{ "navUI": true, "loop": true, "autoPlay": {{ section.settings.au_time | times: 1000 }}, "pauseOnHover":{{ section.settings.slider_pause_when_hover }} }' data-announcement-carousel data-dot-label-template="{{ 'accessibility.go_to_slide' | t: number: '[number]' | escape }}" aria-describedby="AnnouncementCarouselInstructions-{{ section.id }}">
+                <p id="AnnouncementCarouselInstructions-{{ section.id }}" class="sr-only">{{ carousel_instructions_key | t }}</p>
                 <div class="hdt-announcement-bar__slider hdt-flex hdt-align-center hdt-justify-between">
-                  <button aria-controls="Slider-{{ section.id }}" class="hdt-slider__button hdt-slider__button--prev hdt-inline-flex hdt-align-center hdt-justify-start hdt-p-0" type="button" name="previous"><svg class="hdt-slider__button-icon" width="10px" height="6px" viewBox="0 0 10 6" fill="currentcolor"><path d="M-3.87939e-08 0.886524L5 5.88652L10 0.886523L9.1125 -0.000976601L5 4.11152L0.8875 -0.000976242L-3.87939e-08 0.886524Z"></path></svg></button>
+                  <button aria-controls="Slider-{{ section.id }}" aria-label="{{ 'sections.announcements.previous_announcement' | t | escape }}" class="hdt-slider__button hdt-slider__button--prev hdt-inline-flex hdt-align-center hdt-justify-start hdt-p-0" type="button" name="previous"><svg class="hdt-slider__button-icon" width="10px" height="6px" viewBox="0 0 10 6" fill="currentcolor"><path d="M-3.87939e-08 0.886524L5 5.88652L10 0.886523L9.1125 -0.000976601L5 4.11152L0.8875 -0.000976242L-3.87939e-08 0.886524Z"></path></svg></button>
                   <div class="hdt-slider__viewport">
                     <div class="hdt-slider__container">
                       {%- for block in section.blocks -%}
@@ -107,7 +147,8 @@
                             assign now_dt = "now" | date: "%s" | plus: 0
                           %}
                           {% if from_dt <= now_dt and now_dt <= to_dt %}
-                            <div class="hdt-slider__slide hdt-announcement-bar__slider-item{% if block.settings.hide_on_desktop %} hdt-flex md:hdt-flex lg:hdt-hidden{% endif %}{% if block.settings.hide_on_mobile %} hdt-hidden md:hdt-hidden lg:hdt-flex{% endif %}">
+                            {%- assign active_slide_index = active_slide_index | plus: 1 -%}
+                            <div class="hdt-slider__slide hdt-announcement-bar__slider-item{% if block.settings.hide_on_desktop %} hdt-flex md:hdt-flex lg:hdt-hidden{% endif %}{% if block.settings.hide_on_mobile %} hdt-hidden md:hdt-hidden lg:hdt-flex{% endif %}" data-announcement-slide data-announcement-slide-index="{{ active_slide_index }}" aria-hidden="{% if active_slide_index == 1 %}false{% else %}true{% endif %}">
                               <div class="hdt-announcement-bar__slider-content">
                                 <p class="hdt-announcement-bar__text  hdt-inline-block {{class_format_richtext}}">{{ block.settings.text }}</p>
                               </div>
@@ -118,8 +159,9 @@
                       {%- endfor -%}
                     </div>
                   </div>
-                  <button aria-controls="Slider-{{ section.id }}" class="hdt-slider__button hdt-slider__button--next hdt-inline-flex hdt-align-center hdt-justify-end hdt-p-0" type="button" name="next"><svg class="hdt-slider__button-icon" width="10px" height="6px" viewBox="0 0 10 6" fill="currentcolor"><path d="M-3.87939e-08 0.886524L5 5.88652L10 0.886523L9.1125 -0.000976601L5 4.11152L0.8875 -0.000976242L-3.87939e-08 0.886524Z"></path></svg></button>
+                  <button aria-controls="Slider-{{ section.id }}" aria-label="{{ 'sections.announcements.next_announcement' | t | escape }}" class="hdt-slider__button hdt-slider__button--next hdt-inline-flex hdt-align-center hdt-justify-end hdt-p-0" type="button" name="next"><svg class="hdt-slider__button-icon" width="10px" height="6px" viewBox="0 0 10 6" fill="currentcolor"><path d="M-3.87939e-08 0.886524L5 5.88652L10 0.886523L9.1125 -0.000976601L5 4.11152L0.8875 -0.000976242L-3.87939e-08 0.886524Z"></path></svg></button>
                 </div>
+                <div aria-controls="Slider-{{ section.id }}" hdt-slider-dots class="hdt-announcement-bar__dots hdt-slider__dots hdt-inline-flex hdt-align-center hdt-justify-center no-js-hidden"></div>
               </hdt-slider>
             {%- endif -%}
             {{- close_btn -}}
@@ -161,6 +203,7 @@
       </div>
     </div>
   </hdt-sticky-header>
+  {%- if section.settings.design == 'slider' and active_slider_blocks > 1 -%}<script src="{{ 'announcement-bar-custom.js' | asset_url }}" defer></script>{%- endif -%}
   {%- if section.settings.show_close_btn %}<script>window.announceSize = 'theme4:announce-{{ total_size }}-closed';try { if ( sessionStorage.getItem(window.announceSize) != 'true' ) document.getElementById('shopify-section-{{ section.id }}').classList.remove('hdt-announcement-hidden'); } catch (err) {}</script>{% endif -%}
 {% endif %}
 {% schema %}
