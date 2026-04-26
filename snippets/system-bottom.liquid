@@ -62,6 +62,7 @@
 {%- if settings.show_quick_view or settings.show_quick_add %}<hdt-tmp-quick hidden></hdt-tmp-quick>{% endif -%}
 <script type="module" src="{{ 'global.min.js' | asset_url }}" fetchpriority="high"></script>
 <script type="module" src="{{ 'custom.js' | asset_url }}"></script>
+<script src="{{ 'related-products-carousel-a11y.js' | asset_url }}" defer></script>
 {%- assign arr_page_type = 'collection, search, blog, list-collections' | split: ', ' -%}
 {%- if arr_page_type contains request.page_type %}<script type="module" src="{{ 'facets.min.js' | asset_url }}"></script>{% endif -%}
 {%- if settings.currency_type == "2" -%}
