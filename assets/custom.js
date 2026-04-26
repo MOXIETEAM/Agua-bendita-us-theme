@@ -2552,8 +2552,29 @@ function scheduleRemoveSortPopoverAriaHaspopup(root = document) {
   });
 }
 
+function bindSearchDrawerTriggers(root = document) {
+  const drawer = $id4('drawer-search-form');
+  const scope = root && typeof root.querySelectorAll === 'function' ? root : document;
+
+  if (!drawer || typeof drawer.updateBtbsOpen !== 'function') return;
+
+  scope.querySelectorAll('[data-drawer-trigger="drawer-search-form"]').forEach(trigger => {
+    if (trigger.dataset.drawerTriggerBound === 'true') return;
+
+    drawer.updateBtbsOpen(trigger);
+    trigger.dataset.drawerTriggerBound = 'true';
+  });
+}
+
+function scheduleBindSearchDrawerTriggers(root = document) {
+  requestAnimationFrame(function() {
+    bindSearchDrawerTriggers(root);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   scheduleRemoveSortPopoverAriaHaspopup();
+  scheduleBindSearchDrawerTriggers();
 });
 
 document.addEventListener("products:update", function(event) {
@@ -2562,6 +2583,10 @@ document.addEventListener("products:update", function(event) {
 
 document.addEventListener("lazyhtml:added", function(event) {
   scheduleRemoveSortPopoverAriaHaspopup(event.target);
+});
+
+document.addEventListener("shopify:section:load", function(event) {
+  scheduleBindSearchDrawerTriggers(event.target);
 });
 
 // --------------------------
