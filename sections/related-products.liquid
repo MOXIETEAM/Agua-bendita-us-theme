@@ -100,173 +100,206 @@
           if products_size < col_mb
             assign center_slider_items_mb = true
           endif
+
+          assign related_products_carousel_label = section.settings.sec_heading | strip
+          if related_products_carousel_label != blank
+            assign related_products_carousel_label = related_products_carousel_label | append: ' carousel'
+          else
+            assign related_products_carousel_label = 'sections.related_products.carousel_label' | t
+          endif
+
+          assign related_products_prev_label = 'sections.related_products.previous_product' | t
+          assign related_products_next_label = 'sections.related_products.next_product' | t
+          assign related_products_instructions = 'sections.related_products.carousel_instructions' | t
+          assign related_products_dot_label_template = 'accessibility.go_to_slide' | t: number: '[number]'
         %}
-        <hdt-slider id="Slider-{{ section.id }}" class="hdt-collection-products hdt-slider__products hdt-collection-has-pr{{ section.settings.product_des }} hdt-slider hdt-slider-parent hdt-slide-spacing-x hdt-relative {% if section.settings.navUI %}hdt-slider-has-nav hdt-nav-btns-{{ section.settings.nav_des }} hdt-nav-shape_{{ section.settings.nav_shape }} hdt-nav-{{ section.settings.nav_pos }} hdt-nav-{{ section.settings.nav_size }} hdt-slider-btn-vi-{{ section.settings.btn_vi }}{% endif %} {% if section.settings.dotUI %} hdt-slider-has-dots-dk{% endif %} hdt-slider__dots_outline hdt-ratio--{{ section.settings.image_ratio }} {% unless section.settings.image_size %} hdt-ratio--contain{% endunless %} lg:hdt-slides-{{ section.settings.col_dk }} md:hdt-slides-{{ section.settings.col_tb }} hdt-slides-{{ section.settings.col_mb }}{% if center_slider_items_dk %} center-items-dk{% endif %}{% if center_slider_items_tb %} center-items-tb{% endif %}{% if center_slider_items_mb %} center-items-mb{% endif %}" config='{ "dotUI": true, "navUI": {{ section.settings.navUI }}, "navUICenter":true }'>
-          <div class="hdt-slider__viewport hdt-relative">
-            <div class="hdt-slider__container">
-              {%- liquid
-                case section.settings.product_des
-                  when '2'
-                    capture btn_wishlist_code
-                      if settings.wishlist_mode != '0' and section.settings.show_wishlist
-                        render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'right'
-                      endif
-                    endcapture
-                     for product in recommend_products limit: section.settings.limit
-                      unless settings.remove_collection_url
-                        assign product_url = product.url | within: section.settings.collection
-                      endunless
-                      render 'card-product2', card_product: product, class: "hdt-slider__slide hdt-pr-style2", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor, show_alt_image: section.settings.show_alt_image, show_quick_view: section.settings.show_quick_view
-                    endfor
-                  when '3'
-                    capture btn_wishlist_code
-                      if settings.wishlist_mode != '0'
-                        render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'left'
-                      endif
-                    endcapture
-                     for product in recommend_products limit: section.settings.limit
-                      unless settings.remove_collection_url
-                        assign product_url = product.url | within: section.settings.collection
-                      endunless
-                      render 'card-product3', card_product: product, class: "hdt-slider__slide hdt-pr-style3", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
-                    endfor
-                  when '4'
-                    capture btn_wishlist_code
-                      if settings.wishlist_mode != '0'
-                        render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'left'
-                      endif
-                    endcapture
-                     for product in recommend_products limit: section.settings.limit
-                      unless settings.remove_collection_url
-                        assign product_url = product.url | within: section.settings.collection
-                      endunless
-                      render 'card-product4', card_product: product, class: "hdt-slider__slide hdt-pr-style4", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
-                    endfor
-                  when '5'
-                    capture btn_wishlist_code
-                      if settings.wishlist_mode != '0'
-                        render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'top'
-                      endif
-                    endcapture
-                     for product in recommend_products limit: section.settings.limit
-                      unless settings.remove_collection_url
-                        assign product_url = product.url | within: section.settings.collection
-                      endunless
-                      render 'card-product5', card_product: product, class: "hdt-slider__slide hdt-pr-style5", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
-                    endfor
-                  when '6'
-                    capture btn_wishlist_code
-                      if settings.wishlist_mode != '0'
-                        render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'top'
-                      endif
-                    endcapture
-                     for product in recommend_products limit: section.settings.limit
-                      unless settings.remove_collection_url
-                        assign product_url = product.url | within: section.settings.collection
-                      endunless
-                      unless settings.remove_collection_url
-                        assign product_url = product.url | within: section.settings.collection
-                      endunless
-                      render 'card-product6', card_product: product, class: "hdt-slider__slide hdt-pr-style6", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
-                    endfor
-                  when '7'
-                    capture btn_wishlist_code
-                      if settings.wishlist_mode != '0'
-                        render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'top'
-                      endif
-                    endcapture
-                     for product in recommend_products limit: section.settings.limit
-                      unless settings.remove_collection_url
-                        assign product_url = product.url | within: section.settings.collection
-                      endunless
-                      render 'card-product7', card_product: product, class: "hdt-slider__slide hdt-pr-style7 hdt-relative", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
-                    endfor
-                  when '8'
-                    capture btn_wishlist_code
-                      if settings.wishlist_mode != '0'
-                        render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'top'
-                      endif
-                    endcapture
-                     for product in recommend_products limit: section.settings.limit
-                      unless settings.remove_collection_url
-                        assign product_url = product.url | within: section.settings.collection
-                      endunless
-                      render 'card-product8', card_product: product, class: "hdt-slider__slide hdt-pr-style8", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
-                    endfor
-                  when '9'
-                    capture btn_wishlist_code
-                      if settings.wishlist_mode != '0'
-                        render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'top'
-                      endif
-                    endcapture
-                     for product in recommend_products limit: section.settings.limit
-                      unless settings.remove_collection_url
-                        assign product_url = product.url | within: section.settings.collection
-                      endunless
-                      render 'card-product9', card_product: product, class: "hdt-slider__slide hdt-pr-style1 hdt-pr-style9", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
-                    endfor
-                  when '10'
-                    capture btn_wishlist_code
-                      if settings.wishlist_mode != '0'
-                        render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'top'
-                      endif
-                    endcapture
-                     for product in recommend_products limit: section.settings.limit
-                      unless settings.remove_collection_url
-                        assign product_url = product.url | within: section.settings.collection
-                      endunless
-                      render 'card-product10', card_product: product, class: "hdt-slider__slide hdt-pr-style1 hdt-pr-style10", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
-                    endfor
-                  when '11' or '12'
-                    capture btn_wishlist_code
-                      if settings.wishlist_mode != '0'
-                        render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'top'
-                      endif
-                    endcapture
-                     for product in recommend_products limit: section.settings.limit
-                      unless settings.remove_collection_url
-                        assign product_url = product.url | within: section.settings.collection
-                      endunless
-                      render 'card-product11', card_product: product, section_id: section.id, class: "hdt-slider__slide hdt-pr-style1 hdt-pr-style11", sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
-                    endfor
-                  when '13'
-                     for product in recommend_products limit: section.settings.limit
+        <div
+          class="related-products__carousel-region"
+          role="region"
+          aria-label="{{ related_products_carousel_label | escape }}"
+          aria-describedby="RelatedProductsInstructions-{{ section.id }}"
+          tabindex="-1"
+          data-related-products-carousel
+          data-prev-label="{{ related_products_prev_label | escape }}"
+          data-next-label="{{ related_products_next_label | escape }}"
+          data-dot-label-template="{{ related_products_dot_label_template | escape }}"
+        >
+          <p id="RelatedProductsInstructions-{{ section.id }}" class="sr-only">{{ related_products_instructions }}</p>
+          <hdt-slider id="Slider-{{ section.id }}" class="hdt-collection-products hdt-slider__products hdt-collection-has-pr{{ section.settings.product_des }} hdt-slider hdt-slider-parent hdt-slide-spacing-x hdt-relative hdt-slider-has-nav hdt-nav-btns-{{ section.settings.nav_des }} hdt-nav-shape_{{ section.settings.nav_shape }} hdt-nav-{{ section.settings.nav_pos }} hdt-nav-{{ section.settings.nav_size }} hdt-slider-btn-vi-{{ section.settings.btn_vi }}{% if section.settings.dotUI %} hdt-slider-has-dots-dk{% endif %} hdt-slider__dots_outline hdt-ratio--{{ section.settings.image_ratio }} {% unless section.settings.image_size %} hdt-ratio--contain{% endunless %} lg:hdt-slides-{{ section.settings.col_dk }} md:hdt-slides-{{ section.settings.col_tb }} hdt-slides-{{ section.settings.col_mb }}{% if center_slider_items_dk %} center-items-dk{% endif %}{% if center_slider_items_tb %} center-items-tb{% endif %}{% if center_slider_items_mb %} center-items-mb{% endif %}" config='{ "dotUI": true, "navUI": true, "navUICenter": true }'>
+            <div class="hdt-slider__viewport hdt-relative">
+              <div class="hdt-slider__container">
+                {%- liquid
+                  case section.settings.product_des
+                    when '2'
                       capture btn_wishlist_code
                         if settings.wishlist_mode != '0' and section.settings.show_wishlist
-                          render 'wishlisthero-collection-product', product: product
+                          render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'right'
                         endif
                       endcapture
-                      unless settings.remove_collection_url
-                        assign product_url = product.url | within: section.settings.collection
-                      endunless
-                      render 'card-product13', card_product: product, class: "hdt-slider__slide hdt-pr-style4", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor, show_alt_image: section.settings.show_alt_image, show_secondary_image: section.settings.show_secondary_image, show_quick_view: section.settings.show_quick_view, show_custom_size_selector: section.settings.show_custom_size_selector
-                    endfor
-                  else
-                    capture btn_wishlist_code
-                      if settings.wishlist_mode != '0' and section.settings.show_wishlist
-                        render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'top'
-                      endif
-                    endcapture
-                     for product in recommend_products limit: section.settings.limit
-                      unless settings.remove_collection_url
-                        assign product_url = product.url | within: section.settings.collection
-                      endunless
-                      render 'card-product1', card_product: product, class: "hdt-slider__slide hdt-pr-style1", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor, show_alt_image: section.settings.show_alt_image, show_quick_view: section.settings.show_quick_view
-                    endfor
-                endcase
-              -%}
+                       for product in recommend_products limit: section.settings.limit
+                        unless settings.remove_collection_url
+                          assign product_url = product.url | within: section.settings.collection
+                        endunless
+                        render 'card-product2', card_product: product, class: "hdt-slider__slide hdt-pr-style2", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor, show_alt_image: section.settings.show_alt_image, show_quick_view: section.settings.show_quick_view
+                      endfor
+                    when '3'
+                      capture btn_wishlist_code
+                        if settings.wishlist_mode != '0'
+                          render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'left'
+                        endif
+                      endcapture
+                       for product in recommend_products limit: section.settings.limit
+                        unless settings.remove_collection_url
+                          assign product_url = product.url | within: section.settings.collection
+                        endunless
+                        render 'card-product3', card_product: product, class: "hdt-slider__slide hdt-pr-style3", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
+                      endfor
+                    when '4'
+                      capture btn_wishlist_code
+                        if settings.wishlist_mode != '0'
+                          render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'left'
+                        endif
+                      endcapture
+                       for product in recommend_products limit: section.settings.limit
+                        unless settings.remove_collection_url
+                          assign product_url = product.url | within: section.settings.collection
+                        endunless
+                        render 'card-product4', card_product: product, class: "hdt-slider__slide hdt-pr-style4", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
+                      endfor
+                    when '5'
+                      capture btn_wishlist_code
+                        if settings.wishlist_mode != '0'
+                          render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'top'
+                        endif
+                      endcapture
+                       for product in recommend_products limit: section.settings.limit
+                        unless settings.remove_collection_url
+                          assign product_url = product.url | within: section.settings.collection
+                        endunless
+                        render 'card-product5', card_product: product, class: "hdt-slider__slide hdt-pr-style5", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
+                      endfor
+                    when '6'
+                      capture btn_wishlist_code
+                        if settings.wishlist_mode != '0'
+                          render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'top'
+                        endif
+                      endcapture
+                       for product in recommend_products limit: section.settings.limit
+                        unless settings.remove_collection_url
+                          assign product_url = product.url | within: section.settings.collection
+                        endunless
+                        unless settings.remove_collection_url
+                          assign product_url = product.url | within: section.settings.collection
+                        endunless
+                        render 'card-product6', card_product: product, class: "hdt-slider__slide hdt-pr-style6", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
+                      endfor
+                    when '7'
+                      capture btn_wishlist_code
+                        if settings.wishlist_mode != '0'
+                          render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'top'
+                        endif
+                      endcapture
+                       for product in recommend_products limit: section.settings.limit
+                        unless settings.remove_collection_url
+                          assign product_url = product.url | within: section.settings.collection
+                        endunless
+                        render 'card-product7', card_product: product, class: "hdt-slider__slide hdt-pr-style7 hdt-relative", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
+                      endfor
+                    when '8'
+                      capture btn_wishlist_code
+                        if settings.wishlist_mode != '0'
+                          render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'top'
+                        endif
+                      endcapture
+                       for product in recommend_products limit: section.settings.limit
+                        unless settings.remove_collection_url
+                          assign product_url = product.url | within: section.settings.collection
+                        endunless
+                        render 'card-product8', card_product: product, class: "hdt-slider__slide hdt-pr-style8", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
+                      endfor
+                    when '9'
+                      capture btn_wishlist_code
+                        if settings.wishlist_mode != '0'
+                          render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'top'
+                        endif
+                      endcapture
+                       for product in recommend_products limit: section.settings.limit
+                        unless settings.remove_collection_url
+                          assign product_url = product.url | within: section.settings.collection
+                        endunless
+                        render 'card-product9', card_product: product, class: "hdt-slider__slide hdt-pr-style1 hdt-pr-style9", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
+                      endfor
+                    when '10'
+                      capture btn_wishlist_code
+                        if settings.wishlist_mode != '0'
+                          render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'top'
+                        endif
+                      endcapture
+                       for product in recommend_products limit: section.settings.limit
+                        unless settings.remove_collection_url
+                          assign product_url = product.url | within: section.settings.collection
+                        endunless
+                        render 'card-product10', card_product: product, class: "hdt-slider__slide hdt-pr-style1 hdt-pr-style10", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
+                      endfor
+                    when '11' or '12'
+                      capture btn_wishlist_code
+                        if settings.wishlist_mode != '0'
+                          render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'top'
+                        endif
+                      endcapture
+                       for product in recommend_products limit: section.settings.limit
+                        unless settings.remove_collection_url
+                          assign product_url = product.url | within: section.settings.collection
+                        endunless
+                        render 'card-product11', card_product: product, section_id: section.id, class: "hdt-slider__slide hdt-pr-style1 hdt-pr-style11", sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor
+                      endfor
+                    when '13'
+                       for product in recommend_products limit: section.settings.limit
+                        capture btn_wishlist_code
+                          if settings.wishlist_mode != '0' and section.settings.show_wishlist
+                            render 'wishlisthero-collection-product', product: product
+                          endif
+                        endcapture
+                        unless settings.remove_collection_url
+                          assign product_url = product.url | within: section.settings.collection
+                        endunless
+                        render 'card-product13', card_product: product, class: "hdt-slider__slide hdt-pr-style4", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor, show_alt_image: section.settings.show_alt_image, show_secondary_image: section.settings.show_secondary_image, show_quick_view: section.settings.show_quick_view, show_custom_size_selector: section.settings.show_custom_size_selector
+                      endfor
+                    else
+                      capture btn_wishlist_code
+                        if settings.wishlist_mode != '0' and section.settings.show_wishlist
+                          render 'btn-wishlist', class: 'hdt-card-product__btn-wishlist hdt-pr_btn', placement: 'top'
+                        endif
+                      endcapture
+                       for product in recommend_products limit: section.settings.limit
+                        unless settings.remove_collection_url
+                          assign product_url = product.url | within: section.settings.collection
+                        endunless
+                        render 'card-product1', card_product: product, class: "hdt-slider__slide hdt-pr-style1", section_id: section.id, sizes: sizes, image_ratio: section.settings.image_ratio, color_list: color_list, size_list: size_list, product_url: product_url, btn_wishlist_code: btn_wishlist_code, show_vendor: section.settings.show_vendor, show_alt_image: section.settings.show_alt_image, show_quick_view: section.settings.show_quick_view
+                      endfor
+                  endcase
+                -%}
+              </div>
             </div>
-          </div>
-          {%- if section.settings.navUI -%}
-            {%- render 'nav_slider', nav_des: section.settings.nav_des, nav_icon: section.settings.nav_icon -%}
-          {%- endif -%}
-          <div hdt-slider-dots aria-controls="Slider-{{ section.id }}" class="hdt-slider__dots hdt-flex hdt-align-center hdt-justify-center"></div>
-        </hdt-slider>
+            {%- render 'nav_slider', nav_des: section.settings.nav_des, nav_icon: section.settings.nav_icon, class: 'hdt-related-products-carousel__button' -%}
+            <div hdt-slider-dots aria-controls="Slider-{{ section.id }}" class="hdt-slider__dots hdt-flex hdt-align-center hdt-justify-center"></div>
+          </hdt-slider>
+        </div>
       </div>
     {%- endif -%}
   </product-recommendations>
 </div>
-{%- style -%}#shopify-section-{{section.id}}{--section-pt:{{section.settings.padding_top}}px;--section-pb:{{section.settings.padding_bottom}}px;--section-prate:{{section.settings.padding_rate}}}{%- endstyle -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --section-pt: {{ section.settings.padding_top }}px;
+    --section-pb: {{ section.settings.padding_bottom }}px;
+    --section-prate: {{ section.settings.padding_rate }};
+  }
+
+  #{{ section.id }} .hdt-related-products-carousel__button:not([hidden]) {
+    display: inline-flex !important;
+  }
+{%- endstyle -%}
 {% schema %}
 {
   "name": "t:sections.related-products.name",

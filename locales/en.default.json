@@ -506,6 +506,12 @@
       "carousel_instructions_autoplay": "This is an auto-rotating announcement carousel. Use the Previous and Next buttons to review announcements.",
       "carousel_instructions_autoplay_pause_on_hover": "This is an auto-rotating announcement carousel. Use the Previous and Next buttons to review announcements. Hover over the carousel to pause rotation."
     },
+    "related_products": {
+      "carousel_label": "Related products carousel",
+      "previous_product": "Previous related product",
+      "next_product": "Next related product",
+      "carousel_instructions": "This is a related products carousel. Use the Previous and Next buttons to browse related products."
+    },
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",
