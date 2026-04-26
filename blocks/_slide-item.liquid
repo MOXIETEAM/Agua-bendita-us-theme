@@ -14,7 +14,20 @@
       --content-min-width: {{ block.settings.min_width_content }}px;
     }
   </style>
-  {% assign image_mb = block.settings.image_mb | default: block.settings.image %}
+  {% liquid
+    assign image_mb = block.settings.image_mb | default: block.settings.image
+    assign slide_link_label = block.settings.image.alt | default: block.settings.image_mb.alt
+    if slide_link_label == blank
+      assign slide_index = 1
+      for section_block in section.blocks
+        if section_block.id == block.id
+          assign slide_index = forloop.index
+          break
+        endif
+      endfor
+      assign slide_link_label = 'accessibility.go_to_slide' | t: number: slide_index
+    endif
+  %}
   <div class="hdt-slide_inner hdt-relative hdt-media-overlap-content" style="{% if block.settings.image_height_mb == 'adapt_image' %}--aspect-ratioapt: {{ image_mb.aspect_ratio | default: 2.0 }};{% endif %}{% if block.settings.image_height == 'adapt_image' %}--aspect-ratioapt-md: {{ block.settings.image.aspect_ratio | default: 2.0 }};{% endif %}{% if image_mb.presentation.focal_point != blank %}--object-pos-mb: {{ image_mb.presentation.focal_point }}{% endif %}">
     {%- liquid
       if block.settings.full_width 
@@ -45,7 +58,7 @@
     <a {% if block.settings.url == blank %}
       role="link" disabled="true"
       {% else %}
-        href="{{ block.settings.url }}" 
+        href="{{ block.settings.url }}" aria-label="{{ slide_link_label | escape }}"
       {% endif %} target="{% if block.settings.banner_target %}_blank{% else %}_self{% endif %}" class="hdt-full-width-link" ></a>
       <div class="hdt-grid hdt-h-full hdt-pe-none">
         <div class="hdt-content hdt-rounded hdt-place-self-{{ block.settings.content_position_mb }} md:hdt-place-self-{{ block.settings.content_position }} {% if block.settings.background_content %} hdt-background-content{% endif %}{% if block.settings.use_border_content %} hdt-content-use-border{% endif %}{% if block.settings.box_square %} hdt-content-boxsquare{% endif %}{% if block.settings.content_rounded %} hdt-rounded-full{% endif %}"{% if block.settings.background_content %} style="--content-bg-opacity: {{ block.settings.bg_opacity | divided_by: 100.00 }};--content-border-opacity: {{ block.settings.border_opacity | divided_by: 100.00 }};--content-border-style: {{ block.settings.border_style }};--border-pd-dk: {{ block.settings.border_pd_dk }}px;--border-pd-mb: {{ block.settings.border_pd }}px;" reval{% endif %}>
