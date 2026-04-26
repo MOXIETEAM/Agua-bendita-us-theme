@@ -388,6 +388,20 @@ body mark {
   padding: 0 !important;
 }
 
+.hdt-announcement-bar [hdt-slider-dots].hdt-announcement-bar__dots {
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.hdt-announcement-bar [hdt-slider-dots].hdt-announcement-bar__dots button {
+  min-width: 10px;
+  min-height: 10px;
+}
+
+.hdt-announcement-bar__grid-has-close .hdt-announcement-bar__dots {
+  padding-inline-end: 8px;
+}
+
 
 
 .hdt-section-header.scrolled-past-header.shopify-section-header-sticky+.hdt-announcement-bar-section .hdt-announcement-bar {
