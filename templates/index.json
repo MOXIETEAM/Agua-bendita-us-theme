@@ -48,9 +48,9 @@
             "url": "shopify://pages/essentials-swimsuits",
             "banner_target": false,
             "color_scheme": "",
-            "content_position": "center-start",
+            "content_position": "center",
             "alignment": "left",
-            "content_position_mb": "center-start",
+            "content_position_mb": "center",
             "alignment_mb": "left",
             "image_height": "adapt_image",
             "fixed_height": 860,
@@ -70,7 +70,45 @@
             "border_pd": 0,
             "full_width": true
           },
-          "blocks": {}
+          "blocks": {
+            "button_3L8fEG": {
+              "type": "button",
+              "name": "Button",
+              "settings": {
+                "label": "Button label",
+                "behavior": "open_link",
+                "link": "shopify://pages/essentials-swimsuits",
+                "open_in_new_tab": false,
+                "full_width": false,
+                "min_width_dt_btn": 200,
+                "min_height_btn": 40,
+                "specific_bg_color": "#FFFFFF",
+                "solid_label_color": "#000000",
+                "solid_border_color": "#FFFFFF",
+                "border_width": 1,
+                "outline_color": "#FFFFFF",
+                "style_class": "solid",
+                "text_transform": "none",
+                "font_size": "l",
+                "font_weight": "bold",
+                "font_size_btn": 14,
+                "font_size_btn_mb": 14,
+                "letter_spacing_text": 0,
+                "horizontal_padding_btn": 30,
+                "vertical_padding_btn": 5,
+                "min_width_btn": 100,
+                "icon": "none",
+                "custom_icon": "none",
+                "icon_position": "after",
+                "icon_height": 14,
+                "icon_spacing": 5
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "button_3L8fEG"
+          ]
         },
         "slide_item_8MaGf8": {
           "type": "_slide-item",
@@ -80,9 +118,9 @@
             "url": "shopify://collections/new",
             "banner_target": false,
             "color_scheme": "",
-            "content_position": "center-start",
+            "content_position": "center",
             "alignment": "left",
-            "content_position_mb": "center-start",
+            "content_position_mb": "center",
             "alignment_mb": "left",
             "image_height": "adapt_image",
             "fixed_height": 860,
@@ -102,7 +140,45 @@
             "border_pd": 0,
             "full_width": true
           },
-          "blocks": {}
+          "blocks": {
+            "button_ErBWKh": {
+              "type": "button",
+              "name": "Button",
+              "settings": {
+                "label": "SHOP NOW",
+                "behavior": "open_link",
+                "link": "shopify://collections/new",
+                "open_in_new_tab": false,
+                "full_width": false,
+                "min_width_dt_btn": 200,
+                "min_height_btn": 40,
+                "specific_bg_color": "#FFFFFF",
+                "solid_label_color": "#000000",
+                "solid_border_color": "#FFFFFF",
+                "border_width": 1,
+                "outline_color": "#FFFFFF",
+                "style_class": "solid",
+                "text_transform": "none",
+                "font_size": "l",
+                "font_weight": "bold",
+                "font_size_btn": 14,
+                "font_size_btn_mb": 14,
+                "letter_spacing_text": 0,
+                "horizontal_padding_btn": 30,
+                "vertical_padding_btn": 5,
+                "min_width_btn": 100,
+                "icon": "none",
+                "custom_icon": "none",
+                "icon_position": "after",
+                "icon_height": 14,
+                "icon_spacing": 5
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "button_ErBWKh"
+          ]
         }
       },
       "block_order": [
@@ -153,6 +229,40 @@
             "alignment_mb": "center"
           },
           "blocks": {
+            "button_PFVxw3": {
+              "type": "button",
+              "name": "Button",
+              "settings": {
+                "label": "READY TO WEAR",
+                "behavior": "open_link",
+                "link": "shopify://collections/ready-to-wear",
+                "open_in_new_tab": false,
+                "full_width": false,
+                "min_width_dt_btn": 200,
+                "min_height_btn": 40,
+                "specific_bg_color": "#FFFFFF",
+                "solid_label_color": "#000000",
+                "solid_border_color": "#FFFFFF",
+                "border_width": 1,
+                "outline_color": "#FFFFFF",
+                "style_class": "solid",
+                "text_transform": "none",
+                "font_size": "l",
+                "font_weight": "bold",
+                "font_size_btn": 14,
+                "font_size_btn_mb": 14,
+                "letter_spacing_text": 0,
+                "horizontal_padding_btn": 30,
+                "vertical_padding_btn": 5,
+                "min_width_btn": 100,
+                "icon": "none",
+                "custom_icon": "none",
+                "icon_position": "after",
+                "icon_height": 14,
+                "icon_spacing": 5
+              },
+              "blocks": {}
+            },
             "banner-media": {
               "type": "_media",
               "static": true,
@@ -165,7 +275,9 @@
               "blocks": {}
             }
           },
-          "block_order": []
+          "block_order": [
+            "button_PFVxw3"
+          ]
         },
         "banner_item_7rXqPn": {
           "type": "_banner-item",
@@ -182,6 +294,40 @@
             "alignment_mb": "center"
           },
           "blocks": {
+            "button_Y3F3U3": {
+              "type": "button",
+              "name": "Button",
+              "settings": {
+                "label": "SWIMWEAR",
+                "behavior": "open_link",
+                "link": "shopify://collections/women-swimwear",
+                "open_in_new_tab": false,
+                "full_width": false,
+                "min_width_dt_btn": 200,
+                "min_height_btn": 40,
+                "specific_bg_color": "#FFFFFF",
+                "solid_label_color": "#232323",
+                "solid_border_color": "#FFFFFF",
+                "border_width": 1,
+                "outline_color": "#FFFFFF",
+                "style_class": "solid",
+                "text_transform": "none",
+                "font_size": "l",
+                "font_weight": "bold",
+                "font_size_btn": 14,
+                "font_size_btn_mb": 14,
+                "letter_spacing_text": 0,
+                "horizontal_padding_btn": 30,
+                "vertical_padding_btn": 5,
+                "min_width_btn": 100,
+                "icon": "none",
+                "custom_icon": "none",
+                "icon_position": "after",
+                "icon_height": 14,
+                "icon_spacing": 5
+              },
+              "blocks": {}
+            },
             "banner-media": {
               "type": "_media",
               "static": true,
@@ -194,7 +340,9 @@
               "blocks": {}
             }
           },
-          "block_order": []
+          "block_order": [
+            "button_Y3F3U3"
+          ]
         },
         "banner_item_NiTzk7": {
           "type": "_banner-item",
@@ -211,6 +359,40 @@
             "alignment_mb": "center"
           },
           "blocks": {
+            "button_pY4zTd": {
+              "type": "button",
+              "name": "Button",
+              "settings": {
+                "label": "SETS",
+                "behavior": "open_link",
+                "link": "shopify://collections/sets",
+                "open_in_new_tab": false,
+                "full_width": false,
+                "min_width_dt_btn": 200,
+                "min_height_btn": 40,
+                "specific_bg_color": "#FFFFFF",
+                "solid_label_color": "#000000",
+                "solid_border_color": "#FFFFFF",
+                "border_width": 1,
+                "outline_color": "#FFFFFF",
+                "style_class": "solid",
+                "text_transform": "none",
+                "font_size": "l",
+                "font_weight": "bold",
+                "font_size_btn": 14,
+                "font_size_btn_mb": 14,
+                "letter_spacing_text": 0,
+                "horizontal_padding_btn": 30,
+                "vertical_padding_btn": 5,
+                "min_width_btn": 100,
+                "icon": "none",
+                "custom_icon": "none",
+                "icon_position": "after",
+                "icon_height": 14,
+                "icon_spacing": 5
+              },
+              "blocks": {}
+            },
             "banner-media": {
               "type": "_media",
               "static": true,
@@ -223,7 +405,9 @@
               "blocks": {}
             }
           },
-          "block_order": []
+          "block_order": [
+            "button_pY4zTd"
+          ]
         },
         "banner-heading": {
           "type": "section-heading",
@@ -290,6 +474,40 @@
             "alignment_mb": "center"
           },
           "blocks": {
+            "button_gVeCP9": {
+              "type": "button",
+              "name": "Button",
+              "settings": {
+                "label": "READY TO WEAR",
+                "behavior": "open_link",
+                "link": "shopify://collections/ready-to-wear",
+                "open_in_new_tab": false,
+                "full_width": false,
+                "min_width_dt_btn": 100,
+                "min_height_btn": 40,
+                "specific_bg_color": "#FFFFFF",
+                "solid_label_color": "#000000",
+                "solid_border_color": "#FFFFFF",
+                "border_width": 1,
+                "outline_color": "#FFFFFF",
+                "style_class": "solid",
+                "text_transform": "none",
+                "font_size": "s",
+                "font_weight": "bold",
+                "font_size_btn": 14,
+                "font_size_btn_mb": 14,
+                "letter_spacing_text": 0,
+                "horizontal_padding_btn": 30,
+                "vertical_padding_btn": 5,
+                "min_width_btn": 100,
+                "icon": "none",
+                "custom_icon": "none",
+                "icon_position": "after",
+                "icon_height": 14,
+                "icon_spacing": 5
+              },
+              "blocks": {}
+            },
             "banner-media": {
               "type": "_media",
               "static": true,
@@ -302,7 +520,9 @@
               "blocks": {}
             }
           },
-          "block_order": []
+          "block_order": [
+            "button_gVeCP9"
+          ]
         },
         "banner_item_JHADwQ": {
           "type": "_banner-item",
@@ -319,6 +539,40 @@
             "alignment_mb": "center"
           },
           "blocks": {
+            "button_g9t8CD": {
+              "type": "button",
+              "name": "Button",
+              "settings": {
+                "label": "SWIMWEAR",
+                "behavior": "open_link",
+                "link": "shopify://collections/women-swimwear",
+                "open_in_new_tab": false,
+                "full_width": false,
+                "min_width_dt_btn": 100,
+                "min_height_btn": 40,
+                "specific_bg_color": "#FFFFFF",
+                "solid_label_color": "#000000",
+                "solid_border_color": "#FFFFFF",
+                "border_width": 1,
+                "outline_color": "#FFFFFF",
+                "style_class": "solid",
+                "text_transform": "none",
+                "font_size": "s",
+                "font_weight": "bold",
+                "font_size_btn": 14,
+                "font_size_btn_mb": 14,
+                "letter_spacing_text": 0,
+                "horizontal_padding_btn": 30,
+                "vertical_padding_btn": 5,
+                "min_width_btn": 100,
+                "icon": "none",
+                "custom_icon": "none",
+                "icon_position": "after",
+                "icon_height": 14,
+                "icon_spacing": 5
+              },
+              "blocks": {}
+            },
             "banner-media": {
               "type": "_media",
               "static": true,
@@ -331,7 +585,9 @@
               "blocks": {}
             }
           },
-          "block_order": []
+          "block_order": [
+            "button_g9t8CD"
+          ]
         },
         "banner-heading": {
           "type": "section-heading",
@@ -548,6 +804,40 @@
             "alignment_mb": "center"
           },
           "blocks": {
+            "button_UL9wGA": {
+              "type": "button",
+              "name": "Button",
+              "settings": {
+                "label": "ONE PIECE",
+                "behavior": "open_link",
+                "link": "shopify://collections/one-piece",
+                "open_in_new_tab": true,
+                "full_width": false,
+                "min_width_dt_btn": 200,
+                "min_height_btn": 40,
+                "specific_bg_color": "#FFFFFF",
+                "solid_label_color": "#000000",
+                "solid_border_color": "#FFFFFF",
+                "border_width": 1,
+                "outline_color": "#FFFFFF",
+                "style_class": "solid",
+                "text_transform": "none",
+                "font_size": "l",
+                "font_weight": "bold",
+                "font_size_btn": 14,
+                "font_size_btn_mb": 14,
+                "letter_spacing_text": 0,
+                "horizontal_padding_btn": 30,
+                "vertical_padding_btn": 5,
+                "min_width_btn": 100,
+                "icon": "none",
+                "custom_icon": "none",
+                "icon_position": "after",
+                "icon_height": 14,
+                "icon_spacing": 5
+              },
+              "blocks": {}
+            },
             "banner-media": {
               "type": "_media",
               "static": true,
@@ -560,7 +850,9 @@
               "blocks": {}
             }
           },
-          "block_order": []
+          "block_order": [
+            "button_UL9wGA"
+          ]
         },
         "banner_item_reWDKi": {
           "type": "_banner-item",
@@ -577,6 +869,40 @@
             "alignment_mb": "center"
           },
           "blocks": {
+            "button_AU73nR": {
+              "type": "button",
+              "name": "Button",
+              "settings": {
+                "label": "DRESSES",
+                "behavior": "open_link",
+                "link": "shopify://collections/batik-resort-2026",
+                "open_in_new_tab": false,
+                "full_width": false,
+                "min_width_dt_btn": 200,
+                "min_height_btn": 40,
+                "specific_bg_color": "#FFFFFF",
+                "solid_label_color": "#000000",
+                "solid_border_color": "#FFFFFF",
+                "border_width": 1,
+                "outline_color": "#000000",
+                "style_class": "solid",
+                "text_transform": "none",
+                "font_size": "l",
+                "font_weight": "bold",
+                "font_size_btn": 14,
+                "font_size_btn_mb": 14,
+                "letter_spacing_text": 0,
+                "horizontal_padding_btn": 30,
+                "vertical_padding_btn": 5,
+                "min_width_btn": 100,
+                "icon": "none",
+                "custom_icon": "none",
+                "icon_position": "after",
+                "icon_height": 14,
+                "icon_spacing": 5
+              },
+              "blocks": {}
+            },
             "banner-media": {
               "type": "_media",
               "static": true,
@@ -589,7 +915,9 @@
               "blocks": {}
             }
           },
-          "block_order": []
+          "block_order": [
+            "button_AU73nR"
+          ]
         },
         "banner_item_CKhypc": {
           "type": "_banner-item",
@@ -606,6 +934,40 @@
             "alignment_mb": "center"
           },
           "blocks": {
+            "button_LYBCxn": {
+              "type": "button",
+              "name": "Button",
+              "settings": {
+                "label": "BEACHWEAR",
+                "behavior": "open_link",
+                "link": "shopify://collections/beachwear-cover-ups",
+                "open_in_new_tab": false,
+                "full_width": false,
+                "min_width_dt_btn": 200,
+                "min_height_btn": 40,
+                "specific_bg_color": "#FFFFFF",
+                "solid_label_color": "#000000",
+                "solid_border_color": "#FFFFFF",
+                "border_width": 2,
+                "outline_color": "#000000",
+                "style_class": "solid",
+                "text_transform": "none",
+                "font_size": "m",
+                "font_weight": "bold",
+                "font_size_btn": 14,
+                "font_size_btn_mb": 14,
+                "letter_spacing_text": 0,
+                "horizontal_padding_btn": 30,
+                "vertical_padding_btn": 5,
+                "min_width_btn": 100,
+                "icon": "none",
+                "custom_icon": "none",
+                "icon_position": "after",
+                "icon_height": 14,
+                "icon_spacing": 5
+              },
+              "blocks": {}
+            },
             "banner-media": {
               "type": "_media",
               "static": true,
@@ -618,7 +980,9 @@
               "blocks": {}
             }
           },
-          "block_order": []
+          "block_order": [
+            "button_LYBCxn"
+          ]
         },
         "banner-heading": {
           "type": "section-heading",
@@ -685,6 +1049,40 @@
             "alignment_mb": "center"
           },
           "blocks": {
+            "button_XTUR8B": {
+              "type": "button",
+              "name": "Button",
+              "settings": {
+                "label": "ONE PIECE",
+                "behavior": "open_link",
+                "link": "shopify://collections/beachwear-cover-ups",
+                "open_in_new_tab": false,
+                "full_width": false,
+                "min_width_dt_btn": 100,
+                "min_height_btn": 40,
+                "specific_bg_color": "#FFFFFF",
+                "solid_label_color": "#000000",
+                "solid_border_color": "#FFFFFF",
+                "border_width": 1,
+                "outline_color": "#000000",
+                "style_class": "solid",
+                "text_transform": "none",
+                "font_size": "s",
+                "font_weight": "bold",
+                "font_size_btn": 14,
+                "font_size_btn_mb": 14,
+                "letter_spacing_text": 0,
+                "horizontal_padding_btn": 30,
+                "vertical_padding_btn": 5,
+                "min_width_btn": 100,
+                "icon": "none",
+                "custom_icon": "none",
+                "icon_position": "after",
+                "icon_height": 14,
+                "icon_spacing": 5
+              },
+              "blocks": {}
+            },
             "banner-media": {
               "type": "_media",
               "static": true,
@@ -697,7 +1095,9 @@
               "blocks": {}
             }
           },
-          "block_order": []
+          "block_order": [
+            "button_XTUR8B"
+          ]
         },
         "banner_item_7h6rHi": {
           "type": "_banner-item",
@@ -714,6 +1114,40 @@
             "alignment_mb": "center"
           },
           "blocks": {
+            "button_Ydp6ee": {
+              "type": "button",
+              "name": "Button",
+              "settings": {
+                "label": "DRESSES",
+                "behavior": "open_link",
+                "link": "shopify://collections/dresses",
+                "open_in_new_tab": false,
+                "full_width": false,
+                "min_width_dt_btn": 100,
+                "min_height_btn": 40,
+                "specific_bg_color": "#FFFFFF",
+                "solid_label_color": "#000000",
+                "solid_border_color": "#FFFFFF",
+                "border_width": 1,
+                "outline_color": "#FFFFFF",
+                "style_class": "solid",
+                "text_transform": "none",
+                "font_size": "s",
+                "font_weight": "bold",
+                "font_size_btn": 14,
+                "font_size_btn_mb": 14,
+                "letter_spacing_text": 0,
+                "horizontal_padding_btn": 30,
+                "vertical_padding_btn": 5,
+                "min_width_btn": 100,
+                "icon": "none",
+                "custom_icon": "none",
+                "icon_position": "after",
+                "icon_height": 14,
+                "icon_spacing": 5
+              },
+              "blocks": {}
+            },
             "banner-media": {
               "type": "_media",
               "static": true,
@@ -726,7 +1160,9 @@
               "blocks": {}
             }
           },
-          "block_order": []
+          "block_order": [
+            "button_Ydp6ee"
+          ]
         },
         "banner-heading": {
           "type": "section-heading",
