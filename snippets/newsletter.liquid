@@ -23,17 +23,17 @@
     <div class="hdt-newsletter__fields">
        <div class="hdt-newsletter__inner hdt-flex hdt-oh hdt-justify-center {{ attr }}">
          <div class="{{ class_email }} is--col-email hdt-flex">
-           <input type="email" name="contact[email]" placeholder="{{ 'sections.newsletter_form.email_placeholder' | t }}"  value="{% if customer %}{{ customer.email }}{% endif %}" class="{{ class_ip }} hdt-newsletter__email hdt-flex hdt-align-center hdt-input" required="required">
+           <input type="email" name="contact[email]" placeholder="{{ 'sections.newsletter_form.email_placeholder' | t }}" aria-label="{{ 'sections.newsletter_form.email_placeholder' | t }}"  value="{% if customer %}{{ customer.email }}{% endif %}" class="{{ class_ip }} hdt-newsletter__email hdt-flex hdt-align-center hdt-input" required="required">
          </div>
          <div class="{{ class_phone }} is--col-phone hdt-flex">
-           <input type="tel" name="contact[phone]" placeholder="{{ 'sections.newsletter_form.phone_placeholder' | t }}"  pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}" class="{{ class_ip }} hdt-newsletter__phone hdt-flex hdt-align-center hdt-input" required="required">
+           <input type="tel" name="contact[phone]" placeholder="{{ 'sections.newsletter_form.phone_placeholder' | t }}" aria-label="{{ 'sections.newsletter_form.phone_placeholder' | t }}"  pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}" class="{{ class_ip }} hdt-newsletter__phone hdt-flex hdt-align-center hdt-input" required="required">
          </div>
          <div class="is--col-birthday hdt-flex hdt-align-center">
            <label class="hdt-newsletter__birthday-label">Enter Your Birthday</label>
            <div class="hdt-newsletter__birthday-inputs">
-             <input type="text" name="contact[birthday_year]" placeholder="Year" maxlength="4" class="{{ class_ip }} hdt-newsletter__birthday hdt-newsletter__birthday-year hdt-input" pattern="[0-9]*" inputmode="numeric">
-             <input type="text" name="contact[birthday_month]" placeholder="Month" maxlength="2" class="{{ class_ip }} hdt-newsletter__birthday hdt-newsletter__birthday-month hdt-input" pattern="[0-9]*" inputmode="numeric">
-             <input type="text" name="contact[birthday_day]" placeholder="Day" maxlength="2" class="{{ class_ip }} hdt-newsletter__birthday hdt-newsletter__birthday-day hdt-input" pattern="[0-9]*" inputmode="numeric">
+             <input type="text" name="contact[birthday_year]" aria-label="Year" placeholder="Year" maxlength="4" class="{{ class_ip }} hdt-newsletter__birthday hdt-newsletter__birthday-year hdt-input" pattern="[0-9]*" inputmode="numeric">
+             <input type="text" name="contact[birthday_month]" aria-label="Month" placeholder="Month" maxlength="2" class="{{ class_ip }} hdt-newsletter__birthday hdt-newsletter__birthday-month hdt-input" pattern="[0-9]*" inputmode="numeric">
+             <input type="text" name="contact[birthday_day]" aria-label="Day" placeholder="Day" maxlength="2" class="{{ class_ip }} hdt-newsletter__birthday hdt-newsletter__birthday-day hdt-input" pattern="[0-9]*" inputmode="numeric">
            </div>
          </div>
           <div class="{{ class_btn }} is--col-btn hdt-b hdt-flex ">

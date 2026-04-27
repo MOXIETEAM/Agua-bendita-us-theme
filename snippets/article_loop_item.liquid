@@ -9,7 +9,7 @@
           {{ image | image_url: width: image.width | image_tag: loading: 'lazy', width: image.width, height: image.height, class: '', sizes: '700px', widths: '720, 600, 500, 400, 300' }} 
         {%- endif -%}
       </span>
-      <a data-pr-href class="hdt-full-width-link" href="{{ article.url }}"></a>
+      <a data-pr-href class="hdt-full-width-link" href="{{ article.url }}" aria-label="{{ article.title }}"></a>
     </div>
     {%- if article.title != blank -%}
       <div class="hdt-loop-content">

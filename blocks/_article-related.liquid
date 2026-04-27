@@ -124,10 +124,10 @@
         </div>
       </div>
       {%- if block.settings.navUI == true -%}
-        <button aria-controls="Slider-{{ block.id }}" hidden class="hdt-slider__button hdt-hidden@mobile hdt-slider-nav hdt-rounded-full hdt-inline-flex hdt-align-center hdt-justify-center hdt-left-0 hdt-slider__button-previous" name="previous"><svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none">
+        <button aria-controls="Slider-{{ block.id }}" aria-label="Previous slide" hidden class="hdt-slider__button hdt-hidden@mobile hdt-slider-nav hdt-rounded-full hdt-inline-flex hdt-align-center hdt-justify-center hdt-left-0 hdt-slider__button-previous" name="previous"><svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none" aria-hidden="true" focusable="false">
           <path d="M5.5 11L0 5.5L5.5 0L6.47625 0.97625L1.9525 5.5L6.47625 10.0238L5.5 11Z" fill="currentColor"/>
         </svg></button>
-        <button aria-controls="Slider-{{ block.id }}" hidden class="hdt-slider__button hdt-hidden@mobile hdt-slider-nav hdt-rounded-full hdt-inline-flex hdt-align-center hdt-justify-center hdt-right-0 hdt-slider__button-next" name="next"><svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none">
+        <button aria-controls="Slider-{{ block.id }}" aria-label="Next slide" hidden class="hdt-slider__button hdt-hidden@mobile hdt-slider-nav hdt-rounded-full hdt-inline-flex hdt-align-center hdt-justify-center hdt-right-0 hdt-slider__button-next" name="next"><svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none" aria-hidden="true" focusable="false">
           <path d="M1.5 11L7 5.5L1.5 0L0.52375 0.97625L5.0475 5.5L0.52375 10.0238L1.5 11Z" fill="currentColor"/>
         </svg></button>
       {%- endif -%}

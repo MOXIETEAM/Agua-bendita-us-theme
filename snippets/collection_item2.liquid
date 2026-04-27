@@ -13,7 +13,7 @@
       {%- else -%}
         {{ 'collection-apparel-' | append: current | placeholder_svg_tag: 'hdt-placeholder-svg' }}  
       {%- endif -%}
-      <a data-pr-href class="hdt-full-width-link" href="{{ collection_link }}"></a>
+      <a data-pr-href class="hdt-full-width-link" href="{{ collection_link }}" aria-label="{{ title }}"></a>
     </div>
     {%- if title != blank -%}
       <div class="hdt-collection-content hdt-absolute hdt-top-0 hdt-bottom-0 hdt-flex hdt-flex-col hdt-justify-between hdt-place-self-{{ section.settings.content_position }}">
