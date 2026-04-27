@@ -5534,3 +5534,7 @@ body.template-password .title {
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
+
+hdt-reval-items[reveal-on-scroll=true] .hdt-collection-products>.hdt-collection-item>.hdt-card-product {
+  opacity: 1;
+}
