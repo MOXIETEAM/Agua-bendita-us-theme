@@ -247,7 +247,7 @@
           "type": "image_block",
           "settings": {
             "title": "Men",
-            "image": "shopify://shop_images/AB-Menu5_MEN.jpg",
+            "image": "shopify://shop_images/Imag_MEN.jpg",
             "image_text": "ALL MEN",
             "image_url": "shopify://collections/all-men",
             "is_custom_image_width": true,
