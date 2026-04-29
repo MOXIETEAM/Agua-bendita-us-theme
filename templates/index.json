@@ -1465,7 +1465,7 @@
         "image_height": "full",
         "fixed_height": 400,
         "image_height_mb": "fixed",
-        "fixed_height_mb": 300,
+        "fixed_height_mb": 200,
         "col_dk": "3",
         "col_tb": "2",
         "col_mb": "2",
