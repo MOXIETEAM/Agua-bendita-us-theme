@@ -557,6 +557,7 @@
             "button_gVeCP9": {
               "type": "button",
               "name": "Button",
+              "disabled": true,
               "settings": {
                 "label": "READY TO WEAR",
                 "behavior": "open_link",
@@ -593,7 +594,7 @@
               "static": true,
               "settings": {
                 "source": "image",
-                "image": "shopify://shop_images/mobile-_ENG_2_BannerA_30e95726-c18e-4118-a301-4ef8991aa11e.jpg",
+                "image": "shopify://shop_images/Plume_ESP_2_BannerA_copia.jpg",
                 "external_video_url": "",
                 "link": ""
               },
@@ -622,6 +623,7 @@
             "button_g9t8CD": {
               "type": "button",
               "name": "Button",
+              "disabled": true,
               "settings": {
                 "label": "SWIMWEAR",
                 "behavior": "open_link",
@@ -658,7 +660,7 @@
               "static": true,
               "settings": {
                 "source": "image",
-                "image": "shopify://shop_images/mobile-_ENG_2_BannerB_b87887f6-6372-4b8f-821b-7dbe8fd1ce54.jpg",
+                "image": "shopify://shop_images/Plume_ESP_3_BannerB_copia.jpg",
                 "external_video_url": "",
                 "link": ""
               },
