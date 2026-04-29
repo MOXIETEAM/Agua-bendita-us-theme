@@ -1074,6 +1074,7 @@
             "button_UL9wGA": {
               "type": "button",
               "name": "Button",
+              "disabled": true,
               "settings": {
                 "label": "ONE PIECE",
                 "behavior": "open_link",
@@ -1110,7 +1111,7 @@
               "static": true,
               "settings": {
                 "source": "image",
-                "image": "shopify://shop_images/Home_2A-DESK.jpg",
+                "image": "shopify://shop_images/Plume_ESP_3_BannerA_copia.jpg",
                 "external_video_url": "",
                 "link": ""
               },
@@ -1139,6 +1140,7 @@
             "button_AU73nR": {
               "type": "button",
               "name": "Button",
+              "disabled": true,
               "settings": {
                 "label": "DRESSES",
                 "behavior": "open_link",
@@ -1175,7 +1177,7 @@
               "static": true,
               "settings": {
                 "source": "image",
-                "image": "shopify://shop_images/ENG_3_BannerB_27a8f1ca-9d03-4d2f-828b-91fb3b7be3d5.jpg",
+                "image": "shopify://shop_images/Plume_ESP_2_BannerB_copia.jpg",
                 "external_video_url": "",
                 "link": ""
               },
@@ -1204,6 +1206,7 @@
             "button_LYBCxn": {
               "type": "button",
               "name": "Button",
+              "disabled": true,
               "settings": {
                 "label": "BEACHWEAR",
                 "behavior": "open_link",
@@ -1240,7 +1243,7 @@
               "static": true,
               "settings": {
                 "source": "image",
-                "image": "shopify://shop_images/ENG_3_BannerC_8aabd2a2-b5c8-449b-adbc-260b97b09ffb.jpg",
+                "image": "shopify://shop_images/Plume_ESP_2_BannerC_copia.jpg",
                 "external_video_url": "",
                 "link": ""
               },
