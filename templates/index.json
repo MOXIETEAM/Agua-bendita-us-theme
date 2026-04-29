@@ -1281,7 +1281,7 @@
         "hide_on_mobile": true,
         "vertical_space_images": 4,
         "horizontal_space_images": 4,
-        "image_height": "full",
+        "image_height": "fixed",
         "fixed_height": 400,
         "image_height_mb": "fixed",
         "fixed_height_mb": 300,
