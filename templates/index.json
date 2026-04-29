@@ -155,7 +155,7 @@
                 "min_width_dt_btn": 100,
                 "min_height_btn": 40,
                 "specific_bg_color": "#000000",
-                "solid_label_color": "#FFFFFF",
+                "solid_label_color": "#ffffff",
                 "solid_border_color": "#000000",
                 "border_width": 1,
                 "outline_color": "#000000",
@@ -342,7 +342,8 @@
               "static": true,
               "settings": {
                 "source": "image",
-                "image": "shopify://shop_images/ENG_2_BannerA_0eb81bfb-2563-4b77-aa3f-501e574e4890.jpg",
+                "image": "shopify://shop_images/Plume_ESP_2_BannerA_copia.jpg",
+                "image_mb": "shopify://shop_images/Plume_ESP_2_BannerA_copia.jpg",
                 "external_video_url": "",
                 "link": ""
               },
@@ -407,7 +408,8 @@
               "static": true,
               "settings": {
                 "source": "image",
-                "image": "shopify://shop_images/ENG_2_BannerB_4469f5af-be43-4f28-8ecc-4f5afc527a85.jpg",
+                "image": "shopify://shop_images/Plume_ESP_3_BannerB_copia.jpg",
+                "image_mb": "shopify://shop_images/Plume_ESP_3_BannerB_copia.jpg",
                 "external_video_url": "",
                 "link": ""
               },
@@ -421,7 +423,7 @@
         "banner_item_NiTzk7": {
           "type": "_banner-item",
           "settings": {
-            "banner_url": "shopify://collections/sets",
+            "banner_url": "shopify://collections/pareos-sarongs",
             "banner_target": false,
             "use_as_placeholder_for_video": false,
             "img_effect": "none",
@@ -472,7 +474,8 @@
               "static": true,
               "settings": {
                 "source": "image",
-                "image": "shopify://shop_images/ENG_2_BannerC_7b8fe725-a96f-4b1d-997b-6169ed9d2cef.jpg",
+                "image": "shopify://shop_images/Plume_ESP_3_BannerC_copia.jpg",
+                "image_mb": "shopify://shop_images/Plume_ESP_3_BannerC_copia.jpg",
                 "external_video_url": "",
                 "link": ""
               },
