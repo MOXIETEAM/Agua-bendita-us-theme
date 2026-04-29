@@ -848,7 +848,7 @@
                     "hidden_br_mobile": false,
                     "hidden_on_desktop": true,
                     "hidden_on_mobile": false,
-                    "text_align": "none",
+                    "text_align": "center",
                     "text_align_mb": "none",
                     "text_size": "base",
                     "letter_spacing_text": 0,
