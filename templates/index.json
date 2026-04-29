@@ -1059,7 +1059,7 @@
         "banner_item_zEdPQY": {
           "type": "_banner-item",
           "settings": {
-            "banner_url": "shopify://collections/one-piece",
+            "banner_url": "shopify://collections/handmade-details",
             "banner_target": false,
             "use_as_placeholder_for_video": false,
             "img_effect": "none",
