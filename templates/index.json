@@ -424,7 +424,6 @@
         },
         "banner_item_NiTzk7": {
           "type": "_banner-item",
-          "disabled": true,
           "settings": {
             "banner_url": "shopify://collections/pareos-sarongs",
             "banner_target": false,
