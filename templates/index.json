@@ -1191,7 +1191,7 @@
         "banner_item_CKhypc": {
           "type": "_banner-item",
           "settings": {
-            "banner_url": "shopify://collections/beachwear-cover-ups",
+            "banner_url": "shopify://collections/accessories",
             "banner_target": false,
             "use_as_placeholder_for_video": false,
             "img_effect": "none",
