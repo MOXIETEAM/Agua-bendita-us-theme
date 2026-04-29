@@ -712,7 +712,7 @@
         "gap_c": 0,
         "gap_r_mb": 0,
         "gap_c_mb": 0,
-        "padding_top": 4,
+        "padding_top": 2,
         "padding_bottom": 0,
         "padding_rate": 100
       }
