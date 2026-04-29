@@ -522,7 +522,7 @@
         "fixed_height_mb": 300,
         "col_dk": "3",
         "col_tb": "2",
-        "col_mb": "2",
+        "col_mb": "1",
         "scrollnap": true,
         "color_scheme": "",
         "box_content": false,
