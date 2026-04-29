@@ -917,6 +917,7 @@
       "blocks": {
         "featured-collection-carousel": {
           "type": "_collection_heading",
+          "disabled": true,
           "static": true,
           "settings": {
             "one_line": false,
