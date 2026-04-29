@@ -1307,7 +1307,7 @@
         "banner_item_gWhTcg": {
           "type": "_banner-item",
           "settings": {
-            "banner_url": "shopify://collections/beachwear-cover-ups",
+            "banner_url": "shopify://collections/handmade-details",
             "banner_target": false,
             "use_as_placeholder_for_video": false,
             "img_effect": "none",
@@ -1322,6 +1322,7 @@
             "button_XTUR8B": {
               "type": "button",
               "name": "Button",
+              "disabled": true,
               "settings": {
                 "label": "ONE PIECE",
                 "behavior": "open_link",
@@ -1358,7 +1359,7 @@
               "static": true,
               "settings": {
                 "source": "image",
-                "image": "shopify://shop_images/mobile-_ENG_3_BannerA_8e16cb20-d847-477e-899a-5ba5d5ce25f5.jpg",
+                "image": "shopify://shop_images/Plume_ESP_3_BannerA_copia.jpg",
                 "external_video_url": "",
                 "link": ""
               },
@@ -1372,7 +1373,7 @@
         "banner_item_7h6rHi": {
           "type": "_banner-item",
           "settings": {
-            "banner_url": "shopify://collections/dresses",
+            "banner_url": "shopify://collections/bikini-bottom",
             "banner_target": false,
             "use_as_placeholder_for_video": false,
             "img_effect": "none",
@@ -1387,6 +1388,7 @@
             "button_Ydp6ee": {
               "type": "button",
               "name": "Button",
+              "disabled": true,
               "settings": {
                 "label": "DRESSES",
                 "behavior": "open_link",
@@ -1423,7 +1425,7 @@
               "static": true,
               "settings": {
                 "source": "image",
-                "image": "shopify://shop_images/mobile-_ENG_3_BannerB_a740ce18-cb5d-458c-b4b4-7f7d63e478ec.jpg",
+                "image": "shopify://shop_images/Plume_ESP_2_BannerB_copia.jpg",
                 "external_video_url": "",
                 "link": ""
               },
