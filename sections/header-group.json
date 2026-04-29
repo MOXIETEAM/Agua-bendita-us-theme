@@ -51,7 +51,7 @@
         "show_close_btn": false,
         "show_line_separator": false,
         "adding_border": false,
-        "au_time": 3.5,
+        "au_time": 6,
         "slider_pause_when_hover": true,
         "speed": 0.3,
         "direction": "rtl",
