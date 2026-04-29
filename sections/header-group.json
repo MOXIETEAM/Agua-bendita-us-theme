@@ -1,1 +1,465 @@
-{"type":"header","name":"Header Group","sections":{"announcement_bar_at44BV":{"type":"announcement-bar","blocks":{"announcement_ea9YJt":{"type":"announcement","settings":{"text":"40% OFF SITEWIDE: LIMITED TIME ONLY! |  <span style=\"text-decoration:underline\">SHOP NOW<\/span>","link":"shopify:\/\/collections\/new","active_from":"","active_to":"","hide_on_desktop":false,"hide_on_mobile":false}},"announcement_indL36":{"type":"announcement","settings":{"text":"FREE SHIPPING ON ORDERS OVER $200","link":"shopify:\/\/collections\/new","active_from":"2025-06-17","active_to":"","hide_on_desktop":false,"hide_on_mobile":false}}},"block_order":["announcement_ea9YJt","announcement_indL36"],"settings":{"hide_on_desktop":false,"hide_on_mobile":false,"active_from":"","active_to":"","design":"slider","color_scheme":"","show_close_btn":false,"show_line_separator":false,"adding_border":false,"au_time":3.5,"slider_pause_when_hover":false,"speed":0.3,"direction":"rtl","marquee_pause_when_hover":false}},"header_countdown_c6mLwj":{"type":"header-countdown","disabled":true,"name":"Header Countdown","settings":{"hide_on_desktop":false,"hide_on_mobile":false,"header_countdown_enable":true,"header_countdown_background":"#000000","header_countdown_color":"theme-dark","header_countdown_text":"Extra 10% in the SALE section — Use the code: EXTRA10 at checkout","header_countdown_mobile_text":"Extra 10% in the SALE section  <br> Use the code: EXTRA10 at checkout","header_countdown_link":"shopify:\/\/collections\/sale","header_countdown_cta":"SHOP HERE","header_countdown_active_from":"2026\/02\/20","header_countdown_active_to":"2026\/02\/27"}},"header":{"type":"header-inline","blocks":{"highlight_block_iMFzgT":{"type":"highlight_block","settings":{"link_handle":"shopify:\/\/collections\/new","highlight_with_main_color":false}},"highlight_block_pynFJQ":{"type":"highlight_block","settings":{"link_handle":"shopify:\/\/collections\/sale","highlight_with_main_color":false}},"mega_shop_yYkKG7":{"type":"mega_shop","settings":{"title":"New-In","collection_list":[],"image_text":"","image_url":"","is_custom_image_width":true,"image_width":400,"image_ratio":"adapt_image","image_size":true,"mega_menu_colors":"","mega_position":"bottom","mega_width":"full","mega_custom_width":1200}},"image_block_Hk3yNx":{"type":"image_block","settings":{"title":"New-In","image":"shopify:\/\/shop_images\/AB-Menu1_NEW.jpg","image_text":"NEW ARRIVALS","image_url":"shopify:\/\/collections\/new","is_custom_image_width":true,"image_width":150,"image_ratio":"adapt_image","image_size":true}},"mega_shop_pebWpK":{"type":"mega_shop","settings":{"title":"Swim","collection_list":[],"image_text":"","image_url":"","is_custom_image_width":true,"image_width":400,"image_ratio":"adapt_image","image_size":true,"mega_menu_colors":"","mega_position":"bottom","mega_width":"full","mega_custom_width":1200}},"image_block_xzGKU9":{"type":"image_block","settings":{"title":"Swim","image":"shopify:\/\/shop_images\/AB-Menu2-SWIM_BIKINIS.jpg","image_text":"BIKINI SWIMSUITS","image_url":"shopify:\/\/collections\/bikinis","is_custom_image_width":true,"image_width":150,"image_ratio":"adapt_image","image_size":true}},"image_block_6DM88K":{"type":"image_block","settings":{"title":"Swim","image":"shopify:\/\/shop_images\/AB-Menu2-SWIM_ONE_PIECES.jpg","image_text":"ONE PIECE SWIMSUITS","image_url":"shopify:\/\/collections\/one-piece","is_custom_image_width":true,"image_width":150,"image_ratio":"adapt_image","image_size":true}},"mega_shop_r8Cxiq":{"type":"mega_shop","settings":{"title":"Clothing","collection_list":[],"image_text":"","image_url":"","is_custom_image_width":true,"image_width":400,"image_ratio":"adapt_image","image_size":true,"mega_menu_colors":"","mega_position":"bottom","mega_width":"full","mega_custom_width":1200}},"image_block_CFiBpW":{"type":"image_block","settings":{"title":"Clothing","image":"shopify:\/\/shop_images\/AB-Menu3_CLOTHING.jpg","image_text":"CLOTHING SETS","image_url":"shopify:\/\/collections\/sets","is_custom_image_width":true,"image_width":150,"image_ratio":"adapt_image","image_size":true}},"mega_shop_jgq6Wh":{"type":"mega_shop","settings":{"title":"Accessories","collection_list":[],"image_text":"","image_url":"","is_custom_image_width":true,"image_width":400,"image_ratio":"adapt_image","image_size":true,"mega_menu_colors":"","mega_position":"bottom","mega_width":"full","mega_custom_width":1200}},"image_block_dQDYAi":{"type":"image_block","settings":{"title":"Accessories","image":"shopify:\/\/shop_images\/AB-Menu4_ACCESSORIES.jpg","image_text":"ACCESSORIES","image_url":"shopify:\/\/collections\/accessories","is_custom_image_width":true,"image_width":150,"image_ratio":"adapt_image","image_size":true}},"mega_shop_f4wDyy":{"type":"mega_shop","settings":{"title":"Men","collection_list":[],"image_text":"","image_url":"","is_custom_image_width":true,"image_width":400,"image_ratio":"adapt_image","image_size":true,"mega_menu_colors":"","mega_position":"bottom","mega_width":"full","mega_custom_width":1200}},"image_block_XTbGYY":{"type":"image_block","settings":{"title":"Men","image":"shopify:\/\/shop_images\/AB-Menu5_MEN.jpg","image_text":"ALL MEN","image_url":"shopify:\/\/collections\/all-men","is_custom_image_width":true,"image_width":150,"image_ratio":"adapt_image","image_size":true}},"image_block_WYzcWV":{"type":"image_block","settings":{"title":"Men","image":"shopify:\/\/shop_images\/AB-Menu5_MEN_FAMILY.jpg","image_text":"FAMILY MATCH","image_url":"shopify:\/\/collections\/ab-family","is_custom_image_width":true,"image_width":150,"image_ratio":"adapt_image","image_size":true}},"mega_shop_dxzFBM":{"type":"mega_shop","settings":{"title":"Kids","collection_list":[],"image_text":"","image_url":"","is_custom_image_width":true,"image_width":400,"image_ratio":"adapt_image","image_size":true,"mega_menu_colors":"","mega_position":"bottom","mega_width":"full","mega_custom_width":1200}},"image_block_c9PQhX":{"type":"image_block","settings":{"title":"Kids","image":"shopify:\/\/shop_images\/AB-Menu6_KIDS.jpg","image_text":"ALL KIDS","image_url":"shopify:\/\/collections\/all-kids","is_custom_image_width":true,"image_width":150,"image_ratio":"adapt_image","image_size":true}},"mega_shop_z6B4h6":{"type":"mega_shop","settings":{"title":"About","collection_list":[],"image_text":"","image_url":"","is_custom_image_width":true,"image_width":400,"image_ratio":"adapt_image","image_size":true,"mega_menu_colors":"","mega_position":"bottom","mega_width":"full","mega_custom_width":1200}},"image_block_zLLAkJ":{"type":"image_block","settings":{"title":"About","image":"shopify:\/\/shop_images\/AB-Menu7_ABOUT_2.jpg","image_text":"HANDCRAFTED DEVOTION","image_url":"shopify:\/\/pages\/our-handcrafted-devotion","is_custom_image_width":true,"image_width":150,"image_ratio":"adapt_image","image_size":true}},"image_block_cMhiJd":{"type":"image_block","settings":{"title":"About","image":"shopify:\/\/shop_images\/AB-Menu7_ABOUT_1.jpg","image_text":"OUR FOUNDERS","image_url":"shopify:\/\/pages\/our-founders-mari-and-cata","is_custom_image_width":true,"image_width":150,"image_ratio":"adapt_image","image_size":true}},"mega_shop_n6NFDp":{"type":"mega_shop","settings":{"title":"SALE","collection_list":[],"image_text":"","image_url":"","is_custom_image_width":true,"image_width":400,"image_ratio":"adapt_image","image_size":true,"mega_menu_colors":"","mega_position":"bottom","mega_width":"full","mega_custom_width":1200}},"image_block_DfEdGB":{"type":"image_block","settings":{"title":"SALE","image":"shopify:\/\/shop_images\/AB-Menu7_SALE_1.jpg","image_text":"SWIMWEAR ON SALE","image_url":"shopify:\/\/collections\/swimwear-sale","is_custom_image_width":true,"image_width":150,"image_ratio":"adapt_image","image_size":true}},"image_block_8Tw63C":{"type":"image_block","settings":{"title":"SALE","image":"shopify:\/\/shop_images\/AB-Menu7_SALE_2.jpg","image_text":"CLOTHING ON SALE","image_url":"shopify:\/\/collections\/clothing-sale","is_custom_image_width":true,"image_width":150,"image_ratio":"adapt_image","image_size":true}}},"block_order":["highlight_block_iMFzgT","highlight_block_pynFJQ","mega_shop_yYkKG7","image_block_Hk3yNx","mega_shop_pebWpK","image_block_xzGKU9","image_block_6DM88K","mega_shop_r8Cxiq","image_block_CFiBpW","mega_shop_jgq6Wh","image_block_dQDYAi","mega_shop_f4wDyy","image_block_XTbGYY","image_block_WYzcWV","mega_shop_dxzFBM","image_block_c9PQhX","mega_shop_z6B4h6","image_block_zLLAkJ","image_block_cMhiJd","mega_shop_n6NFDp","image_block_DfEdGB","image_block_8Tw63C"],"settings":{"hide_on_desktop":false,"hide_on_mobile":false,"active_from":"","active_to":"","header_layout":"logo_left","header_fullwidth":true,"header_height":60,"logo":"shopify:\/\/shop_images\/Logo_AB_attentive-191x48-negro.png","logo_accessibility_label":"Agua Bendita US","logo_width":160,"header_colors":"scheme-1","main_menu":"main-menu","lazy_mn":true,"menu_position":"center","menu_size":"lg","menu_weight":"normal","text_transform":false,"dropdown_arrow":false,"active_link":false,"spacing_nav":30,"open_event":"hover","header_menu_colors":"","enabled_user":true,"enabled_compare":false,"enabled_wishlist":true,"header_height_mb":60,"logo_width_mb":150,"main_menu_mobile":"","lazy_mn_mb":true,"only_click_icon":false,"header_mobile_colors":"scheme-1","note_mobile":"","header_transparent":false,"header_transparent_colors":"scheme-1","sticky_type":"always","sticky_glass":false,"enable_mini_menu":true,"mini_menu_text_1":"Family Match","mini_menu_url_1":"shopify:\/\/collections\/ab-family","mini_menu_text_2":"New","mini_menu_url_2":"shopify:\/\/collections\/new","mini_menu_text_3":"Clothing Sets","mini_menu_url_3":"shopify:\/\/collections\/sets"}}},"order":["announcement_bar_at44BV","header_countdown_c6mLwj","header"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header Group",
+  "sections": {
+    "announcement_bar_at44BV": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_ea9YJt": {
+          "type": "announcement",
+          "settings": {
+            "text": "Spicy Sale 🔥 Extra 15% OFF sale · Auto-applied · Limited time",
+            "link": "shopify://collections/sale",
+            "active_from": "",
+            "active_to": "",
+            "hide_on_desktop": false,
+            "hide_on_mobile": false
+          }
+        },
+        "announcement_indL36": {
+          "type": "announcement",
+          "settings": {
+            "text": "FREE SHIPPING ON ORDERS OVER $200",
+            "link": "shopify://collections/new",
+            "active_from": "2025-06-17",
+            "active_to": "",
+            "hide_on_desktop": false,
+            "hide_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "announcement_ea9YJt",
+        "announcement_indL36"
+      ],
+      "settings": {
+        "hide_on_desktop": false,
+        "hide_on_mobile": false,
+        "active_from": "",
+        "active_to": "",
+        "design": "slider",
+        "color_scheme": "",
+        "show_close_btn": false,
+        "show_line_separator": false,
+        "adding_border": false,
+        "au_time": 3.5,
+        "slider_pause_when_hover": false,
+        "speed": 0.3,
+        "direction": "rtl",
+        "marquee_pause_when_hover": false
+      }
+    },
+    "header_countdown_c6mLwj": {
+      "type": "header-countdown",
+      "disabled": true,
+      "name": "Header Countdown",
+      "settings": {
+        "hide_on_desktop": false,
+        "hide_on_mobile": false,
+        "header_countdown_enable": true,
+        "header_countdown_background": "#000000",
+        "header_countdown_color": "theme-dark",
+        "header_countdown_text": "Extra 10% in the SALE section — Use the code: EXTRA10 at checkout",
+        "header_countdown_mobile_text": "Extra 10% in the SALE section  <br> Use the code: EXTRA10 at checkout",
+        "header_countdown_link": "shopify://collections/sale",
+        "header_countdown_cta": "SHOP HERE",
+        "header_countdown_active_from": "2026/02/20",
+        "header_countdown_active_to": "2026/02/27"
+      }
+    },
+    "header": {
+      "type": "header-inline",
+      "blocks": {
+        "highlight_block_iMFzgT": {
+          "type": "highlight_block",
+          "settings": {
+            "link_handle": "shopify://collections/new",
+            "highlight_with_main_color": false
+          }
+        },
+        "highlight_block_pynFJQ": {
+          "type": "highlight_block",
+          "settings": {
+            "link_handle": "shopify://collections/sale",
+            "highlight_with_main_color": false
+          }
+        },
+        "mega_shop_yYkKG7": {
+          "type": "mega_shop",
+          "settings": {
+            "title": "New-In",
+            "collection_list": [],
+            "image_text": "",
+            "image_url": "",
+            "is_custom_image_width": true,
+            "image_width": 400,
+            "image_ratio": "adapt_image",
+            "image_size": true,
+            "mega_menu_colors": "",
+            "mega_position": "bottom",
+            "mega_width": "full",
+            "mega_custom_width": 1200
+          }
+        },
+        "image_block_Hk3yNx": {
+          "type": "image_block",
+          "settings": {
+            "title": "New-In",
+            "image": "shopify://shop_images/AB-Menu1_NEW.jpg",
+            "image_text": "NEW ARRIVALS",
+            "image_url": "shopify://collections/new",
+            "is_custom_image_width": true,
+            "image_width": 150,
+            "image_ratio": "adapt_image",
+            "image_size": true
+          }
+        },
+        "mega_shop_pebWpK": {
+          "type": "mega_shop",
+          "settings": {
+            "title": "Swim",
+            "collection_list": [],
+            "image_text": "",
+            "image_url": "",
+            "is_custom_image_width": true,
+            "image_width": 400,
+            "image_ratio": "adapt_image",
+            "image_size": true,
+            "mega_menu_colors": "",
+            "mega_position": "bottom",
+            "mega_width": "full",
+            "mega_custom_width": 1200
+          }
+        },
+        "image_block_xzGKU9": {
+          "type": "image_block",
+          "settings": {
+            "title": "Swim",
+            "image": "shopify://shop_images/AB-Menu2-SWIM_BIKINIS.jpg",
+            "image_text": "BIKINI SWIMSUITS",
+            "image_url": "shopify://collections/bikinis",
+            "is_custom_image_width": true,
+            "image_width": 150,
+            "image_ratio": "adapt_image",
+            "image_size": true
+          }
+        },
+        "image_block_6DM88K": {
+          "type": "image_block",
+          "settings": {
+            "title": "Swim",
+            "image": "shopify://shop_images/AB-Menu2-SWIM_ONE_PIECES.jpg",
+            "image_text": "ONE PIECE SWIMSUITS",
+            "image_url": "shopify://collections/one-piece",
+            "is_custom_image_width": true,
+            "image_width": 150,
+            "image_ratio": "adapt_image",
+            "image_size": true
+          }
+        },
+        "mega_shop_r8Cxiq": {
+          "type": "mega_shop",
+          "settings": {
+            "title": "Clothing",
+            "collection_list": [],
+            "image_text": "",
+            "image_url": "",
+            "is_custom_image_width": true,
+            "image_width": 400,
+            "image_ratio": "adapt_image",
+            "image_size": true,
+            "mega_menu_colors": "",
+            "mega_position": "bottom",
+            "mega_width": "full",
+            "mega_custom_width": 1200
+          }
+        },
+        "image_block_CFiBpW": {
+          "type": "image_block",
+          "settings": {
+            "title": "Clothing",
+            "image": "shopify://shop_images/AB-Menu3_CLOTHING.jpg",
+            "image_text": "CLOTHING SETS",
+            "image_url": "shopify://collections/sets",
+            "is_custom_image_width": true,
+            "image_width": 150,
+            "image_ratio": "adapt_image",
+            "image_size": true
+          }
+        },
+        "mega_shop_jgq6Wh": {
+          "type": "mega_shop",
+          "settings": {
+            "title": "Accessories",
+            "collection_list": [],
+            "image_text": "",
+            "image_url": "",
+            "is_custom_image_width": true,
+            "image_width": 400,
+            "image_ratio": "adapt_image",
+            "image_size": true,
+            "mega_menu_colors": "",
+            "mega_position": "bottom",
+            "mega_width": "full",
+            "mega_custom_width": 1200
+          }
+        },
+        "image_block_dQDYAi": {
+          "type": "image_block",
+          "settings": {
+            "title": "Accessories",
+            "image": "shopify://shop_images/AB-Menu4_ACCESSORIES.jpg",
+            "image_text": "ACCESSORIES",
+            "image_url": "shopify://collections/accessories",
+            "is_custom_image_width": true,
+            "image_width": 150,
+            "image_ratio": "adapt_image",
+            "image_size": true
+          }
+        },
+        "mega_shop_f4wDyy": {
+          "type": "mega_shop",
+          "settings": {
+            "title": "Men",
+            "collection_list": [],
+            "image_text": "",
+            "image_url": "",
+            "is_custom_image_width": true,
+            "image_width": 400,
+            "image_ratio": "adapt_image",
+            "image_size": true,
+            "mega_menu_colors": "",
+            "mega_position": "bottom",
+            "mega_width": "full",
+            "mega_custom_width": 1200
+          }
+        },
+        "image_block_XTbGYY": {
+          "type": "image_block",
+          "settings": {
+            "title": "Men",
+            "image": "shopify://shop_images/AB-Menu5_MEN.jpg",
+            "image_text": "ALL MEN",
+            "image_url": "shopify://collections/all-men",
+            "is_custom_image_width": true,
+            "image_width": 150,
+            "image_ratio": "adapt_image",
+            "image_size": true
+          }
+        },
+        "image_block_WYzcWV": {
+          "type": "image_block",
+          "settings": {
+            "title": "Men",
+            "image": "shopify://shop_images/AB-Menu5_MEN_FAMILY.jpg",
+            "image_text": "FAMILY MATCH",
+            "image_url": "shopify://collections/ab-family",
+            "is_custom_image_width": true,
+            "image_width": 150,
+            "image_ratio": "adapt_image",
+            "image_size": true
+          }
+        },
+        "mega_shop_dxzFBM": {
+          "type": "mega_shop",
+          "settings": {
+            "title": "Kids",
+            "collection_list": [],
+            "image_text": "",
+            "image_url": "",
+            "is_custom_image_width": true,
+            "image_width": 400,
+            "image_ratio": "adapt_image",
+            "image_size": true,
+            "mega_menu_colors": "",
+            "mega_position": "bottom",
+            "mega_width": "full",
+            "mega_custom_width": 1200
+          }
+        },
+        "image_block_c9PQhX": {
+          "type": "image_block",
+          "settings": {
+            "title": "Kids",
+            "image": "shopify://shop_images/AB-Menu6_KIDS.jpg",
+            "image_text": "ALL KIDS",
+            "image_url": "shopify://collections/all-kids",
+            "is_custom_image_width": true,
+            "image_width": 150,
+            "image_ratio": "adapt_image",
+            "image_size": true
+          }
+        },
+        "mega_shop_z6B4h6": {
+          "type": "mega_shop",
+          "settings": {
+            "title": "About",
+            "collection_list": [],
+            "image_text": "",
+            "image_url": "",
+            "is_custom_image_width": true,
+            "image_width": 400,
+            "image_ratio": "adapt_image",
+            "image_size": true,
+            "mega_menu_colors": "",
+            "mega_position": "bottom",
+            "mega_width": "full",
+            "mega_custom_width": 1200
+          }
+        },
+        "image_block_zLLAkJ": {
+          "type": "image_block",
+          "settings": {
+            "title": "About",
+            "image": "shopify://shop_images/AB-Menu7_ABOUT_2.jpg",
+            "image_text": "HANDCRAFTED DEVOTION",
+            "image_url": "shopify://pages/our-handcrafted-devotion",
+            "is_custom_image_width": true,
+            "image_width": 150,
+            "image_ratio": "adapt_image",
+            "image_size": true
+          }
+        },
+        "image_block_cMhiJd": {
+          "type": "image_block",
+          "settings": {
+            "title": "About",
+            "image": "shopify://shop_images/AB-Menu7_ABOUT_1.jpg",
+            "image_text": "OUR FOUNDERS",
+            "image_url": "shopify://pages/our-founders-mari-and-cata",
+            "is_custom_image_width": true,
+            "image_width": 150,
+            "image_ratio": "adapt_image",
+            "image_size": true
+          }
+        },
+        "mega_shop_n6NFDp": {
+          "type": "mega_shop",
+          "settings": {
+            "title": "SALE",
+            "collection_list": [],
+            "image_text": "",
+            "image_url": "",
+            "is_custom_image_width": true,
+            "image_width": 400,
+            "image_ratio": "adapt_image",
+            "image_size": true,
+            "mega_menu_colors": "",
+            "mega_position": "bottom",
+            "mega_width": "full",
+            "mega_custom_width": 1200
+          }
+        },
+        "image_block_DfEdGB": {
+          "type": "image_block",
+          "settings": {
+            "title": "SALE",
+            "image": "shopify://shop_images/AB-Menu7_SALE_1.jpg",
+            "image_text": "SWIMWEAR ON SALE",
+            "image_url": "shopify://collections/swimwear-sale",
+            "is_custom_image_width": true,
+            "image_width": 150,
+            "image_ratio": "adapt_image",
+            "image_size": true
+          }
+        },
+        "image_block_8Tw63C": {
+          "type": "image_block",
+          "settings": {
+            "title": "SALE",
+            "image": "shopify://shop_images/AB-Menu7_SALE_2.jpg",
+            "image_text": "CLOTHING ON SALE",
+            "image_url": "shopify://collections/clothing-sale",
+            "is_custom_image_width": true,
+            "image_width": 150,
+            "image_ratio": "adapt_image",
+            "image_size": true
+          }
+        }
+      },
+      "block_order": [
+        "highlight_block_iMFzgT",
+        "highlight_block_pynFJQ",
+        "mega_shop_yYkKG7",
+        "image_block_Hk3yNx",
+        "mega_shop_pebWpK",
+        "image_block_xzGKU9",
+        "image_block_6DM88K",
+        "mega_shop_r8Cxiq",
+        "image_block_CFiBpW",
+        "mega_shop_jgq6Wh",
+        "image_block_dQDYAi",
+        "mega_shop_f4wDyy",
+        "image_block_XTbGYY",
+        "image_block_WYzcWV",
+        "mega_shop_dxzFBM",
+        "image_block_c9PQhX",
+        "mega_shop_z6B4h6",
+        "image_block_zLLAkJ",
+        "image_block_cMhiJd",
+        "mega_shop_n6NFDp",
+        "image_block_DfEdGB",
+        "image_block_8Tw63C"
+      ],
+      "settings": {
+        "hide_on_desktop": false,
+        "hide_on_mobile": false,
+        "active_from": "",
+        "active_to": "",
+        "header_layout": "logo_left",
+        "header_fullwidth": true,
+        "header_height": 60,
+        "logo": "shopify://shop_images/Logo_AB_attentive-191x48-negro.png",
+        "logo_accessibility_label": "Agua Bendita US",
+        "logo_width": 160,
+        "header_colors": "scheme-1",
+        "main_menu": "main-menu",
+        "lazy_mn": true,
+        "menu_position": "center",
+        "menu_size": "lg",
+        "menu_weight": "normal",
+        "text_transform": false,
+        "dropdown_arrow": false,
+        "active_link": false,
+        "spacing_nav": 30,
+        "open_event": "hover",
+        "header_menu_colors": "",
+        "enabled_user": true,
+        "enabled_compare": false,
+        "enabled_wishlist": true,
+        "header_height_mb": 60,
+        "logo_width_mb": 150,
+        "main_menu_mobile": "",
+        "lazy_mn_mb": true,
+        "only_click_icon": false,
+        "header_mobile_colors": "scheme-1",
+        "note_mobile": "",
+        "header_transparent": false,
+        "header_transparent_colors": "scheme-1",
+        "sticky_type": "always",
+        "sticky_glass": false,
+        "enable_mini_menu": true,
+        "mini_menu_text_1": "Family Match",
+        "mini_menu_url_1": "shopify://collections/ab-family",
+        "mini_menu_text_2": "New",
+        "mini_menu_url_2": "shopify://collections/new",
+        "mini_menu_text_3": "Clothing Sets",
+        "mini_menu_url_3": "shopify://collections/sets"
+      }
+    }
+  },
+  "order": [
+    "announcement_bar_at44BV",
+    "header_countdown_c6mLwj",
+    "header"
+  ]
+}
