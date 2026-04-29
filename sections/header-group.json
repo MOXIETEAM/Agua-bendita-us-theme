@@ -24,10 +24,22 @@
             "hide_on_desktop": false,
             "hide_on_mobile": false
           }
+        },
+        "announcement_tctbB6": {
+          "type": "announcement",
+          "settings": {
+            "text": "Free shipping on orders over $200 · Shop now",
+            "link": "shopify://collections/new",
+            "active_from": "",
+            "active_to": "",
+            "hide_on_desktop": false,
+            "hide_on_mobile": false
+          }
         }
       },
       "block_order": [
-        "announcement_ea9YJt"
+        "announcement_ea9YJt",
+        "announcement_tctbB6"
       ],
       "settings": {
         "hide_on_desktop": false,
