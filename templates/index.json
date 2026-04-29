@@ -111,12 +111,83 @@
             "button_3L8fEG"
           ]
         },
+        "slide_item_PbeQFD": {
+          "type": "_slide-item",
+          "name": "t:sections.slideshow.blocks.slide.name",
+          "settings": {
+            "image": "shopify://shop_images/Home_ENG_1_BannerB_desktop_1.jpg",
+            "image_mb": "shopify://shop_images/Home_ENG_1_BannerB_mobil-02_94949e99-c6c5-49a1-a435-c370a8ee5e11.jpg",
+            "url": "shopify://collections/new",
+            "banner_target": false,
+            "color_scheme": "",
+            "content_position": "center",
+            "alignment": "left",
+            "content_position_mb": "center",
+            "alignment_mb": "left",
+            "image_height": "adapt_image",
+            "fixed_height": 860,
+            "image_height_mb": "adapt_image",
+            "fixed_height_mb": 300,
+            "background_content": false,
+            "bg_opacity": 0,
+            "box_square": false,
+            "content_rounded": false,
+            "use_border_content": false,
+            "border_opacity": 0,
+            "border_style": "none",
+            "border_pd_dk": 0,
+            "padding_vertical": 30,
+            "padding_horizontal": 30,
+            "min_width_content": 350,
+            "border_pd": 0,
+            "full_width": true
+          },
+          "blocks": {
+            "button_F4zwjd": {
+              "type": "button",
+              "disabled": true,
+              "settings": {
+                "label": "Shop collection",
+                "behavior": "open_link",
+                "link": "shopify://collections",
+                "open_in_new_tab": false,
+                "full_width": false,
+                "min_width_dt_btn": 100,
+                "min_height_btn": 40,
+                "specific_bg_color": "#000000",
+                "solid_label_color": "#FFFFFF",
+                "solid_border_color": "#000000",
+                "border_width": 1,
+                "outline_color": "#000000",
+                "style_class": "solid",
+                "text_transform": "none",
+                "font_size": "m",
+                "font_weight": "normal",
+                "font_size_btn": 14,
+                "font_size_btn_mb": 14,
+                "letter_spacing_text": 0,
+                "horizontal_padding_btn": 30,
+                "vertical_padding_btn": 5,
+                "min_width_btn": 100,
+                "icon": "none",
+                "custom_icon": "none",
+                "icon_position": "after",
+                "icon_height": 16,
+                "icon_spacing": 5
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "button_F4zwjd"
+          ]
+        },
         "slide_item_8MaGf8": {
           "type": "_slide-item",
           "settings": {
-            "image": "shopify://shop_images/ENG_1_BannerB_desktop-2.jpg",
-            "image_mb": "shopify://shop_images/ENG_1_BannerB_mobil-2.jpg",
-            "url": "shopify://collections/new",
+            "image": "shopify://shop_images/Plume_ENG_1_BannerB_desktop_aacd6e7d-f62e-430c-b5f5-05f1130f39ba.jpg",
+            "image_mb": "shopify://shop_images/Plume_ENG_1_BannerB_mobil-02_ce5b6cef-43a7-4d92-be78-238133856cf8.jpg",
+            "url": "shopify://collections/women-swimwear",
             "banner_target": false,
             "color_scheme": "",
             "content_position": "center",
@@ -185,6 +256,7 @@
       },
       "block_order": [
         "slide_item_rNbjhE",
+        "slide_item_PbeQFD",
         "slide_item_8MaGf8"
       ],
       "name": "Banner rotativo",
@@ -776,7 +848,7 @@
         "hide_dots_on_mobile": false,
         "dots_des": "default",
         "dots_align": "center",
-        "dot_distance": 30,
+        "dot_distance": 10,
         "section_fullwidth": true,
         "color_scheme": "",
         "horizontal_space_bt_items": 0,
