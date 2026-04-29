@@ -24,22 +24,10 @@
             "hide_on_desktop": false,
             "hide_on_mobile": false
           }
-        },
-        "announcement_indL36": {
-          "type": "announcement",
-          "settings": {
-            "text": "FREE SHIPPING ON ORDERS OVER $200",
-            "link": "shopify://collections/new",
-            "active_from": "2025-06-17",
-            "active_to": "",
-            "hide_on_desktop": false,
-            "hide_on_mobile": false
-          }
         }
       },
       "block_order": [
-        "announcement_ea9YJt",
-        "announcement_indL36"
+        "announcement_ea9YJt"
       ],
       "settings": {
         "hide_on_desktop": false,
@@ -52,7 +40,7 @@
         "show_line_separator": false,
         "adding_border": false,
         "au_time": 3.5,
-        "slider_pause_when_hover": false,
+        "slider_pause_when_hover": true,
         "speed": 0.3,
         "direction": "rtl",
         "marquee_pause_when_hover": false
