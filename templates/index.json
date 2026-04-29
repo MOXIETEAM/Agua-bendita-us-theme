@@ -772,7 +772,7 @@
                 "rounded": "none",
                 "max_content_width": 0,
                 "content_width": 0,
-                "align_content": "flex-start",
+                "align_content": "flex-end",
                 "custom_css": ""
               },
               "blocks": {
@@ -867,24 +867,13 @@
                     "force_custom_size": false
                   },
                   "blocks": {}
-                },
-                "spacer_iYenaV": {
-                  "type": "spacer",
-                  "settings": {
-                    "direction": false,
-                    "space_lg": 20,
-                    "space_md": 20,
-                    "space": 20
-                  },
-                  "blocks": {}
                 }
               },
               "block_order": [
                 "heading_CC6kR9",
                 "spacer_YHbhq6",
                 "text_NDtfRf",
-                "text_NbgGmw",
-                "spacer_iYenaV"
+                "text_NbgGmw"
               ]
             }
           },
