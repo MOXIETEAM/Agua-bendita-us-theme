@@ -513,7 +513,7 @@
         "active_from": "",
         "active_to": "",
         "hide_on_desktop": false,
-        "hide_on_mobile": true,
+        "hide_on_mobile": false,
         "vertical_space_images": 4,
         "horizontal_space_images": 4,
         "image_height": "fixed",
@@ -687,6 +687,7 @@
         "banner_item_JhiCMg",
         "banner_item_JHADwQ"
       ],
+      "disabled": true,
       "name": "Banners mobile",
       "settings": {
         "active_from": "",
