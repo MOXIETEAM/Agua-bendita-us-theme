@@ -306,6 +306,7 @@
             "button_PFVxw3": {
               "type": "button",
               "name": "Button",
+              "disabled": true,
               "settings": {
                 "label": "READY TO WEAR",
                 "behavior": "open_link",
@@ -372,6 +373,7 @@
             "button_Y3F3U3": {
               "type": "button",
               "name": "Button",
+              "disabled": true,
               "settings": {
                 "label": "SWIMWEAR",
                 "behavior": "open_link",
@@ -438,6 +440,7 @@
             "button_pY4zTd": {
               "type": "button",
               "name": "Button",
+              "disabled": true,
               "settings": {
                 "label": "SETS",
                 "behavior": "open_link",
