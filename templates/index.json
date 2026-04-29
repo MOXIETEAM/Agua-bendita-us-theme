@@ -812,6 +812,7 @@
                 },
                 "text_NDtfRf": {
                   "type": "text",
+                  "name": "Text(desktop)",
                   "settings": {
                     "text": "<p>The journey begins with Radical Sunrise—where dawn explodes in a kaleidoscope of patchwork skies, bold duo tones, and vibrant symbols woven into every print. Summer silhouettes dance in the early light, flowing with airy fabrics that breathe with the season. Each piece carries the pulse of sunrise—fresh, radiant, and full of promise—designed to move with you as the world awakens in color.</p>",
                     "raw_text": "",
@@ -840,10 +841,10 @@
                 },
                 "text_NbgGmw": {
                   "type": "text",
-                  "name": "Text",
+                  "name": "Text(Mobile)",
                   "settings": {
-                    "text": "<p>Iconic embroidery, nature-inspired prints, and handcrafted silhouettes—<strong>now at special prices.</strong>.<br/><br/>This is the moment. Discover it now.</p>",
-                    "raw_text": "",
+                    "text": "",
+                    "raw_text": "Iconic embroidery, nature-inspired prints, and handcrafted silhouettes—<b>now at special prices.</b>.<br>\nThis is the moment. Discover it now.",
                     "hidden_br_mobile": false,
                     "hidden_on_desktop": true,
                     "hidden_on_mobile": false,
@@ -854,7 +855,7 @@
                     "line_height": 1.4,
                     "space_bt_title": 15,
                     "space_bt_paragraph": 15,
-                    "text_color": "hdt-s-text",
+                    "text_color": "hdt-text-secondary",
                     "specific_text_color": "",
                     "text_color_link": "#c9a564",
                     "max_width": 0,
