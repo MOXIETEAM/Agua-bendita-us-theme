@@ -5655,3 +5655,9 @@ hdt-reval-items[reveal-on-scroll=true] .hdt-collection-products>.hdt-collection-
   text-decoration-thickness: 0.1rem;
   text-underline-offset: 0.15em;
 }
+
+.hdt-announcement-bar .hdt-slider .hdt-slider__button {
+  min-width: unset !important;
+  min-height: unset !important;
+  padding: 0 !important;
+}
