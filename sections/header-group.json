@@ -444,6 +444,7 @@
         "header_mobile_colors": "scheme-1",
         "note_mobile": "",
         "header_transparent": true,
+        "logo_transparent": "shopify://shop_images/Logo_AB_attentive-191x48-blanco.png",
         "header_transparent_colors": "scheme-1",
         "sticky_type": "always",
         "sticky_glass": false,
