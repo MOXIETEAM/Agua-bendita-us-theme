@@ -388,6 +388,10 @@ body mark {
   padding: 0 !important;
 }
 
+.hdt-announcement-bar-section .hdt-announcement-bar__slider .hdt-slider__viewport {
+  width: 100%;
+}
+
 @media (max-width: 1149px) {
   .hdt-announcement-bar-section .hdt-announcement-bar__slider .hdt-slider__viewport,
   .hdt-announcement-bar-section .hdt-announcement-bar__slider-content {
