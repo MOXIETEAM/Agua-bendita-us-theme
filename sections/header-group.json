@@ -443,7 +443,7 @@
         "only_click_icon": false,
         "header_mobile_colors": "scheme-1",
         "note_mobile": "",
-        "header_transparent": false,
+        "header_transparent": true,
         "header_transparent_colors": "scheme-1",
         "sticky_type": "always",
         "sticky_glass": false,
