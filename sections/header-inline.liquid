@@ -49,22 +49,43 @@
       text-transform:uppercase;
       letter-spacing:.6px;
     }
-    {% if section.settings.header_transparent -%}
-      {%- assign scheme = section.settings.header_transparent_colors -%}
-      .hdt-section-header+#MainContent > .section-allow-transparent.hdt-section:first-child {
-        margin-block-start: calc(-1 * var(--header-height, 0px) - 1px)
-      }
-      :is([enabled-transparent-header],:not(.hdt-section-header+.shopify-section-group-header-group)) .section-allow-transparent.hdt-section:first-child .md\:hdt-height--full { 
-        --media-overlap-content-h: var(--fill-height-first,calc(100vh - var(--announcement-bar-height, 0px)));
-      }
-      @supports (height:100svh) { :is([enabled-transparent-header],:not(.hdt-section-header+.shopify-section-group-header-group)) .section-allow-transparent.hdt-section:first-child .md\:hdt-height--full{ --media-overlap-content-h:var(--fill-height-first,calc(100svh - var(--announcement-bar-height, 0px)))
-    }
-  }
-  @supports not selector(:has(>*)){[enabled-transparent-header] .section-allow-transparent.hdt-section:first-child{margin-block-start:calc(-1 * var(--header-height, 0px) - 1px)}[enabled-transparent-header] .section-allow-transparent.hdt-section:first-child .hdt-media-overlap-content{--media-overlap-content-gap-r:clamp(min(5vw,5rem),calc(var(--header-height, 0px) + 5px),12rem)}[enabled-transparent-header] .hdt-section-header:not(.scrolled-past-header) .hdt-sticky-header:not(:hover,.set-fill,.menu-open){--show-transparent-logo:1;--color-background:{{scheme.settings.background.rgb}};--gradient-background:{% if scheme.settings.background_gradient !=empty %}{{scheme.settings.background_gradient}}{% else %}{{scheme.settings.background}}{% endif %};--color-foreground:{{scheme.settings.text.rgb}};--color-foreground2:{{scheme.settings.text2.rgb}}}}@supports selector(:has(>*)){:not(.hdt-section-header+.shopify-section-group-header-group) .section-allow-transparent.hdt-section:first-child{margin-block-start:calc(-1 * var(--header-height, 0px) - 1px)}:not(:has(.hdt-section-header+.shopify-section-group-header-group)) .section-allow-transparent.hdt-section:first-child .hdt-media-overlap-content{--media-overlap-content-gap-r:clamp(min(5vw,5rem),calc(var(--header-height, 0px) + 5px),12rem)}:has(.section-allow-transparent.hdt-section:first-child):not(:has(.hdt-section-header+.shopify-section-group-header-group,.scrolled-past-header)) .hdt-sticky-header:not(:hover,.set-fill,:has([open])){--show-transparent-logo:1;--color-background:{{scheme.settings.background.rgb}};--gradient-background:{% if scheme.settings.background_gradient !=empty %}{{scheme.settings.background_gradient}}{% else %}{{scheme.settings.background}}{% endif %};{% comment %}--color-background:transparent;--gradient-background:transparent;{% endcomment %}--color-foreground:{{scheme.settings.text.rgb}};--color-foreground2:{{scheme.settings.text2.rgb}}}}{% if section.settings.header_transparent and template.name=="index" %}
-  .hdt-header-tranparent-true {background-color: transparent;}.hdt-section-header:not(.scrolled-past-header.shopify-section-header-sticky) hdt-sticky-header{--color-background:{{scheme.settings.background.rgb}};--gradient-background:{% if scheme.settings.background_gradient !=empty %}{{scheme.settings.background_gradient}}{% else %}{{scheme.settings.background}}{% endif %};--color-background2:{{scheme.settings.background2.rgb}};--color-foreground:{{scheme.settings.text.rgb}};--color-foreground2:{{scheme.settings.text2.rgb}};--color-button:{{scheme.settings.button.rgb}};--color-button-text:{{scheme.settings.button_label.rgb}};--color-button-border:{{scheme.settings.button_border.rgb}};--color-secondary-button:{{scheme.settings.background.rgb}};--color-secondary-button-text:{{scheme.settings.secondary_button_label.rgb}};--color-link:{{scheme.settings.secondary_button_label.rgb}};--color-line-border:{{scheme.settings.line_border.rgb}};--color-overlay:{{scheme.settings.overlay.rgb}};--payment-terms-background-color:rgb({{scheme.settings.background.rgb}});--color-pr-price:{{scheme.settings.price.rgb}};--color-pr-sale-price:{{scheme.settings.sale_price.rgb}};--color-pr-text:{{scheme.settings.pr_text.rgb}};--color-pr-rating:{{scheme.settings.pr_rating.rgb}};--color-input-primary:{{scheme.settings.input_primary.rgb}};--color-input-secondary:{{scheme.settings.input_secondary.rgb}}}{% endif %}{%- endif -%}{%- endstyle -%}
+	    {% if section.settings.header_transparent -%}
+	      {%- assign scheme = section.settings.header_transparent_colors -%}
+	      .hdt-section-header+#MainContent > .section-allow-transparent.hdt-section:first-child {
+	        margin-block-start: calc(-1 * var(--header-height, 0px) - 1px)
+	      }
+	      .hdt-section-header+#MainContent > .hdt-hidden + .section-allow-transparent.hdt-section {
+	        margin-block-start: calc(-1 * var(--header-height, 0px) - 1px);
+	      }
+	      :is([enabled-transparent-header],:not(.hdt-section-header+.shopify-section-group-header-group)) .section-allow-transparent.hdt-section:first-child .md\:hdt-height--full { 
+	        --media-overlap-content-h: var(--fill-height-first,calc(100vh - var(--announcement-bar-height, 0px)));
+	      }
+	      :is([enabled-transparent-header],:not(.hdt-section-header+.shopify-section-group-header-group)) .hdt-hidden + .section-allow-transparent.hdt-section .md\:hdt-height--full {
+	        --media-overlap-content-h: var(--fill-height-first,calc(100vh - var(--announcement-bar-height, 0px)));
+	      }
+	      @supports (height:100svh) {
+	        :is([enabled-transparent-header],:not(.hdt-section-header+.shopify-section-group-header-group)) .section-allow-transparent.hdt-section:first-child .md\:hdt-height--full {
+	          --media-overlap-content-h: var(--fill-height-first,calc(100svh - var(--announcement-bar-height, 0px)));
+	        }
+	        :is([enabled-transparent-header],:not(.hdt-section-header+.shopify-section-group-header-group)) .hdt-hidden + .section-allow-transparent.hdt-section .md\:hdt-height--full {
+	          --media-overlap-content-h: var(--fill-height-first,calc(100svh - var(--announcement-bar-height, 0px)));
+	        }
+	      }
+	  @supports not selector(:has(>*)){[enabled-transparent-header] .section-allow-transparent.hdt-section:first-child{margin-block-start:calc(-1 * var(--header-height, 0px) - 1px)}[enabled-transparent-header] .section-allow-transparent.hdt-section:first-child .hdt-media-overlap-content{--media-overlap-content-gap-r:clamp(min(5vw,5rem),calc(var(--header-height, 0px) + 5px),12rem)}[enabled-transparent-header] .hdt-section-header:not(.scrolled-past-header) .hdt-sticky-header:not(:hover,.set-fill,.menu-open){--show-transparent-logo:1;--color-background:{{scheme.settings.background.rgb}};--gradient-background:{% if scheme.settings.background_gradient !=empty %}{{scheme.settings.background_gradient}}{% else %}{{scheme.settings.background}}{% endif %};--color-foreground:{{scheme.settings.text.rgb}};--color-foreground2:{{scheme.settings.text2.rgb}}}}@supports selector(:has(>*)){:not(.hdt-section-header+.shopify-section-group-header-group) .section-allow-transparent.hdt-section:first-child{margin-block-start:calc(-1 * var(--header-height, 0px) - 1px)}:not(:has(.hdt-section-header+.shopify-section-group-header-group)) .section-allow-transparent.hdt-section:first-child .hdt-media-overlap-content{--media-overlap-content-gap-r:clamp(min(5vw,5rem),calc(var(--header-height, 0px) + 5px),12rem)}:has(.section-allow-transparent.hdt-section:first-child):not(:has(.hdt-section-header+.shopify-section-group-header-group,.scrolled-past-header)) .hdt-sticky-header:not(:hover,.set-fill,:has([open])){--show-transparent-logo:1;--color-background:{{scheme.settings.background.rgb}};--gradient-background:{% if scheme.settings.background_gradient !=empty %}{{scheme.settings.background_gradient}}{% else %}{{scheme.settings.background}}{% endif %};{% comment %}--color-background:transparent;--gradient-background:transparent;{% endcomment %}--color-foreground:{{scheme.settings.text.rgb}};--color-foreground2:{{scheme.settings.text2.rgb}}}}{% if section.settings.header_transparent and template.name=="index" %}
+	  .hdt-header-tranparent-true {background-color: transparent;}.hdt-section-header:not(.scrolled-past-header.shopify-section-header-sticky) hdt-sticky-header{--color-background:{{scheme.settings.background.rgb}};--gradient-background:{% if scheme.settings.background_gradient !=empty %}{{scheme.settings.background_gradient}}{% else %}{{scheme.settings.background}}{% endif %};--color-background2:{{scheme.settings.background2.rgb}};--color-foreground:{{scheme.settings.text.rgb}};--color-foreground2:{{scheme.settings.text2.rgb}};--color-button:{{scheme.settings.button.rgb}};--color-button-text:{{scheme.settings.button_label.rgb}};--color-button-border:{{scheme.settings.button_border.rgb}};--color-secondary-button:{{scheme.settings.background.rgb}};--color-secondary-button-text:{{scheme.settings.secondary_button_label.rgb}};--color-link:{{scheme.settings.secondary_button_label.rgb}};--color-line-border:{{scheme.settings.line_border.rgb}};--color-overlay:{{scheme.settings.overlay.rgb}};--payment-terms-background-color:rgb({{scheme.settings.background.rgb}});--color-pr-price:{{scheme.settings.price.rgb}};--color-pr-sale-price:{{scheme.settings.sale_price.rgb}};--color-pr-text:{{scheme.settings.pr_text.rgb}};--color-pr-rating:{{scheme.settings.pr_rating.rgb}};--color-input-primary:{{scheme.settings.input_primary.rgb}};--color-input-secondary:{{scheme.settings.input_secondary.rgb}}}{% endif %}{%- endif -%}{%- endstyle -%}
+	  {%- if section.settings.header_transparent and template.name == 'index' -%}
+	    {%- style -%}
+	      [enabled-transparent-header] body.template-index .hdt-section-header:not(.hdt-announcement-bar-section):not(.scrolled-past-header) {
+	        border-bottom: 0;
+	      }
+	      [enabled-transparent-header] body.template-index .hdt-section-header:not(.scrolled-past-header) .transparent-header.hdt-header-tranparent-true .hdt-site-top_nav .wishlist-hero-items-count {
+	        color: #fff;
+	      }
+	    {%- endstyle -%}
+	  {%- endif -%}
 
-  {%- liquid
-    assign apply_transparent_header = false
+	  {%- liquid
+	    assign apply_transparent_header = false
 
     if template.name == 'index'
       assign apply_transparent_header = true
