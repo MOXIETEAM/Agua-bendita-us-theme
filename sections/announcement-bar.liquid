@@ -103,7 +103,11 @@
                     %}
                     {% if from_dt <= now_dt and now_dt <= to_dt %}
                       <div class="hdt-announcement-bar__item">
-                        <p class="hdt-announcement-bar__text hdt-inline-block {{class_format_richtext}}">{{ block.settings.text }}</p>
+                        {% if block.settings.link != blank %}
+                          <a class="hdt-announcement-bar__text hdt-inline-block {{class_format_richtext}} hdt-announcement-bar__link" href="{{ block.settings.link | escape }}" aria-label="{{ block.settings.text | strip_html | escape }}">{{ block.settings.text }}</a>
+                        {% else %}
+                          <p class="hdt-announcement-bar__text hdt-inline-block {{class_format_richtext}}">{{ block.settings.text }}</p>
+                        {% endif %}
                       </div>
                     {% endif %}
                   {%- endif -%}
@@ -150,7 +154,11 @@
                             {%- assign active_slide_index = active_slide_index | plus: 1 -%}
                             <div class="hdt-slider__slide hdt-announcement-bar__slider-item{% if block.settings.hide_on_desktop %} hdt-flex md:hdt-flex lg:hdt-hidden{% endif %}{% if block.settings.hide_on_mobile %} hdt-hidden md:hdt-hidden lg:hdt-flex{% endif %}" data-announcement-slide data-announcement-slide-index="{{ active_slide_index }}" aria-hidden="{% if active_slide_index == 1 %}false{% else %}true{% endif %}">
                               <div class="hdt-announcement-bar__slider-content">
-                                <p class="hdt-announcement-bar__text  hdt-inline-block {{class_format_richtext}}">{{ block.settings.text }}</p>
+                                {% if block.settings.link != blank %}
+                                  <a class="hdt-announcement-bar__text hdt-inline-block {{class_format_richtext}} hdt-announcement-bar__link" href="{{ block.settings.link | escape }}" aria-label="{{ block.settings.text | strip_html | escape }}">{{ block.settings.text }}</a>
+                                {% else %}
+                                  <p class="hdt-announcement-bar__text  hdt-inline-block {{class_format_richtext}}">{{ block.settings.text }}</p>
+                                {% endif %}
                               </div>
                             </div>
                           {% endif %}
@@ -189,7 +197,11 @@
                       assign now_dt = "now" | date: "%s" | plus: 0
                     %}
                     {% if from_dt <= now_dt and now_dt <= to_dt %}
-                      <div class="hdt-announcement-bar__marquee-item hdt-inline-block hdt-relative {{class_format_richtext}}{% if block.settings.hide_on_desktop %} hdt-inline-block md:hdt-inline-block lg:hdt-hidden{% endif %}{% if block.settings.hide_on_mobile %} hdt-hidden md:hdt-hidden lg:hdt-inline-block{% endif %}"><p>{{ block.settings.text }}</p></div>
+                      {% if block.settings.link != blank %}
+                        <a href="{{ block.settings.link | escape }}" class="hdt-announcement-bar__marquee-item hdt-inline-block hdt-relative {{class_format_richtext}}{% if block.settings.hide_on_desktop %} hdt-inline-block md:hdt-inline-block lg:hdt-hidden{% endif %}{% if block.settings.hide_on_mobile %} hdt-hidden md:hdt-hidden lg:hdt-inline-block{% endif %}" aria-label="{{ block.settings.text | strip_html | escape }}"><p>{{ block.settings.text }}</p></a>
+                      {% else %}
+                        <div class="hdt-announcement-bar__marquee-item hdt-inline-block hdt-relative {{class_format_richtext}}{% if block.settings.hide_on_desktop %} hdt-inline-block md:hdt-inline-block lg:hdt-hidden{% endif %}{% if block.settings.hide_on_mobile %} hdt-hidden md:hdt-hidden lg:hdt-inline-block{% endif %}"><p>{{ block.settings.text }}</p></div>
+                      {% endif %}
                     {% endif %}
                   {%- endif -%}
                   {%- assign total_size = total_size | plus: block.settings.text.size -%}

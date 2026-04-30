@@ -5538,3 +5538,16 @@ body.template-password .title {
 hdt-reval-items[reveal-on-scroll=true] .hdt-collection-products>.hdt-collection-item>.hdt-card-product {
   opacity: 1;
 }
+
+/* ----- Announcement bar link wrappers ------ */
+.hdt-announcement-bar__link,
+.hdt-announcement-bar__marquee-item[href] {
+  color: inherit;
+  text-decoration: none;
+}
+.hdt-announcement-bar__link:focus-visible,
+.hdt-announcement-bar__marquee-item[href]:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 0.1rem;
+  text-underline-offset: 0.15em;
+}
