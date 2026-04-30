@@ -143,10 +143,10 @@
                             {% if link.links != blank %}
 															<li class="hdt-menu-item hdt-flex hdt-justify-center hdt-flex-col hdt-menu-see-all-{{ link.handle }}">
 																<a id="hdt-menu-see-all-{{ link.handle }}" href="{{ link.url }}" class="hdt-menu-link hdt-flex hdt-align-center hdt-justify-between hdt-relative hdt-text-base hdt-font-normal {% if link.current and section.settings.active_link %} hdt-menu-link--active{% endif %}" {% if link.current %} aria-current="page" {% endif %}>
-                                </a>
 																	<span class="hdt-menu-link-text">
 																		<span class="hdt-block hdt-line-clamp hdt-see-all-text">See All {{ link.title }}</span>
 																	</span>
+                                </a>
                               </li>
                             {% endif %}
 														{%- for childlink in link.links -%}
