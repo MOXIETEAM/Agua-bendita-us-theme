@@ -106,7 +106,7 @@
                         {% if block.settings.link != blank %}
                           <a class="hdt-announcement-bar__text hdt-inline-block {{class_format_richtext}} hdt-announcement-bar__link" href="{{ block.settings.link | escape }}" aria-label="{{ block.settings.text | strip_html | escape }}">{{ block.settings.text }}</a>
                         {% else %}
-                          <p class="hdt-announcement-bar__text hdt-inline-block {{class_format_richtext}}">{{ block.settings.text }}</p>
+                          <div class="hdt-announcement-bar__text hdt-inline-block {{class_format_richtext}}">{{ block.settings.text }}</div>
                         {% endif %}
                       </div>
                     {% endif %}
@@ -157,7 +157,7 @@
                                 {% if block.settings.link != blank %}
                                   <a class="hdt-announcement-bar__text hdt-inline-block {{class_format_richtext}} hdt-announcement-bar__link" href="{{ block.settings.link | escape }}" aria-label="{{ block.settings.text | strip_html | escape }}">{{ block.settings.text }}</a>
                                 {% else %}
-                                  <p class="hdt-announcement-bar__text  hdt-inline-block {{class_format_richtext}}">{{ block.settings.text }}</p>
+                                  <div class="hdt-announcement-bar__text hdt-inline-block {{class_format_richtext}}">{{ block.settings.text }}</div>
                                 {% endif %}
                               </div>
                             </div>
