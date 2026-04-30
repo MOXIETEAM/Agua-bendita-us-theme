@@ -5718,3 +5718,10 @@ hdt-reval-items[reveal-on-scroll=true] .hdt-collection-products>.hdt-collection-
   margin: 0 !important;
 }
 
+.hdt-slider__products .hdt-slider__dot, .product-detail-container .hdt-slider__dot {
+  min-width: unset !important;
+  min-height: unset !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
