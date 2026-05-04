@@ -276,7 +276,7 @@
         "navUI": true,
         "nav_des": "default",
         "nav_rounded_full": false,
-        "dotUI": false,
+        "dotUI": true,
         "dot_vertical": false,
         "dot_style": "elessi",
         "dot_align": "center",
